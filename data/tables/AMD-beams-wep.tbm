@@ -1,0 +1,726 @@
+#Primary Weapons
+
+
+;; =========================================================================
+;;						Shivan Anti-Capital Beams
+;; =========================================================================
+
+$Name:							BFRed
+	+nocreate ;:
+	+Tech Title:		XSTR("BFRed",-1)
+	+Tech Description:	XSTR("Juggernaut grade Shivan beam
+	
+	",-1)
+	$end_multi_text
+$Damage Type:					ShivanHugeWeapon
+
+$Name:							LRed
+	+nocreate ;:
+$Damage Type:					ShivanHugeWeapon
+
+$Name:                          MRed
+	+Tech Title:		XSTR("MRed",-1)
+	+Tech Description:	XSTR("Medium Shivan Beam
+	
+	This weapon is somewhere in between destroyer and cruiser grade beam canons, in terms of firepower. It is mainly found on Shivan corvettes and destroyers.
+	
+	Damage per salvo: 8044",-1)
+	$end_multi_text
+$Model File:                    none ; laser1-1.pof
+@Laser Bitmap:                  laserglow01
+@Laser Color:					250, 30, 30
+@Laser Length:					0.0
+@Laser Head Radius:				0.30
+@Laser Tail Radius:				0.30
+$Mass:                          100.0
+$Velocity:                      1000.0          ;; speed of the weapon (initially) -- may or may not change
+$Fire Wait:                     16.0            ;; in seconds
+$Damage:                        360
+$Damage Type:					ShivanHugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      20.0            ;; How long this thing lives
+$Energy Consumed:               0.30            ;; Energy used when fired
+$Cargo Size:                    0.0             ;; Amount of space taken up in weapon cargo
+$Homing:                        NO
+$LaunchSnd:                     124             ;; The sound it makes when fired
+$ImpactSnd:                     88             ;; The sound it makes when it hits something
++Weapon Range:					4000			;; Limit to range at which weapon will actively target object
+$Flags:                         ("Big Ship" "huge" "beam")
+$Icon:                          icongun05
+$Anim:                          LoadGun07
+$Impact Explosion:              exp04
+$Impact Explosion Radius:       40.0
+$BeamInfo:
+	+Type:						0				;; 0 - 4 are valid #'s
+	+Life:			  			3.8				;; how long it lasts once the beam is actually firing
+	+Warmup:		  			1500			;; warmup time in ms
+	+Warmdown:					1000			;; warmdown time in ms
+	+Radius:		  			80.0			;; muzzle glow radius in meters
+	+PCount:					24				;; particles spewed every interval
+	+PRadius:					2.8				;; particle radius
+	+PAngle:					65.0			;; angle of the random "cone" where the particles are generated
+	+PAni:						particle_red
+	+Miss Factor:				2.5 1.875 1.25 0.875 0.5	;; magic # - higher == miss more (only really applicable to type 0 and type 3 beams)
+	+BeamSound:					177				;; the looping beam-firing sound
+	+WarmupSound:				183				;; associated warmup sound
+	+WarmdownSound:				187				;; associated warmdown sound
+	+Muzzleglow:				SbeamAglow
+	+Shots:						0				;; only used for TYPE 3 beams
+	+ShrinkFactor:				0.1				;; what percentage of lifetime where beam starts shrinking (0.1 == 10% life left)
+	+ShrinkPct:					1.8				;; what percentage of max width we subtract per second
+	+Beam Flash Effect:						capflash
+	+Beam Flash Radius:						13.0
+	+Beam Piercing Effect:					exp06
+	+Beam Piercing Radius:					13.0
+	+Beam Piercing Effect Velocity:			200
+	+Beam Piercing Splash Effect Velocity:	-10
+	+Beam Piercing Effect Variance:			0.01
+	$Section:
+		+Width:			12.0
+		+Texture:		SbeamAA
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.3
+		+Zadd:			1.0
+		+Tile Factor:	90, 1
+		+Translation:	-2
+	$Section:
+		+Width:			9.0
+		+Texture:		SbeamAB
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.2
+		+Zadd:			2.0
+	$Section:
+		+Width:			33.0
+		+Texture:		SbeamAC
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.001
+		+Zadd:			1.0
+		+Tile Factor:	10, 1
+		+Translation:	-2
+	$Section:
+		+Width:			95.0
+		+Texture:		SbeamAD
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.1
+		+Zadd:			0.0
+	$Section:
+		+Width:			64.0
+		+Texture:		SbeamAE
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.2
+		+Zadd:			0.0
+
+		
+$Name:                          MRedUp
+	+Tech Title:		XSTR("MRedUp",-1)
+	+Tech Description:	XSTR("Upgraded Medium Shivan Beam
+	
+	Several Shivan warships (mostly command variants) have been shown to be able to increase the firepower and refire rate of their Medium Beams. The resulting weapon, while not as devastating as the destroyer-grade Large Shivan Beam, is actually on par with the Alliance's own destroyer beams in terms of damage dealt over time.
+
+	Damage per salvo: 12066",-1)
+	$end_multi_text
+$Model File:                    none ; laser1-1.pof
+@Laser Bitmap:                  laserglow01
+@Laser Color:					250, 30, 30
+@Laser Length:					0.0
+@Laser Head Radius:				0.30
+@Laser Tail Radius:				0.30
+$Mass:                          100.0
+$Velocity:                      1000.0
+$Fire Wait:                     12.0
+$Damage:                        540
+$Damage Type:					ShivanHugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      20.0            ;; How long this thing lives
+$Energy Consumed:               0.30            ;; Energy used when fired
+$Cargo Size:                    0.0             ;; Amount of space taken up in weapon cargo
+$Homing:                        NO
+$LaunchSnd:                     124             ;; The sound it makes when fired
+$ImpactSnd:                     88             ;; The sound it makes when it hits something
++Weapon Range:					4000			;; Limit to range at which weapon will actively target object
+$Flags:                         ("Big Ship" "huge" "beam")
+$Icon:                          icongun05
+$Anim:                          LoadGun07
+$Impact Explosion:              exp04
+$Impact Explosion Radius:       50.0
+$BeamInfo:
+	+Type:						0				;; 0 - 4 are valid #'s
+	+Life:			  			3.8
+	+Warmup:		  			1500			;; warmup time in ms
+	+Warmdown:					1000			;; warmdown time in ms
+	+Radius:		  			80.0			;; muzzle glow radius in meters
+	+PCount:					24				;; particles spewed every interval
+	+PRadius:					2.8				;; particle radius
+	+PAngle:					65.0			;; angle of the random "cone" where the particles are generated
+	+PAni:						particle_red	;; particle ani
+	+Miss Factor:				1.5 1.25 1.0 0.875 0.5
+	+BeamSound:					177				;; the looping beam-firing sound
+	+WarmupSound:				183				;; associated warmup sound
+	+WarmdownSound:				187				;; associated warmdown sound
+	+Muzzleglow:				SbeamAglow		;; muzzle glow bitmap	
+	+Shots:						0				;; only used for TYPE 3 beams
+	+ShrinkFactor:				0.1				;; what percentage of lifetime where beam starts shrinking (0.1 == 10% life left)
+	+ShrinkPct:					1.8				;; what percentage of max width we subtract per second
+	+Beam Flash Effect:						capflash
+	+Beam Flash Radius:						16.0
+	+Beam Piercing Effect:					exp06
+	+Beam Piercing Radius:					16.0
+	+Beam Piercing Effect Velocity:			200
+	+Beam Piercing Splash Effect Velocity:	-10
+	+Beam Piercing Effect Variance:			0.01
+	$Section:
+		+Width:			14.0
+		+Texture:		SbeamAA
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.3
+		+Zadd:			1.0
+		+Tile Factor:	90, 1
+		+Translation:	-2
+	$Section:
+		+Width:			10.0
+		+Texture:		SbeamAB
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.2
+		+Zadd:			2.0
+	$Section:
+		+Width:			36.0
+		+Texture:		SbeamAC
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.001
+		+Zadd:			1.0
+		+Tile Factor:	10, 1
+		+Translation:	-2
+	$Section:
+		+Width:			100.0
+		+Texture:		SbeamAD
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.1
+		+Zadd:			0.0
+	$Section:
+		+Width:			68.0
+		+Texture:		SbeamAE
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.2
+		+Zadd:			0.0
+
+
+
+$Name:							SRed
+	+nocreate ;:
+$Damage Type:					ShivanHugeWeapon
+
+$Name:							SAAA
+	+nocreate ;:
+	+Tech Title:		XSTR("SAAA",-1)
+	+Tech Description:	XSTR("Shivan Anti-Fighter Beam
+	
+	",-1)
+	$end_multi_text
+$Damage Type:					ShivanHugeWeapon
+
+
+;; long range beams
+
+$Name:                          LRLRed
+	+Tech Title:		XSTR("LRLRed",-1)
+	+Tech Description:	XSTR("Long Range Large Shivan Beam
+	
+	While this weapon appears to be identical to the Shivan large beam (LRed), it is capable of achieving beam lock at extreme range, akin to the SD Lucifer's own beam weaponry. So far, the SD Vampire has been the only Shivan destroyer to carry this weapon.
+	",-1)
+	$end_multi_text
+$Model File:                    none ; laser1-1.pof
+@Laser Bitmap:                  laserglow01
+@Laser Color:					250, 30, 30
+@Laser Length:					0.0
+@Laser Head Radius:				0.30
+@Laser Tail Radius:				0.30
+$Mass:                          100.0
+$Velocity:                      1000.0          ;; speed of the weapon (initially) -- may or may not change
+$Fire Wait:                     10.0            ;; in seconds
+$Damage:                        600
+$Damage Type:					ShivanHugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      30.0            ;; How long this thing lives
+$Energy Consumed:               0.30            ;; Energy used when fired
+$Cargo Size:                    0.0             ;; Amount of space taken up in weapon cargo
+$Homing:                        NO
+$LaunchSnd:                     124             ;; The sound it makes when fired
+$ImpactSnd:                     88              ;; The sound it makes when it hits something
++Weapon Range:					10000
+$Flags:                         ("Big Ship" "huge" "beam")
+$Icon:                          icongun05
+$Anim:                          LoadGun07
+$Impact Explosion:              exp04
+$Impact Explosion Radius:       40.0
+$BeamInfo:
+	+Type:						0				;; 0 - 4 are valid #'s
+	+Life:			  			7.0				;; how long it lasts once the beam is actually firing
+	+Warmup:		  			3000			;; warmup time in ms
+	+Warmdown:					1500			;; warmdown time in ms
+	+Radius:		  			100.0
+	+PCount:					24	
+	+PRadius:					2.8	
+	+PAngle:					65.0			;; angle of the random "cone" where the particles are generated
+	+PAni:						particle_red
+	+Miss Factor:				2.5 1.875 1.25 0.875 0.5	;; magic # - higher == miss more (only really applicable to type 0 and type 3 beams)
+	+BeamSound:					178				;; the looping beam-firing sound
+	+WarmupSound:				184				;; associated warmup sound
+	+WarmdownSound:				188				;; associated warmdown sound
+	+Muzzleglow:				SbeamAglow
+	+Shots:						0				;; only used for TYPE 3 beams
+	+ShrinkFactor:				0.1			    ;; what percentage of lifetime where beam starts shrinking (0.1 == 10% life left)
+	+ShrinkPct:					1.8			    ;; what percentage of max width we subtract per second
+	+Beam Flash Effect:						capflash
+	+Beam Flash Radius:						20.0
+	+Beam Piercing Effect:					exp06
+	+Beam Piercing Radius:					20.0
+	+Beam Piercing Effect Velocity:			200
+	+Beam Piercing Splash Effect Velocity:	-10
+	+Beam Piercing Effect Variance:			0.01
+	$Section:
+		+Width:			20.0
+		+Texture:		SbeamAA
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.0
+		+Zadd:			1.0
+		+Tile Factor:	90, 1
+		+Translation:	-2
+	$Section:
+		+Width:			10.0
+		+Texture:		SbeamAB
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.01
+		+Zadd:			2.0
+	$Section:
+		+Width:			60.0
+		+Texture:		SbeamAC
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.001
+		+Zadd:			1.0
+		+Tile Factor:	10, 1
+		+Translation:	-3
+	$Section:
+		+Width:			200.0
+		+Texture:		SbeamAD
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.1
+		+Zadd:			0.0
+	$Section:
+		+Width:			150.0
+		+Texture:		SbeamAE
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.2
+		+Zadd:			0.0
+
+
+;; =========================================================================
+;;						Terran Anti-Capital Beams
+;; =========================================================================
+
+
+
+$Name:							MGreen
+	+Tech Title:		XSTR("Mk4 'Medium Green' Terran Beam",-1)
+	+Tech Description:	XSTR("Once larger ships got equipped with more effective beam weaponry, it became clear that the 'Small Green' equipped on Leviathan and Aeolus cruisers wasn't up to the task. The 'Medium Green' research project's aim was to provide the brand new Aeolus cruisers with decent long range anti-warship capabilities, something the ageing Leviathan and Fenris designs could achieve with their Fusion Mortar battery. Optimized to be outfitted exclusively into the Aeolus, the 'Medium Green' Terran Beam is rarely found on other ship classes. Very few Aeolus have themselves been retrofitted with Medium Beams, this privilege being usually reserved for Special Operations units or Combat Groups.
+
+	Damage per salvo: 4297",-1)
+	$end_multi_text
+$Model File:					none 				; laser1-1.pof
+@Laser Bitmap:               	laserglow01
+@Laser Color:					0, 255, 54
+; pale green 					R 192	G 255	B 200
+@Laser Length:					0.0
+@Laser Head Radius:				0.3
+@Laser Tail Radius:				0.3
+$Mass:                          100.0
+$Velocity:                      1600.0				;; speed of the weapon (initially) -- may or may not change
+$Fire Wait:                     22.0				;; in seconds
+$Damage:                        252
+$Damage Type:					HugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      2.9            		;; How long this thing lives
+$Energy Consumed:               0.30        	    ;; Energy used when fired
+$Cargo Size:                    0.0         	    ;; Amount of space taken up in weapon cargo
+$Homing:                        NO
+$LaunchSnd:                     124
+$ImpactSnd:                     88              	;; The sound it makes when it hits something
++Weapon Range:					4000				;; Limit to range at which weapon will actively target object
+$Flags:                         ("Big Ship" "huge" "beam")
+$Icon:                          icongun05
+$Anim:                          LoadGun07
+$Impact Explosion:              exp04
+$Impact Explosion Radius:       28.0
+$BeamInfo:
+	+Type:						0					;; 0 - 4 are valid #'s
+	+Life:		  				2.9					;; how long it lasts once the beam is actually firing
+	+Warmup:		  			1500				;; warmup time in ms
+	+Warmdown:					3000				;; warmdown time in ms
+	+Radius:		  			40.0
+	+PCount:					50
+	+PRadius:					3.0
+	+PAngle:					60.0				;; angle of the random "cone" where the particles are generated
+	+PAni:						particle_green
+	+Miss Factor:				1.0 1.3 1.3 1.3 1.4					;; magic # - higher == miss more (only really applicable to type 0 and type 3 beams)
+	+BeamSound:					146					;; the looping beam-firing sound
+	+WarmupSound:				151					;; associated warmup sound
+	+WarmdownSound:				158					;; associated warmdown sound
+	+Muzzleglow:				TbeamAglow			;; muzzle glow bitmap
+	+Shots:						0					;; only used for TYPE 3 beams
+	+ShrinkFactor:				0.1	
+	+ShrinkPct:					2.0	
+	+Beam Flash Effect:						capflash
+	+Beam Flash Radius:						14.0
+	+Beam Piercing Effect:					exp06
+	+Beam Piercing Radius:					14.0
+	+Beam Piercing Effect Velocity:			200
+	+Beam Piercing Splash Effect Velocity:	-10
+	+Beam Piercing Effect Variance:			0.01
+	$Section:
+		+Width:			15
+		+Texture:		SGreenCore
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.1
+		+Zadd:			8
+		+Tile Factor:	9, 1
+		+Translation:	-18
+	$Section:
+		+Width:			30
+		+Texture:		SGreenHaze1
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.15
+		+Zadd:			6
+		+Tile Factor:	12, 1
+		+Translation:	-10
+	$Section:
+		+Width:			54
+		+Texture:		SGreenHaze2
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.25
+		+Zadd:			3
+		+Tile Factor:	12, 1
+		+Translation:	-6
+	$Section:
+		+Width:			88.0
+		+Texture:		GreenFade
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.35
+		+Zadd:			1
+
+
+$Name:							MGreenUp
+	+Tech Title:		XSTR("Mk4e 'Upper Green' Terran Beam",-1)
+	+Tech Description:	XSTR("Upgraded Medium Terran Beam
+	
+	blabla
+
+	Damage per salvo: 7112",-1)
+	$end_multi_text
+$Model File:					none 				; laser1-1.pof
+@Laser Bitmap:               	laserglow01
+@Laser Color:					0, 255, 54
+; pale green 					R 192	G 255	B 200
+@Laser Length:					0.0
+@Laser Head Radius:				0.3
+@Laser Tail Radius:				0.3
+$Mass:                          100.0
+$Velocity:                      1600.0				;; speed of the weapon (initially) -- may or may not change
+$Fire Wait:                     18.0				;; in seconds
+$Damage:                        378
+$Damage Type:					HugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      3.2            		;; How long this thing lives
+$Energy Consumed:               0.30        	    ;; Energy used when fired
+$Cargo Size:                    0.0         	    ;; Amount of space taken up in weapon cargo
+$Homing:                        NO
+$LaunchSnd:                     124
+$ImpactSnd:                     88              	;; The sound it makes when it hits something
++Weapon Range:					4000				;; Limit to range at which weapon will actively target object
+$Flags:                         ("Big Ship" "huge" "beam")
+$Icon:                          icongun05
+$Anim:                          LoadGun07
+$Impact Explosion:              exp04
+$Impact Explosion Radius:       28.0
+$BeamInfo:
+	+Type:						0					;; 0 - 4 are valid #'s
+	+Life:		  				3.2					;; how long it lasts once the beam is actually firing
+	+Warmup:		  			1500				;; warmup time in ms
+	+Warmdown:					3000				;; warmdown time in ms
+	+Radius:		  			40.0
+	+PCount:					50
+	+PRadius:					3.0
+	+PAngle:					60.0				;; angle of the random "cone" where the particles are generated
+	+PAni:						particle_green
+	+Miss Factor:				1.0 1.3 1.3 1.3 1.4					;; magic # - higher == miss more (only really applicable to type 0 and type 3 beams)
+	+BeamSound:					144					;; the looping beam-firing sound
+	+WarmupSound:				153					;; associated warmup sound
+	+WarmdownSound:				156					;; associated warmdown sound
+	+Muzzleglow:				TbeamAglow			;; muzzle glow bitmap
+	+Shots:						0					;; only used for TYPE 3 beams
+	+ShrinkFactor:				0.1
+	+ShrinkPct:					1.8	
+	+Beam Flash Effect:						capflash
+	+Beam Flash Radius:						15.0
+	+Beam Piercing Effect:					exp06
+	+Beam Piercing Radius:					15.0
+	+Beam Piercing Effect Velocity:			210
+	+Beam Piercing Splash Effect Velocity:	-10
+	+Beam Piercing Effect Variance:			0.01
+	$Section:
+		+Width:			17
+		+Texture:		SGreenCore
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.1
+		+Zadd:			8
+		+Tile Factor:	9, 1
+		+Translation:	-18
+	$Section:
+		+Width:			34
+		+Texture:		SGreenHaze1
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.15
+		+Zadd:			6
+		+Tile Factor:	12, 1
+		+Translation:	-10
+	$Section:
+		+Width:			58
+		+Texture:		SGreenHaze2
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.25
+		+Zadd:			3
+		+Tile Factor:	12, 1
+		+Translation:	-6
+	$Section:
+		+Width:			94.0
+		+Texture:		GreenFade
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.35
+		+Zadd:			1
+
+
+
+
+;; =========================================================================
+;;						Vasudan Anti-Capital Beams
+;; =========================================================================
+
+
+$Name:							MVas
+	+Tech Title:		XSTR("T-4a 'Pillar of Sorrow' VBeam",-1)
+	+Tech Description:	XSTR("Taylor-made for the Selket-class corvette, the Type 4 'Pillar of Sorrow' inflicts roughly the same amount of damage as Type 2 beams, but at a reduced refire rate. However its overall reduced power consumption, combined with improved power generators allowed Vasudan designers to mount five of them on a single corvette.
+	
+	Damage per salvo: 9508",-1)
+	$end_multi_text
+$Model File:					none 				; laser1-1.pof
+@Laser Bitmap:               	laserglow01
+@Laser Color:					255, 200, 67
+; Puke pale green 				R 192	G 255	B 200
+@Laser Length:					0.0
+@Laser Head Radius:				0.3
+@Laser Tail Radius:				0.3
+$Mass:                          100.0
+$Velocity:                      1600.0				;; speed of the weapon (initially) -- may or may not change
+$Fire Wait:                     18.0
+$Damage:                        490
+$Damage Type:					HugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      3.3
+$Energy Consumed:               0.30        	    ;; Energy used when fired
+$Cargo Size:                    0.0         	    ;; Amount of space taken up in weapon cargo
+$Homing:                        NO
+$LaunchSnd:                     124
+$ImpactSnd:                     88              	;; The sound it makes when it hits something
++Weapon Range:					4000				;; Limit to range at which weapon will actively target object
+$Flags:                         ("Big Ship" "huge" "beam")
+$Icon:                          icongun05
+$Anim:                          LoadGun07
+$Impact Explosion:              exp04
+$Impact Explosion Radius:       40.0
+$BeamInfo:
+	+Type:						0					;; 0 - 4 are valid #'s
+	+Life:		  				3.3
+	+Warmup:		  			1500				;; warmup time in ms
+	+Warmdown:					3000				;; warmdown time in ms
+	+Radius:								70.0
+	+PCount:								50
+	+PRadius:								3.0
+	+PAni:									particle_yellow
+	+Miss Factor:				1.0 1.1 1.1 1.1 1.4				;; magic # - higher == miss more (only really applicable to type 0 and type 3 beams)
+	+BeamSound:					121					;; the looping beam-firing sound
+	+WarmupSound:				122					;; associated warmup sound
+	+WarmdownSound:				123					;; associated warmdown sound
+	+Muzzleglow:							beamglow6
+	+Shots:						0					;; only used for TYPE 3 beams
+	+ShrinkFactor:				0.0			;; what percentage of lifetime where beam starts shrinking (0.1 == 10% life left)
+	+ShrinkPct:					0.0			;; what percentage of max width we subtract per second
+	+Beam Flash Effect:						capflash
+	+Beam Flash Radius:						21.0
+	+Beam Piercing Effect:					exp06
+	+Beam Piercing Radius:					24.0
+	+Beam Piercing Effect Velocity:			200
+	+Beam Piercing Splash Effect Velocity:	-10
+	+Beam Piercing Effect Variance:			0.01
+	$Section:
+		+Width:			22.0
+		+Texture:		VasBeam2Core
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.1
+		+Zadd:			6
+		+Tile Factor:	10, 1
+		+Translation:	-25
+	$Section:
+		+Width:			34.0
+		+Texture:		VasBeam2Glow
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.2
+		+Zadd:			4
+		+Tile Factor:	10, 1
+		+Translation:	-15
+	$Section:
+		+Width:			48.0
+		+Texture:		VasBeam2GlowHaze
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.4
+		+Zadd:			2
+		+Tile Factor:	14, 1
+		+Translation:	-10
+	$Section:
+		+Width:			104.0
+		+Texture:		OrangeFade
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.35
+		+Zadd:			1
+		
+;; damage per salvo: 12224.5		
+$Name:							MVasUp
+	+Tech Title:		XSTR("T-4d 'Pillar of Hope' VBeam",-1)
+	+Tech Description:	XSTR("
+	
+	",-1)
+	$end_multi_text
+$Model File:					none 				; laser1-1.pof
+@Laser Bitmap:               	laserglow01
+@Laser Color:					255, 200, 67
+; Puke pale green 				R 192	G 255	B 200
+@Laser Length:					0.0
+@Laser Head Radius:				0.3
+@Laser Tail Radius:				0.3
+$Mass:                          100.0
+$Velocity:                      1600.0				;; speed of the weapon (initially) -- may or may not change
+$Fire Wait:                     18.0
+$Damage:                        630
+$Damage Type:					HugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      3.3
+$Energy Consumed:               0.30        	    ;; Energy used when fired
+$Cargo Size:                    0.0         	    ;; Amount of space taken up in weapon cargo
+$Homing:                        NO
+$LaunchSnd:                     124
+$ImpactSnd:                     88              	;; The sound it makes when it hits something
++Weapon Range:					4000				;; Limit to range at which weapon will actively target object
+$Flags:                         ("Big Ship" "huge" "beam")
+$Icon:                          icongun05
+$Anim:                          LoadGun07
+$Impact Explosion:              exp04
+$Impact Explosion Radius:       40.0
+$BeamInfo:
+	+Type:						0					;; 0 - 4 are valid #'s
+	+Life:		  				3.3
+	+Warmup:		  			1500				;; warmup time in ms
+	+Warmdown:					3000				;; warmdown time in ms
+	+Radius:								72.0
+	+PCount:								50
+	+PRadius:								3.0
+	+PAni:									particle_yellow
+	+Miss Factor:				1.0 1.1 1.1 1.1 1.4				;; magic # - higher == miss more (only really applicable to type 0 and type 3 beams)
+	+BeamSound:					121					;; the looping beam-firing sound
+	+WarmupSound:				122					;; associated warmup sound
+	+WarmdownSound:				123					;; associated warmdown sound
+	+Muzzleglow:							beamglow6
+	+Shots:						0					;; only used for TYPE 3 beams
+	+ShrinkFactor:				0.0			;; what percentage of lifetime where beam starts shrinking (0.1 == 10% life left)
+	+ShrinkPct:					0.0			;; what percentage of max width we subtract per second
+	+Beam Flash Effect:						capflash
+	+Beam Flash Radius:						23.0
+	+Beam Piercing Effect:					exp06
+	+Beam Piercing Radius:					25.0
+	+Beam Piercing Effect Velocity:			200
+	+Beam Piercing Splash Effect Velocity:	-10
+	+Beam Piercing Effect Variance:			0.01
+	$Section:
+		+Width:			26.0
+		+Texture:		VasBeam2Core
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.1
+		+Zadd:			6
+		+Tile Factor:	10, 1
+		+Translation:	-25
+	$Section:
+		+Width:			37.0
+		+Texture:		VasBeam2Glow
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.2
+		+Zadd:			4
+		+Tile Factor:	10, 1
+		+Translation:	-15
+	$Section:
+		+Width:			53.0
+		+Texture:		VasBeam2GlowHaze
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.4
+		+Zadd:			2
+		+Tile Factor:	14, 1
+		+Translation:	-10
+	$Section:
+		+Width:			112.0
+		+Texture:		OrangeFade
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.35
+		+Zadd:			1
+		
+
+#End

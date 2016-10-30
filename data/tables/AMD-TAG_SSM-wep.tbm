@@ -1,0 +1,608 @@
+#Secondary Weapons
+
+;;;;;;;;;;;;;;;;;;;;
+;; TAG-C missiles ;;
+;;;;;;;;;;;;;;;;;;;;
+
+$Name:		TAG-C
++nocreate
+$Fire Wait: 						4.0
+$Cargo Size: 						20.0
+$Flags: 							( "No Dumbfire" "player allowed" "capital+" )
+$SSM: 								0
+
+
+$Name:                                 	@TAG-C#Shivan
+	+Title:								XSTR("Shivan TAG-C Missile",-1)
+	+Tech Description:
+		XSTR("The recent apparition of this missile in the Shivan arsenal has GTVA specialist worried about its potential, and what it implies regarding Shivan subspace and weapon technology. The theory of such a weapon has been layed by various Alliance weapon and subspace specialists over the past year, although no official document regarding this experimental doctrine has been released yet, and most research projects, such as the 'C' variant of the TAG missile, are still in draft status. The Shivans, however, have started using these weapons shortly before the Sathanas' destruction, taking GTVA capital ships and fighter pilots by surprise.
+
+The tactical premise of this missile is similar to the Alliance's TAG missile, although the technology is far more complex and hold more potential. Like the initial ideas for the hypothetical TAG-C missile, this Shivan weapon acts as a subspace beacon once it hits it intended target, transmitting the tagged ship's exact coordinates to a remote weapon platform, which then fire a salvo of heavy anti-capital ship missiles through subspace.
+The most common variant of Shivan subspace TAG missile calls in salvoes of 3 Subspace Missiles", -1)
+		$end_multi_text
+$Model File:							S_Trebuchet.pof
+$Mass:									20.0
+$Velocity:								205.0
+$Fire Wait:								4.0
+$Damage:								10
+$Damage Type:							ShivanWeapon
+$Blast Force:							10.0
+$Inner Radius:							10.0
+$Outer Radius:							30.0
+$Shockwave Speed:						0
+$Armor Factor:							0.1
+$Shield Factor:							0.1
+$Subsystem Factor:						0.1
+$Lifetime:								13.0
+$Energy Consumed:						0.0														;; Energy used when fired
+$Cargo Size:							15.0														;; Amount of space taken up in weapon cargo
+$Homing:								YES
+	;; the following indented fields are only required when $Homing is YES
+	+Type:								ASPECT													;; Legal: HEAT, ASPECT
+	+Turn Time:							1.75
+	+Min Lock Time:						2.5														;; Minimum lock time (in seconds)
+	+Lock Pixels/Sec:					60                                           ;; Pixels moved per sec while locking
+	+Catch-up Pixels/Sec:				100														;; Pixels moved per sec while catching up
+	+Catch-up Penalty:					30															;; Extra pixels to move after catching up
+$LaunchSnd:								92
+$ImpactSnd:								88
+$FlyBySnd:								-1
+$Rearm Rate:							0.33
+$Flags:									( "no dumbfire" "player allowed" "Huge" "capital+" )
+$Trail:																										;; Trail cannot be set if Exhaust is set
+	+Start Width:						0.25                                         ;; Width of trail nearest missile
+	+End Width:							0.5                                          ;; Width of trail before it "evaporates"
+	+Start Alpha:						1.0
+	+End Alpha:							0.0
+	+Max Life:							0.3                                          ;; how many seconds before trail disappears
+	+Bitmap:							missiletrail06
+$Icon:									iconTagC
+$Anim:									tagC
+$Impact Explosion:						ExpMissileHit1
+$Impact Explosion Radius:				9.0
+$Tag:									3 10.0
+$SSM:									0
+;$Thruster Flame Effect:				missilethruster06
+;$Thruster Glow Effect:					missileglow06
+
+
+$Name:                                 	AntiFighterTAG#Shivan
+	+Title:								XSTR("Shivan Anti-Fighter TAG",-1)
+	+Tech Description:
+		XSTR("The most worrying variant of Shivan subspace TAG technology, this missile calls in salvoes of 8 anti-strikecraft missiles on its target.
+
+The fact that the Shivans are able to fit such small missiles with subspace drive raises some questions regarding Shivan weapon technology, which might be significantly more dangerous than early analysis in the nebula campaign anticipated.",-1)
+		$end_multi_text
+$Model File:							S_Trebuchet.pof
+$Mass:									2.0
+$Velocity:								350.0
+$Fire Wait:								2.5
+$Damage:								10
+$Damage Type:							ShivanWeapon
+$Blast Force:							10.0
+$Inner Radius:							10.0														;; radius at which damage is full (0 for impact only)
+$Outer Radius:							30.0														;; max radius for attenuated damage (0 for impact only)
+$Shockwave Speed:						0                                            ;; velocity of shockwave.  0 for none.
+$Armor Factor:							0.1
+$Shield Factor:							0.1
+$Subsystem Factor:						0.1
+$Lifetime:								13.0
+$Energy Consumed:						0.0														;; Energy used when fired
+$Cargo Size:							10.0														;; Amount of space taken up in weapon cargo
+$Homing:								YES
+	+Type:								HEAT													;; Legal: HEAT, ASPECT
+	+Turn Time:							0.65
+	+View Cone:							135
+$LaunchSnd:								92
+$ImpactSnd:								88 
+$FlyBySnd:								-1
+$Rearm Rate:							0.33
+$Flags:									( "player allowed" )
+$Trail:																										;; Trail cannot be set if Exhaust is set
+	+Start Width:						0.25                                         ;; Width of trail nearest missile
+	+End Width:							0.5                                          ;; Width of trail before it "evaporates"
+	+Start Alpha:						1.0
+	+End Alpha:							0.0
+	+Max Life:							0.3                                          ;; how many seconds before trail disappears
+	+Bitmap:							missiletrail06
+$Icon:									iconTagC
+$Anim:									tagC
+$Impact Explosion:						ExpMissileHit1
+$Impact Explosion Radius:				9.0
+$Tag:									3 10.0
+$SSM:									1
+; $Thruster Flame Effect:					missilethruster06
+; $Thruster Glow Effect:					missileglow06
+
+$Name:                                 	@TAG-C#Barrage
+	+Title:								XSTR("Shivan TAG-C Barrage Missile",-1)
+	+Tech Description:
+		XSTR("Another variant of the Shivan subspace TAG missile, this particular model calls in strikes of 6 Subspace Missiles, making it a very dangerous threat to even Allied destroyers.", -1)
+		$end_multi_text
+$Model File:							S_Trebuchet.pof
+$Mass:									20.0
+$Velocity:								205.0
+$Fire Wait:								8.0
+$Damage:								10
+$Damage Type:							ShivanWeapon
+$Blast Force:							10.0
+$Inner Radius:							10.0														;; radius at which damage is full (0 for impact only)
+$Outer Radius:							30.0														;; max radius for attenuated damage (0 for impact only)
+$Shockwave Speed:						0                                            ;; velocity of shockwave.  0 for none.
+$Armor Factor:							0.1
+$Shield Factor:							0.1
+$Subsystem Factor:						0.1
+$Lifetime:								11.0
+$Energy Consumed:						0.0														;; Energy used when fired
+$Cargo Size:							20.0														;; Amount of space taken up in weapon cargo
+$Homing:								YES
+	+Type:								ASPECT													;; Legal: HEAT, ASPECT
+	+Turn Time:							1.75
+	+Min Lock Time:						4.5														;; Minimum lock time (in seconds)
+	+Lock Pixels/Sec:					60                                           ;; Pixels moved per sec while locking
+	+Catch-up Pixels/Sec:				100
+	+Catch-up Penalty:					30
+$LaunchSnd:								92
+$ImpactSnd:								88
+$FlyBySnd:								-1
+$Rearm Rate:							0.33
+$Flags:									( "no dumbfire" "player allowed" "Huge" "capital+" )
+$Trail:																										;; Trail cannot be set if Exhaust is set
+	+Start Width:						0.25                                         ;; Width of trail nearest missile
+	+End Width:							0.5                                          ;; Width of trail before it "evaporates"
+	+Start Alpha:						1.0
+	+End Alpha:							0.0
+	+Max Life:							0.3                                          ;; how many seconds before trail disappears
+	+Bitmap:							missiletrail06
+$Icon:									iconTagC
+$Anim:									tagC
+$Impact Explosion:						ExpMissileHit1
+$Impact Explosion Radius:				9.0
+$Tag:									3 10.0
+$SSM:									2 ; SSM barrage
+
+$Name:                                 	Cluster SSM TAG#Shivan
+	+Title:								XSTR("Shivan Cluster Bomb TAG",-1)
+	+Tech Description:
+		XSTR("",-1)
+		$end_multi_text
+$Model File:							S_Trebuchet.pof
+$Mass:									1.0
+$Velocity:								300.0
+$Fire Wait:								3.5
+$Damage:								10
+$Damage Type:							ShivanWeapon
+$Blast Force:							10.0
+$Inner Radius:							10.0
+$Outer Radius:							30.0
+$Shockwave Speed:						0                                            ;; velocity of shockwave.  0 for none.
+$Armor Factor:							0.1
+$Shield Factor:							0.1
+$Subsystem Factor:						0.1
+$Lifetime:								13.0
+$Energy Consumed:						0.0														;; Energy used when fired
+$Cargo Size:							10.0
+$Homing:								YES
+	+Type:								ASPECT													;; Legal: HEAT, ASPECT
+	+Turn Time:							1.25
+	+Min Lock Time:						3.5														;; Minimum lock time (in seconds)
+	+Lock Pixels/Sec:					30
+	+Catch-up Pixels/Sec:				50
+	+Catch-up Penalty:					15
+$LaunchSnd:								92
+$ImpactSnd:								88 
+$FlyBySnd:								-1
+$Rearm Rate:							0.33
+$Flags:									( "player allowed" )
+$Trail:
+	+Start Width:						0.25                                         ;; Width of trail nearest missile
+	+End Width:							0.5                                          ;; Width of trail before it "evaporates"
+	+Start Alpha:						1.0
+	+End Alpha:							0.0
+	+Max Life:							0.3                                          ;; how many seconds before trail disappears
+	+Bitmap:							missiletrail06
+$Icon:									iconTagC
+$Anim:									tagC
+$Impact Explosion:						ExpMissileHit1
+$Impact Explosion Radius:				9.0
+$Tag:									3 10.0
+$SSM:									4 ; cluster SSM
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Shivan Subspace Missiles ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+$Name:				AntiFighterSSM
+	+Tech Description:
+		XSTR("The smallest of all Shivan Subspace Missiles, this particular model has proven to be quite effective against larger strikecrafts, as well as smaller capital ships. While its tactical role seems similar to that of the hornet, tornado or their Shivan equivalents, pilots should be aware that this missile carry a significantly larger payload, and is nearly impossible to dodge without countermeasures.",-1)
+		$end_multi_text
+$Model File:		S_Hornet.pof
+$POF target LOD:	0
+$Mass:				0.4
+$Velocity:			320.0
+$Fire Wait:			2.0
+$Damage:			50.0
+$Damage Type:		ShivanWeapon
+$Blast Force:		0.2
+$Inner Radius:		15.0
+$Outer Radius:		30.0
+$Shockwave Speed:	0.0
+$Armor Factor:		1.5
+$Shield Factor:		0.8
+$Subsystem Factor:	0.3
+$Lifetime:			7.0
+$Energy Consumed:	0.0
+$Cargo Size:		1.0
+$Homing:			YES
+	+Type:				ASPECT
+	+Turn Time:				0.35
+	+View Cone:				360.0
+	+Min Lock Time:			3.0
+	+Lock Pixels/Sec:		60
+	+Catch-up Pixels/Sec:	60
+	+Catch-up Penalty:		10
+$Swarm:				4
+$LaunchSnd:			102
+$ImpactSnd:			88
+$FlyBySnd:			-1
+$Rearm Rate:		1.0
++Weapon Range:		1600
+$Flags: ( )
+$Trail:
+	+Start Width:		0.2
+	+End Width:			0.0
+	+Start Alpha:		1.0
+	+End Alpha:			0.0
+	+Max Life:			1.9
+	+Bitmap:			missiletrail06
+$Icon:	iconHornet
+$Anim:	hornet
+$Impact Explosion: ExpMissileHit1
+$Impact Explosion Radius:			7.04
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			3.52
+$Piercing Impact Velocity:			20
+$Piercing Impact Splash Velocity:	-5
+$Piercing Impact Variance:			0.1
+$Piercing Impact Particles:			5
+$Thruster Flame Effect:				missilethruster06
+$Thruster Glow Effect:				missileglow06
+
+
+$Name:		Shivan Subspace Missile
+	+Tech Description:
+		XSTR("The recently-appeared Shivan Subspace Missile seems to be an offshoot of the Shivan 'Megabomb'. A slightly larger warhead, the Shivan SSM is equipped with a lightweight, possibly one-shot, subspace drive, a much stronger engine with an extended fuel cell, at the cost of a slightly inferior payload when compared to the Megabomb. On the field, these weapons pose a much greater threat to allied warships than flights of Shivan bombers equipped with a more traditional ordnance, as it often takes gunners and escort pilots by surprise, and reach their target within a few seconds of their arrival.
+
+			The Subspace Missiles are fired from some variants of the Demon-class destroyer. Engaging these vessels is a high priority, as it limits the Shivan's ability to launch SSM strikes on vulnerable allied warships.",-1)
+		$end_multi_text
+$Model File:		S_MegaBomb.pof
+$POF target LOD:	0
+$Mass:				35.0
+$Velocity:			165.0
+$Fire Wait:			7.27
+$Damage:			5500
+$Damage Type:		ShivanHugeWeapon
+$Arm radius:		400
+$Blast Force:		1600.0
+$Inner Radius:		60.0
+$Outer Radius:		140.0
+$Shockwave Speed:	75
+$Shockwave name:	shockwave01
+$Armor Factor:		1.0
+$Shield Factor:		0.02
+$Subsystem Factor:	0.85
+$Lifetime:			40.0
+$Energy Consumed:	0.0
+$Cargo Size:		25.0
+$Homing:			YES
+	+Type:				ASPECT
+	+Turn Time:				1.0
+	+View Cone:				360.0
+	+Min Lock Time:			2.0
+	+Lock Pixels/Sec:		70
+	+Catch-up Pixels/Sec:	60
+	+Catch-up Penalty:		15
+; $Swarm:				3
+;	+SwarmWait:		0.7
+$Free Flight Time:	1.0
+$LaunchSnd:			97
+$ImpactSnd:			101
+$FlyBySnd:			-1
+$Rearm Rate:		0.02
++Weapon Range:		5040
+$Flags: ( "Bomb" "Huge" "No Dumbfire" "particle spew" )
+$Trail:
+	+Start Width:		1.4
+	+End Width:			0.0
+	+Start Alpha:		1.0
+	+End Alpha:			0.0
+	+Max Life:			2.6
+	+Bitmap:			missiletrail06
+$Icon:	iconHelios
+$Anim:	Helios
+$Impact Explosion: ExpMissileHit1
+$Impact Explosion Radius:			34.66
+$Piercing Impact Explosion:			exp04
+$Piercing Impact Radius:			17.33
+$Piercing Impact Velocity:			25
+$Piercing Impact Splash Velocity:	-25
+$Piercing Impact Variance:			20000
+$Piercing Impact Particles:			10
+$Pspew:
+	+Count:		1
+	+Time:		1
+	+Vel:		0.0
+	+Radius:	0.5
+	+Life:		0.1
+	+Scale:		0.0
+	+Bitmap:	missilespew06
+$Thruster Flame Effect:				missilethruster06
+$Thruster Glow Effect:				missileglow06
+
+
+$Name:		Shivan Subspace Missile#swarm
+	+Tech Description:
+		XSTR("When SSM-fitted Demons are engaged by allied warships in close combat, they fire their SSMs is full salvoes, using the missile's conventional drive to get to their target.",-1)
+		$end_multi_text
+$Model File:		S_MegaBomb.pof
+$POF target LOD:	0
+$Mass:				35.0
+$Velocity:			165.0
+$Fire Wait:			21
+$Damage:			5500
+$Damage Type:		ShivanHugeWeapon
+$Arm radius:		400
+$Blast Force:		1600.0
+$Inner Radius:		60.0
+$Outer Radius:		140.0
+$Shockwave Speed:	75
+$Shockwave name:	shockwave01
+$Armor Factor:		1.0
+$Shield Factor:		0.02
+$Subsystem Factor:	0.85
+$Lifetime:			40.0
+$Energy Consumed:	0.0
+$Cargo Size:		25.0
+$Homing:			YES
+	+Type:				ASPECT
+	+Turn Time:				1.0
+	+View Cone:				360.0
+	+Min Lock Time:			2.0
+	+Lock Pixels/Sec:		70
+	+Catch-up Pixels/Sec:	60
+	+Catch-up Penalty:		15
+$Swarm:				3
+	+SwarmWait:		0.7
+$Free Flight Time:	1.0
+$LaunchSnd:			97
+$ImpactSnd:			101
+$FlyBySnd:			-1
+$Rearm Rate:		0.02
++Weapon Range:		5040
+$Flags: ( "Bomb" "Huge" "No Dumbfire" "particle spew" )
+$Trail:
+	+Start Width:		1.4
+	+End Width:			0.0
+	+Start Alpha:		1.0
+	+End Alpha:			0.0
+	+Max Life:			2.6
+	+Bitmap:			missiletrail06
+$Icon:	iconHelios
+$Anim:	Helios
+$Impact Explosion: ExpMissileHit1
+$Impact Explosion Radius:			34.66
+$Piercing Impact Explosion:			exp04
+$Piercing Impact Radius:			17.33
+$Piercing Impact Velocity:			25
+$Piercing Impact Splash Velocity:	-25
+$Piercing Impact Variance:			20000
+$Piercing Impact Particles:			10
+$Pspew:
+	+Count:		1
+	+Time:		1
+	+Vel:		0.0
+	+Radius:	0.5
+	+Life:		0.1
+	+Scale:		0.0
+	+Bitmap:	missilespew06
+$Thruster Flame Effect:				missilethruster06
+$Thruster Glow Effect:				missileglow06
+
+$Name:		Shivan Subspace Missile#local
+	+Tech Description:
+		XSTR("When engaging allied warships in the same field of engagement, SSM-fitted Demons are capable of firing their Subspace Missiles locally, without requiring a TAG beacon to reach their target.",-1)
+		$end_multi_text
+$Model File:		S_MegaBomb.pof
+$POF target LOD:	0
+$Mass:				35.0
+$Velocity:			165.0
+$Fire Wait:			7.67
+$Damage:			5500
+$Damage Type:		ShivanHugeWeapon
+$Arm radius:		400
+$Blast Force:		1600.0
+$Inner Radius:		60.0
+$Outer Radius:		140.0
+$Shockwave Speed:	75
+$Shockwave name:	shockwave01
+$Armor Factor:		1.0
+$Shield Factor:		0.02
+$Subsystem Factor:	0.85
+$Lifetime:			40.0
+$Energy Consumed:	0.0
+$Cargo Size:		25.0
+$Homing:			YES
+	+Type:				ASPECT
+	+Turn Time:				1.0
+	+Min Lock Time:			0.0
+	+Lock Pixels/Sec:		30
+	+Catch-up Pixels/Sec:	20
+	+Catch-up Penalty:		15
+$Swarm:				3
+	+SwarmWait:		0.7
+$LaunchSnd:			97
+$ImpactSnd:			101
+$FlyBySnd:			-1
+$Rearm Rate:		0.02
++Weapon Range:		3000
+$Flags: ( "Bomb" "Huge" "No Dumbfire" "particle spew" "local ssm")
+$Trail:
+	+Start Width:		1.4
+	+End Width:			0.0
+	+Start Alpha:		1.0
+	+End Alpha:			0.0
+	+Max Life:			2.6
+	+Bitmap:			missiletrail06
+$Icon:	iconHelios
+$Anim:	Helios
+$Impact Explosion: ExpMissileHit1
+$Impact Explosion Radius:			34.66
+$Piercing Impact Explosion:			exp04
+$Piercing Impact Radius:			17.33
+$Piercing Impact Velocity:			25
+$Piercing Impact Splash Velocity:	-25
+$Piercing Impact Variance:			20000
+$Piercing Impact Particles:			10
+$Local SSM:
+	+Warpout Delay:		1250
+	+Warpin Delay:		750
+	+Stage 5 Velocity:	160.0
+	+Warpin Radius:		1300.0
+	+Lock Range:		30000.0
+$Pspew:
+	+Count:		1
+	+Time:		1
+	+Vel:		0.0
+	+Radius:	0.5
+	+Life:		0.1
+	+Scale:		0.0
+	+Bitmap:	missilespew06
+$Thruster Flame Effect:				missilethruster06
+$Thruster Glow Effect:				missileglow06
+
+$Name:				Shivan Mordiggian Bomb
+	+Tech Description:
+		XSTR("Little information is available regarding the Mordiggian Bomb. Slightly less powerful the the standard Shivan Bomb, this bomb is also equipped with its own subspace TAG beacon, which calls in another Mordiggian Bomb upon hitting a target.
+
+		It is unclear who fires the additional bombs, as no Shivan bomber or warship as been seen firing out-bound Mordiggian bombs to this day. Some have theorized that the warheads could be fired from inside a large Shivan capital ship, most likely a Juggernaut since these bombs started being deployed after the arrival of the Sathanas fleet in Capella. Others suggest that a new type of specialized capital ship may be firing them, staying hidden far away from the battlefields and having evaded contact with allied ships in the confusion reigning in the Capella system.",-1)
+		$end_multi_text
+$Model File:		S_MegaBomb.pof
+$POF target LOD: 	0
+$Mass: 				35.0
+$Velocity: 			225.0
+$Fire Wait: 		8.0
+$Damage:			1800
+$Damage Type:		ShivanHugeWeapon
+$Arm radius:		200
+$Blast Force:		800.0
+$Inner Radius:		30.0
+$Outer Radius:		70.0
+$Shockwave Speed: 	55
+$Shockwave name:	shockwave01
+$Armor Factor:		1.0
+$Shield Factor:		0.02
+$Subsystem Factor:	0.35
+$Lifetime:			40.0
+$Energy Consumed:	0.0
+$Cargo Size:		25.0
+$Homing:			YES
+	+Type: ASPECT
+	+Turn Time: 1.0
+	+View Cone: 360.0
+	+Min Lock Time: 2.0
+	+Lock Pixels/Sec: 70
+	+Catch-up Pixels/Sec: 60
+	+Catch-up Penalty: 15
+$Free Flight Time: 1.0
+$LaunchSnd: 97
+$ImpactSnd: 101
+$FlyBySnd: -1
+$Rearm Rate: 0.02
++Weapon Range: 5040
+$Flags: ( "Bomb" "Huge" "No Dumbfire" "particle spew" "player allowed" )
+$Trail:
+	+Start Width:	1.4
+	+End Width: 	0.0
+	+Start Alpha: 	1.0
+	+End Alpha: 	0.0
+	+Max Life: 		2.6
+	+Bitmap: 		missiletrail06
+$Icon: 						iconHelios
+$Anim:						Helios
+$Impact Explosion: 			ExpMissileHit1
+$Impact Explosion Radius:	34.66
+$Piercing Impact Explosion: exp04
+$Piercing Impact Radius: 17.33
+$Piercing Impact Velocity: 25
+$Piercing Impact Splash Velocity: -25
+$Piercing Impact Variance: 20000
+$Piercing Impact Particles: 10
+$Pspew:
+	+Count: 1
+	+Time: 1
+	+Vel: 0.0
+	+Radius: 0.5
+	+Life: 0.1
+	+Scale: 0.0
+	+Bitmap: missilespew06
+$Tag: 		3 8.0
+$SSM: 		3
+$Thruster Flame Effect: missilethruster06
+$Thruster Glow Effect: missileglow06
+
+
+$Name:		Shivan Cluster SSM
+$Model File:		ShivanCluster.pof
+$POF target LOD:	0
+$Mass:				20.0
+$Velocity:			200.0
+$Fire Wait:			5.0
+$Damage:			100
+$Damage Type: 						ShivanWeapon
+$Blast Force:		1500.0
+$Inner Radius:		80.0
+$Outer Radius:		160.0
+$Shockwave Speed:	80.0
+$Shockwave Name:	shockwave01
+$Armor Factor:		1.0
+$Shield Factor:		0.75
+$Subsystem Factor:	1.0
+$Lifetime:			4.0
+$Energy Consumed:	0.0
+$Cargo Size:		12.0
+$Homing:			YES
+	+Type: ASPECT
+	+Turn Time: 1.0
+	+View Cone: 360.0
+	+Min Lock Time: 2.0
+	+Lock Pixels/Sec: 70
+	+Catch-up Pixels/Sec: 60
+	+Catch-up Penalty: 15
+$LaunchSnd:			93
+$ImpactSnd:			101
+$FlyBySnd:			-1
+$Rearm Rate:		0.1
+	+Weapon Range:		800
+$Flags: ( "Spawn S_Cluster Baby, 20"  )
+$Trail:
+	+Start Width:		0.2
+	+End Width:			0.0
+	+Start Alpha:		1.0
+	+End Alpha:			0.0
+	+Max Life:			0.9
+	+Bitmap:			missiletrail06
+$Icon:	iconPiranha
+$Anim:	Piranha
+$Impact Explosion: ExpMissileHit1
+$Impact Explosion Radius:			17.78
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			8.89
+$Piercing Impact Velocity:			20
+$Piercing Impact Splash Velocity:	-5
+$Piercing Impact Variance:			0.1
+$Piercing Impact Particles:			5
+$Thruster Flame Effect:				missilethruster06
+$Thruster Glow Effect:				missileglow06
+
+#End

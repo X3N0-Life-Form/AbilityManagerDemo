@@ -1,0 +1,583 @@
+#Primary Weapons
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; Shivan Primaries ;;
+;;;;;;;;;;;;;;;;;;;;;;
+
+$Name:								Shivan Light Laser
+	+nocreate
+	+Title:							XSTR("Shivan Light Laser",-1)
+	+Tech Title:					XSTR("Shivan Light Laser", -1)
+	+Tech Description:
+		XSTR("While standard Shivan primary weapons were initially stronger than anything the GTA or PVN had, by the end of the Great War, Terran and Vasudan weapons outmatched the Shivan's by a significant margin.", -1)
+	$end_multi_text
+$Damage Type:						ShivanWeapon
+$Flags:								( "player allowed" )
+$Icon:								iconSD4
+$Anim:								SD4
+
+$Name:								Shivan Heavy Laser
+	+nocreate
+	+Title:							XSTR("Shivan Heavy Laser",-1)
+	+Tech Title:					XSTR("Shivan Heavy Laser", -1)
+	+Tech Description:
+		XSTR("Once considered formidable pieces of technology, Shivan primary weapons are now considered inefficient by Terran and Vasudan scientists, who universally agree that given the principles upon which rely on, these weapons should be capable of outmatching most GTVA fighter-mounted primaries.", -1)
+	$end_multi_text
+$Damage Type:						ShivanWeapon
+$Flags:								( "player allowed" )
+$Icon:                              iconCirce
+$Anim:                              Circe
+
+$Name:                              Shivan Mega Laser
+	+nocreate
+	+Title:							XSTR("Shivan Mega Laser",-1)
+	+Tech Title:					XSTR("Shivan Mega Laser", -1)
+	+Tech Description:
+		XSTR("Over the past 32 years, GTVA scientist have put hard work in dismantling and understanding how Shivan weaponry works. While most of the findings are classified at highest levels, some of the published materials underline a massively alien view of weapon craft, relying on physics principles not traditionally applied to warfare. Yet the weapon produced are extremely versatile, capable (most of the time) of damaging hull, draining shields and disrupting subsystems with equal ease, while being extremely energy efficient and having seemly a low resource cost.", -1)
+	$end_multi_text
+$Damage Type:						ShivanWeapon
+$Flags:								( "player allowed" )
+$Icon:                              iconKayser
+$Anim:                              Kayser
+
+;; upgraded primaries
+
+$Name:                              Shivan Light Laser Up
+	+Title:							XSTR("Shivan Upgraded Light Laser", -1)
+	+Tech Title:					XSTR("Shivan Upgraded Light Laser", -1)
+	+Tech Description:
+		XSTR("Since the destruction of the SJ Sathanas, the Shivans seem to finally take the alliance seriously, and started upgrading their weapon systems.
+
+		The Upgraded Light Laser fires much faster than the original weapon, and has increased projectile speed and kinetic effect.", -1)
+	$end_multi_text
+$Model File:                        none ;; laser1-1.pof
+@Laser Bitmap:						Alouqua_AniBitmap
+@Laser Glow:						Alouqua_Glow
+@Laser Color:						180, 0, 100
+@Laser Color2:						80, 10, 30
+@Laser Length:						3.0
+@Laser Head Radius:					1.9
+@Laser Tail Radius:					1.9
+$Mass:                              0.4
+$Velocity:                          475.0
+$Fire Wait:                         0.3
+$Damage:                            15
+$Damage Type:						ShivanWeapon
+$Armor Factor:                  	1.0
+$Shield Factor:         			1.0
+$Subsystem Factor:      			1.0
+$Lifetime:                          2.0
+$Energy Consumed:               	0.30
+$Cargo Size:                    	0.0
+$Homing:                            NO
+$LaunchSnd:                         100
+$ImpactSnd:                         85
+$Flags:                             ( "player allowed" )
+$Trail:
+	+Start Width:	0.35
+	+End Width:		0.1
+	+Start Alpha:	0.4
+	+End Alpha:		0.0
+	+Max Life:		0.07
+	+Bitmap:		Alouqua_Trail
+$Icon:								iconSD4
+$Anim:								SD4
+$Impact Explosion:      			Shivan_Impact01
+$Impact Explosion Radius:			3.8
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			1.9
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						Rmuzzle
+
+
+$Name:                          Shivan Heavy Laser Up
+	+Title:							XSTR("Shivan Upgraded Heavy Laser",-1)
+	+Tech Title:					XSTR("Shivan Upgraded Heavy Laser", -1)
+	+Tech Description:
+		XSTR("A disturbing fact regarding the recently upgraded Shivan primaries is that the weapon seems identical to its standard variant, as if the Shivan simply decided to change their weapon's settings.
+
+		The upgrades received by the Heavy Laser are basically identical to those of the Light Laser: same projectile damage, but everything else gets an upgrade. However, relative to the original weapon, the Heavy Laser's upgrades are significantly better than the Light Laser's.", -1)
+	$end_multi_text
+$Model File:                    none ;;  laser1-1.pof
+@Laser Bitmap:					Citra_Bitmap
+@Laser Glow:					Alouqua_Glow
+@Laser Color:					10, 0, 91
+@Laser Color2:					91, 0, 10
+@Laser Length:					1.2
+@Laser Head Radius:				2.0
+@Laser Tail Radius:				2.0
+$Mass:							0.6
+$Velocity:						500.0
+$Fire Wait:						0.35
+$Damage:						30
+$Damage Type:					ShivanWeapon
+$Armor Factor:                  1.0
+$Shield Factor:					1.0
+$Subsystem Factor:				1.0
+$Lifetime:						2.0
+$Energy Consumed:               0.40
+$Cargo Size:                    0.0
+$Homing:						NO
+$LaunchSnd:                     103
+$ImpactSnd:                     85
+$Flags:							( "particle spew" "player allowed" )
+$Trail:
+	+Start Width:	0.3
+	+End Width:		0.15
+	+Start Alpha:	0.3
+	+End Alpha:		0.0
+	+Max Life:		0.1
+	+Bitmap:		Alouqua_Trail
+$Icon:                              iconCirce
+$Anim:                              Circe
+$Impact Explosion:					Shivan_Impact01
+$Impact Explosion Radius:			4.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			2.0
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						Rmuzzle
+$Pspew:
+	+Count:		1
+	+Time:		20
+	+Vel:		0.30
+	+Radius:	0.32
+	+Life:		0.24
+	+Scale:		0.0
+	+Bitmap:	Shivan_Laser_Stream
+	
+	
+$Name:                          Shivan Anticap Laser
+	+Title:						XSTR("Shivan Anti-Capital Laser",-1)
+	+Description:
+		XSTR("Heavy Hull Damage",-1)
+	$end_multi_text
+	+Tech Title:					XSTR("Shivan Anti-Capital Ship Laser", -1)
+	+Tech Description:
+		XSTR("While apparently an upgrade of the Shivan Mega Laser primary gun, the Anti-Capital laser is in fact quite different from the original weapon. Faster and with a longer range, the Anticap laser's damage per shot is significantly higher compared to the Mega Laser", -1)
+	$end_multi_text
+$Model File:                    none ;;  laser1-1.pof
+@Laser Bitmap:						Phanuel_Bitmap
+@Laser Glow:						Alouqua_Glow
+@Laser Color:						0, 0, 200
+@Laser Color2:						91, 50, 00
+@Laser Length:						3.4
+@Laser Head Radius:					3.2
+@Laser Tail Radius:					3.2
+$Mass:                              0.9
+$Velocity:                          450.0
+$Fire Wait:                             0.65
+$Damage:                                75
+$Damage Type:							ShivanWeapon
+$Armor Factor:                          1.0
+$Shield Factor:                         0.4
+$Subsystem Factor:                      1.0
+$Lifetime:                              2.90
+$Energy Consumed:                       1.60
+$Cargo Size:                   		    0.0 
+$Homing:                                NO
+$LaunchSnd:                             108                                     ;;      The sound it makes when fired
+$ImpactSnd:                             85                                      ;; The sound it makes when it hits something
+$Flags:								( "particle spew" "player allowed" )
+$Trail:
+	+Start Width:	0.2
+	+End Width:		0.3
+	+Start Alpha:	0.25
+	+End Alpha:		0.0
+	+Max Life:		0.1
+	+Bitmap:		Alouqua_Trail
+$Icon:                              iconLich
+$Anim:                              Lich
+$Impact Explosion:      			Shivan_Impact01
+$Impact Explosion Radius:			6.4
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			3.2
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						Rmuzzle
+$Pspew:
+	+Count:		1
+	+Time:		9
+	+Vel:		0.31
+	+Radius:	0.25
+	+Life:		0.4
+	+Scale:		0.0
+	+Bitmap:	Shivan_Laser_Stream
+	
+;; new primaries
+	
+$Name:                          Shivan Heavy Anticap Laser
+	+Title:						XSTR("Shivan Heavy Anti-Capship Laser",-1)
+	+Description:
+		XSTR("Overpowered laser
+		Use with care",-1)
+	$end_multi_text
+	+Tech Title:					XSTR("Shivan Heavy Anti-Capship Laser", -1)
+	+Tech Description:
+		XSTR("Somewhere between the Anticap Laser and the Superior Defence turret, the Heavy Anti-Capital Laser is capable of tearing through capital ship armor with ease, making this weapon capable of bringing down even corvettes and destroyers, given enough time.", -1)
+	$end_multi_text
+$Model File:                    none ;;  laser1-1.pof
+@Laser Bitmap:					Shivan_Megafunk
+@Laser Glow:					Vapula_Glow
+@Laser Color:						250, 30, 30
+@Laser Color2:						240, 50, 50
+@Laser Length:						18.0
+@Laser Head Radius:					3.2
+@Laser Tail Radius:					3.2
+$Mass:                          1.5
+$Velocity:                      420.0
+$Fire Wait:                     0.80
+$Damage:                        145
+$Damage Type:					ShivanHugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 0.1
+$Subsystem Factor:              0.35
+$Lifetime:                      3.5
+$Energy Consumed:               2.4
+$Cargo Size:                    0.0
+$Homing:                                NO
+$LaunchSnd:                             108
+$ImpactSnd:                             85
+$Flags:								( "particle spew" "player allowed" "huge" )
+$Trail:
+	+Start Width:	0.2
+	+End Width:		0.3
+	+Start Alpha:	0.25
+	+End Alpha:		0.0
+	+Max Life:		0.3
+	+Bitmap:		Alouqua_Trail
+$Icon:                              iconNewton
+$Anim:                              Newton
+$Impact Explosion:					Shivan_Impact01
+$Impact Explosion Radius:			18.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			9.0
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						Cmuzzle_big
+$Pspew:
+	+Count:		1
+	+Time:		5
+	+Vel:		0.31
+	+Radius:	0.25
+	+Life:		0.6
+	+Scale:		0.0
+	+Bitmap:	Shivan_Laser_Stream
+	
+	
+$Name:                              Shivan Scatter Gun
+	+Title:							XSTR("Shivan Scatter Gun",-1)
+	+Tech Title:					XSTR("Shivan Scatter Gun", -1)
+	+Tech Description:
+		XSTR("Mounted on Taurvi and Seraphim bombers, the Scatter gun is close range multi-purpose weapon that fires three bolts at once. Thanks to its high refire rate, the scatter gun is an effective dogfighting weapon, though its low accuracy reduces its effectiveness at medium range. Larger targets such as cruisers and freighters, however, take the full brunt of each salvo, making this weapon particularly dangerous when mounted in packs of three on Seraphim bombers.", -1)
+	$end_multi_text
+$Model File:                        none ;; laser1-1.pof
+@Laser Bitmap:						Alouqua_AniBitmap
+@Laser Glow:						Alouqua_Glow
+@Laser Color:						180, 0, 100
+@Laser Color2:						80, 10, 30
+@Laser Length:						3.2
+@Laser Head Radius:					2.0
+@Laser Tail Radius:					2.0
+$Mass:                              0.25
+$Velocity:                          550.0
+$Fire Wait:                         0.20 
+$Damage:                            20
+$Damage Type:						ShivanWeapon
+$Armor Factor:                  	1.0
+$Shield Factor:         			1.0
+$Subsystem Factor:      			1.0
+$Lifetime:                          1.8 
+$Energy Consumed:               	0.40
+$Cargo Size:                    	0.0 
+$Homing:                            NO
+$LaunchSnd:                         100 
+$ImpactSnd:                         85 
+$Flags:                             ( "player allowed" )
+$Trail:
+	+Start Width:	0.35
+	+End Width:		0.1
+	+Start Alpha:	0.4
+	+End Alpha:		0.0
+	+Max Life:		0.07
+	+Bitmap:		Alouqua_Trail
+$Icon:								iconflail
+$Anim:								Flail2
+$Impact Explosion:      			Shivan_Impact01
+$Impact Explosion Radius:			3.8
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			1.9
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						Rmuzzle
+$FOF:								1.5
+$Shots:								3
+
+
+$Name:                              Shivan Light Scatter Gun
+	+Title:							XSTR("Shivan Light Scatter Gun",-1)
+	+Tech Title:					XSTR("Shivan Light Scatter Gun", -1)
+	+Tech Description:
+		XSTR("Used for close range anti-fighter duty on Dragons and some Maras, the Light Scatter gun is essentially a toned down version of the scatter gun, sacrificing some of its firepower for improved accuracy.", -1)
+	$end_multi_text
+$Model File:                        none ;; laser1-1.pof
+@Laser Bitmap:						Citra_Bitmap
+@Laser Glow:						Alouqua_Glow
+@Laser Color:								   200, 31, 30
+@Laser Color2:								   200, 31, 30
+@Laser Length:						1.2
+@Laser Head Radius:					2.0
+@Laser Tail Radius:					2.0
+$Mass:                              0.38
+$Velocity:                          570.0
+$Fire Wait:                         0.35 
+$Damage:                            15
+$Damage Type:						ShivanWeapon
+$Armor Factor:                  	1.0
+$Shield Factor:         			1.0
+$Subsystem Factor:      			1.0
+$Lifetime:                          1.4
+$Energy Consumed:               	0.30
+$Cargo Size:                    	0.0 
+$Homing:                            NO
+$LaunchSnd:                         103 
+$ImpactSnd:                         85 
+$Flags:                             ( "player allowed" "cycle" "particle spew" )
+$Trail:
+	+Start Width:	0.3
+	+End Width:		0.15
+	+Start Alpha:	0.3
+	+End Alpha:		0.0
+	+Max Life:		0.1
+	+Bitmap:		Alouqua_Trail
+$Icon:								iconflail
+$Anim:								Flail2
+$Impact Explosion:					Shivan_Impact01
+$Impact Explosion Radius:			4.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			2.0
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						Rmuzzle
+$Pspew:
+	+Count:		1
+	+Time:		20
+	+Vel:		0.30
+	+Radius:	0.32
+	+Life:		0.24
+	+Scale:		0.0
+	+Bitmap:	Shivan_Laser_Stream
+$FOF:								1.2
+$Shots:								2
+
+	
+$Name:                          Shivan Sniper Gun
+	+Title:						XSTR("Shivan Sniper Gun",-1)
+	+Tech Title:					XSTR("Shivan Sniper Gun", -1)
+	+Tech Description:
+		XSTR("Mounted on various Shivan strikecrafts and capital ships alike, the sniper gun is slow firing, but has a very long range and deals significant damage against unshielded targets. This weapon has some difficulty penetrating shielded targets however, and is inefficient at disrupting subsystems.", -1)
+	$end_multi_text
+$Model File:                    none ;;  laser1-1.pof
+@Laser Bitmap:						Phanuel_Bitmap
+@Laser Glow:						Alouqua_Glow
+@Laser Color:						0, 0, 200
+@Laser Color2:						91, 50, 00
+@Laser Length:						7.0
+@Laser Head Radius:					3.2
+@Laser Tail Radius:					3.2
+$Mass:                          0.5
+$Velocity:                      2400.0
+$Fire Wait:                     2.5
+$Damage:                        150
+$Damage Type:					ShivanWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 0.2
+$Subsystem Factor:              0.75
+$Lifetime:                      1.0
+$Energy Consumed:               3.2
+$Cargo Size:                    0.0 
+$Homing:                        NO
+$LaunchSnd:                    108                                     ;;      The sound it makes when fired
+$ImpactSnd:                    85                                      ;; The sound it makes when it hits something
+$Flags:						   ( "particle spew" "player allowed" "no pierce shields" )
+$Trail:
+	+Start Width:	0.7
+	+End Width:		0.3
+	+Start Alpha:	0.25
+	+End Alpha:		0.0
+	+Max Life:		0.7
+	+Bitmap:		Alouqua_Trail
+$Icon:                              iconLich
+$Anim:                              Lich
+$Impact Explosion:      			Shivan_Impact01
+$Impact Explosion Radius:			6.4
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			3.2
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						Rmuzzle
+$Pspew:
+	+Count:		1
+	+Time:		9
+	+Vel:		0.31
+	+Radius:	0.25
+	+Life:		0.4
+	+Scale:		0.0
+	+Bitmap:	Shivan_Laser_Stream
+
+	
+	
+$Name:								Shivan Large Cannon
+	+Title:							XSTR("Shivan Large Cannon",-1)
+	+Tech Title:					XSTR("Shivan Large Cannon", -1)
+	+Tech Description:
+		XSTR("The Shivan's most powerful bomber-mounted primary weapon - and sometimes warship-mounted, the Large Cannon is thankfully relatively rare. Limited to short bursts of three every 6 seconds, each shot is about as dangerous as a light torpedo, meaning that a wing of Taurvi bombers, known for their limited ordnance capacity, are capable of bringing down even destroyers in a matter of minutes if left unchecked. Capital ship turrets mounting this weapon are to beam considered as dangerous as a Small Beam Cannon, while bombers are to be engaged and destroyed as quickly as possible.", -1)
+	$end_multi_text
+$Model File:                        none ;; laser1-1.pof
+@Laser Bitmap:						Shivan_Megafunk
+@Laser Glow:						Vapula_Glow
+@Laser Color:								   250, 30, 30
+@Laser Color2:								   250, 30, 30
+@Laser Length:						18.0
+@Laser Head Radius:					9.00
+@Laser Tail Radius:					9.00
+$Mass:								4.5
+$Velocity:							800.0
+$Fire Wait:							6.5
+$Damage:							800
+$Damage Type:						ShivanHugeWeapon
+$Shockwave Damage Type:				ShivanWeapon
+$Blast Force:						3.0
+$Inner Radius:						10.0
+$Outer Radius:						30.0
+$Shockwave Speed:					30.0
+$Armor Factor:						1.0
+$Shield Factor:						0.1
+$Subsystem Factor:					0.2
+$Lifetime:							5.2
+$Energy Consumed:					8.0
+$LaunchSnd:                         114
+$ImpactSnd:                         85 
+$Flags:								( "particle spew" "Huge" "Player allowed" "capital+" )
+$Trail:
+	+Start Width:	0.2
+	+End Width:		0.3
+	+Start Alpha:	0.25
+	+End Alpha:		0.0
+	+Max Life:		0.1
+	+Bitmap:		Alouqua_Trail
+$Impact Explosion:					capflash
+$Impact Explosion Radius:			18.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			9.0
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						Cmuzzle_big
+$Pspew:
+	+Count:		1
+	+Time:		9
+	+Vel:		0.31
+	+Radius:	0.25
+	+Life:		0.6
+	+Scale:		0.0
+	+Bitmap:	Shivan_Laser_Stream
+$Burst Shots:						3
+$Burst Delay:						400
+$Burst Flags:						()
+
+
+$Name:							Shivan Flak Weapon
+	+Title:						XSTR("Shivan Flak Weapon",-1)
+	+Description:
+		XSTR("",-1)
+	$end_multi_text
+	+Tech Title:					XSTR("Shivan Flak Weapon", -1)
+	+Tech Description:
+		XSTR("Shortly after the first uses of the Fire Spitter against Shivan targets, this weapon appeared on some Taurvis and Seraphims. Its tactical role is identical to the Fire Spitter's: to provide a flak screen between bombers and incoming interceptor, clearing the way to their targets. Taurvi bombers, however,  are agile enough to bring this weapon to bear against medium and heavy fighters, making this bomber a viable anti-fighter platform in some circumstances.", -1)
+	$end_multi_text
+$Model File:					wep_maxim_tech.pof
+$Mass:							0.2
+$Velocity:						750.0
+$Fire Wait:						0.35
+$Damage:						15
+$Damage Type:					ShivanWeapon
+$Blast Force:              		30.0
+$Inner Radius:					20.0                                    ;; radius at which damage is full
+$Outer Radius:					30.0                                    ;; max radius for attenuated damage
+$Shockwave Speed:				0.0                                     ;; velocity of shockwave.  0 for none.
+$Armor Factor:					1.0
+$Shield Factor:					1.0
+$Subsystem Factor:				0.2
+$Lifetime:						1.0
+$Energy Consumed:				0.4
+$Cargo Size:					0.25
+$Homing:						NO
+$LaunchSnd:						116
+$ImpactSnd:						117
+; +Weapon Range:					4000			;; Limit to range at which weapon will actively target object
+$Flags:							("Flak" "particle spew" "player allowed")
+$Trail:
+	+Start Width:	3.5
+	+End Width:		0.0
+	+Start Alpha:	1.0
+	+End Alpha:		0.0
+	+Max Life:		0.10
+	+Bitmap:		Flak_trail
+$Icon:							iconNewton
+$Anim:							Newton
+$Impact Explosion:				Exp20
+$Impact Explosion Radius:		25.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			7.5
+$Piercing Impact Velocity: 			10
+$Piercing Impact Splash Velocity:	-10
+$Piercing Impact Variance:			20000
+$Piercing Impact Particles:			5
+$Muzzleflash:						standardflak
+$Pspew:
+	+Count:		2
+	+Time:		1
+	+Vel:		0
+	+Radius:	2.50
+	+Life:		0.0125
+	+Scale:		0.025
+	+Bitmap:	Cmuzzle_0001
+$FOF:			3.0
+$Shots:			3
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; Alliance Primaries ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+$Name:                          UD-8 Kayser 
+	+nocreate ;:
+$Damage Type:					ShivanWeapon
+
+
+	
+;;;;;;;;;;;;;;;;;;;;;;;
+;; Vasudan Primaries ;;
+;;;;;;;;;;;;;;;;;;;;;;;
+	
+	
+
+
+	
+#End

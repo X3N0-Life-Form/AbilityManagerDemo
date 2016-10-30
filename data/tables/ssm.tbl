@@ -1,0 +1,91 @@
+$SSM:				Shivan SSM Strike
+	+Weapon:		Shivan Subspace Missile
+	+Count:			3
+	+WarpRadius:	40
+	+WarpTime:		6
+	+Radius:		1200
+	+Offset:		1
+	+Shape:			Sphere
+	+Custom Message:*Inbound Shivan SSM Strike*
+	+Alarm Sound:	185 ;; comnode
+
+$SSM:				Shivan AF SSM Strike
+	+Weapon:		AntiFighterSSM
+	+Count:			8 ;12
+	+WarpRadius:	15
+	+WarpTime:		4
+	+Radius:		400
+	+Offset:		1
+	+Shape:			Sphere
+	+Custom Message:*Inbound Anti-Strikecraft SSMs*
+	+Alarm Sound:	185
+
+$SSM:				Shivan SSM Barrage
+	+Weapon:		Shivan Subspace Missile
+	+Count:			6
+	+WarpRadius:	40
+	+WarpTime:		8
+	+Radius:		1600
+	+Offset:		1
+	+Shape:			Sphere
+	+Custom Message:*Inbound Shivan SSM Barrage*
+	+Alarm Sound:	185
+	
+$SSM:				Mordiggian Strike
+	+Weapon:		Shivan Mordiggian Bomb
+	+Count:			1
+	+WarpRadius:	40
+	+WarpTime:		8
+	+Radius:		1600
+	+Offset:		1
+	+Shape:			Sphere
+	+Custom Message:*Inbound Mordiggian Bomb*
+	+Alarm Sound:	185
+
+$SSM:				Mordiggian Strike x2
+	+Weapon:		Shivan Mordiggian Bomb
+	+Count:			1
+	+WarpRadius:	40
+	+WarpTime:		8
+	+Radius:		1600
+	+Offset:		1
+	+Shape:			Sphere
+	+Custom Message:*Inbound Mordiggian Bomb*
+	+Alarm Sound:	185
+	
+$SSM:				Mordiggian Strike x4
+	+Weapon:		Shivan Mordiggian Bomb
+	+Count:			1
+	+WarpRadius:	40
+	+WarpTime:		8
+	+Radius:		1600
+	+Offset:		1
+	+Shape:			Sphere
+	+Custom Message:*Inbound Mordiggian Bomb*
+	+Alarm Sound:	185
+	
+$SSM:				Mordiggian Strike x6
+	+Weapon:		Shivan Mordiggian Bomb
+	+Count:			1
+	+WarpRadius:	40
+	+WarpTime:		8
+	+Radius:		1600
+	+Offset:		1
+	+Shape:			Sphere
+	+Custom Message:*Inbound Mordiggian Bomb*
+	+Alarm Sound:	185
+
+$SSM:				Shivan Cluster Strike
+	+Weapon:		Shivan Cluster SSM
+	+Count:			1
+	+WarpRadius:	25
+	+WarpTime:		4
+	+Radius:		800
+	+Offset:		1
+	+Shape:			Sphere
+	+Custom Message:*Inbound Cluster Strike*
+	+Alarm Sound:	185
+
+
+
+#end

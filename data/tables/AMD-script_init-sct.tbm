@@ -1,0 +1,21 @@
+#Conditional Hooks
+$Application: FS2_Open
+
+;; Master script
+$On Game Init: [[parse.lua]]
+
+;; Ship Variant
+$On Game Init: [[shipVariant.lua]]
+$On Warp In: [setVariantDelayed()]
+
+$On Game Init: [[shipVariantMissionWide.lua]]
+
+;; Ability Management
+$On Game Init:[[abilityManager.lua]]
+$On Gameplay Start:[ability_resetMissionVariables()]
+$On Game Init:[[abilityLibrary.lua]]
+
+$State:	GS_STATE_GAME_PLAY
+$On Frame:[ability_cycleTrigger()]
+
+#End

@@ -1,0 +1,681 @@
+#Mission Info
+
+$Version: 0.10
+$Name:  XSTR("Arena:Reborn", -1)
+$Author: Tol Hrorim
+$Created: 07/13/16 at 20:41:36
+$Modified: 10/20/16 at 20:45:26
+$Notes:
+This is a FRED2_OPEN created mission.
+$End Notes:
+
+$Mission Desc:
+ XSTR("Put mission description here
+", -1)
+$end_multi_text
++Game Type Flags: 1
++Flags: 1152
++Fog Near Mult: 1.000000
+
++Fog Far Mult: 1.000000
+
++Disallow Support: 0
++Hull Repair Ceiling: 0.000000
++Subsystem Repair Ceiling: 100.000000
+
++Player Entry Delay:
+1.000000
+
++Viewer pos: 0.000000, 1286.835815, 456.352661
++Viewer orient:
+	0.254505, -0.000001, -0.967072,
+	0.737360, 0.647028, 0.194051,
+	0.625722, -0.762467, 0.164673
+
+
+$Skybox Model: Starfield.pof
+
+$AI Profile: myProfile
+
+#Sexp_variables
+
+$Variables:
+(
+		0		"debug"		"Empty"		"string"
+)
+
+#Command Briefing
+
+#Briefing
+$start_briefing
+$num_stages: 0
+$end_briefing
+
+#Debriefing_info
+
+$Num stages: 0
+
+#Players		;! 1 total
+
+$Starting Shipname: Alpha 1
+$Ship Choices: (
+	"GTF Ulysses"	5
+	"GTF Hercules"	5
+	"GTF Hercules Mark II"	5
+	"GTF Ares"	5
+	"GTF Erinyes"	5
+	"GTF Loki"	5
+	"GTF Pegasus"	5
+	"GTF Perseus"	5
+	"GTF Myrmidon"	5
+	"SF Mara (terrans)"	5
+	"GTB Artemis"	5
+	"GTB Artemis D.H."	5
+	"GTB Medusa"	5
+	"GTB Ursa"	5
+	"GTB Zeus"	5
+	"GTB Boanerges"	5
+	"GVF Ptah"	5
+)
+
++Weaponry Pool: (
+	"Subach HL-7"	17
+	"Subach HL-D"	16
+	"Mekhu HL-7"	16
+	"Mekhu HL-7D"	16
+	"Akheton SDG"	16
+	"Morning Star"	16
+	"MorningStar D"	16
+	"Prometheus R"	17
+	"Prometheus S"	16
+	"Prometheus D"	16
+	"Maxim"	16
+	"Maxim D"	16
+	"UD-8 Kayser"	16
+	"UD-D Kayser"	16
+	"Circe"	16
+	"Lamprey"	16
+	"Shivan Light Laser"	16
+	"Shivan Heavy Laser"	16
+	"Shivan Mega Laser"	16
+	"Shivan Light Laser Up"	16
+	"Shivan Heavy Laser Up"	16
+	"Shivan Anticap Laser"	16
+	"Shivan Heavy Anticap Laser"	16
+	"Shivan Scatter Gun"	16
+	"Shivan Light Scatter Gun"	16
+	"Shivan Sniper Gun"	16
+	"Shivan Large Cannon"	16
+	"Shivan Flak Weapon"	16
+	"UD-6"	16
+	"Fire Spitter"	16
+	"Hell Spitter"	16
+	"Hayg Mas"	16
+	"Sehku"	16
+	"Sahr AS"	16
+	"Rockeye"	500
+	"Rockeye D"	500
+	"Tempest"	500
+	"Tempest D"	500
+	"Hornet"	500
+	"Hornet D"	500
+	"Hornet#Weak"	500
+	"Tornado"	500
+	"Tornado D"	500
+	"Harpoon"	516
+	"Harpoon D"	500
+	"Harpoon#Weak"	500
+	"Trebuchet"	500
+	"TAG-A"	500
+	"TAG-B"	500
+	"TAG-C"	500
+	"Piranha"	500
+	"Stiletto II"	500
+	"Infyrno"	500
+	"Infyrno D"	500
+	"Cyclops"	500
+	"Cyclops#short"	500
+	"Helios"	500
+	"EMP Adv."	500
+	"Rockeye#Shivan"	500
+	"Rockeye D#Shivan"	500
+	"Tempest#Shivan"	500
+	"Tempest D#Shivan"	500
+	"Hornet#Shivan"	500
+	"Hornet D#Shivan"	500
+	"Hornet#Weak#Shivan"	500
+	"Tornado#Shivan"	500
+	"Tornado D#Shivan"	500
+	"Harpoon#Shivan"	500
+	"Harpoon D#Shivan"	500
+	"Harpoon#Weak#Shivan"	500
+	"Trebuchet#Shivan"	500
+	"Piranha#Shivan"	500
+	"Shivan Disruptor"	500
+	"Shivan Area Bomb"	500
+	"Shivan Bomb"	500
+	"Shivan Bomb#Short"	500
+	"Shivan Megabomb"	500
+	"EMP Adv.#Shivan"	500
+	"Shivan Swarmer Bomb"	500
+	"Shivan Advanced Swarmer Bomb"	500
+	"Crossbow"	500
+	"TAG-C#Shivan"	500
+	"AntiFighterTAG#Shivan"	500
+	"TAG-C#Barrage"	500
+	"Cluster SSM TAG#Shivan"	500
+	"Shivan Mordiggian Bomb"	500
+	"Tempest Adv#Shivan"	500
+)
+
+#Objects		;! 12 total
+
+$Name: Alpha 1		;! Object #0
+$Class: GTF Ulysses
+$Team: Friendly
+$Location: 0.000000, 0.000000, 0.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 13)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "player-start" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: E		;! Object #1
+$Class: SCv Moloch
+$Team: Hostile
+$Location: -141.930069, 0.000000, 1502.835449
+$Orientation:
+	0.070737, 0.000000, -0.997495,
+	0.000000, 1.000000, 0.000000,
+	0.997495, 0.000000, 0.070737
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 13)
++Initial Hull: 100
++Initial Shields: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret15
++Subsystem: turret16
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-shields" "escort" )
++Flags2: ( )
++Respawn priority: 0
++Escort priority: 10
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 440
+
+$Name: F		;! Object #2
+$Class: GVC Mentu Enforcer
+$Team: Friendly
+$Location: 2669.615234, 0.000000, 5896.618652
+$Orientation:
+	-0.128845, 0.000000, 0.991665,
+	0.000000, 1.000000, 0.000000,
+	-0.991665, 0.000000, -0.128845
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 13)
++Initial Hull: 100
++Initial Shields: 100
++Subsystem: Pilot
++Subsystem: Turret01
++Subsystem: Turret02
++Subsystem: Turret03
++Subsystem: Turret04
++Subsystem: Turret05
++Subsystem: Turret06
++Subsystem: Turret07
++Subsystem: Turret08
++Subsystem: Turret09
++Subsystem: Turret10
++Subsystem: Turret11
++Subsystem: Turret12
++Subsystem: Turret13
++Subsystem: Turret14
++Subsystem: Turret15
++Subsystem: Turret16
++Subsystem: Turret17
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-shields" "escort" )
++Flags2: ( )
++Respawn priority: 0
++Escort priority: 15
++Orders Accepted: 1		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 100
+
+$Name: F2		;! Object #3
+$Class: GVC Aten
+$Team: Friendly
+$Location: 253.549438, -0.000244, 4275.629883
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 13)
++Initial Velocity: 33
++Initial Hull: 100
++Initial Shields: 100
++Subsystem: Pilot
++Subsystem: turret01a
++Subsystem: turret02a
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-shields" "escort" )
++Flags2: ( )
++Respawn priority: 0
++Escort priority: 5
++Orders Accepted: 1		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 90
+
+$Name: F3		;! Object #4
+$Class: GVCv Sobek
+$Team: Friendly
+$Location: 5582.073242, -0.000244, 8567.922852
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 13)
++Initial Velocity: 33
++Initial Hull: 100
++Initial Shields: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret15
++Subsystem: turret16
++Subsystem: turret17
++Subsystem: turret18
++Subsystem: turret19
++Subsystem: turret20
++Subsystem: turret21
++Subsystem: turret22
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-shields" "escort" )
++Flags2: ( )
++Respawn priority: 0
++Escort priority: 1
++Orders Accepted: 1		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 400
+
+$Name: SF Aeshma 5		;! Object #5
+$Class: SF Aeshma
+$Team: Hostile
+$Location: -220.086746, 0.000000, 407.344238
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$AI Goals: ( goals ( ai-stay-still "Alpha 1" 50 ) )
+$Cargo 1:  XSTR("Nothing", 13)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 12
+
+$Name: Repair Test 1		;! Object #6
+$Class: GTF Hercules Mark II
+$Team: Friendly
+$Location: 1484.324707, 0.000000, 702.805298
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 13)
++Initial Hull: 50
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 12
+
+$Name: Repair Test 2		;! Object #7
+$Class: GTF Hercules Mark II
+$Team: Friendly
+$Location: 1376.934082, 0.000000, 681.235474
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 13)
++Initial Hull: 50
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 12
+
+$Name: Repair Test 3		;! Object #8
+$Class: GTF Hercules Mark II
+$Team: Friendly
+$Location: 1434.184692, 0.000000, 772.201294
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 13)
++Initial Hull: 50
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 12
+
+$Name: Repair Test 4		;! Object #9
+$Class: GTF Hercules Mark II
+$Team: Friendly
+$Location: 1423.089600, 0.000000, 612.379700
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 13)
++Initial Hull: 50
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 12
+
+$Name: Repair Test 5		;! Object #10
+$Class: GTF Hercules Mark II
+$Team: Friendly
+$Location: 1552.090942, 0.000000, 586.835999
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 13)
++Initial Hull: 50
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 12
+
+$Name: Repair Test 6		;! Object #11
+$Class: GTF Hercules Mark II
+$Team: Friendly
+$Location: 1573.307007, 0.000122, 715.699585
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 13)
++Initial Hull: 50
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 12
+
+#Wings		;! 2 total
+
+$Name: Alpha
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Alpha 1
+
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 1 total
+	"Alpha 1"
+)
++Hotkey: 0
++Flags: ( )
+
+$Name: Repair Test
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Repair Test 1
+
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Repair Test 1"
+	"Repair Test 2"
+	"Repair Test 3"
+	"Repair Test 4"
+	"Repair Test 5"
+	"Repair Test 6"
+)
+$AI Goals: ( goals ( ai-play-dead 50 ) )
++Flags: ( )
+
+#Events		;! 6 total
+
+$Formula: ( when 
+   ( true ) 
+   ( script-eval-block 
+      "setShipVariants(" 
+      "'Testing')" 
+   )
+)
++Name: mission start
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( false ) 
+   ( training-msg "debug" ) 
+)
++Name: print debug
++Repeat Count: 9999
++Interval: 1
+
+$Formula: ( when 
+   ( key-pressed "1" ) 
+   ( key-reset-multiple "1" ) 
+   ( script-eval-block 
+      "ability_trigger('" 
+      "Alpha 1::Energy Drain" 
+      "')" 
+   )
+)
++Name: ability-enegy drain
++Repeat Count: -1
++Trigger Count: 99999
++Interval: 1
+
+$Formula: ( when 
+   ( key-pressed "2" ) 
+   ( key-reset-multiple "2" ) 
+   ( script-eval-block 
+      "ability_trigger('" 
+      "Alpha 1::Fighter-launched" 
+      " Mordiggian Strike')" 
+   )
+)
++Name: ability-mord ssm
++Repeat Count: -1
++Trigger Count: 99999
++Interval: 1
+
+$Formula: ( when 
+   ( key-pressed "3" ) 
+   ( key-reset-multiple "3" ) 
+   ( script-eval-block 
+      "ability_trigger('" 
+      "Alpha 1::Repair-Self" 
+      "')" 
+   )
+)
++Name: ability-self-repair
++Repeat Count: -1
++Trigger Count: 99999
++Interval: 1
+
+$Formula: ( when 
+   ( key-pressed "4" ) 
+   ( key-reset-multiple "4" ) 
+   ( script-eval-block 
+      "ability_trigger('" 
+      "Alpha 1::Shield-Recharge-Target" 
+      "')" 
+   )
+)
++Name: ability-recharge-target
++Repeat Count: 1
++Interval: 1
+
+#Goals		;! 0 total
+
+
+#Waypoints		;! 0 lists total
+
+
+#Messages		;! 2 total
+
+
+$Name: debug
+$Team: -1
+$MessageNew:  XSTR("$debug", -1)
+$end_multi_text
+
+$Name: done
+$Team: -1
+$MessageNew:  XSTR(">>> done <<<", -1)
+$end_multi_text
+
+#Reinforcements		;! 0 total
+
+
+#Background bitmaps		;! 0 total
+
+$Num stars: 0
+$Ambient light level: 7895160
+
+#Asteroid Fields
+
+#Music
+
+$Event Music: None
+$Briefing Music: None
+
+#End
+

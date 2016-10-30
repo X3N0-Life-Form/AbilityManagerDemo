@@ -1,0 +1,25 @@
+#Muzzle flash types
+
+$MFlash:
+	+name:		WraithMuzzle
+	
+	+blob_name:		PWmuzzle ; WraithMuzzle
+	+blob_offset:	1.0
+	+blob_radius:	6.0
+	
+$Mflash:
+	+name: 		MDmuzzle
+	+blob_name: 	PWmuzzle
+	+blob_offset: 	1.0
+	+blob_radius: 	8.0
+	+blob_name: 	PWmuzzle
+	+blob_offset: 	2.0
+	+blob_radius: 	6.0
+	+blob_name: 	PWmuzzle
+	+blob_offset: 	2.5
+	+blob_radius: 	3.0
+	+blob_name: 	PWmuzzle
+	+blob_offset: 	3.5
+	+blob_radius: 	2.0
+
+#End

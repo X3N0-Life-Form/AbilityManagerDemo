@@ -1,0 +1,95 @@
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;
+;;                                                                            ;;
+;; Ship variant, mission setup table - Ability Manager Demo Special Edition ! ;;
+;;                                                                            ;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;; 
+;; Table Specification ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; #Categories represent variant groups
+;;
+;; $Name:		ship name
+;; $Variant: 	(optional) variant name, requires ship_variants.tbl
+;; $Abilities:	(optional) list of abilities, requires abilities.tbl
+;; 		+Manual:(optional) list of booleans, true if the corresponding must be fired manually
+
+
+
+;; Generic categories
+
+;; 12th Vasudan Battlegroup ;;
+#12th Vasudan BG
+
+; Hatshepsut class
+$Name:		Apep
+$Variant:	Combat
+
+; Typhon class
+$Name:		Pharaoh
+$Variant:	Combat Refit
+
+;		-GVC Searing Fate (Mentu Enforcer class)//destroyed
+
+; Aten class
+$Name:		Crixalis
+$Variant:	
+;		-GVGb Stone of Dovka (Hemsut class)	//destroyed
+
+; Sobek class
+$Name:		Blade
+$Variant:	Standard
+	+Wing:	2
+
+; Aeolus class
+$Name:		Hammer
+$Variant:	Upgraded
+	+Wing: 3
+
+#End
+
+
+#Demo 1
+
+$Name:		Sobek
+$Variant:	Standard
+
+$Name:		Aeolus
+$Variant:	Upgraded
+
+$Name:		Moloch
+$Variant:	Carrier Corvette
+$Abilities:	SSM-moloch-std
+
+$Name:		Virgo 1
+$Abilities:	Energy Drain, Fighter-launched Mordiggian Strike, Repair-Self, Shield-Recharge-Target
+	+Manual:true, true, true, true
+	
+$Name:		Virgo 2
+$Abilities:	Fighter-launched Mordiggian Strike
+
+$Name:		Virgo 3
+$Abilities:	Fighter-launched Mordiggian Strike
+
+	
+$Name:		Repair Beacon
+$Abilities:	Repair-Field
+
+#End
+
+#Testing
+
+$Name:		E
+$Variant:	Carrier Corvette
+$Abilities:	SSM-moloch-std
+
+$Name:		Alpha 1
+$Abilities:	Energy Drain, Fighter-launched Mordiggian Strike, Repair-Self, Shield-Recharge-Target
+	+Manual:true, true, true, true
+	
+$Name:		Repair Test 1
+$Abilities:	Repair-Field
+
+#End
+

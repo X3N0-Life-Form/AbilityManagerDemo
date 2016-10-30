@@ -1,0 +1,404 @@
+#Secondary Weapons
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; Shivan Torpedoes ;;
+;;;;;;;;;;;;;;;;;;;;;;
+
+$Name:		Shivan Bomb
++nocreate
++Title:								   XSTR("Shivan Standard Bomb", -1)
++Description:
+XSTR(
+"Special Issue
+Anti-Cruiser Bomb
+Non-Conventional Warhead
+", -1)
+$end_multi_text
+$Damage Type:		ShivanHugeWeapon
+$Flags:	("player allowed")
+
+$Name:		Shivan Bomb#Short
++nocreate
++Title:								   XSTR("Shivan Standard Bomb", -1)
++Description:
+XSTR(
+"Special Issue
+Anti-Cruiser Bomb
+Non-Conventional Warhead", -1)
+$end_multi_text
+$Flags:	("player allowed")
+
+$Name:		Shivan Megabomb
++nocreate
++Title:								   XSTR("Shivan Heavy Bomb", -1)
++Description:
+XSTR(
+"Special Issue
+Anti-Capital Ship Weapon
+Anti-Matter Torpedo", -1)
+$end_multi_text
+$Damage Type:		ShivanHugeWeapon
+$Flags:	("player allowed")
+
+$Name:                                 	Shivan Swarmer Bomb
+	+Title:								XSTR("Shivan Swarmer Bomb",-1)
+	+Description:
+		XSTR(
+		"Special Issue
+		Defence Saturation Bomb
+		Anti-Capital Ship Warhead
+		", -1)
+	$end_multi_text
+	+Tech Description:
+		XSTR("A threat that only appeared recently, the Shivan Swarmer Bomb is a light warhead whose main purpose is to confuse capital ships' point defence system. Often mounted on Aeshma Heavy fighter of Nahema Strike Bombers, these bombs are fired in swarms of 2 or 4 in rapid succession, overwhelming a warship's defence system and fighter escort. They have recently earned the nickname of 'corvette's hornet', due to the life expectancy of Alliance corvettes facing Swarmer Bombs being similar to that of a cruiser facing Hornet Swarm Missiles.",-1)
+	$end_multi_text
+$Model File:							S_Bomb.pof
+$POF target LOD:						0
+$Mass:									25.0
+$Velocity:								240.0
+$Fire Wait:								4.0
+$Damage:                                300
+$Damage Type:							ShivanHugeWeapon
+$Shockwave Damage Type:					ShivanHugeWeapon
+$Blast Force:							600.0
+$Inner Radius:							35.0	
+$Outer Radius:							80.0	 
+$Shockwave Speed:						80     
+$Shockwave name:						shockwave01                              
+$Armor Factor:							1.0
+$Shield Factor:							0.02
+$Subsystem Factor:						0.5				
+$Lifetime:								17.0
+$Energy Consumed:						0.0
+$Cargo Size:							8.0
+$Homing:								YES
+	+Type:                              ASPECT	
+	+Turn Time:                         3.0
+	+View Cone:							360.0
+	+Min Lock Time:						4.0	
+	+Lock Pixels/Sec:					35	
+	+Catch-up Pixels/Sec:				70
+	+Catch-up Penalty:					12
+$Swarm:									2	
+$LaunchSnd:								96
+$ImpactSnd:								88
+$FlyBySnd:								-1
+$Rearm Rate:							0.10
+$Flags:									("player allowed" "Bomb" "Huge" "No Dumbfire" "particle spew" )
+$Trail:
+	+Start Width:		1.0
+	+End Width:			0.0
+	+Start Alpha:		1.0
+	+End Alpha:			0.0
+	+Max Life:			3.8
+	+Bitmap:			missiletrail06
+$Icon:	iconbelial
+$Anim:	belial
+$Impact Explosion: ExpMissileHit1
+$Impact Explosion Radius:			29.52
+$Piercing Impact Explosion:			exp04
+$Piercing Impact Radius:			14.76
+$Piercing Impact Velocity:			25
+$Piercing Impact Splash Velocity:	-25
+$Piercing Impact Variance:			20000
+$Piercing Impact Particles:			10
+$Pspew:
+	+Count:		1
+	+Time:		1
+	+Vel:		0.0
+	+Radius:	0.5
+	+Life:		0.1
+	+Scale:		0.0
+	+Bitmap:	missilespew06
+$Thruster Flame Effect:				missilethruster06
+$Thruster Glow Effect:				missileglow06
+
+
+$Name:                                 	Shivan Advanced Swarmer Bomb
+	+Title:								XSTR("Shivan Advanced Swarmer Bomb",-1)
+	+Description:
+		XSTR(
+		"Special Issue
+		Defence Saturation Bomb
+		Non-Conventional Warhead
+		", -1)
+		$end_multi_text
+	+Tech Description:
+		XSTR("Individually weaker but faster than the standard Swarmer Bomb, the Advanced Swarmer Bomb, fielded by the Taurvi bomber is much more dangerous. Fired in swarms of 8, it is faster than any Alliance warhead, barring Tempest and TAG-A missiles, and corkscrews as it approaches its target, making it nigh impossible for pilots to intercept the bombs in flight. Any Shivan ship carrying this weapon is to be neutralised as fast as possible.",-1)
+	$end_multi_text
+$Model File:							S_Trebuchet.pof
+$POF target LOD:						0
+$Mass:									35.0
+$Velocity:								320.0
+$Fire Wait:								6.0
+$Damage:                                200
+$Damage Type:							ShivanHugeWeapon
+$Shockwave Damage Type:					ShivanHugeWeapon
+$Blast Force:							600.0
+$Inner Radius:							25.0	
+$Outer Radius:							60.0	 
+$Shockwave Speed:						20     
+$Shockwave name:						shockwave01                                 
+$Armor Factor:							1.0
+$Shield Factor:							0.02
+$Subsystem Factor:						0.7				
+$Lifetime:								26.0
+$Energy Consumed:						0.0
+$Cargo Size:							1.0
+$Homing:								YES
+	+Type:                              ASPECT	
+	+Turn Time:                         1.0
+	+View Cone:							360.0
+	+Min Lock Time:						8.0	
+	+Lock Pixels/Sec:					35	
+	+Catch-up Pixels/Sec:				70
+	+Catch-up Penalty:					12
+$LaunchSnd:								92
+$ImpactSnd:								88
+$FlyBySnd:								-1
+$Rearm Rate:							0.10
+$Flags:									("player allowed" "Bomb" "Huge" "No Dumbfire" "particle spew" "corkscrew" )
+$Trail:
+	+Start Width:		1.0
+	+End Width:			0.0
+	+Start Alpha:		1.0
+	+End Alpha:			0.0
+	+Max Life:			3.8
+	+Bitmap:			missiletrail06
+$Icon:								iconbelial
+$Anim:								belial
+$Impact Explosion: 					ExpMissileHit1
+$Impact Explosion Radius:			29.52
+$Piercing Impact Explosion:			exp04
+$Piercing Impact Radius:			14.76
+$Piercing Impact Velocity:			25
+$Piercing Impact Splash Velocity:	-25
+$Piercing Impact Variance:			20000
+$Piercing Impact Particles:			10
+$Corkscrew:
+	+Num Fired:			8
+	+Radius:			10
+	+Fire Delay:		200
+	+Counter rotate:	YES
+	+Twist:				4
+$Pspew:
+	+Count:		1
+	+Time:		1
+	+Vel:		0.0
+	+Radius:	0.5
+	+Life:		0.1
+	+Scale:		0.0
+	+Bitmap:	missilespew06
+$Thruster Flame Effect:				missilethruster06
+$Thruster Glow Effect:				missileglow06
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; Alliance Torpedoes ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+$Name:                                 Cyclops
+	+nocreate ;:
+$Shockwave Damage Type:					HugeWeapon
+
+$Name:                                 Cyclops#short
+	+nocreate ;:
+$Shockwave Damage Type:					HugeWeapon
+
+$Name:                                 Helios
+	+nocreate ;:
+$Shockwave Damage Type:					HugeWeapon
+
+
+$Name:                                  Crossbow
+	+Title:                                 XSTR("GTM-26b Crossbow", -1)
+	+Description:
+		XSTR(
+		"Special Issue
+		Fast Target Lock
+		Anti-Capital", -1)
+	$end_multi_text ;:
+	+Tech Title:				   XSTR("GTM-26b Crossbow", -1)
+	+Tech Anim:					   Tech_Harpoon
+	+Tech Description:
+		XSTR(
+		"With the ever-increasing effectiveness of capital ship point defences, it is clear that the current bombing run doctrine, which favours the use of a few slow but powerful warheads will soon become obsolete. Going to opposite way, the Crossbow is meant to be fired in large numbers in order to confuse hostile point defences. Since it is significantly less powerful than traditional bombs, the Crossbow's main role is to soften up targets and eliminate subsystems before friendly elements can engage and destroy.", -1)
+	$end_multi_text
+$Model File:							crossbow.pof
+$Mass:									15.0
+$Velocity:								450.0
+$Fire Wait:								3.0
+$Damage:								250
+$Damage Type:							HugeWeapon
+$Shockwave Damage Type:					HugeWeapon
+$Blast Force:							80.0
+$Inner Radius:							20.0
+$Outer Radius:							120.0                                       ;; max radius for attenuated damage 
+$Shockwave Speed:						80
+$Armor Factor:							1.0
+$Shield Factor:							0.1
+$Subsystem Factor:						0.5
+$Lifetime:								2.5
+$Energy Consumed:						0.0													;; Energy used when fired
+$Cargo Size:							2.5
+$Homing:								YES
+	+Type:								ASPECT												;; Legal: HEAT, ASPECT
+	+Turn Time:							0.8
+	+Min Lock Time:						1.5													;; Minimum lock time (in seconds)
+	+Lock Pixels/Sec:					70                                        ;; Pixels moved per sec while locking
+	+Catch-up Pixels/Sec:				100
+	+Catch-up Penalty:					30
+$Swarm:									3
+	+SwarmWait:						0.4
+$LaunchSnd:								91                                        ;; The sound it makes when fired
+$ImpactSnd:								88                                        ;; The sound it makes when it hits something
+$FlyBySnd:								-1
+$Rearm Rate:							2.0
+$Flags:									( "player allowed" "bomb" "huge" )
+$Trail:
+	+Start Width:	0.3
+	+End Width:		0
+	+Start Alpha:	1.0
+	+End Alpha:		0.0
+	+Max Life:		2.5
+	+Bitmap:		missiletrail06										;; Bitmap used to draw trail
+$Icon:									iconCrossbow
+$Anim:									cross
+$Impact Explosion:						ExpMissileHit1
+$Impact Explosion Radius:			9.92
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			4.96
+$Piercing Impact Velocity:			20
+$Piercing Impact Splash Velocity:	-5
+$Piercing Impact Variance:			0.1
+$Piercing Impact Particles:			5
+$Thruster Flame Effect:				missilethruster06
+$Thruster Glow Effect:				missileglow06
+
+
+$Name:                                 	Vasudan Torpedo
+	+Tech Description:
+		XSTR("When the Hatshepsut-class destroyer came out, it became apparent that the old Fusion Mortar and Vasudan Flux Canon had become obsolete in the new beam heavy environment as heavy ship-to-ship missiles. While the Terran decided to develop a Mass Driver gun for their Hecate-class destroyers as a secondary non-beam anti-capital ship weapon, Vasudan Command decided to retrofit the already-existing Fusion Mortar launchers of Hatshepsut destroyers into a next-generation anti-capital ship missile launcher.
+
+The resulting weapon is a flexible torpedo system, firing fast torpedoes in swarms of 2, sacrificing payload for speed, making the torpedoes hard to intercept. While the production costs remain relatively high compared to older mainstream designs, the success of this weapon system can be interpreted as a cue that ship-to-ship missiles are still a viable weapon platform.",-1)
+		$end_multi_text
+$Model File:							harbinger.pof
+$POF target LOD:						1
+$Mass:									25.0
+$Velocity:								220.0
+$Fire Wait:								12.0
+$Damage:                                1220
+$Damage Type:							HugeWeapon
+$Shockwave Damage Type:					HugeWeapon
+$Blast Force:							1000.0
+$Inner Radius:							70.0
+$Outer Radius:							160.0
+$Shockwave Speed:						80                                      
+$Armor Factor:							1.0
+$Shield Factor:							0.02
+$Subsystem Factor:						1.2	
+$Lifetime:								15.0
+$Energy Consumed:						0.0
+$Cargo Size:							15.0
+$Homing:								YES
+	+Type:                              ASPECT	
+	+Turn Time:                         2.8
+	+View Cone:							180.0
+	+Min Lock Time:						3.5	
+	+Lock Pixels/Sec:					35	
+	+Catch-up Pixels/Sec:				70
+	+Catch-up Penalty:					12
+$Swarm:									2	
+;; $Free Flight Time:						0.5
+$LaunchSnd:								96
+$ImpactSnd:								88
+$FlyBySnd:								-1
+$Rearm Rate:							0.05
+$Flags:									( "Bomb" "Huge" "No Dumbfire" )
+$Trail:                                                                          ;; Trail cannot be set if Exhaust is set
+	+Start Width:						0.5                                       ;; Width of trail nearest missile
+	+End Width:							1.75                                      ;; Width of trail before it "evaporates"
+	+Start Alpha:						1.0
+	+End Alpha:							0.0
+	+Max Life:                          1.5                                       ;; how many seconds before trail disappears
+	+Bitmap:							MissileTrail04										;; Bitmap used to draw trail
+$Icon:                                 iconbelial
+$Anim:                                 belial
+$Impact Explosion:                     ExpMissileHit1
+$Impact Explosion Radius:					15.0
+
+
+$Name:									Catapult
+	+Tech Title:				   XSTR("'Catapult' Long Range Torpedo", -1)
+	+Tech Anim:					   Tech_Helios
+	+Tech Description: 
+		XSTR("CLASSIFIED - Level Rho
+		
+		The Alliance's most powerful warhead is the still-classified GTM-852 'Catapult' Long Range Torpedo. Combining an extremely powerful warhead with a state-of-the-art engine, the Catapult features unparalleled range and firepower. However, this comes at the cost of subsystem-specific aspect lock, though both commanders and engineers agree that this is by no means the purpose of this warhead. Though it is capable of shattering the hull of even the toughest Terran-Vasudan warships in at most a few impacts, its prohibitive cost forces commanders to deploy this weapon against already softened up targets, or as a finisher weapon.
+		
+		Another interesting feature of the Catapult is its ability to be deployed by independent launchers, making it an ideal ambush weapon, unleashing a sudden hellfire against unsuspecting battlegroups or military convoys. In cases of extreme emergency, these launchers can also be used to fire the Catapult from a ship's fighterbay or docking ports, as demonstrated by SOC operatives during Operation Havoc against NTF forces.
+		
+		Too large to be mounted on bombers, the Catapult is by definition a capital ship weapon. Only newer warships, such as the Sparta-class corvette or the Malta-class torpedo boat, mount compatible launchers, although some Arcadia installations have been successfully refitted with heavy torpedo tubes replacing their standard anti-fighter missile launchers. The bulk of the Catapult reserves are located in the Capella and Beta Aquilae systems, and like the Helios, require special authorisation by the Security Council in order to be deployed.", -1)
+	$end_multi_text
+$Model File:							helios.pof
+$Mass:									35.0
+$Velocity:								280.0
+$Fire Wait:								20.0
+$Damage:                                12800
+$Damage Type:							HugeWeapon
+$Shockwave Damage Type:					HugeWeapon
+$Blast Force:                           1000.0
+$Inner Radius:							250.0
+$Outer Radius:							500.0
+$Shockwave Speed:						150
+$Shockwave name:						shockwave01
+$Armor Factor:							1.0
+$Shield Factor:							0.02
+$Subsystem Factor:                      0.85
+$Lifetime:								30.0
+$Energy Consumed:						0.0
+$Cargo Size:							25.0
+$Homing:								YES
+	+Type:                              ASPECT												;; Legal: HEAT, ASPECT
+	+Turn Time:                         3.0
+	+View Cone:							360.0
+	+Min Lock Time:						1.0
+	+Lock Pixels/Sec:					25
+	+Catch-up Pixels/Sec:				0
+	+Catch-up Penalty:					15
+$LaunchSnd:								97
+$ImpactSnd:								101													;;      shockwave impact sound
+$FlyBySnd:								-1
+$Rearm Rate:							0.02
+$Flags:									( "Bomb" "Huge" "No Dumbfire" "particle spew" )
+$Trail:
+	+Start Width:	2.0
+	+End Width:		0
+	+Start Alpha:	1.0
+	+End Alpha:		0.0
+	+Max Life:		2.6
+	+Bitmap:		missiletrail02									;; Bitmap used to draw trail
+$Icon:                                 iconHelios
+$Anim:                                 Helios
+$Impact Explosion:                     ExpMissileHit1
+$Impact Explosion Radius:			39.32
+$Piercing Impact Explosion:			exp04
+$Piercing Impact Radius:			19.66
+$Piercing Impact Velocity:			25
+$Piercing Impact Splash Velocity:	-25
+$Piercing Impact Variance:			20000
+$Piercing Impact Particles:			10
+$Pspew:
+	+Count:		1
+	+Time:		1
+	+Vel:		0.0
+	+Radius:	1.0
+	+Life:		0.1
+	+Scale:		0.0
+	+Bitmap:	missilespew02
+$Thruster Flame Effect:				missilethruster02
+$Thruster Glow Effect:				missileglow02
+
+
+
+
+#End

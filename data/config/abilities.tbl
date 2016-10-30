@@ -1,0 +1,88 @@
+;; TODO : have a global attribute section ?
+;; color schemes, whether player abilities should be displayed & shit ?
+
+
+
+#Abilities
+
+
+$Name:				SSM-moloch-std
+$Function:			fireSSM
+$Target Type:   	cruiser, capital, corvette  ;; TODO: allow ship flags, like big damage & shit
+$Target Team:   	Hostile
+$Target Selection:	Closest
+$Cooldown:			24, 20, 17, 15, 13
+$Ability Data:		fireSSM
+  +Strike Type: 	Shivan SSM Strike
+  
+$Name:					Fighter-launched Mordiggian Strike
+$Function:				fireSSM
+$Target Type:   		cruiser, capital, corvette  ;; TODO: allow ship flags, like big damage & shit
+$Target Team:   		Hostile
+$Target Selection:		Current Target
+$Range:					2500
+$Cost:					1
+	+Starting Reserve:	10
+$Cooldown:				9
+$Ability Data:
+  +Strike Type: 	Mordiggian Strike
+
+$Name:				Energy Drain
+$Function:			fireEnergyDrain
+$Target Type:		fighter, bomber
+$Target Team:		Hostile
+$Target Selection:	Current Target	; Ship targetted by the caster
+$Range:				900
+$Cost:				10
+	+Cost Type:		energy:weapon
+$Cooldown:			10
+$Ability Data:
+	+Weapon drain:		70
+	+Afterburner drain:	200
+	+Shield drain:		250
+
+$Name:					Repair-Self
+$Function:				fireRepair
+$Target Type:			fighter, bomber
+$Target Team:			Friendly
+$Target Selection:		Self
+$Cost:					1
+	+Starting Reserve:	5
+$Cooldown:				30
+;; TODO : duration
+$Ability Data:
+	+Hull:				100
+	
+$Name:					Shield-Recharge-Target
+$Function:				fireRepair
+$Target Type:			fighter, bomber
+$Target Team:			Friendly
+$Target Selection:		Current Target	; Ship targetted by the caster
+$Range:					4500
+$Cost:					1
+	+Starting Reserve:	5
+$Cooldown:				30
+;; TODO : duration
+$Ability Data:
+	+Shields:			800
+	
+$Name:					Repair-Field
+$Function:				fireRepair
+$Target Type:			fighter, bomber
+$Target Team:			Friendly
+$Target Selection:		Random
+$Range:					900
+$Cooldown:				1
+$Ability Data:
+	+Hull:			15
+	+Shields:		150
+	
+;Name:          Shield Recharge Aura ;; concept : passive ability
+;$Target Type:   fighter, bomber
+;$Target Team:   Friendly
+;$Range:         4000
+;$Ability Data:
+;  +Regen Rate:  1%/s
+
+
+#End

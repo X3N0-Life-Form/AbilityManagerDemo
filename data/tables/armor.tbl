@@ -1,0 +1,254 @@
+#Armor Type
+
+;; standard armor types
+
+$Name: HeavyArmor
+	$Damage Type: NormalWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.8
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: None
+	$Damage Type: HugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type: ShivanWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: None
+	$Damage Type:	ShivanHugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.2
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type:	LanceWeapon
+		+Calculation:	Multiplicative
+		+Value:			5.0
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+
+$Name: MediumArmor
+	$Damage Type: NormalWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type: HugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type: ShivanWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.2
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type:	ShivanHugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.4
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type:	LanceWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+
+$Name: LightArmor
+	$Damage Type: NormalWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: Default
+	$Damage Type: HugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.1
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: None
+	$Damage Type: ShivanWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.15
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: Default
+	$Damage Type:	ShivanHugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.3
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: None
+	$Damage Type:	LanceWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 15
+		+Weapon Piercing Type: Default
+		
+;; new armor types
+
+$Name:		Shivan Fighter Armor
+	$Damage Type: NormalWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.85
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: Default
+	$Damage Type: HugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.7
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: None
+	$Damage Type: ShivanWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: Default
+	$Damage Type:	ShivanHugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.05
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: None
+	$Damage Type:	LanceWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: Default
+		
+$Name:		Shivan Bomber Armor
+	$Damage Type: NormalWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.7
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: Default
+	$Damage Type: HugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.4
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: None
+	$Damage Type: ShivanWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: Default
+	$Damage Type:	ShivanHugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.8
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: None
+	$Damage Type:	LanceWeapon
+		+Calculation:	Multiplicative
+		+Value:			2.0
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+		
+;; corvettes & cruisers
+$Name:		Shivan Capital Ship Armor
+	$Damage Type:	NormalWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.75
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: none
+	$Damage Type:	HugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: default
+	$Damage Type:	ShivanWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: none
+	$Damage Type:	ShivanHugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.1
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: default		
+	$Damage Type:	LanceWeapon
+		+Calculation:	Multiplicative
+		+Value:			5.0
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+		
+		
+$Name:				Shivan Destroyer Armor
+	$Damage Type:	NormalWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.50
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: none
+	$Damage Type:	HugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.8
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: default
+	$Damage Type:	ShivanWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.9
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: none
+	$Damage Type:	ShivanHugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			1.0
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: default
+	$Damage Type:	LanceWeapon
+		+Calculation:	Multiplicative
+		+Value:			3.0
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+		
+		
+$Name:		Shivan Elite Armor
+	$Damage Type: NormalWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.4
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type: HugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.6
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type: ShivanWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.7
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type:	ShivanHugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.2
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type:	LanceWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.6
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+		
+;; plot armor
+$Name: Hell Armor
+	$Damage Type: NormalWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.10
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type: HugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.05
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type: ShivanWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.2
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type:	ShivanHugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.01
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type:	LanceWeapon
+		+Calculation:	Multiplicative
+		+Value:			0.05
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+
+#End
