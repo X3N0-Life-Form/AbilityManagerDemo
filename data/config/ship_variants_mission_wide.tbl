@@ -76,20 +76,10 @@ $Abilities:	Fighter-launched Mordiggian Strike
 $Name:		Repair Beacon
 $Abilities:	Repair-Field
 
-#End
-
-#Testing
-
-$Name:		E
-$Variant:	Carrier Corvette
-$Abilities:	SSM-moloch-std
-
-$Name:		Alpha 1
-$Abilities:	Energy Drain, Fighter-launched Mordiggian Strike, Repair-Self, Shield-Recharge-Target
-	+Manual:true, true, true, true
-	
-$Name:		Repair Test 1
-$Abilities:	Repair-Field
+$Name:		Arcadia
+$Abilities:	Repair-Cruiser, Shield-Recharge-Target-Redux, Good Guy SSB
 
 #End
+
+
 

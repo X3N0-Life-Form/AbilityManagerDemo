@@ -256,8 +256,7 @@ $Name:								Wraith
 	A very effective joint design is expected to replace the old Heavy Point Defence Turrets on Alliance warships in the coming years.",-1)
 	$end_multi_text
 $Model File: 						none
-@Laser Bitmap:						Banshee_Bitmap
-@Laser Glow:						round_glow
+@Laser Bitmap:						Akheton_Bitmap
 @Laser Color: 						190, 150, 250
 @Laser Length: 						27.0
 @Laser Head Radius:					4.2
@@ -277,7 +276,7 @@ $Homing: 							NO
 $LaunchSnd: 						107
 $ImpactSnd:							85
 $Flags: 							( "big ship" )
-$Impact Explosion:					Banshee_Impact
+$Impact Explosion:					Akheton_Impact
 $Impact Explosion Radius:			10.5
 $Piercing Impact Explosion:			exp06
 $Piercing Impact Radius:			7.5

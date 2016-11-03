@@ -571,13 +571,325 @@ $Name:                          UD-8 Kayser
 $Damage Type:					ShivanWeapon
 
 
+$Name:							UD-6
+	+Title:						XSTR("UD-6",-1)
+	+Description:				XSTR("Experimental weapon",-1)
+	$end_multi_text
+	+Tech Description:			XSTR("The UD-6 weapons were the prototypes of what would become the UD-8 Kayser. All around inferior to its successor, the UD-6 series' most crippling feature was its extremely restricted compatibility with standard Alliance equipment, which was not addressed during the design of the never-fielded UD-7, but thankfully solved by the time the first UD-8 were fielded by SOC squadrons.",-1)
+	$end_multi_text
+$Model File:                    none ; laser1-1.pof
+@Laser Bitmap:                  Alouqua_AniBitmap
+@Laser Glow:					Alouqua_Glow
+@Laser Color:					180, 0, 100
+@Laser Color2:					80, 10, 30
+@Laser Length:       			3.0
+@Laser Head Radius:  			1.90
+@Laser Tail Radius:  			1.30
+$Mass:                          0.35
+$Velocity:                      550.0	
+$Fire Wait:                     0.28	
+$Damage:                        20
+$Damage Type:					ShivanWeapon
+$Armor Factor:					1.0
+$Shield Factor:					0.9
+$Subsystem Factor:				0.6
+$Lifetime:                      2.0
+$Energy Consumed:				0.8	
+$Cargo Size:                    0.0                  
+$Homing:                        NO
+$LaunchSnd:                     103
+$ImpactSnd:                     85  
+$Flags:                         ("player allowed")
+$Trail:
+	+Start Width:	0.35
+	+End Width:		0.1
+	+Start Alpha:	0.4
+	+End Alpha:		0.0
+	+Max Life:		0.07
+	+Bitmap:		Alouqua_Trail
+$Icon:                          iconKayser
+$Anim:                          Kayser
+$Impact Explosion:      		Shivan_Impact01
+$Impact Explosion Radius:			3.8
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			1.9
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						Rmuzzle
+
+
+$Name:							Fire Spitter
+	+Title:						XSTR("Fire Spitter",-1)
+	+Description:				XSTR("Fighter sized flak canon
+Uses ammunition",-1)
+$end_multi_text
+	+Tech Title:				XSTR("Fire Spitter", -1)
+	+Tech Anim:					Tech_GTW-66_Maxim_Gun
+	+Tech Description:			XSTR("As bombers became more and more vulnerable to interception, the pressure for more bomber-dedicated anti fighter armament became high enough to warrant the development of this expansive but highly effective weapon. Based on capital ship mounted flak guns, the fire spitter cycle through its firing points to create a constant flak shield between the bomber and incoming fighters, forcing these to break off and be picked by the bomber's escort. Due to its high ammunition consumption, this weapon it largely ineffective against capital ships.", -1)
+$end_multi_text
+$Model File:					wep_maxim_tech.pof
+$Mass:							0.2
+$Velocity:						700.0
+$Fire Wait:						0.25
+$Damage:						25
+$Damage Type:					NormalWeapon
+$Blast Force:              		40.0
+$Inner Radius:					15.0                                    ;; radius at which damage is full
+$Outer Radius:					20.0                                    ;; max radius for attenuated damage
+$Shockwave Speed:				0.0                                     ;; velocity of shockwave.  0 for none.
+$Armor Factor:					1.0
+$Shield Factor:					2.0
+$Subsystem Factor:				0.2
+$Lifetime:						1.5
+$Energy Consumed:				0.0
+$Cargo Size:					0.25
+$Homing:						NO
+$LaunchSnd:						116
+$ImpactSnd:						117
+$Rearm Rate:					40.0
+$Flags:							("Flak" "particle spew" "cycle" "player allowed" "ballistic")
+$Trail:
+	+Start Width:	3.5
+	+End Width:		0.0
+	+Start Alpha:	1.0
+	+End Alpha:		0.0
+	+Max Life:		0.10
+	+Bitmap:		Flak_trail
+$Icon:							iconNewton
+$Anim:							Newton
+$Impact Explosion:				Exp20
+$Impact Explosion Radius:		25.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			7.5
+$Piercing Impact Velocity: 			10
+$Piercing Impact Splash Velocity:	-10
+$Piercing Impact Variance:			20000
+$Piercing Impact Particles:			5
+$Muzzleflash:						standardflak
+$Pspew:
+	+Count:		2
+	+Time:		1
+	+Vel:		0
+	+Radius:	2.50
+	+Life:		0.0125
+	+Scale:		0.025
+	+Bitmap:	Cmuzzle_0001
+	
+
+$Name:                              Hell Spitter
+	+Title:						XSTR("Hell Spitter",-1)
+	+Description: XSTR("High Rate of Fire Anti-Hull Weapon
+		Uses ammunition",-1)
+	$end_multi_text
+	+Tech Title: XSTR("Hell Spitter", -1)
+	+Tech Anim: Tech_GTW-66_Maxim_Gun
+	+Tech Description:
+		XSTR("Firing 100 20-gram round per second per gunpoint at a velocity of 6 kilo-meters per second, the Hell Spitter was designed for short-duration high-intensity engagement between strikecrafts and capital ships, providing the former the firepower needed for 4-bomber wings to eliminate any threat within seconds.
+
+			The main drawbacks of this weapon are its extremely high ammo consumption, high energy consumption, high dispersion, its virtual ineffectiveness against shielded targets and limited compatibility with light or older bomber designs.", -1)
+	$end_multi_text
+$Model File:						none
+@Laser Bitmap:						Maxim
+@Laser Glow:						Maxim_Glow
+@Laser Color:						90, 90, 90
+@Laser Color2:						150, 150, 200
+@Laser Length:						18.0
+@Laser Head Radius:					4.0
+@Laser Tail Radius:					2.5
+$Mass:                              0.1
+$Velocity:                          2600.0   
+$Fire Wait:                         0.01 
+$Damage:                            8
+$Damage Type:						HugeWeapon
+$Armor Factor:						1.0
+$Shield Factor:						0.05
+$Subsystem Factor:					0.4
+$Lifetime:                          0.2
+$Energy Consumed:					0.09
+$Cargo Size:						0.04
+$Homing:                            NO
+$LaunchSnd:                         81   
+$ImpactSnd:                         85
+$Rearm Rate:						120.0
+$Flags:                             ( "stream" "player allowed" "shudder" "ballistic" )
+$Trail:
+	+Start Width:	1.0
+	+End Width:		0.3
+	+Start Alpha:	0.2
+	+End Alpha:		0.0
+	+Max Life:		0.3
+	+Bitmap:		Maxim_Trail
+$Impact Explosion:					Maxim_Impact
+$Impact Explosion Radius:			3.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			2.0
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-4.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						PWmuzzle
+$FOF:								3.5
 	
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; Vasudan Primaries ;;
 ;;;;;;;;;;;;;;;;;;;;;;;
 	
-	
+$Name:                              Hayg Mas
+	+Title:                     XSTR("GVW-73 Hayg Mas", -1)
+	+Description:				
+		XSTR("Level 4 Shield Damage
+			Kinetic Effect", -1)
+	$end_multi_text
+	+Tech Title:				   XSTR("GVW-73 Hayg Mas", -1)
+	+Tech Anim:					   Tech_GTW-5a_Prometheus_R
+	+Tech Description:
+		XSTR("Given the mixed results of the GTW ML-70 Morning Star, Vasudan Tactical Command felt that the Alliance needed a more close-combat oriented kinetic primary weapon. Developed by Mekhu Enterprises, the Hayg Mas turned out to be significantly different from the Morning Star: packing significant anti-shield and subsystem capabilities, the Hayg Mas is also more energy efficient, at the cost of range, projectile speed and rate of fire. In order to compensate for its low rate of fire, the Hayg Mas alternates between its firing points to provide a constant stream of projectile between a fighter and its target.
 
+		Currently, the weapon can only be mounted on Vasudan power grids, limiting its use to Vasudan fighters, although the Security Council has contracted Subach-Innes to create a Terran version of this weapon, given the manufacturer's history with Mekhu Enterprises.", -1)
+	$end_multi_text
+$Model File:						none
+@Laser Bitmap:						PrometheusR_AniBitmap
+@Laser Glow:						Prometheus_Glow
+@Laser Color:						200, 150, 81
+@Laser Color2:						200, 150, 20
+@Laser Head Radius:					0.8
+@Laser Tail Radius:					0.4
+$Mass:                              3.2
+$Velocity:                          650.0
+$Fire Wait:                         0.35
+$Damage:                            28
+$Damage Type:						NormalWeapon
+$Armor Factor:						0.35
+$Shield Factor:						1.0
+$Subsystem Factor:					0.8
+$Lifetime:                          1.6
+$Energy Consumed:					0.70
+$Cargo Size:						0.0
+$Homing:                            NO
+$LaunchSnd:                         79
+$ImpactSnd:                         85
+$Flags:                             ("player allowed" "cycle")
+$Icon:                              iconPromR
+$Anim:                              PromR
+$Impact Explosion:					Prometheus_Impact
+$Impact Explosion Radius:			2.4
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			1.2
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						Gmuzzle
+	
+	
+$Name:                                  Sehku
+	+Title:                             XSTR("GVW-52 Sehku", -1)
+	+Description:
+		XSTR("", -1)
+	$end_multi_text
+	+Tech Title:				    XSTR("GVW-52 Sehku", -1)
+	+Tech Anim:					    Tech_Akheton_SDG
+	+Tech Description:
+		XSTR("Using its Subsystem Disruptor Gun as a template, Akheton developed this weapon to replace the Alliance's Shield Breaker gun. Due to a chaotic development and unrealistic demands, Akheton lost its contract for the Alliance's standard Shield Breaker weapon in favor of the GTW-19 Circe.
+
+		The Akheton Corporation wanted to develop a multi-purpose weapon capable of replacing the SDG when it would enter the end of its life cycle, in addition of its anti-shield properties, thus adding a whole new set of constraints to an already demanding project, and delaying its entry into service for years. Initial field tests of the weapon were rather unimpressive: pilots judged the fire rate to be too slow for practical use in a dogfight situation. Instead of addressing these issues, Akheton decided to increase the value of each shot fired, causing the company to lose to race with the Circe.
+
+		The final version of the Sehku is a still a slow-firing and high-energy consumption weapon, but compensate with high range and projectile speed, and is now an appreciated anti-bomber weapon, stripping even the strongest shields in a couple of shots.", -1)
+	$end_multi_text
+$Model File:									none ;  laser1-1.pof
+@Laser Bitmap:							Akheton_Bitmap
+@Laser Glow:							Akheton_Glow
+@Laser Color:							90, 20, 150
+@Laser Color2:							0, 0, 0
+@Laser Length:							40.0
+@Laser Head Radius:						8.5
+@Laser Tail Radius:						2.2
+$Mass:                                	0.2
+$Velocity:                            	1500.0
+$Fire Wait:                            	0.75
+$Damage:                               	245
+$Damage Type:							NormalWeapon
+$Blast Force:							0
+$Inner Radius:							5.0
+$Outer Radius:							15.0
+$Shockwave Speed:						0
+$Armor Factor:							0.03
+$Shield Factor:							0.7
+$Subsystem Factor:						1.0
+$Lifetime:                             	1.2
+$Energy Consumed:						2.6	
+$Cargo Size:							0.0
+$Homing:                               NO
+$LaunchSnd:                            77                              ;; The sound it makes when fired
+$ImpactSnd:                            85                              ;; The sound it makes when it hits something
+$Flags:                                ( "player allowed" "particle spew")
+$Icon:                                 iconScalpel
+$Anim:                              Scalpel
+$Impact Explosion:					Akheton_Impact
+$Impact Explosion Radius:			1.8
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			0.9
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						Bmuzzle
+$Pspew:
+	+Count:		6
+	+Time:		55
+	+Vel:		0.03
+	+Radius:	0.40
+	+Life:		2.3
+	+Scale:		0.25
+	+Bitmap:	Akheton_Particle
+	
+	
+$Name:                             	Sahr AS
+	+Title:                        		XSTR("GVW Sahr Adv. Sidearm", -1)
+	+Description:
+		XSTR("Moderate Hull Damage
+			High Shield Damage", -1)
+	$end_multi_text
+	+Tech Title:				   XSTR("GVW Sahr Advanced Sidearm", -1)
+	+Tech Anim:					   Tech_GTW_UD-8_Kayser
+	+Tech Description:
+		XSTR("Despite the massive success of the Banshee during the Great War, its prohibitive cost and slightly reduced effectiveness against heavily armored target, particularly capital ships, caused the weapon's production cycle to end prematurely, and no replacement was requested for two decades. Developed parallel to its capital ship-mounted twin by the Sahr Corporation, the Advanced Sidearm finally entered production phase in the final month of the Civil War, years after the Wraith itself came out. Optimized for use on Vasudan fighters, the Advanced Sidearm is much more energy efficient than its Great War ancestor and benefits from increased range, speed and refire rate compared to the Banshee.", -1)
+	$end_multi_text
+$Model File:						none
+@Laser Bitmap:						Akheton_Bitmap
+@Laser Glow:						round_glow
+@Laser Color: 						190, 150, 250
+@Laser Length: 						25.0
+@Laser Head Radius:					0.480
+@Laser Tail Radius:					0.80
+$Mass:                              0.5
+$Velocity:                          770.0
+$Fire Wait:                         0.30
+$Damage:                            32
+$Damage Type:						NormalWeapon
+$Armor Factor:						0.6
+$Shield Factor:						1.0
+$Subsystem Factor:					0.25
+$Lifetime:                          1.3
+$Energy Consumed:					1.0
+$Cargo Size:						0.0
+$Homing:                            NO
+$LaunchSnd:                         107
+$ImpactSnd:                         85
+$Flags:                  			( "player allowed")
+$Icon:                              iconKayser
+$Anim:                              Kayser
+$Impact Explosion:					Akheton_Impact
+$Impact Explosion Radius:			2.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			1.9
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash: 						Bmuzzle
 
 	
 #End

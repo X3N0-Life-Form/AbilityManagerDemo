@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Demo mission 1", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 10/30/16 at 20:33:49
+$Modified: 11/02/16 at 20:31:22
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -23,11 +23,11 @@ $end_multi_text
 +Hull Repair Ceiling: 0.000000
 +Subsystem Repair Ceiling: 100.000000
 
-+Viewer pos: 2820.762695, 5339.062012, 1732.708740
++Viewer pos: 1729.492065, 7251.364746, -2738.691895
 +Viewer orient:
-	0.905472, 0.000001, 0.424405,
-	-0.370132, 0.489296, 0.789679,
-	-0.207659, -0.872118, 0.443044
+	0.999268, 0.000002, 0.038263,
+	-0.031162, 0.580321, 0.813791,
+	-0.022203, -0.814388, 0.579896
 
 $Starting wing names: ( "Virgo" "Scorpio" "Libra" )
 $Squadron wing names: ( "Virgo" "Scorpio" "Libra" "Gemini" "Aquarius" )
@@ -154,7 +154,7 @@ $Ship Choices: (
 	"Shivan Mordiggian Bomb"	500
 )
 
-#Objects		;! 18 total
+#Objects		;! 22 total
 
 $Name: Virgo 1		;! Object #0
 $Class: SF Mara
@@ -469,7 +469,7 @@ $Determination: 10
 $Name: Sobek		;! Object #11
 $Class: GVCv Sobek
 $Team: Hostile
-$Location: 2253.985352, 443.913086, 8508.370117
+$Location: 1446.696655, 443.912354, 5260.266602
 $Orientation:
 	0.765254, 0.442520, -0.467506,
 	0.377628, -0.896758, -0.230699,
@@ -521,7 +521,7 @@ $Determination: 10
 $Name: Beta 1		;! Object #12
 $Class: GTF Myrmidon
 $Team: Hostile
-$Location: 3199.548096, 0.000977, 9820.474609
+$Location: 2392.259766, 0.000245, 6572.371094
 $Orientation:
 	1.000000, 0.000000, 0.000000,
 	0.000000, 1.000000, 0.000000,
@@ -549,7 +549,7 @@ $Determination: 10
 $Name: Beta 2		;! Object #13
 $Class: GTF Myrmidon
 $Team: Hostile
-$Location: 2802.804199, 0.000977, 9253.034180
+$Location: 1995.515503, 0.000245, 6004.930664
 $Orientation:
 	1.000000, 0.000000, 0.000000,
 	0.000000, 1.000000, 0.000000,
@@ -577,7 +577,7 @@ $Determination: 10
 $Name: Beta 3		;! Object #14
 $Class: GTF Myrmidon
 $Team: Hostile
-$Location: 3263.458740, 0.000977, 8885.227539
+$Location: 2456.170410, 0.000245, 5637.124023
 $Orientation:
 	1.000000, 0.000000, 0.000000,
 	0.000000, 1.000000, 0.000000,
@@ -605,7 +605,7 @@ $Determination: 10
 $Name: Beta 4		;! Object #15
 $Class: GTF Myrmidon
 $Team: Hostile
-$Location: 3021.816895, 0.000732, 9672.378906
+$Location: 2214.528320, -0.000000, 6424.275391
 $Orientation:
 	1.000000, 0.000000, 0.000000,
 	0.000000, 1.000000, 0.000000,
@@ -633,7 +633,7 @@ $Determination: 10
 $Name: Aeolus		;! Object #16
 $Class: GTC Aeolus
 $Team: Hostile
-$Location: -164.042725, 541.659424, 8268.967773
+$Location: -971.331177, 541.658691, 5020.864258
 $Orientation:
 	-0.090002, 0.995881, 0.010998,
 	0.988528, 0.090672, -0.120794,
@@ -675,7 +675,7 @@ $Determination: 10
 $Name: Arcadia		;! Object #17
 $Class: GTI Arcadia
 $Team: Hostile
-$Location: -1809.203369, -683.632813, 9278.993164
+$Location: 558.553101, -683.633789, 7508.530762
 $Orientation:
 	0.652438, -0.757502, 0.022732,
 	0.757843, 0.652144, -0.019570,
@@ -724,7 +724,107 @@ $Determination: 10
 +Use Table Score:
 +Score: 800
 
-#Wings		;! 3 total
+$Name: Delta 1		;! Object #18
+$Class: GTF Hercules Mark II
+$Team: Hostile
+$Location: 2809.875000, 0.000000, 2832.202637
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 12
+
+$Name: Delta 2		;! Object #19
+$Class: GTF Hercules Mark II
+$Team: Hostile
+$Location: 3120.194824, 0.000488, 2540.789063
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 12
+
+$Name: Delta 3		;! Object #20
+$Class: GTF Hercules Mark II
+$Team: Hostile
+$Location: 2859.170410, 0.000000, 2547.354492
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 12
+
+$Name: Delta 4		;! Object #21
+$Class: GTF Hercules Mark II
+$Team: Hostile
+$Location: 2520.765625, -0.000488, 2727.277344
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 12
+
+#Wings		;! 4 total
 
 $Name: Virgo
 $Waves: 1
@@ -781,6 +881,27 @@ $Ships: (		;! 4 total
 )
 $AI Goals: ( goals ( ai-guard "Sobek" 50 ) )
 +Flags: ( )
+
+$Name: Delta
+$Waves: 3
+$Wave Threshold: 0
+$Special Ship: 0		;! Delta 1
+
+$Arrival Location: Hyperspace
++Arrival delay: 1
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 4 total
+	"Delta 1"
+	"Delta 2"
+	"Delta 3"
+	"Delta 4"
+)
+$AI Goals: ( goals ( ai-chase-any 50 ) )
++Flags: ( )
++Wave Delay Min: 7
++Wave Delay Max: 15
 
 #Events		;! 6 total
 
@@ -872,7 +993,7 @@ $Name: controls
 $Team: -1
 $MessageNew:  XSTR("1 - Energy Drain
 2 - SSM Strike
-3 - Repair yorself
+3 - Repair yourself
 4 - Recharge target shields", -1)
 $end_multi_text
 

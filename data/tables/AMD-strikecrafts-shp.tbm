@@ -9,8 +9,8 @@ $Name: SF Dragon
 $Max Velocity:          70.0, 70.0, 75.0
 $Glide: YES
 	+Glide Accel Mult:	1.0
-$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser"  "Shivan Sniper Gun")
-						("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser"  "Shivan Light Scatter Gun")
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6" "Shivan Sniper Gun")
+						("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6" "Shivan Light Scatter Gun")
 $Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Shivan Disruptor" "Tempest Adv#Shivan" )
 $Armor Type:			Shivan Fighter Armor	; hits vs normal= 941
 $Shield Armor Type:		Shivan Fighter Armor	; hits vs huge	= 1143
@@ -20,7 +20,7 @@ $Name: SF Basilisk
 	+nocreate ;:
 $Glide: YES
 	+Glide Accel Mult:	1.0
-$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" )
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6")
 $Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb")
 $Armor Type:			Shivan Fighter Armor	; hits vs normal= 1235
 $Shield Armor Type:		Shivan Fighter Armor	; hits vs huge	= 1500
@@ -30,7 +30,7 @@ $Name: SF Manticore
 	+nocreate ;:
 $Glide: YES
 	+Glide Accel Mult:	1.0
-$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" )
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6")
 $Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "EMP Adv.#Shivan")
 $Armor Type:			Shivan Fighter Armor	; hits vs normal= 705
 $Shield Armor Type:		Shivan Fighter Armor	; hits vs huge	= 857
@@ -42,7 +42,7 @@ $Max Velocity:          70.0, 70.0, 70.0
 $Rear Velocity:         70.0
 $Glide: YES
 	+Glide Accel Mult:	1.0
-$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser"  "Shivan Light Scatter Gun" "Shivan Sniper Gun")
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6" "Shivan Light Scatter Gun" "Shivan Sniper Gun")
 $Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "TAG-C#Shivan" "AntiFighterTAG#Shivan" "Tempest Adv#Shivan" "TAG-C#Barrage")
 $Armor Type:			Shivan Fighter Armor	; hits vs normal= 965
 $Shield Armor Type:		Shivan Fighter Armor	; hits vs huge	= 1171
@@ -66,8 +66,8 @@ $Rear Velocity:         20.0
 $Glide: YES
 	+Glide Accel Mult:	1.0
 $Allowed PBanks:		
-	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser"  "Shivan Light Scatter Gun" "Shivan Sniper Gun" "Shivan Heavy Anticap Laser" "Shivan Flak Weapon")
-	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser"  "Shivan Light Scatter Gun" "Shivan Sniper Gun")
+	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6" "Shivan Light Scatter Gun" "Shivan Sniper Gun" "Shivan Heavy Anticap Laser" "Shivan Flak Weapon")
+	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6" "Shivan Light Scatter Gun" "Shivan Sniper Gun")
 $Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "Shivan Swarmer Bomb" "TAG-C#Shivan" "AntiFighterTAG#Shivan" "Tempest Adv#Shivan" "TAG-C#Barrage")
 $Armor Type:			Shivan Fighter Armor	; hits vs normal= 1147
 $Shield Armor Type:		Shivan Fighter Armor	; hits vs huge	= 1393
@@ -86,7 +86,7 @@ $Name: SF Astaroth
 $Max Velocity:          60.0, 60.0, 80.0
 $Glide: YES
 	+Glide Accel Mult:	1.0
-$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" )
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6")
 $Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "EMP Adv.#Shivan")
 $Armor Type:			Shivan Fighter Armor	; hits vs normal= 647
 $Shield Armor Type:		Shivan Fighter Armor	; hits vs huge	= 786
@@ -102,7 +102,7 @@ $Name: SB Nephilim
 	+nocreate ;:
 $Glide: YES
 	+Glide Accel Mult:	1.0
-$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" )
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6")
 $Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Trebuchet#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "Shivan Bomb" "Shivan Bomb#Short" "Shivan Megabomb" "Shivan Swarmer Bomb" )
 $Armor Type:			Shivan Bomber Armor			; hits vs normal= 3000
 $Shield Armor Type:		Shivan Bomber Armor			; hits vs huge	= 5250
@@ -122,8 +122,8 @@ $Rear Velocity:         65.0
 $Glide: YES
 	+Glide Accel Mult:	1.0
 $Allowed PBanks:		
-	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser"  "Shivan Heavy Anticap Laser" "Shivan Sniper Gun" "Shivan Scatter Gun" "Shivan Large Cannon")
-	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser"  "Shivan Heavy Anticap Laser" "Shivan Sniper Gun" "Shivan Flak Weapon")
+	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6" "Shivan Heavy Anticap Laser" "Shivan Sniper Gun" "Shivan Scatter Gun" "Shivan Large Cannon")
+	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6" "Shivan Heavy Anticap Laser" "Shivan Sniper Gun" "Shivan Flak Weapon")
 $Allowed SBanks:		("Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Trebuchet#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "Shivan Bomb" "Shivan Bomb#Short" "Shivan Megabomb" "Shivan Swarmer Bomb" "TAG-C#Shivan" "AntiFighterTAG#Shivan" "Shivan Advanced Swarmer Bomb" "Tempest Adv#Shivan" "TAG-C#Barrage")
 $Armor Type:			Shivan Bomber Armor			; hits vs normal= 2286
 $Shield Armor Type:		Shivan Bomber Armor			; hits vs huge	= 4000
@@ -143,7 +143,7 @@ $Name: SB Nahema
 $Max Velocity:          80.0, 80.0, 90.0
 $Glide: YES
 	+Glide Accel Mult:	1.0
-$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" )
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6")
 $Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "Shivan Bomb" "Shivan Bomb#Short" "Shivan Megabomb" "Shivan Swarmer Bomb" "TAG-C#Shivan" )
 $Max Oclk Speed:		120.0
 $Armor Type:			Shivan Bomber Armor			; hits vs normal= 1714
@@ -163,9 +163,9 @@ $Max Velocity:			40.0, 40.0, 60.0
 $Glide: YES
 	+Glide Accel Mult:	1.0
 $Allowed PBanks:		
-	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" )
-	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser"  "Shivan Heavy Anticap Laser" "Shivan Flak Weapon")
-	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser"  "Shivan Scatter Gun")
+	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6")
+	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6" "Shivan Heavy Anticap Laser" "Shivan Flak Weapon")
+	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Shivan Light Laser Up" "Shivan Heavy Laser Up" "Shivan Anticap Laser" "UD-6" "Shivan Scatter Gun")
 $Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "Shivan Bomb" "Shivan Bomb#Short" "Shivan Megabomb" "Shivan Swarmer Bomb" "Shivan Mordiggian Bomb")
 $Armor Type:			Shivan Bomber Armor			; hits vs normal= 3000
 $Shield Armor Type:		Shivan Bomber Armor			; hits vs huge	= 5250
@@ -185,7 +185,7 @@ $Subsystem:                     turret02,5,1.0
 
 $Name:					GTB Boanerges
 	+nocreate ;:
-$Allowed PBanks: ("Subach HL-7" "Prometheus R" "UD-8 Kayser" "Prometheus S" "Lamprey" "Circe" "Maxim" )
+$Allowed PBanks: ("Subach HL-7" "Prometheus R" "UD-8 Kayser" "Prometheus S" "Lamprey" "Circe" "Maxim" "Fire Spitter" "Hell Spitter")
 $PBank Capacity: (200)
 $Allowed SBanks: ( "Rockeye" "Hornet" "Tornado" "Trebuchet" "Stiletto II" "Piranha" "Cyclops" "Cyclops#short" "Hornet#Weak" "EMP Adv." "Infyrno" "Helios" "Crossbow" )
 
@@ -203,7 +203,7 @@ $Subsystem:                     b05-turreta,1,1.0
 
 $Name:					GTF Myrmidon
 	+nocreate ;:
-$Allowed PBanks:		( "Subach HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser"   )
+$Allowed PBanks:		( "Subach HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser" "Fire Spitter" "Hell Spitter" "Sehku" )
 						( "Subach HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser" )
 $PBank Capacity: ( 40, 40 )
 $Allowed SBanks:		( "Rockeye" "Hornet" "Tornado" "Tempest" "Trebuchet" "Stiletto II" "Hornet#Weak" "EMP Adv." "Infyrno" "Helios" )
@@ -233,26 +233,26 @@ $Afterburner:           YES
 
 $Name:		GVF Seth
 	+nocreate ;:
-$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser" "Circe" "Lamprey"  )
+$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser" "Circe" "Lamprey" "Hayg Mas" "Sahr AS")
 $Shield Armor Type:		LightArmor
 
 
 $Name:		GVF Horus
 	+nocreate ;:
-$Allowed PBanks:        ( "Mekhu HL-7" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser" "Circe" "Lamprey"  )
+$Allowed PBanks:        ( "Mekhu HL-7" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser" "Circe" "Lamprey" "Hayg Mas" "Sahr AS")
 $Shield Armor Type:		LightArmor
 
 
 $Name:		GVF Thoth
 	+nocreate ;:
-$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "Circe" "Lamprey"   )
+$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "Circe" "Lamprey" "Hayg Mas"  "Sahr AS")
 $Shield Armor Type:		LightArmor
 
 
 $Name:		GVF Serapis
 	+nocreate ;:
-$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "Circe" "Lamprey" "Maxim"  )
-						( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "Circe" "Lamprey" "Maxim"    )
+$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "Circe" "Lamprey" "Maxim" "Hayg Mas" "Sahr AS")
+						( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "Circe" "Lamprey" "Maxim" "Hayg Mas" "Sahr AS" "Sehku" "Hell Spitter" "Fire Spitter")
 $PBank Capacity:		( 40, 40 )
 $Allowed SBanks:        ( "Rockeye"  "Tempest" "Harpoon" "Hornet" "TAG-B" "Tornado" "Hornet#Weak" "EMP Adv." "Crossbow" )
 						( "Rockeye"  "Tempest" "Harpoon" "Hornet" "TAG-B" "Tornado" "Hornet#Weak" "EMP Adv." )
@@ -261,15 +261,15 @@ $Shield Armor Type:		LightArmor
 
 $Name:		GVF Tauret
 	+nocreate ;:
-$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser" "Circe" "Lamprey"    )
-						( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser" "Circe" "Lamprey"  )
+$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser" "Circe" "Lamprey" "Hayg Mas" "Sahr AS" "Sehku" "Hell Spitter" "Fire Spitter")
+						( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser" "Circe" "Lamprey" "Hayg Mas" "Sahr AS")
 $PBank Capacity:		( 80, 40)
 $Shield Armor Type:		LightArmor
 						
 
 $Name:		GVB Sekhmet
 	+nocreate ;:
-$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "Lamprey" "Circe" "Maxim"    )
+$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "Lamprey" "Circe" "Maxim" "Hayg Mas" "Sehku" "Sahr AS" "Hell Spitter" "Fire Spitter")
 $PBank Capacity:		(100)
 $Allowed SBanks:        ( "Rockeye"  "Tempest" "Harpoon" "Hornet" "Tornado" "Trebuchet" "Piranha" "Stiletto II" "Cyclops" "Cyclops#short" "Helios" "EMP Adv." "Infyrno" "Crossbow" )
 $Shield Armor Type:		LightArmor
@@ -277,22 +277,22 @@ $Shield Armor Type:		LightArmor
 
 $Name:		GVB Osiris
 	+nocreate ;:
-$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser" "Circe" "Lamprey"   )
+$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus S" "Prometheus R" "UD-8 Kayser" "Circe" "Lamprey" "Hayg Mas" "Sehku" "Hell Spitter")
 $PBank Capacity:		(80)
 $Default SBanks:        ( "Cyclops" "Tempest" "Trebuchet" )
 $SBank Capacity:        ( 40, 40, 20 )
 $Shield Armor Type:		LightArmor
 $Subsystem:                     Turret01,1,1.0
-	$Default PBanks:        (  )
+	$Default PBanks:        ( "Hayg Mas" )
 	$Flags:					("play fire sound for player")
 $Subsystem:                     Turret02,1,1.0
-	$Default PBanks:        (  )
+	$Default PBanks:        ( "Hayg Mas" )
 	$Flags:					("play fire sound for player")
 
 	
 $Name:		GVB Bakha
 	+nocreate ;:
-$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Prometheus R" "Prometheus S" "Circe" "Lamprey"  )
+$Allowed PBanks:        ( "Mekhu HL-7" "Akheton SDG" "Prometheus R" "Prometheus S" "Circe" "Lamprey" "Helios" "Hayg Mas" "Sehku"  "Sahr AS")
 $Default SBanks:        ( "Cyclops" "Trebuchet" )
 $SBank Capacity:        ( 80, 100 )
 $Shield Armor Type:		LightArmor
@@ -300,7 +300,7 @@ $Shield Armor Type:		LightArmor
 
 $Name:		GVF Ptah
 	+nocreate ;:
-$Allowed PBanks:		( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus R" "Prometheus S" )
+$Allowed PBanks:		( "Mekhu HL-7" "Akheton SDG" "Morning Star" "Prometheus R" "Prometheus S" "Hayg Mas")
 $Shield Armor Type:		LightArmor
 
 

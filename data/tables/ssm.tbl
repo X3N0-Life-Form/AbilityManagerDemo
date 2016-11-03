@@ -87,5 +87,15 @@ $SSM:				Shivan Cluster Strike
 	+Alarm Sound:	185
 
 
+$SSM:				Disco Strike
+	+Weapon:		AAAf
+	+Count:			9
+	+WarpRadius:	15
+	+WarpTime:		4
+	+Radius:		1200
+	+Offset:		1
+	+Shape:			Sphere
+	+Custom Message:*SHOW TIME*
+	
 
 #end
