@@ -63,14 +63,14 @@ $Variant:	Carrier Corvette
 $Abilities:	SSM-moloch-std
 
 $Name:		Virgo 1
-$Abilities:	Energy Drain, Fighter-launched Mordiggian Strike, Repair-Self, Shield-Recharge-Target
+$Abilities:	Energy Drain, Fighter-launched Recursive SSM, Repair-Self, Shield-Recharge-Target
 	+Manual:true, true, true, true
 	
 $Name:		Virgo 2
-$Abilities:	Fighter-launched Mordiggian Strike
+$Abilities:	Fighter-launched Recursive SSM
 
 $Name:		Virgo 3
-$Abilities:	Fighter-launched Mordiggian Strike
+$Abilities:	Fighter-launched Recursive SSM
 
 	
 $Name:		Repair Beacon

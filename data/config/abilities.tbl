@@ -15,7 +15,7 @@ $Cooldown:			24, 20, 17, 15, 13
 $Ability Data:		fireSSM
   +Strike Type: 	Shivan SSM Strike
   
-$Name:					Fighter-launched Mordiggian Strike
+$Name:					Fighter-launched Recursive SSM
 $Function:				fireSSM
 $Target Type:   		cruiser, capital, corvette  ;; TODO: allow ship flags, like big damage & shit
 $Target Team:   		Hostile
@@ -106,6 +106,6 @@ $Target Team:   	Hostile
 $Target Selection:	Closest
 $Cooldown:			3
 $Ability Data:		fireSSM
-  +Strike Type: 	Disco Strike
+  +Strike Type: 	Disco Strike, Disco Strike#SAAA
 	
 #End

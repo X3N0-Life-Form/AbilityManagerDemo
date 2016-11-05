@@ -945,7 +945,7 @@ $Formula: ( when
    ( script-eval-block 
       "ability_trigger('" 
       "Virgo 1::Fighter-launched" 
-      " Mordiggian Strike')" 
+      " Recursive SSM')" 
    )
 )
 +Name: ability-mord ssm

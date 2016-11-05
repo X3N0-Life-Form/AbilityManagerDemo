@@ -339,7 +339,7 @@ function getTableObjectAsString(tableObject)
 				if not (prefixes['sub'] == nil) then
 					-- for each +Sub Attribute:
 					for subAttributeName, subAttributeValue in pairs(prefixes['sub']) do
-						str = str.."[parse.lua] \t\t+"..subAttributeName.." = "..subAttributeValue.."\n"
+						str = str.."[parse.lua] \t\t+"..subAttributeName.." = "..getValueAsString(subAttributeValue).."\n"
 					end -- end for each attribute
 				end
 				

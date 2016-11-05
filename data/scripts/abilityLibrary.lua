@@ -40,7 +40,13 @@ function fireSSM(instance, class, targetName)
 	local strikeTeam = castingShip.Team.Name
 
 	-- Call SSM
-	mn.evaluateSEXP("(when (true) (call-ssm-strike \""..strikeType.."\" \""..strikeTeam.."\" \""..targetName.."\"))")
+	if (type(strikeType) == 'table') then
+		for index, currentStrikeType in pairs(strikeType) do
+			mn.evaluateSEXP("(when (true) (call-ssm-strike \""..currentStrikeType.."\" \""..strikeTeam.."\" \""..targetName.."\"))")
+		end
+	else
+		mn.evaluateSEXP("(when (true) (call-ssm-strike \""..strikeType.."\" \""..strikeTeam.."\" \""..targetName.."\"))")
+	end
 end
 
 --[[
@@ -84,8 +90,13 @@ function fireRepair(instance, class, targetName)
 	local weapons = class.AbilityData['Weapons']
 	local afterburners = class.AbilityData['Afterburners']
 
-	if not (hits == nil) then
+	-- Note : don't repair things if they are dying
+	if not (hits == nil) and not (targetShip.HitpointsLeft <= 0) then
 		targetShip.HitpointsLeft = targetShip.HitpointsLeft + hits
+		-- Make sure we don't go above 100%
+		if (targetShip.HitpointsLeft > targetShip.HitpointsMax) then -- doesn't work, returns nil... (asshole)
+			targetShip.HitpointsLeft = targetShip.HitpointsMax
+		end
 	end
 	
 	if not (shields == nil) then

@@ -2,7 +2,7 @@
 ------------------------
 --- Global Variables ---
 ------------------------
-shipVariantMissions_enableDebugPrint = false
+shipVariantMissions_enableDebugPrint = true
 
 shipVariantMissionsTable = {}
 
@@ -57,13 +57,17 @@ function setShipVariants(categoryName)
 				
 				local abilities = attributes['Abilities']['value']
 				local manual = false
-				if not ((attributes['Abilities']['sub'] == nil) or (attributes['Abilities']['sub']['Manual'] == nil)) then
+				if (not (attributes['Abilities']['sub'] == nil) and not (attributes['Abilities']['sub']['Manual'] == nil)) then
 					manual = attributes['Abilities']['sub']['Manual']
 				end
 				
 				if (type(abilities) == 'table') then
 					for index, currentAbility in pairs(abilities) do
-						ability_attachAbility(currentAbility, shipName, manual[index])
+						if (type(manual) == 'table') then
+							ability_attachAbility(currentAbility, shipName, manual[index])
+						else
+							ability_attachAbility(currentAbility, shipName, manual)
+						end
 					end
 				else
 					ability_attachAbility(abilities, shipName, manual)

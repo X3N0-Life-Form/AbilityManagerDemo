@@ -39,7 +39,7 @@ $SSM:				Mordiggian Strike
 	+Radius:		1600
 	+Offset:		1
 	+Shape:			Sphere
-	+Custom Message:*Inbound Mordiggian Bomb*
+	+Custom Message:*Inbound Recursive SSM*
 	+Alarm Sound:	185
 
 $SSM:				Mordiggian Strike x2
@@ -89,13 +89,22 @@ $SSM:				Shivan Cluster Strike
 
 $SSM:				Disco Strike
 	+Weapon:		AAAf
-	+Count:			9
+	+Count:			3
 	+WarpRadius:	15
 	+WarpTime:		4
 	+Radius:		1200
 	+Offset:		1
 	+Shape:			Sphere
 	+Custom Message:*SHOW TIME*
-	
+
+$SSM:				Disco Strike#SAAA
+	+Weapon:		SAAA
+	+Count:			3
+	+WarpRadius:	15
+	+WarpTime:		4
+	+Radius:		1200
+	+Offset:		1
+	+Shape:			Sphere
+
 
 #end
