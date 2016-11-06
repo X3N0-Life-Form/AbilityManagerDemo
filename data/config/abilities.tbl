@@ -8,7 +8,7 @@
 
 $Name:				SSM-moloch-std
 $Function:			fireSSM
-$Target Type:   	cruiser, capital, corvette  ;; TODO: allow ship flags, like big damage & shit
+$Target Type:   	cruiser, capital, corvette
 $Target Team:   	Hostile
 $Target Selection:	Closest
 $Cooldown:			24, 20, 17, 15, 13
@@ -17,7 +17,7 @@ $Ability Data:		fireSSM
   
 $Name:					Fighter-launched Recursive SSM
 $Function:				fireSSM
-$Target Type:   		cruiser, capital, corvette  ;; TODO: allow ship flags, like big damage & shit
+$Target Type:   		cruiser, capital, corvette
 $Target Team:   		Hostile
 $Target Selection:		Current Target
 $Range:					7500

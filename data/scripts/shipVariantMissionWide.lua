@@ -2,7 +2,7 @@
 ------------------------
 --- Global Variables ---
 ------------------------
-shipVariantMissions_enableDebugPrint = true
+shipVariantMissions_enableDebugPrint = false
 
 shipVariantMissionsTable = {}
 

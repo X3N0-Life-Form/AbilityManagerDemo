@@ -94,7 +94,7 @@ function fireRepair(instance, class, targetName)
 	if not (hits == nil) and not (targetShip.HitpointsLeft <= 0) then
 		targetShip.HitpointsLeft = targetShip.HitpointsLeft + hits
 		-- Make sure we don't go above 100%
-		if (targetShip.HitpointsLeft > targetShip.HitpointsMax) then -- doesn't work, returns nil... (asshole)
+		if (targetShip.HitpointsLeft > targetShip.HitpointsMax) then
 			targetShip.HitpointsLeft = targetShip.HitpointsMax
 		end
 	end
