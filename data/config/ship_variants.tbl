@@ -5,206 +5,11 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;
 
 
-;; TODO: awacs range
-;; strike craft variants
 
 
-#SJ Sathanas
-$Name:		Standard
-	$turret05:MRed
-	$turret06:MRed
-	$turret17:MRed
-	$turret18:MRed
-	;;;;;;;;;;;;;;
-	$turret28:SAAA
-	$turret29:MRed
-	$turret30:SAAA
-	$turret31:MRed
-	$turret32:SAAA
-	$turret33:MRed
-	$turret34:SAAA
-	$turret35:MRed
-
-	$turret39:SAAA
-	$turret40:MRed
-	$turret41:SAAA
-	$turret42:MRed
-	$turret43:SAAA
-	$turret44:MRed
-	$turret45:SAAA
-	$turret46:MRed
-	;;;;;;;;;;;;;;
-	$turret21:MRedUp
-	$turret26:MRedUp
-
-	$turret52:MRedUp
-	$turret53:MRedUp
-	;;;;;;;;;;;;;;
-	$turret07:Fast Flak
-	$turret08:Fast Flak
-	$turret10:Fast Flak
-
-	$turret22:Fast Flak
-	$turret23:Fast Flak
-	$turret25:Fast Flak
-	;;;;;;;;;;;;;;
-	$turret36:Long Range Flak
-	$turret37:Long Range Flak
-
-	$turret47:Long Range Flak
-	$turret48:Long Range Flak
-	;;;;;;;;;;;;;;
-	$turret09:SAAA
-	$turret11:SAAA
-	$turret12:SAAA
-
-	$turret38:SAAA
-	$turret15:SAAA
-	$turret16:SAAA
-	;;;;;;;;;;;;;;
-	$turret13:Long Range Flak
-	$turret24:Long Range Flak
-	;;;;;;;;;;;;;;
-	$turret14:Fast Flak
-	$turret27:Fast Flak
-	;;;;;;;;;;;;;;
-	$turret50:Suppression Flak
-	$turret51:Suppression Flak
-#End
-
-
-#SD Lucifer
-$Name:		Standard
-$turret armor: Shivan Elite Armor
-$turret01:LRLRed
-$turret02:LRLRed
-$turret03:Advanced Flak
-$turret04:Advanced Flak
-$turret05:Shivan LR Swarm
-$turret06:Advanced Flak
-$turret07:Advanced Flak
-$turret08:Shivan LR Swarm
-$turret09:Suppression Flak
-$turret10:Shivan Turret Laser Up
-$turret11:Shivan Turret Laser Up
-$turret12:Shivan Turret Laser Up
-$turret13:Shivan Turret Laser Up
-$turret14:Shivan Turret Laser Up
-$turret15:Suppression Flak
-$turret16:Shivan Turret Laser Up
-$turret17:Shivan Turret Laser Up
-$turret18:MRedUp
-$turret19:MRedUp
-#End
-
-#SD Ravana
-$Name: Battle Destroyer
-$hull:  200k
-$armor: Shivan Elite Armor
-$ai class: Big
-$turret armor: Shivan Elite Armor
-$turret01:LRed
-	+armor:Hell Armor
-$turret02:LRed
-	+armor:Hell Armor
-$turret03:MRedUp
-	+armor:Hell Armor
-$turret04:MRedUp
-	+armor:Hell Armor
-$turret05:SAAA
-$turret06:SAAA
-$turret07:Fast Flak
-$turret08:SAAA
-$turret09:SAAA
-$turret10:SAAA
-$turret11:SAAA
-$turret12:Fast Flak
-$turret13:SAAA
-$turret14:Fast Flak
-$turret15:MRed
-$turret16:Fast Flak
-$turret17:Fast Flak
-$turret18:Fast Flak
-$turret19:Piranha#Shivan
-$turret20:Fast Flak
-$turret21:Fast Flak
-$turret22:Fast Flak
-$turret23:Fast Flak
-$turret24:SAAA
-$turret25:MRed
-$turret26:Piranha#Shivan
-$turret27:MRed
-$turret28:MRed
-$turret29:SAAA
-$turret30:Fast Flak
-
-;;		Standard		;;
-$Name:	Hunter Killer Destroyer
-$turret01:LRed
-$turret02:LRed
-$turret03:MRed
-$turret04:MRed
-$turret06:Standard Flak
-$turret13:Standard Flak
-$turret18:Standard Flak
-$turret19:Piranha#Shivan
-$turret24:Standard Flak
-$turret25:Heavy Flak
-$turret26:Piranha#Shivan
-$turret27:SRed
-$turret29:SRed
-$turret30:Heavy Flak
-
-;;		Vampire			;;
-$Name:	Long Range Hunter Killer Destroyer
-$ai class: Big
-$armor: Shivan Elite Armor
-$turret01:LRLred
-$turret02:LRLRed
-$turret03:MRedUp
-$turret04:MRedUp
-$turret05:SRed
-$turret06:SAAA
-$turret13:SAAA
-$turret18:Standard Flak
-$turret19:Piranha#Shivan
-$turret24:Standard Flak
-$turret25:Standard Flak
-$turret26:Piranha#Shivan
-$turret27:SRed
-$turret29:SRed
-$turret30:Standard Flak
-
-#End
 
 
 #SD Demon
-;;		Susl'Arh Morc		;;
-$Name:	Command Destroyer
-$ai class: Big
-$armor: Shivan Elite Armor
-$turret03:MRedUp
-$turret06:MRed
-$turret07:MRed
-$turret08:Fast Flak
-$turret09:Fast Flak
-$turret10:Fast Flak
-$turret11:Fast Flak
-$turret12:Fast Flak
-$turret13:Fast Flak
-$turret14:Fast Flak
-$turret15:Fast Flak
-$turret16:SAAA
-$turret17:SAAA
-$turret18:SAAA
-$turret19:SAAA
-$turret20:Fast Flak
-$turret21:Fast Flak
-$turret22:Shivan Advanced Swarmer Bomb
-$turret23:Shivan Advanced Swarmer Bomb
-$turret24:Shivan Advanced Swarmer Bomb
-$turret25:Shivan Advanced Swarmer Bomb
-$turret26:Shivan Advanced Swarmer Bomb
 
 
 ;;		SSM Launcher		;;
@@ -226,8 +31,6 @@ $turret26:Shivan Subspace Missile
 
 $Name:	Support Destroyer#local
 $turret03:MRed
-$turret06:Shivan Heavy Anticap Laser
-$turret07:Shivan Heavy Anticap Laser
 $turret16:Shivan Multi Turret
 $turret17:Shivan Multi Turret
 $turret18:Shivan Multi Turret
@@ -275,74 +78,9 @@ $turret12:Standard Flak
 $turret14:Standard Flak
 $turret16:Piranha#Shivan
 
-$Name:	Strike Corvette
-$turret01:MRed
-$turret02:MRedUp
-$turret03:SAAA
-$turret04:Piranha#Shivan
-$turret05:MRed
-$turret06:MRed
-$turret07:Standard Flak
-$turret08:Standard Flak
-$turret09:Shivan Multi Turret
-$turret10:SAAA
-$turret11:Standard Flak
-$turret12:Shivan Multi Turret
-$turret13:SAAA
-$turret14:SAAA
-$turret15:Standard Flak
-$turret16:Piranha#Shivan
-
-;; 		Cyaegha			;;
-$Name:	Command Corvette
-$armor: Shivan Elite Armor
-$ai class: Big
-$turret01:MRed/MRedUp
-$turret02:Suppression Flak
-$turret03:Shivan Multi Turret
-$turret04:Piranha#Shivan
-$turret05:MRed/MRedUp
-$turret06:MRed/MRedUp
-$turret07:Fast Flak
-$turret08:Fast Flak
-$turret09:Fast Flak
-$turret10:Shivan Multi Turret
-$turret11:Shivan Multi Turret
-$turret12:SAAA
-$turret14:SAAA
-$turret15:Shivan Multi Turret
-$turret16:Piranha#Shivan
 
 #End
 
-
-#SC Lilith
-
-$Name:	Hunter Killer Heavy Cruiser
-$turret05:Shivan Multi Turret
-$turret06:Shivan Multi Turret
-$turret08:Piranha#Shivan
-$turret09:Piranha#Shivan
-
-$Name:	Hunter Killer Heavy Cruiser Up
-$turret02:Shivan Turret Laser Up
-$turret03:Shivan Turret Laser Up
-$turret04:Shivan Turret Laser Up
-$turret05:Shivan Multi Turret Up
-$turret06:Shivan Multi Turret Up
-$turret08:Piranha#Shivan
-$turret09:Piranha#Shivan
-
-;;		Reaper		;;
-$Name:	Command Heavy Cruiser
-$ai class: Big
-$armor: Shivan Elite Armor
-$turret05:Fast Flak
-$turret06:Fast Flak
-$turret08:Piranha#Shivan
-$turret09:Piranha#Shivan
-
-#End
 
 
 #SC Rakshasa
@@ -360,38 +98,6 @@ $turret08:Standard Flak
 $turret10:Standard Flak
 ;;+improved AWACS range (6000)
 
-;;		Hellknight		;;
-$Name:	Hunter Killer Cruiser
-$ai class: Big
-$armor: Shivan Elite Armor
-$turretarmor:Hell Armor
-$turret01:MRed
-$turret02:MRed
-$turret03:MRed
-$turret04:MRed
-$turret05:Shivan Multi Turret
-$turret06:Shivan Multi Turret
-$turret07:SAAA
-$turret08:SAAA
-$turret10:SAAA
-$turret11:Shivan Multi Turret
-$turret12:Shivan Multi Turret
-$turret13:Shivan Multi Turret
-$turret14:Shivan Multi Turret
-
-
-$Name:	Heavy Assault Cruiser
-$armor: Shivan Elite Armor
-$turret04:SRed
-$turret05:Shivan Turret Laser Up
-$turret06:Shivan Turret Laser Up
-$turret07:SAAA
-$turret08:SAAA
-$turret10:SAAA
-$turret11:Shivan Turret Laser Up
-$turret12:Shivan Turret Laser Up
-$turret13:Shivan Turret Laser Up
-$turret14:Shivan Turret Laser Up
 
 $Name:	Heavy Flak Cruiser
 $armor: Shivan Elite Armor
@@ -418,14 +124,6 @@ $turret08:Tornado#Shivan
 $turret09:Tornado#Shivan
 
 
-$Name:	Light Cruiser
-$hull:  20k
-$turret05:Shivan Anticap Laser
-$turret06:Shivan Anticap Laser
-$turret08:Tornado#Shivan
-$turret09:Tornado#Shivan
-
-
 $Name:	Flak Cruiser
 $hull:  20k
 $turret02:Heavy Flak
@@ -444,67 +142,6 @@ $turret05:Light Flak
 $turret06:Light Flak
 
 #End
-
-
-#SSG Belial
-
-$Name: 	Anti-Fighter
-$turret01:Shivan Light Laser
-$turret02:Shivan Light Laser
-$turret03:Shivan Light Laser
-$turret04:Shivan Light Laser
-
-$Name:	Anti-Capital
-$turret01:Shivan Heavy Anticap Laser
-$turret02:Shivan Light Laser
-$turret03:Shivan Heavy Anticap Laser
-$turret04:Shivan Light Laser
-
-$Name:	Area Denial
-$turret01:Shivan Sniper Gun
-$turret02:Shivan Scatter Gun
-$turret03:Shivan Sniper Gun
-$turret04:Shivan Scatter Gun
-
-$Name:	Long Range
-$turret01:Shivan Sniper Gun
-$turret02:Shivan Sniper Gun
-$turret03:Shivan Sniper Gun
-$turret04:Shivan Sniper Gun
-
-$Name:	Close Range
-$turret01:Shivan Flak Weapon
-$turret02:Shivan Flak Weapon
-$turret03:Shivan Flak Weapon
-$turret04:Shivan Flak Weapon
-
-$Name:	Anti-Capital Specialist
-$turret01:Shivan Heavy Anticap Laser
-$turret02:Shivan Heavy Anticap Laser
-$turret03:Shivan Heavy Anticap Laser
-$turret04:Shivan Heavy Anticap Laser
-
-$Name:	Multirole Defence
-$turret01:Shivan Heavy Anticap Laser
-$turret02:Shivan Sniper Gun
-$turret03:Shivan Scatter Gun
-$turret04:Shivan Light Laser Up
-
-#End
-
-;;Seraphim:	Heavy Bomber
-;;Nephilim:	Heavy Bomber
-;;Taurvi:	Swarm Bomber
-;;Nahema:	Strike Bomber
-
-;;Unknown Gunship:Anti Fighter cover/Fire support
-
-;;Aeshma:	Swarm Assault Fighter
-;;Basilisk:	Heavy Fighter
-;;Dragon:	Elite Multirole Fighter
-;;Mara:		Advanced Multirole Fighter
-;;Astaroth:	Space Superiority Fighter
-;;Manticore:	Interceptor
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -561,79 +198,8 @@ $turret05:Wraith
 
 
 
-#GVC Mentu
-$Name:	Standard
-$turret01:Wraith
-$turret02:Wraith
-$turret15:Mass Driver
-$turret16:Mass Driver
-
-$Name:	Mass Driver
-$turret01:Mass Driver
-$turret02:Mass Driver
-$turret15:Mass Driver
-$turret16:Mass Driver
-#End
-
-#GVC Aten
-$Name:	Mass Driver
-$turret01:Mass Driver
-$turret02:Mass Driver
-$turret03:Wraith
-$turret04:Wraith
-$turret05:AAAf
-$turret06:AAAf
-
-;; TODO : flak variant
-#End
 
 
-#GTD Hecate
-$Name:	Standard
-$turret03:Wraith
-$turret10:Wraith
-$turret22:MGreenUp
-$turret24:MGreenUp
-$turret26:MGreenUp
-$turret27:MGreenUp
-
-$Name:	Combat
-$turret01:Mass Driver
-$turret03:Wraith
-$turret04:Mass Driver
-$turret05:Mass Driver
-$turret06:Mass Driver
-$turret07:Mass Driver
-$turret08:Mass Driver
-$turret10:Wraith
-$turret22:MGreenUp
-$turret24:MGreenUp
-$turret26:MGreenUp
-$turret27:MGreenUp
-
-
-$Name:	Streaker
-$ai class: Big
-$hull:	200k
-$turret01:Mass Driver
-$turret03:Wraith
-$turret04:Mass Driver
-$turret05:Mass Driver
-$turret06:Mass Driver
-$turret07:Mass Driver
-$turret08:Mass Driver
-$turret10:Wraith
-$turret17:Advanced Flak
-$turret18:Advanced Flak
-$turret20:LRed
-$turret22:MGreenUp
-$turret23:Advanced Flak
-$turret24:MGreenUp
-$turret25:Advanced Flak
-$turret26:MGreenUp
-$turret27:MGreenUp
-;;+improved AWACS range (8000)
-#End
 
 #GTCv Deimos
 $Name:	Standard
@@ -652,25 +218,6 @@ $turret04:Wraith
 $turret21:Mass Driver
 $turret22:Mass Driver
 
-$Name:	Viper
-$turret01:Long Range Flak
-$turret02:Long Range Flak
-$turret03:Long Range Flak
-$turret04:Long Range Flak
-$turret05:Long Range Flak
-$turret06:Long Range Flak
-$turret09:Long Range Flak
-$turret10:Long Range Flak
-$turret11:Green Beam
-$turret12:Green Beam
-$turret13:Long Range Flak
-$turret17:Long Range Flak
-$turret21:Morning Star
-$turret22:Morning Star
-$turret23:Green Beam
-$turret24:Green Beam
-$turret25:Trebuchet
-$turret26:Trebuchet
 #End
 
 
