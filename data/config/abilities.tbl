@@ -108,15 +108,35 @@ $Cooldown:			3
 $Ability Data:		fireSSM
   +Strike Type: 	Disco Strike, Disco Strike#SAAA
   
-;; TODO : buff placing abilities
-	
+;; buff placing abilities
+
+$Name:					Repair-Self-buff-based
+$Function:				none			; TODO
+$Target Type:			fighter, bomber
+$Target Team:			Friendly
+$Target Selection:		Self
+$Cost:					1
+	+Starting Reserve:	5
+$Cooldown:				30
+$Buffs:				Repair Buff
+
+$Name:				Activate Active Armor
+$Function:			none			; TODO
+$Target Type:			fighter, bomber
+$Target Team:			Friendly
+$Target Selection:		Self
+$Cooldown:			40
+$Buffs:				Active Armor
+
+
 #End
 
 #Buffs
 ; Buff placement prototypes
 
-$Name:			Repair-self-buff-based
+$Name:			Repair Buff
 $Periodicity: 		1.0
+$Duration:		10
 $Apply Function:	buffArmor ;TODO
 $Effect Function:	fireRepair
 $Expiration Function:	debuffArmor ;TODO
@@ -126,11 +146,12 @@ $Buff Data:
 	+Armor hierarchy:	weak, normal, good
 	
 $Name:			Active Armor
+$Duration:		15
 $Apply Function:	buffArmor ;TODO
 $Expiration Function:	debuffArmor ;TODO
 $Stacks:		false
 $Buff Data:
-	+Armor hierarchy:	normal, bomb-resistant
+	+Armor hierarchy:	normal, ballistics-resistant
 
 #End
 
