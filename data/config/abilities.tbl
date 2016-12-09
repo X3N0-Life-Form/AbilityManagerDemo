@@ -107,5 +107,30 @@ $Target Selection:	Closest
 $Cooldown:			3
 $Ability Data:		fireSSM
   +Strike Type: 	Disco Strike, Disco Strike#SAAA
+  
+;; TODO : buff placing abilities
 	
 #End
+
+#Buffs
+; Buff placement prototypes
+
+$Name:			Repair-self-buff-based
+$Periodicity: 		1.0
+$Apply Function:	buffArmor ;TODO
+$Effect Function:	fireRepair
+$Expiration Function:	debuffArmor ;TODO
+$Stacks:		false
+$Buff Data:
+	+Hull:			10
+	+Armor hierarchy:	weak, normal, good
+	
+$Name:			Active Armor
+$Apply Function:	buffArmor ;TODO
+$Expiration Function:	debuffArmor ;TODO
+$Stacks:		false
+$Buff Data:
+	+Armor hierarchy:	normal, bomb-resistant
+
+#End
+
