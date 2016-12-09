@@ -57,6 +57,9 @@ ability_instances = {}
 ability_ships = {}
 ability_lastCast = 0
 
+buff_classes = {}
+buff_instances = {}
+
 ------------------------
 --- Global Constants ---
 ------------------------
@@ -101,6 +104,7 @@ function ability_cycleTrigger()
 	end
 	
 	-- TODO: apply over-time effects?
+	buff_applyAllPossible()
 	
 	-- Print ability instances
 	gr.setColor(255,255,255)
@@ -331,6 +335,22 @@ end
 --- Core Functions ---
 ----------------------
 
+-- TODO : refactor : separate manager, buff & ability
+function buff_createClass(name, attributes)
+	Print_ability("Creating buff class : "..name)
+	-- Initialize the class
+	buff_classes[name] = {
+		Name = name,
+		Duration = 0,
+		Periodicity = -1,
+		ApplyFunction = nil,
+		EffectFunction = nil,
+		ExpirationFunction = nil,
+		Stacks = false,
+		RefreshOnApply = false,
+		BuffData = {}
+	}
+end
 
 --[[
 	Creates a class of the specified name and attributes
@@ -339,7 +359,7 @@ end
 	@param attributes : attribute table
 ]]
 function ability_createClass(name, attributes)
-	dPrint_ability("Creating class : "..name)
+	dPrint_ability("Creating ability class : "..name)
 	-- Initialize the class
 	ability_classes[name] = {
 	  Name = name,
@@ -435,6 +455,7 @@ function ability_resetMissionVariables()
 	ability_instances = {}
 	ability_ships = {}
 	ability_lastCast = 0
+	buff_instances = {}
 end
 
 
@@ -471,6 +492,7 @@ function ability_createInstance(instanceId, className, shipName)
 	dPrint_ability(ability_getInstanceAsString(instanceId))
 	return instance
 end
+
 
 --[[
 	Verifies that this ability instance can be fired
