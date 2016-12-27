@@ -119,7 +119,29 @@ Config tables
   These two fields allow you to define a number of abilities with similar effects based on the same template. Let's look at the SSM strikes defined bellow, one of them is meant to be called by a capital ship, will target the closest target with no range limit, and its cooldown time is dependent on difficulty. The other is meant to be called by a fighter, and thus has more limitations, such as a finite range, a limited number of shots and a less powerful strike type.
 Note that both use the same function, and have the same sub-attribute under *$Ability Data*.
 
-#TODO : copy paste ability in a table
+
+```
+$Name:				SSM-moloch-std
+$Function:			fireSSM
+$Target Type:   	cruiser, capital, corvette
+$Target Team:   	Hostile
+$Target Selection:	Closest
+$Cooldown:			24, 20, 17, 15, 13
+$Ability Data:		fireSSM
+  +Strike Type: 	Shivan SSM Strike
+  
+$Name:					Fighter-launched Recursive SSM
+$Function:				fireSSM
+$Target Type:   		cruiser, capital, corvette
+$Target Team:   		Hostile
+$Target Selection:		Current Target
+$Range:					7500
+$Cost:					1
+	+Starting Reserve:	15
+$Cooldown:				3
+$Ability Data:
+  +Strike Type: 	Mordiggian Strike
+```
 
 ### ship_variants_mission_wide.tbl
 
@@ -128,7 +150,24 @@ In order to make it easier to attach abilities to ships, I have modified the var
 - Each entry defines what variant and/or abilities are associated with a ship
   * The __+Manual__ sub-attribute specifies whether the abilities listed above are to be fired manually or not. In the example below, Virgo 1 has 4 abilities attached to it, with each needing to be fired manually.
 
-#TODO : copy paste svmw demo thingy
+```
+#Demo 1
+
+$Name:		Moloch
+$Abilities:	SSM-moloch-std
+
+$Name:		Virgo 1
+$Abilities:	Energy Drain, Fighter-launched Recursive SSM, Repair-Self, Shield-Recharge-Target
+	+Manual:true, true, true, true
+	
+$Name:		Repair Beacon
+$Abilities:	Repair-Field
+
+$Name:		Arcadia
+$Abilities:	Repair-Cruiser, Shield-Recharge-Target-Redux, Good Guy SSB
+
+#End
+```
 
 ### ship_variants.tbl
 
