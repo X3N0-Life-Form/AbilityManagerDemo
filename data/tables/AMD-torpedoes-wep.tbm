@@ -23,8 +23,8 @@ $Mass:									25.0
 $Velocity:								240.0
 $Fire Wait:								4.0
 $Damage:                                300
-$Damage Type:							ShivanHugeWeapon
-$Shockwave Damage Type:					ShivanHugeWeapon
+$Damage Type:							HugeWeapon
+$Shockwave Damage Type:					HugeWeapon
 $Blast Force:							600.0
 $Inner Radius:							35.0	
 $Outer Radius:							80.0	 
