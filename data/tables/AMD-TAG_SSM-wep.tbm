@@ -25,7 +25,7 @@ $Mass:									20.0
 $Velocity:								205.0
 $Fire Wait:								4.0
 $Damage:								10
-$Damage Type:							ShivanWeapon
+$Damage Type:							NormalWeapon
 $Blast Force:							10.0
 $Inner Radius:							10.0
 $Outer Radius:							30.0
@@ -78,7 +78,7 @@ $Mass:									2.0
 $Velocity:								350.0
 $Fire Wait:								2.5
 $Damage:								10
-$Damage Type:							ShivanWeapon
+$Damage Type:							NormalWeapon
 $Blast Force:							10.0
 $Inner Radius:							10.0														;; radius at which damage is full (0 for impact only)
 $Outer Radius:							30.0														;; max radius for attenuated damage (0 for impact only)
@@ -124,7 +124,7 @@ $Mass:									20.0
 $Velocity:								205.0
 $Fire Wait:								8.0
 $Damage:								10
-$Damage Type:							ShivanWeapon
+$Damage Type:							NormalWeapon
 $Blast Force:							10.0
 $Inner Radius:							10.0														;; radius at which damage is full (0 for impact only)
 $Outer Radius:							30.0														;; max radius for attenuated damage (0 for impact only)
@@ -171,7 +171,7 @@ $Mass:									1.0
 $Velocity:								300.0
 $Fire Wait:								3.5
 $Damage:								10
-$Damage Type:							ShivanWeapon
+$Damage Type:							NormalWeapon
 $Blast Force:							10.0
 $Inner Radius:							10.0
 $Outer Radius:							30.0
@@ -223,7 +223,7 @@ $Mass:				0.4
 $Velocity:			320.0
 $Fire Wait:			2.0
 $Damage:			50.0
-$Damage Type:		ShivanWeapon
+$Damage Type:		NormalWeapon
 $Blast Force:		0.2
 $Inner Radius:		15.0
 $Outer Radius:		30.0
@@ -351,7 +351,7 @@ $Mass:				35.0
 $Velocity:			165.0
 $Fire Wait:			21
 $Damage:			5500
-$Damage Type:		ShivanHugeWeapon
+$Damage Type:		HugeWeapon
 $Arm radius:		400
 $Blast Force:		1600.0
 $Inner Radius:		60.0
@@ -419,7 +419,7 @@ $Mass:				35.0
 $Velocity:			165.0
 $Fire Wait:			7.67
 $Damage:			5500
-$Damage Type:		ShivanHugeWeapon
+$Damage Type:		HugeWeapon
 $Arm radius:		400
 $Blast Force:		1600.0
 $Inner Radius:		60.0
@@ -493,7 +493,7 @@ $Mass: 				35.0
 $Velocity: 			225.0
 $Fire Wait: 		8.0
 $Damage:			1800
-$Damage Type:		ShivanHugeWeapon
+$Damage Type:		HugeWeapon
 $Arm radius:		200
 $Blast Force:		800.0
 $Inner Radius:		30.0
@@ -559,7 +559,7 @@ $Mass:				20.0
 $Velocity:			200.0
 $Fire Wait:			5.0
 $Damage:			100
-$Damage Type: 						ShivanWeapon
+$Damage Type: 						NormalWeapon
 $Blast Force:		1500.0
 $Inner Radius:		80.0
 $Outer Radius:		160.0
