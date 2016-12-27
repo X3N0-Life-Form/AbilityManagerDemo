@@ -25,7 +25,7 @@ $Mass:                          1.2
 $Velocity:                      520.0
 $Fire Wait:                     0.7
 $Damage:                        30
-$Damage Type:					ShivanWeapon
+$Damage Type:					NormalWeapon
 $Armor Factor:                  1.0
 $Shield Factor:                 1.0
 $Subsystem Factor:              1.0
