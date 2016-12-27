@@ -134,24 +134,32 @@ $Buffs:				Active Armor
 #Buffs
 ; Buff placement prototypes
 
-$Name:			Repair Buff
+$Name:			Repair Buff#Fighter
 $Periodicity: 		1.0
 $Duration:		10
-$Apply Function:	buffArmor ;TODO
+$Apply Function:	debuffArmor ;TODO
 $Effect Function:	fireRepair
-$Expiration Function:	debuffArmor ;TODO
+$Expiration Function:	buffArmor ;TODO
 $Stacks:		false
 $Buff Data:
 	+Hull:			10
-	+Armor hierarchy:	weak, normal, good
+	+Armor Hierarchy:	Light Armor--, Light Armor, Light Armor++
 	
-$Name:			Active Armor
+$Name:			Active Armor#Capital
 $Duration:		15
 $Apply Function:	buffArmor ;TODO
 $Expiration Function:	debuffArmor ;TODO
 $Stacks:		false
 $Buff Data:
-	+Armor hierarchy:	normal, ballistics-resistant
+	+Armor Hierarchy:	Heavy Armor--, Heavy Armor, Heavy Armor++
+
+$Name:			Active Armor#Fighter
+$Duration:		15
+$Apply Function:	buffArmor ;TODO
+$Expiration Function:	debuffArmor ;TODO
+$Stacks:		false
+$Buff Data:
+	+Armor Hierarchy:	Light Armor--, Light Armor, Light Armor++
 
 #End
 
