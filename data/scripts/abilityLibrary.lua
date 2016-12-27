@@ -112,3 +112,53 @@ function fireRepair(instance, class, targetName)
 	end
 end
 
+--[[
+	Upgrades the target's armor class
+]]
+function fireBuffArmor(instance, class, targetName)
+	local armorHierarchy = class.AbilityData['Armor Hierarchy']
+	local targetShip = mn.Ships[targetName]
+	local targetArmor = targetShip.ArmorClass
+	dPrint_abilityLibrary("Fire buffArmor at "..targetName)
+	dPrint_abilityLibrary("Target current armor = "..targetArmor)
+	dPrint_abilityLibrary("Armor Hierarchy = "..getValueAsString(armorHierarchy))
+	
+	-- Go through the hierarchy
+	for index, currentArmor in pairs(armorHierarchy) do
+		-- Identify our current armor value
+		-- And verify that it's not the top armor class
+		if (targetArmor == currentArmor) and (index < #armorHierarchy) then
+			dPrint_abilityLibrary("Upgrading armor class to  "..getValueAsString(armorHierarchy[index + 1]))
+			targetShip.ArmorClass = armorHierarchy[index + 1]
+			return;
+		end
+	end
+	
+	dPrint_abilityLibrary("Could not buff armor "..targetArmor)
+end
+
+--[[
+	Downgrades the target's armor class
+]]
+function fireDebuffArmor(instance, class, targetName)
+	local armorHierarchy = class.AbilityData['Armor Hierarchy']
+	local targetShip = mn.Ships[targetName]
+	local targetArmor = targetShip.ArmorClass
+	dPrint_abilityLibrary("Fire buffArmor at "..targetName)
+	dPrint_abilityLibrary("Target current armor = "..targetArmor)
+	dPrint_abilityLibrary("Armor Hierarchy = "..getValueAsString(armorHierarchy))
+	
+	-- Go through the hierarchy
+	for index, currentArmor in pairs(armorHierarchy) do
+		-- Identify our current armor value
+		-- And verify that it's not the top armor class
+		if (targetArmor == currentArmor) and (index > 0) then
+			dPrint_abilityLibrary("Downgrading armor class to  "..getValueAsString(armorHierarchy[index + 1]))
+			targetShip.ArmorClass = armorHierarchy[index - 1]
+			return;
+		end
+	end
+	
+	dPrint_abilityLibrary("Could not debuff armor "..targetArmor)
+end
+
