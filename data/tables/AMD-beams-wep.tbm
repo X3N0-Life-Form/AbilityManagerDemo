@@ -23,7 +23,7 @@ $Mass:                          100.0
 $Velocity:                      1000.0          ;; speed of the weapon (initially) -- may or may not change
 $Fire Wait:                     16.0            ;; in seconds
 $Damage:                        360
-$Damage Type:					ShivanHugeWeapon
+$Damage Type:					HugeWeapon
 $Armor Factor:                  1.0
 $Shield Factor:                 1.0
 $Subsystem Factor:              1.0
@@ -123,7 +123,7 @@ $Mass:                          100.0
 $Velocity:                      1000.0
 $Fire Wait:                     12.0
 $Damage:                        540
-$Damage Type:					ShivanHugeWeapon
+$Damage Type:					HugeWeapon
 $Armor Factor:                  1.0
 $Shield Factor:                 1.0
 $Subsystem Factor:              1.0
