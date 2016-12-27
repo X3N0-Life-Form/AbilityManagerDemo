@@ -153,14 +153,34 @@ Attaching abilities to ships
   This means that the whole process only takes a single script-eval SEXP at mission start. The function that does all this is called __setShipVariants()__, and takes one argument – the name of one of the category defined in __ship_variants_mission_wide.tbl__, and then instanciates every ability defined there.
 
 
-#TODO : copy paste mission start SEXP
+```lisp
+( when 
+   ( true ) 
+   ( script-eval-block 
+      "setShipVariants('" 
+      "Demo 1" 
+      "')" 
+   )
+)
+```
 
 Manually triggered abilities
 ----------------------------
   Sometimes, you may want fire an ability manually through SEXPs rather leaving that to the framework. For that purpose, __ability_trigger(instanceId)__ triggers a firing cycle (see "Under the hood" above).
   Here is an example of four player-triggered abilities :
 
-#TODO : copy paste player-triggered SEXP
+
+```lisp
+( when 
+   ( key-pressed "1" ) 
+   ( key-reset-multiple "1" ) 
+   ( script-eval-block 
+      "ability_trigger('" 
+      "Virgo 1::Energy Drain" 
+      "')" 
+   )
+)
+```
 
 
 Creating your own abilities
@@ -172,6 +192,31 @@ Writing the function
 - The name of the ability's target.
 - Values defined in the $Ability Data field, through __class.AbilityData['`<field name>`']__
 
-#TODO : copy abiliy function + table entry
 
+```
+$Name:				SSM-moloch-std
+$Function:			fireSSM
+$Target Type:   	cruiser, capital, corvette
+$Target Team:   	Hostile
+$Target Selection:	Closest
+$Cooldown:			24, 20, 17, 15, 13
+$Ability Data:		fireSSM
+  +Strike Type: 	Shivan SSM Strike
+```
+```lua
+function fireSSM(instance, class, targetName)
+	local castingShip = mn.Ships[instance.Ship]
+	local strikeType = class.AbilityData['Strike Type']
+	local strikeTeam = castingShip.Team.Name
+
+	-- Call SSM
+	if (type(strikeType) == 'table') then
+		for index, currentStrikeType in pairs(strikeType) do
+			mn.evaluateSEXP("(when (true) (call-ssm-strike \""..currentStrikeType.."\" \""..strikeTeam.."\" \""..targetName.."\"))")
+		end
+	else
+		mn.evaluateSEXP("(when (true) (call-ssm-strike \""..strikeType.."\" \""..strikeTeam.."\" \""..targetName.."\"))")
+	end
+end
+```
 
