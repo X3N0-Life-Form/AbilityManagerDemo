@@ -1,0 +1,806 @@
+#Primary Weapons
+
+;;;;;;;;;;;;;;;;;;
+;; Shivan Blobs ;;
+;;;;;;;;;;;;;;;;;;
+
+
+$Name:                          Shivan Multi Turret
+	+Tech Title:		XSTR("Shivan Multi Turret",-1)
+	+Tech Description:	XSTR("Shivan Warship-Mounted Mlti-Shot Turret
+	
+	Conflicting reports exist concerning the exact nature and behavior of this weapon. Early mission reports established it as a very deadly anti-capital weapon capable of firing 5 shots at once, posing a serious threat against warships and bombers, limited effectiveness against fighters.
+	
+	More recent encounters describe it as a weapon firing 5 shots in a short burst. Detailed scans of Shivan warships revealed that these two seemingly different weapons, are actually the same weapon system. The reason behind this weapon's change of behavior is still up for debate.",-1)
+	$end_multi_text
+$Model File:                    none ; laser1-1.pof
+@Laser Bitmap:                  Vepar_Bitmap
+@Laser Glow:					Vapula_Glow
+@Laser Color:								   250, 30, 30
+@Laser Color2:								   250, 30, 30
+@Laser Length:       			12.0
+@Laser Head Radius:  			7.0
+@Laser Tail Radius:  			7.0
+$Mass:                          1.2
+$Velocity:                      520.0
+$Fire Wait:                     0.7
+$Damage:                        30
+$Damage Type:					NormalWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      3.0                             ;; How long this thing lives
+$Energy Consumed:               0.30                            ;; Energy used when fired
+$Cargo Size:                    0.0                             ;; Amount of space taken up in weapon cargo
+$Homing:                                NO
+$LaunchSnd:                             114                             ;; The sound it makes when fired
+$ImpactSnd:                             85                                      ;; The sound it makes when it hits something
+	+Weapon range:				1560
+$Flags:                                 ("Big Ship")
+$Trail:
+	+Start Width:	0.2
+	+End Width:		0.3
+	+Start Alpha:	0.25
+	+End Alpha:		0.0
+	+Max Life:		0.4
+	+Bitmap:		Alouqua_Trail
+$Icon:                                  icongun05
+$Anim:                                  LoadGun07
+$Impact Explosion:      		Shivan_Impact01
+$Impact Explosion Radius:			14.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			7.0
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						Cmuzzle_small
+$FOF:								1.7
+;; $Shots:								5
+$Burst Shots:						5
+$Burst Delay:						100
+$Burst Flags:						()
+
+;;;;;;;;;;;;;;;;;;;;
+;; Alliance Blobs ;;
+;;;;;;;;;;;;;;;;;;;;
+
+$Name:                              Mass Driver 
+	+Tech Title:		XSTR("Mass Driver",-1)
+	+Tech Description:	XSTR("Initially developed for the Terran Hecate-class destroyer, the Alliance's next generation mass driver cannon has proven to be a very versatile weapon system and is particularly popular in the Vasudan Navy, which now often equips lighter variants on its older cruisers and destroyers, giving the former a much needed anti-capital option.
+	
+	Before the Terran Navy decided to replace these expansive weapons with cheaper flak systems, the Mass Driver gave the Hecate punishing anti-warship firepower from almost any direction, backed up by the ship's beam weapons, delivering a near-constant stream of armor-piercing slugs.
+	
+	While the lighter versions of this gun have a much lighter refire rate compared to the Hecate's dedicated turrets, it was recently revealed that the GTVA Colossus also mounts this weapon, but with an even greater rate of fire.",-1)
+	$end_multi_text
+$Model File:						none
+@Laser Bitmap:						Maxim
+@Laser Glow:						Maxim_Glow
+@Laser Color:						90, 90, 90
+@Laser Color2:						150, 150, 200
+@Laser Length:						40.5
+@Laser Head Radius:					12.0
+@Laser Tail Radius:					6.5
+$Mass:                              4.5
+$Velocity:                          1800.0   
+$Fire Wait:                         0.45 
+$Damage:                            150
+$Damage Type:						HugeWeapon
+$Armor Factor:						1.0
+$Shield Factor:						0.2
+$Subsystem Factor:					0.4
+$Lifetime:                          1.8
+$Energy Consumed:					1.0		
+$Cargo Size:						0.0	
+$Homing:                            NO
+$LaunchSnd:                         81   
+$ImpactSnd:                         85  
+$Flags:                             ( "big ship" "stream" "huge" "particle spew" )
+$Trail:
+	+Start Width:	3.0
+	+End Width:		0.3
+	+Start Alpha:	0.2
+	+End Alpha:		0.0
+	+Max Life:		0.8
+	+Bitmap:		Maxim_Trail
+$Impact Explosion:					Maxim_Impact
+$Impact Explosion Radius:			16.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			9.0
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-4.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						MDmuzzle
+$Pspew:
+	+Count:			3
+	+Time:			1
+	+Vel:			0.0
+	+Radius:		3.0
+	+Life:			0.0.
+	+Scale:			1.0
+	+Bitmap:		Maxim_impact_0001
+$FOF:								1.4
+
+
+$Name:								Wraith
+	+Tech Title:		XSTR("Wraith Point Defence Turret",-1)
+	+Tech Description:	XSTR("Based on the successful Banshee, the Wraith is capable of inflicting devastating damage on shields, while still being able to inflict significant hull damage to its target at medium range.
+	A very effective joint design is expected to replace the old Heavy Point Defence Turrets on Alliance warships in the coming years.",-1)
+	$end_multi_text
+$Model File: 						none
+@Laser Bitmap:						Akheton_Bitmap
+@Laser Color: 						190, 150, 250
+@Laser Length: 						27.0
+@Laser Head Radius:					4.2
+@Laser Tail Radius:					3.1
+$Mass: 								0.5
+$Velocity: 							650.0
+$Fire Wait: 						0.4
+$Damage: 							42
+$Damage Type:						NormalWeapon
+$Armor Factor: 						0.4
+$Shield Factor: 					1.2
+$Subsystem Factor: 					0.35
+$Lifetime: 							2.0
+$Energy Consumed: 					1.60
+$Cargo Size: 						0.0
+$Homing: 							NO
+$LaunchSnd: 						107
+$ImpactSnd:							85
+$Flags: 							( "big ship" )
+$Impact Explosion:					Akheton_Impact
+$Impact Explosion Radius:			10.5
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			7.5
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-2.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash: 						WraithMuzzle
+
+;;;;;;;;;;;;;;;
+;; Flak Guns ;;
+;;;;;;;;;;;;;;;
+
+$Name:							Light Flak
+$Model File:					none
+$Mass:							0.2
+$Velocity:						700.0					;; really fast - like AA fire
+$Fire Wait:						0.2					;; 
+$Damage:						20
+$Damage Type:					NormalWeapon
+$Blast Force:              		40.0
+$Inner Radius:					20.0                                    ;; radius at which damage is full
+$Outer Radius:					30.0                                    ;; max radius for attenuated damage
+$Shockwave Speed:				0.0                                     ;; velocity of shockwave.  0 for none.
+$Armor Factor:					1.0
+$Shield Factor:					1.0
+$Subsystem Factor:				0.2
+$Lifetime:						1.5
+$Energy Consumed:				0.0
+$Cargo Size:					1.0
+$Homing:							NO
+$LaunchSnd:						116
+$ImpactSnd:						117
++Weapon Range:					4000			;; Limit to range at which weapon will actively target object
+$Flags:							("Big Ship" "Flak" "particle spew")
+$Trail:
+	+Start Width:	3.5
+	+End Width:		0.0
+	+Start Alpha:	1.0
+	+End Alpha:		0.0
+	+Max Life:		0.10
+	+Bitmap:		Flak_trail
+$Icon:							iconmissile06
+$Anim:							LoadMissile04
+$Impact Explosion:				Exp20
+$Impact Explosion Radius:		25.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			7.5
+$Piercing Impact Velocity: 			10
+$Piercing Impact Splash Velocity:	-10
+$Piercing Impact Variance:			20000
+$Piercing Impact Particles:			5
+$Muzzleflash:						standardflak
+$Pspew:
+	+Count:		2
+	+Time:		1
+	+Vel:		0
+	+Radius:	2.50
+	+Life:		0.0125
+	+Scale:		0.025
+	+Bitmap:	Cmuzzle_0001
+
+;; =========================================================================
+;;						Shivan Anti-Capital Beams
+;; =========================================================================
+
+$Name:                          MRed
+	+Tech Title:		XSTR("MRed",-1)
+	+Tech Description:	XSTR("Medium Shivan Beam
+	
+	This weapon is somewhere in between destroyer and cruiser grade beam canons, in terms of firepower. It is mainly found on Shivan corvettes and destroyers.
+	
+	Damage per salvo: 8044",-1)
+	$end_multi_text
+$Model File:                    none ; laser1-1.pof
+@Laser Bitmap:                  laserglow01
+@Laser Color:					250, 30, 30
+@Laser Length:					0.0
+@Laser Head Radius:				0.30
+@Laser Tail Radius:				0.30
+$Mass:                          100.0
+$Velocity:                      1000.0          ;; speed of the weapon (initially) -- may or may not change
+$Fire Wait:                     16.0            ;; in seconds
+$Damage:                        360
+$Damage Type:					HugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      20.0            ;; How long this thing lives
+$Energy Consumed:               0.30            ;; Energy used when fired
+$Cargo Size:                    0.0             ;; Amount of space taken up in weapon cargo
+$Homing:                        NO
+$LaunchSnd:                     124             ;; The sound it makes when fired
+$ImpactSnd:                     88             ;; The sound it makes when it hits something
++Weapon Range:					4000			;; Limit to range at which weapon will actively target object
+$Flags:                         ("Big Ship" "huge" "beam")
+$Icon:                          icongun05
+$Anim:                          LoadGun07
+$Impact Explosion:              exp04
+$Impact Explosion Radius:       40.0
+$BeamInfo:
+	+Type:						0				;; 0 - 4 are valid #'s
+	+Life:			  			3.8				;; how long it lasts once the beam is actually firing
+	+Warmup:		  			1500			;; warmup time in ms
+	+Warmdown:					1000			;; warmdown time in ms
+	+Radius:		  			80.0			;; muzzle glow radius in meters
+	+PCount:					24				;; particles spewed every interval
+	+PRadius:					2.8				;; particle radius
+	+PAngle:					65.0			;; angle of the random "cone" where the particles are generated
+	+PAni:						particle_red
+	+Miss Factor:				2.5 1.875 1.25 0.875 0.5	;; magic # - higher == miss more (only really applicable to type 0 and type 3 beams)
+	+BeamSound:					177				;; the looping beam-firing sound
+	+WarmupSound:				183				;; associated warmup sound
+	+WarmdownSound:				187				;; associated warmdown sound
+	+Muzzleglow:				SbeamAglow
+	+Shots:						0				;; only used for TYPE 3 beams
+	+ShrinkFactor:				0.1				;; what percentage of lifetime where beam starts shrinking (0.1 == 10% life left)
+	+ShrinkPct:					1.8				;; what percentage of max width we subtract per second
+	+Beam Flash Effect:						capflash
+	+Beam Flash Radius:						13.0
+	+Beam Piercing Effect:					exp06
+	+Beam Piercing Radius:					13.0
+	+Beam Piercing Effect Velocity:			200
+	+Beam Piercing Splash Effect Velocity:	-10
+	+Beam Piercing Effect Variance:			0.01
+	$Section:
+		+Width:			12.0
+		+Texture:		SbeamAA
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.3
+		+Zadd:			1.0
+		+Tile Factor:	90, 1
+		+Translation:	-2
+	$Section:
+		+Width:			9.0
+		+Texture:		SbeamAB
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.2
+		+Zadd:			2.0
+	$Section:
+		+Width:			33.0
+		+Texture:		SbeamAC
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.001
+		+Zadd:			1.0
+		+Tile Factor:	10, 1
+		+Translation:	-2
+	$Section:
+		+Width:			95.0
+		+Texture:		SbeamAD
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.1
+		+Zadd:			0.0
+	$Section:
+		+Width:			64.0
+		+Texture:		SbeamAE
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.2
+		+Zadd:			0.0
+
+		
+$Name:                          MRedUp
+	+Tech Title:		XSTR("MRedUp",-1)
+	+Tech Description:	XSTR("Upgraded Medium Shivan Beam
+	
+	Several Shivan warships (mostly command variants) have been shown to be able to increase the firepower and refire rate of their Medium Beams. The resulting weapon, while not as devastating as the destroyer-grade Large Shivan Beam, is actually on par with the Alliance's own destroyer beams in terms of damage dealt over time.
+
+	Damage per salvo: 12066",-1)
+	$end_multi_text
+$Model File:                    none ; laser1-1.pof
+@Laser Bitmap:                  laserglow01
+@Laser Color:					250, 30, 30
+@Laser Length:					0.0
+@Laser Head Radius:				0.30
+@Laser Tail Radius:				0.30
+$Mass:                          100.0
+$Velocity:                      1000.0
+$Fire Wait:                     12.0
+$Damage:                        540
+$Damage Type:					HugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      20.0            ;; How long this thing lives
+$Energy Consumed:               0.30            ;; Energy used when fired
+$Cargo Size:                    0.0             ;; Amount of space taken up in weapon cargo
+$Homing:                        NO
+$LaunchSnd:                     124             ;; The sound it makes when fired
+$ImpactSnd:                     88             ;; The sound it makes when it hits something
++Weapon Range:					4000			;; Limit to range at which weapon will actively target object
+$Flags:                         ("Big Ship" "huge" "beam")
+$Icon:                          icongun05
+$Anim:                          LoadGun07
+$Impact Explosion:              exp04
+$Impact Explosion Radius:       50.0
+$BeamInfo:
+	+Type:						0				;; 0 - 4 are valid #'s
+	+Life:			  			3.8
+	+Warmup:		  			1500			;; warmup time in ms
+	+Warmdown:					1000			;; warmdown time in ms
+	+Radius:		  			80.0			;; muzzle glow radius in meters
+	+PCount:					24				;; particles spewed every interval
+	+PRadius:					2.8				;; particle radius
+	+PAngle:					65.0			;; angle of the random "cone" where the particles are generated
+	+PAni:						particle_red	;; particle ani
+	+Miss Factor:				1.5 1.25 1.0 0.875 0.5
+	+BeamSound:					177				;; the looping beam-firing sound
+	+WarmupSound:				183				;; associated warmup sound
+	+WarmdownSound:				187				;; associated warmdown sound
+	+Muzzleglow:				SbeamAglow		;; muzzle glow bitmap	
+	+Shots:						0				;; only used for TYPE 3 beams
+	+ShrinkFactor:				0.1				;; what percentage of lifetime where beam starts shrinking (0.1 == 10% life left)
+	+ShrinkPct:					1.8				;; what percentage of max width we subtract per second
+	+Beam Flash Effect:						capflash
+	+Beam Flash Radius:						16.0
+	+Beam Piercing Effect:					exp06
+	+Beam Piercing Radius:					16.0
+	+Beam Piercing Effect Velocity:			200
+	+Beam Piercing Splash Effect Velocity:	-10
+	+Beam Piercing Effect Variance:			0.01
+	$Section:
+		+Width:			14.0
+		+Texture:		SbeamAA
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.3
+		+Zadd:			1.0
+		+Tile Factor:	90, 1
+		+Translation:	-2
+	$Section:
+		+Width:			10.0
+		+Texture:		SbeamAB
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.2
+		+Zadd:			2.0
+	$Section:
+		+Width:			36.0
+		+Texture:		SbeamAC
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.001
+		+Zadd:			1.0
+		+Tile Factor:	10, 1
+		+Translation:	-2
+	$Section:
+		+Width:			100.0
+		+Texture:		SbeamAD
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.1
+		+Zadd:			0.0
+	$Section:
+		+Width:			68.0
+		+Texture:		SbeamAE
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.2
+		+Zadd:			0.0
+
+
+
+
+;; =========================================================================
+;;						Terran Anti-Capital Beams
+;; =========================================================================
+
+
+
+$Name:							MGreen
+	+Tech Title:		XSTR("Mk4 'Medium Green' Terran Beam",-1)
+	+Tech Description:	XSTR("Once larger ships got equipped with more effective beam weaponry, it became clear that the 'Small Green' equipped on Leviathan and Aeolus cruisers wasn't up to the task. The 'Medium Green' research project's aim was to provide the brand new Aeolus cruisers with decent long range anti-warship capabilities, something the ageing Leviathan and Fenris designs could achieve with their Fusion Mortar battery. Optimized to be outfitted exclusively into the Aeolus, the 'Medium Green' Terran Beam is rarely found on other ship classes. Very few Aeolus have themselves been retrofitted with Medium Beams, this privilege being usually reserved for Special Operations units or Combat Groups.
+
+	Damage per salvo: 4297",-1)
+	$end_multi_text
+$Model File:					none 				; laser1-1.pof
+@Laser Bitmap:               	laserglow01
+@Laser Color:					0, 255, 54
+; pale green 					R 192	G 255	B 200
+@Laser Length:					0.0
+@Laser Head Radius:				0.3
+@Laser Tail Radius:				0.3
+$Mass:                          100.0
+$Velocity:                      1600.0				;; speed of the weapon (initially) -- may or may not change
+$Fire Wait:                     22.0				;; in seconds
+$Damage:                        252
+$Damage Type:					HugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      2.9            		;; How long this thing lives
+$Energy Consumed:               0.30        	    ;; Energy used when fired
+$Cargo Size:                    0.0         	    ;; Amount of space taken up in weapon cargo
+$Homing:                        NO
+$LaunchSnd:                     124
+$ImpactSnd:                     88              	;; The sound it makes when it hits something
++Weapon Range:					4000				;; Limit to range at which weapon will actively target object
+$Flags:                         ("Big Ship" "huge" "beam")
+$Icon:                          icongun05
+$Anim:                          LoadGun07
+$Impact Explosion:              exp04
+$Impact Explosion Radius:       28.0
+$BeamInfo:
+	+Type:						0					;; 0 - 4 are valid #'s
+	+Life:		  				2.9					;; how long it lasts once the beam is actually firing
+	+Warmup:		  			1500				;; warmup time in ms
+	+Warmdown:					3000				;; warmdown time in ms
+	+Radius:		  			40.0
+	+PCount:					50
+	+PRadius:					3.0
+	+PAngle:					60.0				;; angle of the random "cone" where the particles are generated
+	+PAni:						particle_green
+	+Miss Factor:				1.0 1.3 1.3 1.3 1.4					;; magic # - higher == miss more (only really applicable to type 0 and type 3 beams)
+	+BeamSound:					146					;; the looping beam-firing sound
+	+WarmupSound:				151					;; associated warmup sound
+	+WarmdownSound:				158					;; associated warmdown sound
+	+Muzzleglow:				TbeamAglow			;; muzzle glow bitmap
+	+Shots:						0					;; only used for TYPE 3 beams
+	+ShrinkFactor:				0.1	
+	+ShrinkPct:					2.0	
+	+Beam Flash Effect:						capflash
+	+Beam Flash Radius:						14.0
+	+Beam Piercing Effect:					exp06
+	+Beam Piercing Radius:					14.0
+	+Beam Piercing Effect Velocity:			200
+	+Beam Piercing Splash Effect Velocity:	-10
+	+Beam Piercing Effect Variance:			0.01
+	$Section:
+		+Width:			15
+		+Texture:		SGreenCore
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.1
+		+Zadd:			8
+		+Tile Factor:	9, 1
+		+Translation:	-18
+	$Section:
+		+Width:			30
+		+Texture:		SGreenHaze1
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.15
+		+Zadd:			6
+		+Tile Factor:	12, 1
+		+Translation:	-10
+	$Section:
+		+Width:			54
+		+Texture:		SGreenHaze2
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.25
+		+Zadd:			3
+		+Tile Factor:	12, 1
+		+Translation:	-6
+	$Section:
+		+Width:			88.0
+		+Texture:		GreenFade
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.35
+		+Zadd:			1
+
+
+$Name:							MGreenUp
+	+Tech Title:		XSTR("Mk4e 'Upper Green' Terran Beam",-1)
+	+Tech Description:	XSTR("Upgraded Medium Terran Beam
+	
+	blabla
+
+	Damage per salvo: 7112",-1)
+	$end_multi_text
+$Model File:					none 				; laser1-1.pof
+@Laser Bitmap:               	laserglow01
+@Laser Color:					0, 255, 54
+; pale green 					R 192	G 255	B 200
+@Laser Length:					0.0
+@Laser Head Radius:				0.3
+@Laser Tail Radius:				0.3
+$Mass:                          100.0
+$Velocity:                      1600.0				;; speed of the weapon (initially) -- may or may not change
+$Fire Wait:                     18.0				;; in seconds
+$Damage:                        378
+$Damage Type:					HugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      3.2            		;; How long this thing lives
+$Energy Consumed:               0.30        	    ;; Energy used when fired
+$Cargo Size:                    0.0         	    ;; Amount of space taken up in weapon cargo
+$Homing:                        NO
+$LaunchSnd:                     124
+$ImpactSnd:                     88              	;; The sound it makes when it hits something
++Weapon Range:					4000				;; Limit to range at which weapon will actively target object
+$Flags:                         ("Big Ship" "huge" "beam")
+$Icon:                          icongun05
+$Anim:                          LoadGun07
+$Impact Explosion:              exp04
+$Impact Explosion Radius:       28.0
+$BeamInfo:
+	+Type:						0					;; 0 - 4 are valid #'s
+	+Life:		  				3.2					;; how long it lasts once the beam is actually firing
+	+Warmup:		  			1500				;; warmup time in ms
+	+Warmdown:					3000				;; warmdown time in ms
+	+Radius:		  			40.0
+	+PCount:					50
+	+PRadius:					3.0
+	+PAngle:					60.0				;; angle of the random "cone" where the particles are generated
+	+PAni:						particle_green
+	+Miss Factor:				1.0 1.3 1.3 1.3 1.4					;; magic # - higher == miss more (only really applicable to type 0 and type 3 beams)
+	+BeamSound:					144					;; the looping beam-firing sound
+	+WarmupSound:				153					;; associated warmup sound
+	+WarmdownSound:				156					;; associated warmdown sound
+	+Muzzleglow:				TbeamAglow			;; muzzle glow bitmap
+	+Shots:						0					;; only used for TYPE 3 beams
+	+ShrinkFactor:				0.1
+	+ShrinkPct:					1.8	
+	+Beam Flash Effect:						capflash
+	+Beam Flash Radius:						15.0
+	+Beam Piercing Effect:					exp06
+	+Beam Piercing Radius:					15.0
+	+Beam Piercing Effect Velocity:			210
+	+Beam Piercing Splash Effect Velocity:	-10
+	+Beam Piercing Effect Variance:			0.01
+	$Section:
+		+Width:			17
+		+Texture:		SGreenCore
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.1
+		+Zadd:			8
+		+Tile Factor:	9, 1
+		+Translation:	-18
+	$Section:
+		+Width:			34
+		+Texture:		SGreenHaze1
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.15
+		+Zadd:			6
+		+Tile Factor:	12, 1
+		+Translation:	-10
+	$Section:
+		+Width:			58
+		+Texture:		SGreenHaze2
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.25
+		+Zadd:			3
+		+Tile Factor:	12, 1
+		+Translation:	-6
+	$Section:
+		+Width:			94.0
+		+Texture:		GreenFade
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.35
+		+Zadd:			1
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; Shivan Primaries ;;
+;;;;;;;;;;;;;;;;;;;;;;
+
+$Name:								Shivan Light Laser
+	+nocreate
+	+Title:							XSTR("Shivan Light Laser",-1)
+	+Tech Title:					XSTR("Shivan Light Laser", -1)
+	+Tech Description:
+		XSTR("While standard Shivan primary weapons were initially stronger than anything the GTA or PVN had, by the end of the Great War, Terran and Vasudan weapons outmatched the Shivan's by a significant margin.", -1)
+	$end_multi_text
+$Damage Type:						ShivanWeapon
+$Flags:								( "player allowed" )
+$Icon:								iconSD4
+$Anim:								SD4
+
+$Name:								Shivan Heavy Laser
+	+nocreate
+	+Title:							XSTR("Shivan Heavy Laser",-1)
+	+Tech Title:					XSTR("Shivan Heavy Laser", -1)
+	+Tech Description:
+		XSTR("Once considered formidable pieces of technology, Shivan primary weapons are now considered inefficient by Terran and Vasudan scientists, who universally agree that given the principles upon which rely on, these weapons should be capable of outmatching most GTVA fighter-mounted primaries.", -1)
+	$end_multi_text
+$Damage Type:						ShivanWeapon
+$Flags:								( "player allowed" )
+$Icon:                              iconCirce
+$Anim:                              Circe
+
+$Name:                              Shivan Mega Laser
+	+nocreate
+	+Title:							XSTR("Shivan Mega Laser",-1)
+	+Tech Title:					XSTR("Shivan Mega Laser", -1)
+	+Tech Description:
+		XSTR("Over the past 32 years, GTVA scientist have put hard work in dismantling and understanding how Shivan weaponry works. While most of the findings are classified at highest levels, some of the published materials underline a massively alien view of weapon craft, relying on physics principles not traditionally applied to warfare. Yet the weapon produced are extremely versatile, capable (most of the time) of damaging hull, draining shields and disrupting subsystems with equal ease, while being extremely energy efficient and having seemly a low resource cost.", -1)
+	$end_multi_text
+$Damage Type:						ShivanWeapon
+$Flags:								( "player allowed" )
+$Icon:                              iconKayser
+$Anim: Kayser
+
+
+
+#End
+
+
+
+#Secondary Weapons
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; Shivan Torpedoes ;;
+;;;;;;;;;;;;;;;;;;;;;;
+
+
+$Name:                                 	Shivan Swarmer Bomb
+	+Title:								XSTR("Shivan Swarmer Bomb",-1)
+	+Description:
+		XSTR(
+		"Special Issue
+		Defence Saturation Bomb
+		Anti-Capital Ship Warhead
+		", -1)
+	$end_multi_text
+	+Tech Description:
+		XSTR("A threat that only appeared recently, the Shivan Swarmer Bomb is a light warhead whose main purpose is to confuse capital ships' point defence system. Often mounted on Aeshma Heavy fighter of Nahema Strike Bombers, these bombs are fired in swarms of 2 or 4 in rapid succession, overwhelming a warship's defence system and fighter escort. They have recently earned the nickname of 'corvette's hornet', due to the life expectancy of Alliance corvettes facing Swarmer Bombs being similar to that of a cruiser facing Hornet Swarm Missiles.",-1)
+	$end_multi_text
+$Model File:							S_Bomb.pof
+$POF target LOD:						0
+$Mass:									25.0
+$Velocity:								240.0
+$Fire Wait:								4.0
+$Damage:                                300
+$Damage Type:							HugeWeapon
+$Shockwave Damage Type:					HugeWeapon
+$Blast Force:							600.0
+$Inner Radius:							35.0	
+$Outer Radius:							80.0	 
+$Shockwave Speed:						80     
+$Shockwave name:						shockwave01                              
+$Armor Factor:							1.0
+$Shield Factor:							0.02
+$Subsystem Factor:						0.5				
+$Lifetime:								17.0
+$Energy Consumed:						0.0
+$Cargo Size:							8.0
+$Homing:								YES
+	+Type:                              ASPECT	
+	+Turn Time:                         3.0
+	+View Cone:							360.0
+	+Min Lock Time:						4.0	
+	+Lock Pixels/Sec:					35	
+	+Catch-up Pixels/Sec:				70
+	+Catch-up Penalty:					12
+$Swarm:									2	
+$LaunchSnd:								96
+$ImpactSnd:								88
+$FlyBySnd:								-1
+$Rearm Rate:							0.10
+$Flags:									("player allowed" "Bomb" "Huge" "No Dumbfire" "particle spew" )
+$Trail:
+	+Start Width:		1.0
+	+End Width:			0.0
+	+Start Alpha:		1.0
+	+End Alpha:			0.0
+	+Max Life:			3.8
+	+Bitmap:			missiletrail06
+$Icon:	iconbelial
+$Anim:	belial
+$Impact Explosion: ExpMissileHit1
+$Impact Explosion Radius:			29.52
+$Piercing Impact Explosion:			exp04
+$Piercing Impact Radius:			14.76
+$Piercing Impact Velocity:			25
+$Piercing Impact Splash Velocity:	-25
+$Piercing Impact Variance:			20000
+$Piercing Impact Particles:			10
+$Pspew:
+	+Count:		1
+	+Time:		1
+	+Vel:		0.0
+	+Radius:	0.5
+	+Life:		0.1
+	+Scale:		0.0
+	+Bitmap:	missilespew06
+$Thruster Flame Effect:				missilethruster06
+$Thruster Glow Effect:				missileglow06
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; Alliance Torpedoes ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+$Name:                                 	Vasudan Torpedo
+	+Tech Description:
+		XSTR("When the Hatshepsut-class destroyer came out, it became apparent that the old Fusion Mortar and Vasudan Flux Canon had become obsolete in the new beam heavy environment as heavy ship-to-ship missiles. While the Terran decided to develop a Mass Driver gun for their Hecate-class destroyers as a secondary non-beam anti-capital ship weapon, Vasudan Command decided to retrofit the already-existing Fusion Mortar launchers of Hatshepsut destroyers into a next-generation anti-capital ship missile launcher.
+
+The resulting weapon is a flexible torpedo system, firing fast torpedoes in swarms of 2, sacrificing payload for speed, making the torpedoes hard to intercept. While the production costs remain relatively high compared to older mainstream designs, the success of this weapon system can be interpreted as a cue that ship-to-ship missiles are still a viable weapon platform.",-1)
+		$end_multi_text
+$Model File:							harbinger.pof
+$POF target LOD:						1
+$Mass:									25.0
+$Velocity:								220.0
+$Fire Wait:								12.0
+$Damage:                                1220
+$Damage Type:							HugeWeapon
+$Shockwave Damage Type:					HugeWeapon
+$Blast Force:							1000.0
+$Inner Radius:							70.0
+$Outer Radius:							160.0
+$Shockwave Speed:						80                                      
+$Armor Factor:							1.0
+$Shield Factor:							0.02
+$Subsystem Factor:						1.2	
+$Lifetime:								15.0
+$Energy Consumed:						0.0
+$Cargo Size:							15.0
+$Homing:								YES
+	+Type:                              ASPECT	
+	+Turn Time:                         2.8
+	+View Cone:							180.0
+	+Min Lock Time:						3.5	
+	+Lock Pixels/Sec:					35	
+	+Catch-up Pixels/Sec:				70
+	+Catch-up Penalty:					12
+$Swarm:									2	
+;; $Free Flight Time:						0.5
+$LaunchSnd:								96
+$ImpactSnd:								88
+$FlyBySnd:								-1
+$Rearm Rate:							0.05
+$Flags:									( "Bomb" "Huge" "No Dumbfire" )
+$Trail:                                                                          ;; Trail cannot be set if Exhaust is set
+	+Start Width:						0.5                                       ;; Width of trail nearest missile
+	+End Width:							1.75                                      ;; Width of trail before it "evaporates"
+	+Start Alpha:						1.0
+	+End Alpha:							0.0
+	+Max Life:                          1.5                                       ;; how many seconds before trail disappears
+	+Bitmap:							MissileTrail04										;; Bitmap used to draw trail
+$Icon:                                 iconbelial
+$Anim:                                 belial
+$Impact Explosion:                     ExpMissileHit1
+$Impact Explosion Radius:					15.0
+
+
+#End

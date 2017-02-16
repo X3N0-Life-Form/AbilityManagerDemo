@@ -1,0 +1,85 @@
+#Ship Classes
+
+$Name: SF Dragon
+	+nocreate ;:
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" )
+$Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Shivan Disruptor"  )
+$Flags: ( "player_ship" "fighter" )
+
+$Name: SF Basilisk
+	+nocreate ;:
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser"    )
+$Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb")
+$Flags: ( "player_ship" "fighter" )
+
+$Name: SF Manticore
+	+nocreate ;:
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser"    )
+$Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "EMP Adv.#Shivan")
+$Flags: ( "player_ship" "fighter" )
+
+$Name: SF Mara
+	+nocreate ;:
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" )
+$Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "TAG-C#Shivan" "AntiFighterTAG#Shivan"  "TAG-C#Barrage")
+$Flags: ( "player_ship" "fighter" )
+
+
+$Name: SF Aeshma
+	+nocreate ;:
+$Allowed PBanks:		
+	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser")
+$Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "Shivan Swarmer Bomb" "TAG-C#Shivan" "AntiFighterTAG#Shivan"  "TAG-C#Barrage")
+$Flags:                 ( "fighter" "player_ship" )
+
+$Name: SF Astaroth
+	+nocreate ;:
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser"    )
+$Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "EMP Adv.#Shivan")
+$Flags:                 ( "fighter" "player_ship" )
+
+$Name: SB Nephilim
+	+nocreate ;:
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser"    )
+$Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Trebuchet#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "Shivan Bomb" "Shivan Bomb#Short" "Shivan Megabomb" "Shivan Swarmer Bomb" )
+$Flags:					("player_ship" "bomber")
+$Countermeasures:       20
+$Subsystem:                     turret01,5,1.0
+	$Default PBanks:        ( "Shivan Light Laser" )
+	$Flags:					("play fire sound for player")
+$Subsystem:                     turret02,5,1.0
+	$Default PBanks:        ( "Shivan Light Laser" )
+	$Flags:					("play fire sound for player")
+
+$Name: SB Taurvi
+	+nocreate ;:
+$Allowed PBanks:		
+	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" )
+$Allowed SBanks:		("Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Trebuchet#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "Shivan Bomb" "Shivan Bomb#Short" "Shivan Megabomb" "Shivan Swarmer Bomb" "TAG-C#Shivan" "AntiFighterTAG#Shivan"   "TAG-C#Barrage")
+$Flags:                 ( "bomber" "player_ship" )
+$Countermeasures:       30
+
+$Name: SB Nahema
+	+nocreate ;:
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser"    )
+$Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "Shivan Bomb" "Shivan Bomb#Short" "Shivan Megabomb" "Shivan Swarmer Bomb" "TAG-C#Shivan" )
+$Max Oclk Speed:		120.0
+$Flags:                 ( "bomber" "player_ship" )
+$Countermeasures:       25
+
+$Name: SB Seraphim
+	+nocreate ;:
+$Allowed PBanks:		
+	("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser")
+$Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "Shivan Bomb" "Shivan Bomb#Short" "Shivan Megabomb" "Shivan Swarmer Bomb" "Shivan Mordiggian Bomb")
+$Flags:                 ( "bomber" "player_ship" )
+$Countermeasures:       20
+$Subsystem:                     turret01,5,1.0
+	$Default PBanks:        ( "Shivan Light Laser" )
+	$Flags:					("play fire sound for player")
+$Subsystem:                     turret02,5,1.0
+	$Default PBanks:        ( "Shivan Light Laser" )
+	$Flags: ("play fire sound for player")
+
+
+#End
