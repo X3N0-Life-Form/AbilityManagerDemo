@@ -118,7 +118,7 @@ $Target Selection:		Self
 $Cost:					1
 	+Starting Reserve:	5
 $Cooldown:				30
-$Buffs:				Repair Buff
+$Buffs:				Repair Buff#Fighter
 
 $Name:				Activate Active Armor
 $Function:			none			; TODO
@@ -126,7 +126,7 @@ $Target Type:			fighter, bomber
 $Target Team:			Friendly
 $Target Selection:		Self
 $Cooldown:			40
-$Buffs:				Active Armor
+$Buffs:				Active Armor#Fighter
 
 
 #End
@@ -135,28 +135,28 @@ $Buffs:				Active Armor
 ; Buff placement prototypes
 
 $Name:			Repair Buff#Fighter
-$Periodicity: 		1.0
-$Duration:		10
-$Apply Function:	debuffArmor ;TODO
-$Effect Function:	fireRepair
-$Expiration Function:	buffArmor ;TODO
+$Periodicity: 			1.0
+$Duration:				10
+$Apply Function:		fireDebuffArmor
+$Effect Function:		fireRepair
+$Expiration Function:	fireBuffArmor
 $Stacks:		false
 $Buff Data:
 	+Hull:			10
 	+Armor Hierarchy:	Light Armor--, Light Armor, Light Armor++
 	
 $Name:			Active Armor#Capital
-$Duration:		15
-$Apply Function:	buffArmor ;TODO
-$Expiration Function:	debuffArmor ;TODO
+$Duration:				15
+$Apply Function:		fireBuffArmor
+$Expiration Function:	fireDebuffArmor
 $Stacks:		false
 $Buff Data:
 	+Armor Hierarchy:	Heavy Armor--, Heavy Armor, Heavy Armor++
 
 $Name:			Active Armor#Fighter
-$Duration:		15
-$Apply Function:	buffArmor ;TODO
-$Expiration Function:	debuffArmor ;TODO
+$Duration:				15
+$Apply Function:		fireBuffArmor
+$Expiration Function:	fireDebuffArmor
 $Stacks:		false
 $Buff Data:
 	+Armor Hierarchy:	Light Armor--, Light Armor, Light Armor++

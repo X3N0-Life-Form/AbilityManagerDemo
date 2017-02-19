@@ -73,69 +73,28 @@ $Ship Choices: (
 
 +Weaponry Pool: (
 	"Subach HL-7"	16
-	"Subach HL-D"	16
 	"Mekhu HL-7"	16
-	"Mekhu HL-7D"	16
 	"Akheton SDG"	16
 	"Morning Star"	16
-	"MorningStar D"	16
-	"Prometheus R"	16
 	"Prometheus S"	16
-	"Prometheus D"	16
 	"Maxim"	16
-	"Maxim D"	16
 	"UD-8 Kayser"	16
-	"UD-D Kayser"	16
 	"Circe"	16
 	"Lamprey"	16
 	"Shivan Light Laser"	16
 	"Shivan Heavy Laser"	16
 	"Shivan Mega Laser"	16
-	"Shivan Light Laser Up"	19
-	"Shivan Heavy Laser Up"	16
-	"Shivan Anticap Laser"	16
-	"Shivan Heavy Anticap Laser"	16
-	"Shivan Scatter Gun"	16
-	"Shivan Light Scatter Gun"	19
-	"Shivan Sniper Gun"	16
-	"Shivan Large Cannon"	16
-	"Shivan Flak Weapon"	16
 	"Rockeye"	500
-	"Rockeye D"	500
-	"Tempest"	500
-	"Tempest D"	500
-	"Hornet"	500
-	"Hornet D"	500
-	"Hornet#Weak"	500
-	"Tornado"	500
-	"Tornado D"	500
+	"Tempest"	1200
+	"Tornado"	1200
 	"Harpoon"	500
-	"Harpoon D"	500
-	"Harpoon#Weak"	500
 	"Trebuchet"	500
-	"TAG-A"	500
-	"TAG-B"	500
-	"TAG-C"	500
-	"Piranha"	500
-	"Stiletto II"	500
-	"Infyrno"	500
-	"Infyrno D"	500
 	"Cyclops"	500
-	"Cyclops#short"	500
-	"Helios"	500
-	"EMP Adv."	500
 	"Rockeye#Shivan"	500
-	"Rockeye D#Shivan"	500
 	"Tempest#Shivan"	1460
-	"Tempest D#Shivan"	500
 	"Hornet#Shivan"	500
-	"Hornet D#Shivan"	500
-	"Hornet#Weak#Shivan"	500
 	"Tornado#Shivan"	500
-	"Tornado D#Shivan"	500
 	"Harpoon#Shivan"	500
-	"Harpoon D#Shivan"	500
-	"Harpoon#Weak#Shivan"	500
 	"Trebuchet#Shivan"	530
 	"Piranha#Shivan"	500
 	"Shivan Disruptor"	500
@@ -145,8 +104,6 @@ $Ship Choices: (
 	"Shivan Megabomb"	500
 	"EMP Adv.#Shivan"	500
 	"Shivan Swarmer Bomb"	500
-	"Shivan Advanced Swarmer Bomb"	500
-	"Crossbow"	500
 	"TAG-C#Shivan"	500
 	"AntiFighterTAG#Shivan"	500
 	"TAG-C#Barrage"	500
@@ -168,7 +125,7 @@ $AI Behavior: None
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
-+Primary Banks: ( "Shivan Light Laser Up" "Shivan Light Scatter Gun" )
++Primary Banks: ( "Shivan Light Laser" "Shivan Heavy Laser" )
 +Secondary Banks: ( "Trebuchet#Shivan" "Tempest#Shivan" )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( false ) 
@@ -194,7 +151,7 @@ $AI Behavior: None
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
-+Primary Banks: ( "Shivan Light Laser Up" "Shivan Light Scatter Gun" )
++Primary Banks: ( "Shivan Light Laser" "Shivan Heavy Laser" )
 +Secondary Banks: ( "Trebuchet#Shivan" "Tempest#Shivan" )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( false ) 
@@ -220,7 +177,7 @@ $AI Behavior: None
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
-+Primary Banks: ( "Shivan Light Laser Up" "Shivan Light Scatter Gun" )
++Primary Banks: ( "Shivan Light Laser" "Shivan Heavy Laser" )
 +Secondary Banks: ( "Trebuchet#Shivan" "Tempest#Shivan" )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( false ) 
@@ -533,7 +490,7 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
 +Primary Banks: ( "Prometheus S" "Subach HL-7" )
-+Secondary Banks: ( "Crossbow" "Tornado" "Tempest" )
++Secondary Banks: ( "Tornado" "Tornado" "Tempest" )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( false ) 
 $Departure Location: Hyperspace
@@ -561,7 +518,7 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
 +Primary Banks: ( "Prometheus S" "Subach HL-7" )
-+Secondary Banks: ( "Crossbow" "Tornado" "Tempest" )
++Secondary Banks: ( "Tornado" "Tornado" "Tempest" )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( false ) 
 $Departure Location: Hyperspace
@@ -589,7 +546,7 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
 +Primary Banks: ( "Prometheus S" "Subach HL-7" )
-+Secondary Banks: ( "Crossbow" "Tornado" "Tempest" )
++Secondary Banks: ( "Tornado" "Tornado" "Tempest" )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( false ) 
 $Departure Location: Hyperspace
@@ -617,7 +574,7 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
 +Primary Banks: ( "Prometheus S" "Subach HL-7" )
-+Secondary Banks: ( "Crossbow" "Tornado" "Tempest" )
++Secondary Banks: ( "Tornado" "Tornado" "Tempest" )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( false ) 
 $Departure Location: Hyperspace
@@ -959,7 +916,7 @@ $Formula: ( when
    ( script-eval-block 
       "ability_trigger('" 
       "Virgo 1::Repair-Self" 
-      "')" 
+      "-buff-based')" 
    )
 )
 +Name: ability-self-repair
@@ -972,7 +929,7 @@ $Formula: ( when
    ( key-reset-multiple "4" ) 
    ( script-eval-block 
       "ability_trigger('" 
-      "Virgo 1::Shield-Recharge-Target" 
+      "Virgo 1::Activate Active Armor" 
       "')" 
    )
 )
@@ -994,7 +951,7 @@ $Team: -1
 $MessageNew:  XSTR("1 - Energy Drain
 2 - SSM Strike
 3 - Repair yourself
-4 - Recharge target shields", -1)
+4 - Activate Active Armor", -1)
 $end_multi_text
 
 #Reinforcements		;! 0 total
