@@ -11,8 +11,6 @@ function buff_fire(instanceId, targetName)
 
 	-- Route the firing to the proper script
 	if (class.EffectFunction ~= "none" and class.EffectFunction ~= nil) then
-		dPrint_ability(class.EffectFunction)
-		dPrint_ability(instance)
 		_G[class.EffectFunction](instance, class, targetName)
 	end
 
@@ -34,7 +32,7 @@ function buff_fireAllPossible()
 	for instanceId, instance in pairs(buff_instances) do
 		local class = buff_classes[instance.Class]
 		local duration = mn.getMissionTime() - instance.ApplyTime
-		local targetName = instance.ShipName
+		local targetName = instance.Ship
 		local target = mn.Ships[targetName]
 
 		-- If the buff is still active
@@ -131,7 +129,7 @@ end
 function buff_createInstance(instanceId, className, shipName)
 	buff_instances[instanceId] = {
 		Class = className,
-		ShipName = shipName,
+		Ship = shipName,
 		LastFired = -1,
 		ApplyTime = mn.getMissionTime()
 	}

@@ -118,6 +118,7 @@ $Target Selection:		Self
 $Cost:					1
 	+Starting Reserve:	5
 $Cooldown:				30
+$Casting Sound:			detach.wav ; TODO : add to buffs as well
 $Buffs:				Repair Buff#Fighter
 
 $Name:				Activate Active Armor

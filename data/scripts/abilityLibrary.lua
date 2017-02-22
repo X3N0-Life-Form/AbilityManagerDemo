@@ -126,6 +126,7 @@ function fireBuffArmor(instance, class, targetName)
 	-- Go through the hierarchy
 	for index, currentArmor in pairs(armorHierarchy) do
 		-- Identify our current armor value
+		dPrint_abilityLibrary(targetArmor.." <=> "..currentArmor.." ?")
 		-- And verify that it's not the top armor class
 		if (targetArmor == currentArmor) and (index < #armorHierarchy) then
 			dPrint_abilityLibrary("Upgrading armor class to  "..getValueAsString(armorHierarchy[index + 1]))
@@ -151,6 +152,7 @@ function fireDebuffArmor(instance, class, targetName)
 	-- Go through the hierarchy
 	for index, currentArmor in pairs(armorHierarchy) do
 		-- Identify our current armor value
+		dPrint_abilityLibrary(targetArmor.." <=> "..currentArmor.." ?")
 		-- And verify that it's not the top armor class
 		if (targetArmor == currentArmor) and (index > 0) then
 			dPrint_abilityLibrary("Downgrading armor class to  "..getValueAsString(armorHierarchy[index + 1]))

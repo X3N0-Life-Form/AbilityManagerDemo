@@ -222,6 +222,14 @@ function ability_fire(instanceId, targetName)
 		end
 	end
 
+	-- Fire sound effect
+	-- TODO WiP
+	if (class.CastingSound ~= nil) then
+		dPrint_ability("Firing sound effect")
+		local soundEntry = ad.getSoundentry(class.CastingSound)
+		ad.play3DSound(soundEntry, mn.Ships[targetName].Position)
+	end
+
 	-- Update instance status
 	instance.LastFired = mn.getMissionTime()
 
@@ -302,7 +310,6 @@ function ability_getClassAsString(className)
 		.."\tTargetTeam = "..getValueAsString(class.TargetTeam).."\n"
 		.."\tTargetSelection"..getValueAsString(class.TargetSelection).."\n"
 		.."\tCooldown = "..getValueAsString(class.Cooldown).."\n"
-		.."\tDuration = "..getValueAsString(class.Duration).."\n"
 		.."\tRange = "..getValueAsString(class.Range).."\n"
 		.."\tCost = "..getValueAsString(class.Cost).."\n"
 		.."\t\tStarting Reserve = "..getValueAsString(class.StartingReserve).."\n"
@@ -381,56 +388,58 @@ function ability_createClass(name, attributes)
 	  TargetTeam = attributes['Target Team']['value'],--TODO : ditto
 	  TargetSelection = "Closest",
 	  Cooldown = nil,
-	  Duration = nil,
 	  Range = -1,
 	  Cost = 0,
 	  StartingReserve = nil,
 	  CostType = ability_createCostType('Ammo'),
+		CastingSound = nil,
 		Buffs = {},
 	  AbilityData = nil,
 
 		getData = nil --TODO OOP
 	}
 
+	local class = ability_classes[name]
+
 	if not (attributes['Cooldown'] == nil) then
-		ability_classes[name].Cooldown = attributes['Cooldown']['value']
+		class.Cooldown = attributes['Cooldown']['value']
 	end
 
 	if not (attributes['Range'] == nil) then
-		ability_classes[name].Range = tonumber(attributes['Range']['value'])
+		class.Range = tonumber(attributes['Range']['value'])
 	end
 
 	if not (attributes['Cost'] == nil) then
-		ability_classes[name].Cost = tonumber(attributes['Cost']['value'])
+		class.Cost = tonumber(attributes['Cost']['value'])
 		-- TODO : utility function to grab a sub attributes' value ???
 		if not (attributes['Cost']['sub'] == nil) then
 			-- Cost type
 			if not (attributes['Cost']['sub']['Cost Type'] == nil) then
-				ability_classes[name].CostType = ability_createCostType(attributes['Cost']['sub']['Cost Type'])
+				class.CostType = ability_createCostType(attributes['Cost']['sub']['Cost Type'])
 			end
 
 			-- Starting Reserve
 			if not (attributes['Cost']['sub']['Starting Reserve'] == nil) then
-				ability_classes[name].StartingReserve = attributes['Cost']['sub']['Starting Reserve']
+				class.StartingReserve = attributes['Cost']['sub']['Starting Reserve']
 			end
 		end
 	end
 
-	if not (attributes['Duration'] == nil) then
-		ability_classes[name].Duration = attributes['Duration']['value']
-	end
-
 	if not (attributes['Ability Data'] == nil) then
-		ability_classes[name].AbilityData = attributes['Ability Data']['sub']
-		ability_classes[name].getData = attributes['Ability Data']['sub']
+		class.AbilityData = attributes['Ability Data']['sub']
+		class.getData = attributes['Ability Data']['sub']
 	end
 
 	if not (attributes['Target Selection'] == nil) then
-		ability_classes[name].TargetSelection = attributes['Target Selection']['value']
+		class.TargetSelection = attributes['Target Selection']['value']
+	end
+
+	if (attributes['Casting Sound'] ~= nil) then
+		class.CastingSound = attributes['Casting Sound']['value']
 	end
 
 	if (attributes['Buffs'] ~= nil) then
-		ability_classes[name].Buffs = getValueAsTable(attributes['Buffs']['value'])
+		class.Buffs = getValueAsTable(attributes['Buffs']['value'])
 	end
 
 	-- Print class
