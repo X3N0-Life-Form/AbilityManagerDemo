@@ -1,7 +1,8 @@
 #Conditional Hooks
 $Application: FS2_Open
 
-;; Master script
+;; Utility & parsing
+$On Game Init: [[utility.lua]]
 $On Game Init: [[parse.lua]]
 
 ;; Ship Variant
@@ -19,6 +20,8 @@ $On Game Init:[[abilityLibrary.lua]]
 
 $On Game Init:[
 	ability_init()
+	
+	local abilityTable = parse_parseTableFile("abilities.tbl")
 ]
 
 $State:	GS_STATE_GAME_PLAY
