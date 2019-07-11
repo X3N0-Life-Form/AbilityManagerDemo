@@ -108,6 +108,19 @@ $Cooldown:			3
 $Ability Data:		fireSSM
   +Strike Type: 	Disco Strike, Disco Strike#SAAA
   
+  
+ 
+$Name:				Kage Bunshin no Jutsu
+$Funcion:			fireClone
+$Target Type:		any
+$Target Team:		Friendly
+$Target Selection:	Self
+$Cooldown:			120
+$Ability Data:
+	+Clone Armor:	Kage Bunshin Armor
+	+Clone Number:	3
+	+VFX:			TODO
+  
 ;; buff placing abilities
 
 $Name:					Repair-Self-buff-based
@@ -128,6 +141,8 @@ $Target Team:			Friendly
 $Target Selection:		Self
 $Cooldown:			40
 $Buffs:				Active Armor#Fighter
+
+
 
 
 #End
@@ -161,6 +176,7 @@ $Expiration Function:	fireDebuffArmor
 $Stacks:		false
 $Buff Data:
 	+Armor Hierarchy:	Light Armor--, Light Armor, Light Armor++
+
 
 #End
 

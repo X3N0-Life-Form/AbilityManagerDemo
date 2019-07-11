@@ -1,0 +1,67 @@
+{
+    "installed": true,
+    "id": "AbilityManagerDemo",
+    "title": "Ability Manager Demo - dev",
+    "type": "mod",
+    "parent": "FS2",
+    "version": "1.0.0",
+    "stability": "stable",
+    "description": "Demo mod for the Ability Manager Framework\n\nRepo : https://github.com/X3N0-Life-Form/AbilityManagerDemo",
+    "notes": "",
+    "logo": "kn_images\\283388855e2fe802239d8d2e91317f3bd530ed716bbc480381cc9ca666d8115a.bmp",
+    "tile": null,
+    "banner": null,
+    "release_thread": null,
+    "videos": [],
+    "screenshots": [],
+    "attachments": [],
+    "first_release": null,
+    "last_update": null,
+    "cmdline": "-3dshockwave -post_process -soft_particles -fxaa -fb_explosions -fb_thrusters -targetinfo -rearm_timer -3dwarp -weapon_choice_3d -ship_choice_3d -warp_flash -output_scripting ",
+    "mod_flag": [
+        "AbilityManagerDemo",
+        "MVPS"
+    ],
+    "dev_mode": true,
+    "custom_build": null,
+    "packages": [
+        {
+            "name": "core",
+            "notes": "",
+            "status": "required",
+            "dependencies": [
+                {
+                    "id": "FSO",
+                    "version": ">=3.8.1-20180814"
+                },
+                {
+                    "id": "MVPS",
+                    "version": null,
+                    "packages": [
+                        "MV_Music"
+                    ]
+                }
+            ],
+            "environment": null,
+            "folder": "core",
+            "is_vp": false,
+            "files": [],
+            "filelist": [],
+            "executables": [],
+            "check_notes": ""
+        },
+        {
+            "name": "doc",
+            "notes": "",
+            "status": "recommended",
+            "dependencies": [],
+            "environment": "",
+            "folder": "doc",
+            "is_vp": false,
+            "files": [],
+            "filelist": [],
+            "executables": [],
+            "check_notes": ""
+        }
+    ]
+}

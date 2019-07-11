@@ -90,4 +90,21 @@ $Name: LightArmor++
 		+Weapon Piercing Type: None
 
 
+;; Clone armor
+
+
+$Name: Kage Bunshin Armor
+	$Damage Type:	NormalWeapon
+		+Calculation:	Multiplicative
+		+Value:			10.0
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: Default
+	$Damage Type: HugeWeapon
+		+Calculation:	Multiplicative
+		+Value:			10.0
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: Default
+
+
+
 #End

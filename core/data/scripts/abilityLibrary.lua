@@ -163,3 +163,12 @@ function fireDebuffArmor(instance, class, targetName)
 
 	dPrint_abilityLibrary("Could not debuff armor "..targetArmor)
 end
+
+
+--[[
+	Clones the target
+]]
+function fireClone(instance, class, targetName)
+
+
+end
