@@ -60,7 +60,7 @@ PARSE_CONFIG_PATH = "data/config/"
 --- Global Variables ---
 ------------------------
 -- set to true to enable prints
-parse_enableDebugPrints = false
+parse_enableDebugPrints = true
 
 
 function dPrint_parse(message)
@@ -80,7 +80,7 @@ end
 	@return value, or list of values
 ]]
 function parse_parseValue(value)
-	if (value:find(line, ",")) then
+	if (value:find(",")) then
 		dPrint_parse("\t\tParsing attribute value list: "..value)
 		return split(value, ",")
 	else
@@ -228,35 +228,6 @@ function getTableObjectAsString(tableObject)
 	return str
 end
 
--------------------------
---- New parsing stuff ---
--------------------------
-
-TableObject = {}
-
---[[
-	Creates a table object
-
-	@param tableName : name of the table
-	@return table object
-]]
-function TableObject:create(tableName)
-	ba.warning("test")
-	ba.warning(tableName)
-	dPrint_parse("Creating table object : "..tableName)
-	tableObject = {}
-	setmetatable(tableObject, TableObject)
-
-	tableObject.Name = tableName
-	tableObject.Categories = {}
-
-	return tableObject
-end
-
-function TableObject:toString()
-
-end
-
 --[[
 	Creates a category object
 
@@ -344,23 +315,23 @@ function parse_parseTableFile(fileName)
 				-- Identify and parse line
 				if (line:find("^#") and not line:find("^#End")) then
 					dPrint_parse("Found a category")
-					currentCategory = parse_createCategory(attribute)
-					tableObject.Categories[currentCategory.Name] = currentCategory
+					-- currentCategory = parse_createCategory(attribute)
+					-- tableObject.Categories[currentCategory.Name] = currentCategory
 
 				elseif (line:find("^[$]Name")) then
 					dPrint_parse("Found an entry")
-					currentEntry = parse_createEntry(value)
-					currentCategory.Entries[currentEntry.Name] = currentEntry
+					-- currentEntry = parse_createEntry(value)
+					-- currentCategory.Entries[currentEntry.Name] = currentEntry
 
 				elseif (line:find("^[$]")) then
 					dPrint_parse("Found an attribute")
-					currentAttribute = parse_createAttribute(attribute, value)
-					currentEntry.Attributes[currentAttribute.Name] = currentAttribute
+					-- currentAttribute = parse_createAttribute(attribute, value)
+					-- currentEntry.Attributes[currentAttribute.Name] = currentAttribute
 
 				elseif (line:find("^[+]")) then
 					dPrint_parse("Found a sub-attribute")
-					currentSubAttribute = parse_createAttribute(attribute, value)
-					currentAttribute.Attributes[currentSubAttribute.Name] = currentSubAttribute
+					-- currentSubAttribute = parse_createAttribute(attribute, value)
+					-- currentAttribute.Attributes[currentSubAttribute.Name] = currentSubAttribute
 				end
 
 			end

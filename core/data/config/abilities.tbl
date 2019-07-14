@@ -110,16 +110,16 @@ $Ability Data:		fireSSM
   
   
  
-$Name:				Kage Bunshin no Jutsu
-$Funcion:			fireClone
-$Target Type:		any
-$Target Team:		Friendly
-$Target Selection:	Self
-$Cooldown:			120
-$Ability Data:
-	+Clone Armor:	Kage Bunshin Armor
-	+Clone Number:	3
-	+VFX:			TODO
+;;$Name:				Kage Bunshin no Jutsu
+;;$Funcion:			fireClone
+;;$Target Type:		any
+;;$Target Team:		Friendly
+;;$Target Selection:	Self
+;;$Cooldown:			120
+;;$Ability Data:
+;;	+Clone Armor:	Kage Bunshin Armor
+;;	+Clone Number:	3
+;;	+VFX:			TODO
   
 ;; buff placing abilities
 

@@ -4,27 +4,34 @@ $Application: FS2_Open
 ;; Utility & parsing
 $On Game Init: [[utility.lua]]
 $On Game Init: [[parse.lua]]
+$On Game Init: [[TableObject.lua]]
+$On Game Init: [[Category.lua]]
+$On Game Init: [[Entry.lua]]
+$On Game Init: [[Attribute.lua]]
 
 ;; Ship Variant
-$On Game Init: [[shipVariant.lua]]
-$On Warp In: [setVariantDelayed()]
+;;$On Game Init: [[shipVariant.lua]]
+;;$On Warp In: [setVariantDelayed()]
 
-$On Game Init: [[shipVariantMissionWide.lua]]
+;;$On Game Init: [[shipVariantMissionWide.lua]]
 
 ;; Ability Management
-$On Game Init:[[abilityManager.lua]]
-$On Game Init:[[abilityBuffManager.lua]]
-$On Gameplay Start:[ability_resetMissionVariables()]
+;;$On Game Init:[[abilityManager.lua]]
+;;$On Game Init:[[abilityBuffManager.lua]]
+;;$On Gameplay Start:[ability_resetMissionVariables()]
 
-$On Game Init:[[abilityLibrary.lua]]
+;;$On Game Init:[[abilityLibrary.lua]]
 
 $On Game Init:[
-	ability_init()
-	
-	local abilityTable = parse_parseTableFile("abilities.tbl")
+--	ability_init()
+
+--	local abilityTable = parse_parseTableFile("abilities.tbl")
 ]
 
-$State:	GS_STATE_GAME_PLAY
-$On Frame:[ability_cycleTrigger()]
+;;$State:	GS_STATE_GAME_PLAY
+;;$On Frame:[ability_cycleTrigger()]
+
+;; Testing
+$On Game Init: [[tests.lua]]
 
 #End

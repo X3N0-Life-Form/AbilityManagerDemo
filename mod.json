@@ -17,7 +17,7 @@
     "attachments": [],
     "first_release": null,
     "last_update": null,
-    "cmdline": "-3dshockwave -post_process -soft_particles -fxaa -fb_explosions -fb_thrusters -targetinfo -rearm_timer -3dwarp -weapon_choice_3d -ship_choice_3d -warp_flash -output_scripting ",
+    "cmdline": "-3dshockwave -post_process -soft_particles -fxaa -fb_explosions -fb_thrusters -targetinfo -rearm_timer -3dwarp -weapon_choice_3d -ship_choice_3d -warp_flash -output_scripting -window ",
     "mod_flag": [
         "AbilityManagerDemo",
         "MVPS"
