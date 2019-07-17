@@ -10,8 +10,16 @@ function Entry:create(name)
 	setmetatable(entry, self)
 	self.__index = self
 
-	self.Name = name
-	self.Attributes = {}
+	entry.Name = name
+	entry.Attributes = {}
 
 	return entry
+end
+
+function Entry:toString()
+  local stringValue = "$Name:\t"..self.Name
+  for name, attribute in pairs(self.Attributes) do
+    stringValue = stringValue.."\n"..attribute:toString()
+  end
+  return stringValue
 end

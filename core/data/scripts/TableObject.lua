@@ -17,10 +17,10 @@ function TableObject:create(tableName)
 	dPrint_parse("Creating table object : "..tableName)
 	local tableObject = {}
 	setmetatable(tableObject, self)
-	self.__index = self
+  self.__index = self
 
-	self.Name = tableName
-	self.Categories = {}
+	tableObject.Name = tableName
+	tableObject.Categories = {}
 
 	tableObject:parse()
 
@@ -56,7 +56,7 @@ function TableObject:parse()
 				-- Identify and parse line
 				if (line:find("^#") and not line:find("^#End")) then
 					dPrint_parse("Found a category")
-					currentCategory = Category:create(attribute)
+					currentCategory = Category:create(extractCategory(line))
 					self.Categories[currentCategory.Name] = currentCategory
 
 				elseif (line:find("^[$]Name")) then
@@ -85,5 +85,9 @@ function TableObject:parse()
 end
 
 function TableObject:toString()
-	return "TableObject: "..self.Name
+  local stringValue = "TableObject: "..self.Name.." ("..count(self.Categories).." categories)"
+  for name, category in pairs(self.Categories) do
+    stringValue = stringValue.."\n"..category:toString().."\n"
+  end
+	return stringValue
 end

@@ -10,8 +10,8 @@ $On Game Init: [[Entry.lua]]
 $On Game Init: [[Attribute.lua]]
 
 ;; Ship Variant
-;;$On Game Init: [[shipVariant.lua]]
-;;$On Warp In: [setVariantDelayed()]
+;; $On Game Init: [[shipVariant.lua]]
+;; $On Warp In: [setVariantDelayed()]
 
 ;;$On Game Init: [[shipVariantMissionWide.lua]]
 

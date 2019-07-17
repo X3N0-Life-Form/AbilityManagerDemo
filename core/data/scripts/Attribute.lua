@@ -11,9 +11,15 @@ function Attribute:create(name, value)
 	setmetatable(attribute, self)
 	self.__index = self
 
-	self.Name = name
-  self.Value = parse_parseValue(value)
-	self.Attributes = {}
+	attribute.Name = name
+  attribute.Value = parse_parseValue(value)
+	attribute.Attributes = {}
 
 	return attribute
+end
+
+function Attribute:toString()
+  local stringValue = "$"..self.Name..":\t"..getValueAsString(self.Value)
+  -- TODO : print subattributes
+  return stringValue
 end

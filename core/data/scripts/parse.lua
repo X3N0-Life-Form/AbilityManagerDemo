@@ -37,6 +37,7 @@
 		$Attr:	val
 		#End
 
+-- TODO : deprecated !!!
 	Will result in the following lua table:
 		tab['Category']				['entry name']['Attribute1']['value']					= attribute 1 value
 		tab['Category']				['entry name']['Attribute2']['value']					= attribute 2 value
@@ -60,7 +61,7 @@ PARSE_CONFIG_PATH = "data/config/"
 --- Global Variables ---
 ------------------------
 -- set to true to enable prints
-parse_enableDebugPrints = true
+parse_enableDebugPrints = false
 
 
 function dPrint_parse(message)
@@ -87,99 +88,6 @@ function parse_parseValue(value)
 		dPrint_parse("\t\tParsing attribute value: "..value)
 		return value
 	end
-end
-
--- deprecated
-function getAttribute(value, isList)
-	if (isList) then
-		dPrint_parse("\t\tStuffing attribute list: "..value.."\n")
-		local list = split(value, ",")
-		-- Trim each list entry
-		for index = 1, #list do
-			list[index] = trim(list[index])
-		end
-		return list
-	else
-		dPrint_parse("\t\tStuffing attribute value: "..value.."\n")
-		return value
-	end
-end
-
---[[
-	@return a lua table containing data from the parsed table.
-]]--
-function parseTableFile(filePath, fileName)
-	local tableObject = {}
-
-	if cf.fileExists(fileName, filePath, true) then
-		local file = cf.openFile(fileName, "r", filePath)
-
-		local line = file:read("*l")
-		local lineNumber = 1
-
-		dPrint_parse("#############################################\n")
-		ba.print("[parse.lua] Parsing file "..fileName.."\n");
-		dPrint_parse("#############################################\n")
-
-		while (not (line == nil)) do
-			line = removeComments(line)
-			line = trim(line)
-			-- Don't parse empty lines
-			if not (line == "") then
-				-- Extract values
-				local attribute = extractLeft(line)
-				local value = extractRight(line)
-				-- Extract flags
-				local isCat = not (string.find(line, "^#") == nil)
-				local isAttr = not (string.find(line, "[$]") == nil)
-				local isSubAttr = not (string.find(line, "[+]") == nil)
-				local isList = not (string.find(line, ",") == nil)
-				local isEnd = not (string.find(line, "^#End") == nil)
-
-				dPrint_parse("Parsing line #"..lineNumber..": "..line.." ("..attribute.." = "..value..")\n")
-				dPrint_parse("\tLine flags: Category = "..getValueAsString(isCat)..", Attribute = "..getValueAsString(isAttr)..", Sub Attribute = "..getValueAsString(isSubAttr)..", List = "..getValueAsString(isList)..", End = "..getValueAsString(isEnd).."\n")
-				if  (isEnd) then
-					dPrint_parse("Reached an #End marker\n")
-				else
-					if (isCat) then
-						category = extractCategory(line)
-						dPrint_parse("Entering category: "..category.."\n")
-						tableObject[category] = {}
-					elseif (isAttr) then
-						if (attribute == "Name") then
-							name = value
-							dPrint_parse("\n")
-							dPrint_parse("Name="..name.."\n")
-							tableObject[category][name] = {}
-
-						else
-							currentAttribute = attribute	-- save attribute name in case we run into sub attributes
-							dPrint_parse(category.." - "..name.." - "..attribute.."\n")
-							tableObject[category][name][attribute] = {}
-							tableObject[category][name][attribute]['value'] = getAttribute(value, isList)
-
-							dPrint_parse("name="..name.."; attribute="..attribute.."; value="..getValueAsString(value).."\n")
-						end
-					elseif (isSubAttr) then
-						-- initialize if needs be
-						if (tableObject[category][name][currentAttribute]['sub'] == nil) then
-							tableObject[category][name][currentAttribute]['sub'] = {}
-						end
-						tableObject[category][name][currentAttribute]['sub'][attribute] = getAttribute(value, isList)
-
-						dPrint_parse("name="..name.."; current attribute="..currentAttribute.."; sub attribute="..attribute.."; value="..value.."\n")
-					end
-				end
-				--
-			end
-			line = file:read("*l")
-			lineNumber = lineNumber + 1;
-		end
-	else
-		ba.warning("[parse.lua] Table file not found: "..filePath..fileName.."\n")
-	end
-
-	return tableObject
 end
 
 --[[
@@ -226,121 +134,4 @@ function getTableObjectAsString(tableObject)
 	end -- end for each category
 
 	return str
-end
-
---[[
-	Creates a category object
-
-	@param categoryName : name of the category
-	@return category object
-]]
-function parse_createCategory(categoryName)
-	dPrint_parse("Creating category object : "..categoryName)
-
-	local category = {
-		Name = categoryName,
-		Entries = {}
-	}
-
-	return category
-end
-
---[[
-	Creates an entry object
-
-	@param entryName : name of the entry
-	@return entry object
-]]
-function parse_createEntry(entryName)
-	dPrint_parse("Creating entry object : "..entryName)
-
-	local entry = {
-		Name = entryName,
-		Attributes = {}
-	}
-
-	return entry
-end
-
---[[
-	Creates an attribute object
-
-	@param attributeName : name of the attribute
-	@return attribute object
-]]
-function parse_createAttribute(attributeName, value)
-	dPrint_parse("Creating attribute object : "..attributeName)
-
-	local attribute = {
-		Name = attributeName,
-		Value = parse_parseValue(value),
-		Attributes = {}
-	}
-
-	return attribute
-end
-
-
-
-
---TODO : doc
-function parse_parseTableFile(fileName)
-
-	if cf.fileExists(fileName, PARSE_CONFIG_PATH, true) then
-		-- Initialise loop variables
-		local file = cf.openFile(fileName, "r", PARSE_CONFIG_PATH)
-		local line = file:read("*l")
-		local lineNumber = 1
-		local tableObject = TableObject.create(fileName)
-		local currentCategory = nil
-		local currentEntry = nil
-		local currentAttribute = nil
-		local currentSubAttribute = nil
-
-		dPrint_parse("#############################################")
-		dPrint_parse("Parsing file "..fileName);
-		dPrint_parse("#############################################")
-
-		while (not (line == nil)) do
-			line = removeComments(line)
-			line = trim(line)
-
-			dPrint_parse("Parsing line : "..line)
-			-- Don't parse empty lines
-			if not (line == "") then
-				-- Extract values
-				local attribute = extractLeft(line)
-				local value = extractRight(line)
-
-				-- Identify and parse line
-				if (line:find("^#") and not line:find("^#End")) then
-					dPrint_parse("Found a category")
-					-- currentCategory = parse_createCategory(attribute)
-					-- tableObject.Categories[currentCategory.Name] = currentCategory
-
-				elseif (line:find("^[$]Name")) then
-					dPrint_parse("Found an entry")
-					-- currentEntry = parse_createEntry(value)
-					-- currentCategory.Entries[currentEntry.Name] = currentEntry
-
-				elseif (line:find("^[$]")) then
-					dPrint_parse("Found an attribute")
-					-- currentAttribute = parse_createAttribute(attribute, value)
-					-- currentEntry.Attributes[currentAttribute.Name] = currentAttribute
-
-				elseif (line:find("^[+]")) then
-					dPrint_parse("Found a sub-attribute")
-					-- currentSubAttribute = parse_createAttribute(attribute, value)
-					-- currentAttribute.Attributes[currentSubAttribute.Name] = currentSubAttribute
-				end
-
-			end
-			line = file:read("*l")
-			lineNumber = lineNumber + 1;
-		end
-	else
-		ba.warning("[parse.lua] Table file not found: "..PARSE_CONFIG_PATH..fileName.."\n")
-	end
-
-	return tableObject
 end

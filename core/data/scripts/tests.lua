@@ -5,13 +5,13 @@
 --- Global Variables ---
 ------------------------
 -- set to true to enable prints
-parse_enableDebugPrints = true
+tests_enableDebugPrints = true
 
 --[[
   Debug print
 ]]
 function dPrint_tests(message)
-	if (parse_enableDebugPrints) then
+	if (tests_enableDebugPrints) then
 		ba.print("[tests.lua] "..message.."\n")
 	end
 end

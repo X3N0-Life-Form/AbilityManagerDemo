@@ -5,7 +5,22 @@
       This file contains various utility functions used by other scripts.
 ]]
 
+------------------------
+--- Global Variables ---
+------------------------
+-- set to true to enable prints
+utility_enableDebugPrints = true
 
+
+function dPrint_utility(message)
+	if (utility_enableDebugPrints) then
+		ba.print("[utility.lua] "..message.."\n")
+	end
+end
+
+----------------------
+--- Core Functions ---
+----------------------
 
 function trim(str)
 	return str:find'^%s*$' and '' or str:match'^%s*(.*%S)'
@@ -139,4 +154,12 @@ function getValueAsTable(value)
 	else
 		return {value}
 	end
+end
+
+function count(table)
+	local count = 0
+	for key, value in pairs(table) do
+		count = count + 1
+	end
+	return count
 end
