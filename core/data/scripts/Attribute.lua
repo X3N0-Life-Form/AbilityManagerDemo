@@ -20,6 +20,8 @@ end
 
 function Attribute:toString()
   local stringValue = "$"..self.Name..":\t"..getValueAsString(self.Value)
-  -- TODO : print subattributes
+  for name, subAttribute in pairs(self.SubAttributes) do
+    stringValue = stringValue + "\n\t+" + subAttribute.Name + ":\t" + getValueAsString(subAttribute.Value)
+  end
   return stringValue
 end
