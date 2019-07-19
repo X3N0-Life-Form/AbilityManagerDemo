@@ -10,6 +10,10 @@ Required files
 --------------
 - data/scripts
   * parse.lua
+  * TableObject.lua
+  * Category.lua
+  * Entry.lua
+  * Attribute.lua
   * abilityManager.lua
   * abilityLibrary.lua (--> new ability templates go there)
   * shipVariant.lua
@@ -32,7 +36,9 @@ Mod setup
 Lua Scripts
 -----------
   First off, you need to set up the scripts the framework relies on. Step one is putting the following *.lua files in *<your mod>/data/scripts* :
-- __parse.lua__ :
+- __utility.lua__ :
+  * Contains utility functions used by other scripts
+- __parse.lua__, __TableObject.lua__, __Category.lua__, __Entry.lua__, __Attribute.lua__ :
   * Parses the various *.tbl files used by the other scripts.
 - __abilityManager.lua__ :
   * The heart of the framework, this is the file that handles everything ability-related.
@@ -50,7 +56,12 @@ Note : Each of these scripts is prefaced with a description of what they do and 
 $Application: FS2_Open
 
 ;; Master script
+$On Game Init: [[utility.lua]]
 $On Game Init: [[parse.lua]]
+$On Game Init: [[TableObject.lua]]
+$On Game Init: [[Category.lua]]
+$On Game Init: [[Entry.lua]]
+$On Game Init: [[Attribute.lua]]
 
 ;; Ship Variant
 $On Game Init: [[shipVariant.lua]]
