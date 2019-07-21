@@ -207,7 +207,7 @@ function setVariant(shipName, variantName)
 		 -- sub-attributes
 		if (count(attribute.SubAttributes) > 0) then
 			for subAttributeName, subAttribute in pairs(attribute.SubAttributes) do
-				dPrint_shipVariant("     "..subAttributeName.." ==> "..subAttribute.Value)
+				dPrint_shipVariant("     "..subAttributeName.." ==> "..getValueAsString(subAttribute.Value))
 
 				if (subAttributeName == "armor") then
 					ship[attributeName].ArmorClass = subAttribute.Value

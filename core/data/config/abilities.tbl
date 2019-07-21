@@ -12,7 +12,7 @@ $Target Type:   	cruiser, capital, corvette
 $Target Team:   	Hostile
 $Target Selection:	Closest
 $Cooldown:			24, 20, 17, 15, 13
-$Ability Data:		fireSSM
+$Ability Data:
   +Strike Type: 	Shivan SSM Strike
   
 $Name:					Fighter-launched Recursive SSM
@@ -105,7 +105,7 @@ $Target Type:   	cruiser, capital, corvette  ;; TODO: allow ship flags, like big
 $Target Team:   	Hostile
 $Target Selection:	Closest
 $Cooldown:			3
-$Ability Data:		fireSSM
+$Ability Data:
   +Strike Type: 	Disco Strike, Disco Strike#SAAA
   
   

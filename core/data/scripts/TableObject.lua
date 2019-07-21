@@ -72,13 +72,15 @@ function TableObject:parse()
 				elseif (line:find("^[+]")) then
 					dPrint_parse("Found a sub-attribute")
 					currentSubAttribute = Attribute:create(attribute, value)
-					currentAttribute.Attributes[currentSubAttribute.Name] = currentSubAttribute
+					currentAttribute.SubAttributes[currentSubAttribute.Name] = currentSubAttribute
 				end
 
 			end
 			line = file:read("*l")
 			lineNumber = lineNumber + 1;
 		end
+
+		file:close()
 	else
 		ba.warning("[parse.lua] Table file not found: "..PARSE_CONFIG_PATH..self.Name.."\n")
 	end

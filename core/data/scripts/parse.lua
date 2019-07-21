@@ -83,7 +83,11 @@ end
 function parse_parseValue(value)
 	if (value:find(",")) then
 		dPrint_parse("\t\tParsing attribute value list: "..value)
-		return split(value, ",")
+		list = split(value, ",")
+		for index = 1, #list do
+			list[index] = trim(list[index])
+		end
+		return list
 	else
 		dPrint_parse("\t\tParsing attribute value: "..value)
 		return value

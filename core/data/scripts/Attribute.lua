@@ -13,7 +13,7 @@ function Attribute:create(name, value)
 
 	attribute.Name = name
   attribute.Value = parse_parseValue(value)
-	attribute.Attributes = {}
+	attribute.SubAttributes = {}
 
 	return attribute
 end
@@ -21,7 +21,15 @@ end
 function Attribute:toString()
   local stringValue = "$"..self.Name..":\t"..getValueAsString(self.Value)
   for name, subAttribute in pairs(self.SubAttributes) do
-    stringValue = stringValue + "\n\t+" + subAttribute.Name + ":\t" + getValueAsString(subAttribute.Value)
+    stringValue = stringValue.."\n\t+"..subAttribute.Name..":\t"..getValueAsString(subAttribute.Value)
   end
   return stringValue
+end
+
+function Attribute:getValue(attribute, default)
+	if (attribute ~= nil) then
+		return attribute.Value
+	else
+		return default
+	end
 end

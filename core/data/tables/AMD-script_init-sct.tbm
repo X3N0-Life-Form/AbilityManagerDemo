@@ -16,20 +16,16 @@ $On Warp In: [setVariantDelayed()]
 $On Game Init: [[shipVariantMissionWide.lua]]
 
 ;; Ability Management
-;;$On Game Init:[[abilityManager.lua]]
-;;$On Game Init:[[abilityBuffManager.lua]]
-;;$On Gameplay Start:[ability_resetMissionVariables()]
+$On Game Init:[[abilityManager.lua]]
+$On Game Init:[[abilityBuffManager.lua]]
+$On Gameplay Start:[ability_resetMissionVariables()]
 
-;;$On Game Init:[[abilityLibrary.lua]]
+$On Game Init:[[abilityLibrary.lua]]
 
-$On Game Init:[
---	ability_init()
+$On Game Init:[ability_init()]
 
---	local abilityTable = parse_parseTableFile("abilities.tbl")
-]
-
-;;$State:	GS_STATE_GAME_PLAY
-;;$On Frame:[ability_cycleTrigger()]
+$State:	GS_STATE_GAME_PLAY
+$On Frame:[ability_cycleTrigger()]
 
 ;; Testing
 $On Game Init: [[tests.lua]]

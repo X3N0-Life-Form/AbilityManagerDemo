@@ -36,7 +36,7 @@ end
 ]]
 function fireSSM(instance, class, targetName)
 	local castingShip = mn.Ships[instance.Ship]
-	local strikeType = class.getData['Strike Type']
+	local strikeType = Attribute:getValue(class.getData['Strike Type'], "None")
 	local strikeTeam = castingShip.Team.Name
 
 	-- Call SSM
@@ -56,10 +56,14 @@ function fireEnergyDrain(instance, class, targetName)
 	local castingShip = mn.Ships[instance.Ship]
 	local targetShip = mn.Ships[targetName]
 
+	local weaponDrain = Attribute:getValue(class.AbilityData['Weapon drain'], 0)
+	local afterburnerDrain = Attribute:getValue(class.AbilityData['Afterburner drain'], 0)
+	local shieldDrain = Attribute:getValue(class.AbilityData['Shield drain'], 0)
+
 	dPrint_abilityLibrary("Fire Energy Drain at "..targetName)
-	dPrint_abilityLibrary("\tWeapon drain = "..getValueAsString(class.AbilityData['Weapon drain']))
-	dPrint_abilityLibrary("\tAfterburner drain = "..getValueAsString(class.AbilityData['Afterburner drain']))
-	dPrint_abilityLibrary("\tShield drain = "..getValueAsString(class.AbilityData['Weapon drain']))
+	dPrint_abilityLibrary("\tWeapon drain = "..getValueAsString(weaponDrain))
+	dPrint_abilityLibrary("\tAfterburner drain = "..getValueAsString(afterburnerDrain))
+	dPrint_abilityLibrary("\tShield drain = "..getValueAsString(shieldDrain))
 
 	dPrint_abilityLibrary("Target status before : ")
 	dPrint_abilityLibrary("WeaponEnergyLeft = "..targetShip.WeaponEnergyLeft)
@@ -67,9 +71,9 @@ function fireEnergyDrain(instance, class, targetName)
 	dPrint_abilityLibrary("Shields.CombinedLeft = "..targetShip.Shields.CombinedLeft)
 
 	-- Apply drain
-	targetShip.WeaponEnergyLeft = targetShip.WeaponEnergyLeft - class.AbilityData['Shield drain']
-	targetShip.AfterburnerFuelLeft = targetShip.AfterburnerFuelLeft - class.AbilityData['Afterburner drain']
-	targetShip.Shields.CombinedLeft = targetShip.Shields.CombinedLeft - class.AbilityData['Shield drain']
+	targetShip.WeaponEnergyLeft = targetShip.WeaponEnergyLeft - weaponDrain
+	targetShip.AfterburnerFuelLeft = targetShip.AfterburnerFuelLeft - afterburnerDrain
+	targetShip.Shields.CombinedLeft = targetShip.Shields.CombinedLeft - shieldDrain
 
 	dPrint_abilityLibrary("Target status after : ")
 	dPrint_abilityLibrary("WeaponEnergyLeft = "..targetShip.WeaponEnergyLeft)
@@ -85,10 +89,10 @@ function fireRepair(instance, class, targetName)
 	local castingShip = mn.Ships[instance.Ship]
 	local targetShip = mn.Ships[targetName]
 
-	local hits = class.getData['Hull']
-	local shields = class.getData['Shields']
-	local weapons = class.getData['Weapons']
-	local afterburners = class.getData['Afterburners']
+	local hits = Attribute:getValue(class.getData['Hull'], 0)
+	local shields = Attribute:getValue(class.getData['Shields'], 0)
+	local weapons = Attribute:getValue(class.getData['Weapons'], 0)
+	local afterburners = Attribute:getValue(class.getData['Afterburners'], 0)
 
 	-- Note : don't repair things if they are dying
 	if not (hits == nil) and not (targetShip.HitpointsLeft <= 0) then
@@ -116,7 +120,7 @@ end
 	Upgrades the target's armor class
 ]]
 function fireBuffArmor(instance, class, targetName)
-	local armorHierarchy = class.getData['Armor Hierarchy']--TODO : OOP
+	local armorHierarchy = Attribute:getValue(class.getData['Armor Hierarchy'], "None") --TODO : OOP
 	local targetShip = mn.Ships[targetName]
 	local targetArmor = targetShip.ArmorClass
 	dPrint_abilityLibrary("Fire buffArmor at "..targetName)
@@ -142,7 +146,7 @@ end
 	Downgrades the target's armor class
 ]]
 function fireDebuffArmor(instance, class, targetName)
-	local armorHierarchy = class.getData['Armor Hierarchy']
+	local armorHierarchy = Attribute:getValue(class.getData['Armor Hierarchy'], "None")
 	local targetShip = mn.Ships[targetName]
 	local targetArmor = targetShip.ArmorClass
 	dPrint_abilityLibrary("Fire buffArmor at "..targetName)

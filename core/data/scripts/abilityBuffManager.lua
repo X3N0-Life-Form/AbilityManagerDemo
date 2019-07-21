@@ -63,12 +63,12 @@ function buff_fireAllPossible()
 end
 
 --TODO : doc
-function buff_createClass(name, attributes)
+function buff_createClass(name, entry)
 	dPrint_ability("Creating buff class : "..name)
 	-- Initialize the class
 	buff_classes[name] = {
 		Name = name,
-		Duration = tonumber(attributes['Duration']['value']),
+		Duration = tonumber(entry.Attributes['Duration'].Value),
 		Periodicity = -1,
 		ApplyFunction = nil,
 		EffectFunction = nil,
@@ -83,36 +83,36 @@ function buff_createClass(name, attributes)
 	local class = buff_classes[name]
 
 	-- Periodicity
-	if (attributes['Periodicity'] ~= nil) then
-		class.Periodicity = tonumber(attributes['Periodicity']['value'])
+	if (entry.Attributes['Periodicity'] ~= nil) then
+		class.Periodicity = tonumber(entry.Attributes['Periodicity'].Value)
 	end
 
 	-- Functions
-	if (attributes['Apply Function'] ~= nil) then
-		class.ApplyFunction = attributes['Apply Function']['value']
+	if (entry.Attributes['Apply Function'] ~= nil) then
+		class.ApplyFunction = entry.Attributes['Apply Function'].Value
 	end
 
-	if (attributes['Effect Function'] ~= nil) then
-		class.EffectFunction = attributes['Effect Function']['value']
+	if (entry.Attributes['Effect Function'] ~= nil) then
+		class.EffectFunction = entry.Attributes['Effect Function'].Value
 	end
 
-	if (attributes['Expiration Function'] ~= nil) then
-		class.ExpirationFunction = attributes['Expiration Function']['value']
+	if (entry.Attributes['Expiration Function'] ~= nil) then
+		class.ExpirationFunction = entry.Attributes['Expiration Function'].Value
 	end
 
 	-- Stacking & refreshing
-	if (attributes['Stacks'] ~= nil) then
-		class.Stacks = attributes['Stacks']['value']
+	if (entry.Attributes['Stacks'] ~= nil) then
+		class.Stacks = entry.Attributes['Stacks'].Value
 	end
 
-	if (attributes['RefreshOnApply'] ~= nil) then
-		class.RefreshOnApply = attributes['RefreshOnApply']['value']
+	if (entry.Attributes['RefreshOnApply'] ~= nil) then
+		class.RefreshOnApply = entry.Attributes['RefreshOnApply'].Value
 	end
 
 	-- Buff data
-	if (attributes['Buff Data'] ~= nil) then
-		class.BuffData = attributes['Buff Data']['sub']
-		class.getData = attributes['Buff Data']['sub']
+	if (entry.Attributes['Buff Data'] ~= nil) then
+		class.BuffData = entry.Attributes['Buff Data'].SubAttributes
+		class.getData = entry.Attributes['Buff Data'].SubAttributes
 	end
 
 	dPrint_ability(buff_getClassAsString(class.Name))

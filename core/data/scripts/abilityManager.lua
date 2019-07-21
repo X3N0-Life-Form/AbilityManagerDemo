@@ -304,18 +304,27 @@ end
 ]]
 function ability_getClassAsString(className)
 	local class = ability_classes[className]
-	return "Ability class:\t"..class.Name.."\n"
+	local str = "Ability class:\t"..class.Name.."\n"
 		.."\tFunction = "..getValueAsString(class.Function).."\n"
 		.."\tTargetType = "..getValueAsString(class.TargetType).."\n"
 		.."\tTargetTeam = "..getValueAsString(class.TargetTeam).."\n"
-		.."\tTargetSelection"..getValueAsString(class.TargetSelection).."\n"
+		.."\tTargetSelection = "..getValueAsString(class.TargetSelection).."\n"
 		.."\tCooldown = "..getValueAsString(class.Cooldown).."\n"
 		.."\tRange = "..getValueAsString(class.Range).."\n"
 		.."\tCost = "..getValueAsString(class.Cost).."\n"
 		.."\t\tStarting Reserve = "..getValueAsString(class.StartingReserve).."\n"
 		.."\t\tCostType = "..ability_getCostTypeAsString(class.CostType).."\n"
 		.."\tBuffs = "..getValueAsString(class.Buffs).."\n"
-		.."\tAbilityData = "..getValueAsString("-- TODO --").."\n" --TODO : print ability data
+		.."\tAbilityData = "
+		if not (class.AbilityData == nil) and count(class.AbilityData) > 0 then
+			str = str.."\n"
+			for name, attribute in pairs(class.AbilityData) do
+				str = str.."+"..attribute:toString().."\n"
+			end
+		else
+			str = str.."None\n"
+		end
+		return str
 end
 
 --[[
@@ -376,16 +385,16 @@ end
 	Creates a class of the specified name and attributes
 
 	@param name : class name
-	@param attributes : attribute table
+	@param entry : table Entry
 ]]
-function ability_createClass(name, attributes)
+function ability_createClass(name, entry)
 	dPrint_ability("Creating ability class : "..name)
 	-- Initialize the class
 	ability_classes[name] = {
 	  Name = name,
-	  Function = attributes['Function']['value'],
-	  TargetType = attributes['Target Type']['value'],--TODO : use getValue ?
-	  TargetTeam = attributes['Target Team']['value'],--TODO : ditto
+	  Function = entry.Attributes['Function'].Value,
+	  TargetType = entry.Attributes['Target Type'].Value,--TODO : use getValue ?
+	  TargetTeam = entry.Attributes['Target Team'].Value,--TODO : ditto
 	  TargetSelection = "Closest",
 	  Cooldown = nil,
 	  Range = -1,
@@ -401,45 +410,45 @@ function ability_createClass(name, attributes)
 
 	local class = ability_classes[name]
 
-	if not (attributes['Cooldown'] == nil) then
-		class.Cooldown = attributes['Cooldown']['value']
+	if not (entry.Attributes['Cooldown'] == nil) then
+		class.Cooldown = entry.Attributes['Cooldown'].Value
 	end
 
-	if not (attributes['Range'] == nil) then
-		class.Range = tonumber(attributes['Range']['value'])
+	if not (entry.Attributes['Range'] == nil) then
+		class.Range = tonumber(entry.Attributes['Range'].Value)
 	end
 
-	if not (attributes['Cost'] == nil) then
-		class.Cost = tonumber(attributes['Cost']['value'])
+	if not (entry.Attributes['Cost'] == nil) then
+		class.Cost = tonumber(entry.Attributes['Cost'].Value)
 		-- TODO : utility function to grab a sub attributes' value ???
-		if not (attributes['Cost']['sub'] == nil) then
+		if not (entry.Attributes['Cost'].SubAttributes == nil) then
 			-- Cost type
-			if not (attributes['Cost']['sub']['Cost Type'] == nil) then
-				class.CostType = ability_createCostType(attributes['Cost']['sub']['Cost Type'])
+			if not (entry.Attributes['Cost'].SubAttributes['Cost Type'] == nil) then
+				class.CostType = ability_createCostType(entry.Attributes['Cost'].SubAttributes['Cost Type'].Value)
 			end
 
 			-- Starting Reserve
-			if not (attributes['Cost']['sub']['Starting Reserve'] == nil) then
-				class.StartingReserve = attributes['Cost']['sub']['Starting Reserve']
+			if not (entry.Attributes['Cost'].SubAttributes['Starting Reserve'] == nil) then
+				class.StartingReserve = entry.Attributes['Cost'].SubAttributes['Starting Reserve'].Value
 			end
 		end
 	end
 
-	if not (attributes['Ability Data'] == nil) then
-		class.AbilityData = attributes['Ability Data']['sub']
-		class.getData = attributes['Ability Data']['sub']
+	if not (entry.Attributes['Ability Data'] == nil) then
+		class.AbilityData = entry.Attributes['Ability Data'].SubAttributes
+		class.getData = entry.Attributes['Ability Data'].SubAttributes
 	end
 
-	if not (attributes['Target Selection'] == nil) then
-		class.TargetSelection = attributes['Target Selection']['value']
+	if not (entry.Attributes['Target Selection'] == nil) then
+		class.TargetSelection = entry.Attributes['Target Selection'].Value
 	end
 
-	if (attributes['Casting Sound'] ~= nil) then
-		class.CastingSound = attributes['Casting Sound']['value']
+	if (entry.Attributes['Casting Sound'] ~= nil) then
+		class.CastingSound = entry.Attributes['Casting Sound'].Value
 	end
 
-	if (attributes['Buffs'] ~= nil) then
-		class.Buffs = getValueAsTable(attributes['Buffs']['value'])
+	if (entry.Attributes['Buffs'] ~= nil) then
+		class.Buffs = getValueAsTable(entry.Attributes['Buffs'].Value)
 	end
 
 	-- Print class
@@ -845,17 +854,17 @@ end
 	Main function, initiates ability class parsing
 ]]
 function ability_init()
-	abilityTable = parseTableFile("data/config/", "abilities.tbl")
+	abilityTable = TableObject:create("abilities.tbl")
 
-	ba.print(getTableObjectAsString(abilityTable))
+	dPrint_ability(abilityTable:toString())
 
 	-- Create abilities
-	for name, attributes in pairs(abilityTable['Abilities']) do
-		ability_createClass(name, attributes)
+	for name, entry in pairs(abilityTable.Categories['Abilities'].Entries) do
+		ability_createClass(name, entry)
 	end
 
 	-- Create buffs
-	for name, attributes in pairs(abilityTable['Buffs']) do
-		buff_createClass(name, attributes)
+	for name, entry in pairs(abilityTable.Categories['Buffs'].Entries) do
+		buff_createClass(name, entry)
 	end
 end
