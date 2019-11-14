@@ -131,7 +131,7 @@ $Target Selection:		Self
 $Cost:					1
 	+Starting Reserve:	5
 $Cooldown:				30
-$Casting Sound:			detach.wav ; TODO : add to buffs as well
+$Casting Sound:			detach.wav 	; must be a 3d sound
 $Buffs:				Repair Buff#Fighter
 
 $Name:				Activate Active Armor
@@ -151,12 +151,14 @@ $Buffs:				Active Armor#Fighter
 ; Buff placement prototypes
 
 $Name:			Repair Buff#Fighter
+$Buff Alignment:		good	; could be neutral or evil, default to good
 $Periodicity: 			1.0
 $Duration:				10
 $Apply Function:		fireDebuffArmor
 $Effect Function:		fireRepair
 $Expiration Function:	fireBuffArmor
-$Stacks:		false
+$Stacks:				false
+$Tick Sound:			35	; repair.wav ; must be a 3d sound
 $Buff Data:
 	+Hull:			10
 	+Armor Hierarchy:	Light Armor--, Light Armor, Light Armor++
@@ -165,7 +167,7 @@ $Name:			Active Armor#Capital
 $Duration:				15
 $Apply Function:		fireBuffArmor
 $Expiration Function:	fireDebuffArmor
-$Stacks:		false
+$Stacks:				false
 $Buff Data:
 	+Armor Hierarchy:	Heavy Armor--, Heavy Armor, Heavy Armor++
 

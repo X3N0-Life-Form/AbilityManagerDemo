@@ -1,3 +1,10 @@
+-- TODO : doc
+
+
+buff_displayPlayerBuffs = true
+buff_displayTargetBuffs = true
+buff_ships = {}
+
 --[[
 	Fires a buff
 
@@ -14,10 +21,50 @@ function buff_fire(instanceId, targetName)
 		_G[class.EffectFunction](instance, class, targetName)
 	end
 
+-- TODO : make it work
+	if (class.TickSound ~= nil) then
+		local soundEntry = ad.getSoundentry(class.TickSound)
+		ad.play3DSound(soundEntry, mn.Ships[targetName].Position)
+	end
+
 	-- Update instance status
 	instance.LastFired = mn.getMissionTime()
 end
 
+-- TODO : print active buffs
+--[[
+	Displays an active buff's status.
+
+	@param instance : buff instance to display
+]]
+function buff_displayBuff(instance)
+	local class = buff_classes[instance.Class]
+
+	local tickCooldown =  (instance.LastFired + getValueForDifficulty(class.Periodicity)) - mn.getMissionTime()
+	if (tickCooldown < 0) or (instance.LastFired <= 0) then
+		tickCooldown = 0
+	end
+
+	local expirationTime = instance.ApplyTime + class.Duration
+	local timeLeft = expirationTime - mn.getMissionTime()
+
+	-- Status color
+	if (class.BuffAlignment == 'good') then
+		gr.setColor(50,50,255)
+	elseif (class.BuffAlignment == 'neutral') then
+		gr.setColor(200,200,200)
+	elseif (class.BuffAlignment == 'evil' or class.BuffAlignment == 'bad') then
+		gr.setColor(255,50,50)
+	else
+		ba.warning("[abilityBuffManager.lua] Undefined BuffAlignment: "..class.BuffAlignment)
+		gr.setColor(255,255,255)
+	end
+
+	-- Begin printing
+	gr.drawString(class.Name..":")
+	gr.drawString("\tTick Cooldown: "..string.format("%.2f", tickCooldown))
+	gr.drawString("\tTime left: "..string.format("%.2f", timeLeft))
+end
 
 --[[
 	Fires all active buffs & cleans up expired instances
@@ -58,8 +105,60 @@ function buff_fireAllPossible()
 
 			-- Clean up instance table
 			buff_instances[instanceId] = nil
+			buff_ships[targetName] = nil
 		end
 	end
+
+	-- Display player buffs
+	if (buff_displayPlayerBuffs) then
+		-- Get the player's ship
+		local playerShip = mn.Ships[hv.Player.Name]
+
+		gr.setColor(255,255,255)
+		gr.drawString("Active buffs:", gr.getScreenWidth() * 0.60, gr.getScreenHeight() * 0.10)
+		if (buff_ships[playerShip.Name] ~= nil) then
+			for instanceId, instance in pairs(buff_ships[playerShip.Name]) do
+				buff_displayBuff(instance)
+			end
+		end
+	end
+
+	-- TODO Display target buffs
+	gr.setColor(255,255,255)
+	gr.drawString("Target buffs:", gr.getScreenWidth() * 0.40, gr.getScreenHeight() * 0.10)
+	gr.drawString("TODO")
+
+end
+
+-- TODO doc
+function buff_applyBuffs(abilityClass, targetName)
+
+	for index, buffClassName in pairs(abilityClass.Buffs) do
+		-- Verify that this is a valid buff name
+		if (buff_classes[buffClassName] == nil) then
+			ba.warning("[abilityManager.lua] Unrecognised buff class : "..buffClassName)
+		end
+
+		local buffClass = buff_classes[buffClassName]
+		local buffInstanceId = targetName.."::"..buffClass.Name.."::"..mn.getMissionTime()
+		dPrint_ability("Applying buff '"..buffInstanceId.."' ("..buffClass.Name..") at "..targetName)
+
+		-- TODO : handle stacking & refreshing
+		local buffInstance = buff_createInstance(buffInstanceId, buffClass.Name, targetName)
+
+		-- Attach newly created buff to its ship
+		if (buff_ships[targetName] == nil) then
+			buff_ships[targetName] = {}
+		end
+		buff_ships[targetName][buffInstanceId] = buffInstance
+
+		-- Apply effects
+		if (buffClass.ApplyFunction ~= "none" and buffClass.ApplyFunction ~= nil) then
+			dPrint_ability("Triggering buff application effects")
+			_G[buffClass.ApplyFunction](buffInstance, buffClass, targetName)
+		end
+	end
+
 end
 
 --TODO : doc
@@ -68,6 +167,7 @@ function buff_createClass(name, entry)
 	-- Initialize the class
 	buff_classes[name] = {
 		Name = name,
+		BuffAlignment = 'good',
 		Duration = tonumber(entry.Attributes['Duration'].Value),
 		Periodicity = -1,
 		ApplyFunction = nil,
@@ -75,12 +175,18 @@ function buff_createClass(name, entry)
 		ExpirationFunction = nil,
 		Stacks = false,
 		RefreshOnApply = false,
+		TickSound = nil,
 		BuffData = {},
 
 		getData = nil -- TODO OOP
 	}
 
 	local class = buff_classes[name]
+
+	-- Buff Alignment
+	if (entry.Attributes['Buff Alignment'] ~= nil) then
+		class.BuffAlignment = entry.Attributes['Buff Alignment'].Value
+	end
 
 	-- Periodicity
 	if (entry.Attributes['Periodicity'] ~= nil) then
@@ -107,6 +213,10 @@ function buff_createClass(name, entry)
 
 	if (entry.Attributes['RefreshOnApply'] ~= nil) then
 		class.RefreshOnApply = entry.Attributes['RefreshOnApply'].Value
+	end
+
+	if (entry.Attributes['Tick Sound'] ~= nil) then
+		class.TickSound = entry.Attributes['Tick Sound'].Value
 	end
 
 	-- Buff data
@@ -151,10 +261,12 @@ function buff_getClassAsString(className)
 		.."\tApplyFunction = "..getValueAsString(class.ApplyFunction).."\n"
 		.."\tEffectFunction = "..getValueAsString(class.EffectFunction).."\n"
 		.."\tExpirationFunction = "..getValueAsString(class.ExpirationFunction).."\n"
+		.."\BuffAlignment = "..getValueAsString(class.BuffAlignment).."\n"
 		.."\tDuration = "..getValueAsString(class.Duration).."\n"
 		.."\tPeriodicity = "..getValueAsString(class.Periodicity).."\n"
 		.."\tDuration = "..getValueAsString(class.Duration).."\n"
 		.."\tStacks = "..getValueAsString(class.Stacks).."\n"
 		.."\tRefreshOnApply = "..getValueAsString(class.RefreshOnApply).."\n"
+		.."\TickSound = "..getValueAsString(class.TickSound).."\n"
 		.."\tBuffData = "..getValueAsString("-- TODO --").."\n" --TODO : print buff data
 end

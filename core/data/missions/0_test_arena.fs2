@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("TEST ARENA", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 02/19/17 at 21:10:42
+$Modified: 11/14/19 at 22:04:45
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -23,11 +23,11 @@ $end_multi_text
 +Hull Repair Ceiling: 0.000000
 +Subsystem Repair Ceiling: 100.000000
 
-+Viewer pos: 1729.492065, 7251.364746, -2738.691895
++Viewer pos: 866.634705, 7251.360352, -2817.933350
 +Viewer orient:
-	0.999268, 0.000002, 0.038263,
-	-0.031162, 0.580321, 0.813792,
-	-0.022203, -0.814388, 0.579896
+	0.999531, 0.000002, -0.030616,
+	0.025759, 0.540433, 0.840993,
+	0.016548, -0.841387, 0.540179
 
 $Starting wing names: ( "Virgo" "Scorpio" "Libra" )
 $Squadron wing names: ( "Virgo" "Scorpio" "Libra" "Gemini" "Aquarius" )
@@ -111,7 +111,7 @@ $Ship Choices: (
 	"Shivan Mordiggian Bomb"	500
 )
 
-#Objects		;! 1 total
+#Objects		;! 2 total
 
 $Name: Virgo 1		;! Object #0
 $Class: SF Mara
@@ -138,6 +138,62 @@ $Determination: 10
 +Respawn priority: 0
 +Group: 0
 +Score: 8
+
+$Name: Hostile Ship		;! Object #1
+$Class: GVD Hatshepsut
+$Team: Hostile
+$Location: -309.711243, 0.003418, 6647.727539
+$Orientation:
+	0.140332, 0.000000, -0.990105,
+	0.000000, 1.000000, 0.000000,
+	0.990105, 0.000000, 0.140332
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret15
++Subsystem: turret16
++Subsystem: turret17
++Subsystem: turret18
++Subsystem: turret19
++Subsystem: turret20
++Subsystem: turret21
++Subsystem: turret22
++Subsystem: turret23
++Subsystem: turret24
++Subsystem: turret25
++Subsystem: turret26
++Subsystem: turret27
++Subsystem: turret28
++Subsystem: turret29
++Subsystem: turret30
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "escort" )
++Flags2: ( )
++Respawn priority: 0
++Escort priority: 1
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Use Table Score:
++Score: 1400
 
 #Wings		;! 1 total
 

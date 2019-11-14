@@ -1,0 +1,11 @@
+#Game Sounds Start
+
+$Name:	+nocreate	35
++Entry:	repair.wav
++Volume: (0.50)
++3D Sound:
+	+Attenuation start: 100
+	+Attenuation end: 400
+
+
+#Game Sounds End

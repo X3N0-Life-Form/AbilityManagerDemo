@@ -32,7 +32,8 @@
             "dependencies": [
                 {
                     "id": "FSO",
-                    "version": ">=3.8.1-20190721"
+                    "version": ">=19.0.0-RC1",
+                    "packages": []
                 },
                 {
                     "id": "MVPS",

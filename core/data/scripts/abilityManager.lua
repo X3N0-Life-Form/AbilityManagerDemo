@@ -201,26 +201,7 @@ function ability_fire(instanceId, targetName)
 	end
 
 	-- Apply buff
-	-- TODO extract function
-	for index, buffClassName in pairs(class.Buffs) do
-		-- Verify that this is a valid buff name
-		if (buff_classes[buffClassName] == nil) then
-			ba.warning("[abilityManager.lua] Unrecognised buff class : "..buffClassName)
-		end
-
-		local buffClass = buff_classes[buffClassName]
-		local buffInstanceId = targetName.."::"..buffClass.Name.."::"..mn.getMissionTime()
-		dPrint_ability("Applying buff '"..buffInstanceId.."' ("..buffClass.Name..") at "..targetName)
-
-		-- TODO : handle stacking & refreshing
-		local buffInstance = buff_createInstance(buffInstanceId, buffClass.Name, targetName)
-
-		-- Apply effects
-		if (buffClass.ApplyFunction ~= "none" and buffClass.ApplyFunction ~= nil) then
-			dPrint_ability("Triggering buff application effects")
-			_G[buffClass.ApplyFunction](buffInstance, buffClass, targetName)
-		end
-	end
+	buff_applyBuffs(class, targetName)
 
 	-- Fire sound effect
 	-- TODO WiP
@@ -496,6 +477,7 @@ function ability_resetMissionVariables()
 	ability_ships = {}
 	ability_lastCast = 0
 	buff_instances = {}
+	buff_ships = {}
 end
 
 
