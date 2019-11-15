@@ -195,3 +195,22 @@ function playEffectAtPosition(effectName, position, size)
 		)
 	]])
 end
+
+function copyWeapons(originName, targetName)
+	local origin = mn.Ships[originName]
+	local target = mn.Ships[targetName]
+	if (origin:isValid() and target:isValid() and origin:getBreedName() == 'Ship' and origin.Class = target.Class) then
+		-- Primaries
+		for index = 1, #origin.PrimaryBanks do
+			target.PrimaryBanks[index].WeaponClass = origin.PrimaryBanks[index].WeaponClass
+		end
+		-- Secondaries
+		for index = 1, #origin.SecondaryBanks do
+			target.SecondaryBanks[index].WeaponClass = origin.SecondaryBanks[index].WeaponClass
+		end
+		-- Turrets
+		-- TODO
+	else
+		ba.warning("[utility.lua] Invalid ships for copyWeapon(): "..originName.." ==> "..targetName)
+	end
+end

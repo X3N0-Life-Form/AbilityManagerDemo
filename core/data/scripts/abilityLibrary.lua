@@ -221,7 +221,7 @@ function fireClone(instance, class, targetName)
 				)
 			)
 		]])
-		-- TODO : copy weapons
+		copyWeapons(targetName, cloneName)
 
 		-- TODO : give orders : attack hostile, guard target or escort caster
 
