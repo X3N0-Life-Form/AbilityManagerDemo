@@ -204,12 +204,11 @@ function ability_fire(instanceId, targetName)
 	buff_applyAbilityBuffs(class, targetName)
 
 	-- Fire sound effect
-	-- TODO WiP
 	if (class.CastingSound ~= nil) then
-		dPrint_ability("Firing sound effect")
-		local soundEntry = ad.getSoundentry(class.CastingSound)
-		ad.play3DSound(soundEntry, mn.Ships[targetName].Position)
+		playSoundAtPosition(class.CastingSound, mn.Ships[targetName].Position)
 	end
+
+	--TODO : vfx, cf.buff
 
 	-- Update instance status
 	instance.LastFired = mn.getMissionTime()

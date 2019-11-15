@@ -174,3 +174,24 @@ function playSoundAtPosition(soundEntryName, position)
 	local soundEntry = ad.getSoundentry(soundEntryName)
 	ad.play3DSound(soundEntry, position)
 end
+
+function playEffectAtPosition(effectName, position, size)
+	mn.evaluateSEXP([[
+		(when
+			(true)
+			(explosion-effect
+				]]..position['x']..[[
+				]]..position['y']..[[
+				]]..position['z']..[[
+				0
+				0
+				]]..size..[[
+				]]..(size/10)..[[
+				]]..size..[[
+				0
+				"]]..effectName..[["
+				"<none>"
+			)
+		)
+	]])
+end

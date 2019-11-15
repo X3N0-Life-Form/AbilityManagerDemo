@@ -14,17 +14,22 @@ buff_ships = {}
 ]]
 function buff_fire(instanceId, targetName)
 	local instance = buff_instances[instanceId]
-	local class = buff_classes[instance.Class]
-	dPrint_buff("Firing buff '"..instanceId.."' ("..class.Name..") on "..targetName)
+	local buffClass = buff_classes[instance.Class]
+	dPrint_buff("Firing buff '"..instanceId.."' ("..buffClass.Name..") on "..targetName)
 
 	-- Route the firing to the proper script
-	if (class.EffectFunction ~= "none" and class.EffectFunction ~= nil) then
-		_G[class.EffectFunction](instance, class, targetName)
+	if (buffClass.EffectFunction ~= "none" and buffClass.EffectFunction ~= nil) then
+		_G[buffClass.EffectFunction](instance, class, targetName)
 	end
 
 	-- Play tick sound effect
-	if (class.TickSound ~= nil) then
-		playSoundAtPosition(class.TickSound, mn.Ships[targetName].Position)
+	if (buffClass.TickSound ~= nil) then
+		playSoundAtPosition(buffClass.TickSound, mn.Ships[targetName].Position)
+	end
+
+	if (buffClass.TickEffect ~= nil) then
+		-- TODO : getSize cf. sub attributes --> make a vfx class
+		playEffectAtPosition(buffClass.TickEffect, targetPosition, mn.Ships[targetName].Class.Model.Radius)
 	end
 
 	-- Update instance status
@@ -38,30 +43,30 @@ end
 	@param instance : buff instance to display
 ]]
 function buff_displayBuff(instance)
-	local class = buff_classes[instance.Class]
+	local buffClass = buff_classes[instance.Class]
 
-	local tickCooldown =  (instance.LastFired + getValueForDifficulty(class.Periodicity)) - mn.getMissionTime()
+	local tickCooldown =  (instance.LastFired + getValueForDifficulty(buffClass.Periodicity)) - mn.getMissionTime()
 	if (tickCooldown < 0) or (instance.LastFired <= 0) then
 		tickCooldown = 0
 	end
 
-	local expirationTime = instance.ApplyTime + class.Duration
+	local expirationTime = instance.ApplyTime + buffClass.Duration
 	local timeLeft = expirationTime - mn.getMissionTime()
 
 	-- Status color
-	if (class.BuffAlignment == 'good') then
+	if (buffClass.BuffAlignment == 'good') then
 		gr.setColor(50,50,255)
-	elseif (class.BuffAlignment == 'neutral') then
+	elseif (buffClass.BuffAlignment == 'neutral') then
 		gr.setColor(200,200,200)
-	elseif (class.BuffAlignment == 'evil' or class.BuffAlignment == 'bad') then
+	elseif (buffClass.BuffAlignment == 'evil' or buffClass.BuffAlignment == 'bad') then
 		gr.setColor(255,50,50)
 	else
-		ba.warning("[abilityBuffManager.lua] Undefined BuffAlignment: "..class.BuffAlignment)
+		ba.warning("[abilityBuffManager.lua] Undefined BuffAlignment: "..buffClass.BuffAlignment)
 		gr.setColor(255,255,255)
 	end
 
 	-- Begin printing
-	gr.drawString(class.Name..":")
+	gr.drawString(buffClass.Name..":")
 	gr.drawString("\tTick Cooldown: "..string.format("%.2f", tickCooldown))
 	gr.drawString("\tTime left: "..string.format("%.2f", timeLeft))
 end
@@ -80,35 +85,40 @@ function buff_fireAllPossible()
 	-- ---------- --
 	-- Cycle through buffs instances & apply their effect
 	for instanceId, instance in pairs(buff_instances) do
-		local class = buff_classes[instance.Class]
+		local buffClass = buff_classes[instance.Class]
 		local duration = mn.getMissionTime() - instance.ApplyTime
 		local targetName = instance.Ship
 		local target = mn.Ships[targetName]
 
 		-- If the buff is still active
-		if (duration <= class.Duration) then
+		if (duration <= buffClass.Duration) then
 
 			-- Fire buff if possible
 			if (target ~= nil and target:isValid()) then
 				-- Verifiy periodicity
 				local period = mn.getMissionTime() - instance.LastFired
-				if (period >= class.Periodicity) then
+				if (period >= buffClass.Periodicity) then
 					buff_fire(instanceId, targetName)
 				end
 			end
 
 		else
 			-- Buff expires
-			dPrint_buff("Buff '"..instanceId.."' ("..class.Name..") is expiring on target "..targetName)
+			dPrint_buff("Buff '"..instanceId.."' ("..buffClass.Name..") is expiring on target "..targetName)
 
 			-- If it has an effect on expiration
-			if (class.ExpireFunction ~= "none" and class.ExpireFunction ~= nil) then
-				_G[class.ExpireFunction](instance, class, targetName)
+			if (buffClass.ExpireFunction ~= "none" and buffClass.ExpireFunction ~= nil) then
+				_G[buffClass.ExpireFunction](instance, class, targetName)
 			end
 
-			-- Play expire sound
-			if (class.ExpireSound ~= nil) then
-				playSoundAtPosition(class.ExpireSound, target.Position)
+			-- Special effects
+			if (buffClass.ExpireSound ~= nil) then
+				playSoundAtPosition(buffClass.ExpireSound, target.Position)
+			end
+
+			if (buffClass.ExpireEffect ~= nil) then
+				-- TODO : getSize cf. sub attributes
+				playEffectAtPosition(buffClass.ExpireEffect, target.Position, mn.Ships[targetName].Class.Model.Radius)
 			end
 
 			-- Clean up instance table
@@ -192,9 +202,15 @@ function buff_applyBuff(buffClassName, targetName)
 		_G[buffClass.ApplyFunction](buffInstance, buffClass, targetName)
 	end
 
-	-- Play apply sound
+	-- Special effects
+	local targetPosition = mn.Ships[targetName].Position
 	if (buffClass.ApplySound ~= nil) then
-		playSoundAtPosition(buffClass.ApplySound, mn.Ships[targetName].Position)
+		playSoundAtPosition(buffClass.ApplySound, targetPosition)
+	end
+
+	if (buffClass.ApplyEffect ~= nil) then
+		-- TODO : getSize cf. sub attributes
+		playEffectAtPosition(buffClass.ApplyEffect, targetPosition, mn.Ships[targetName].Class.Model.Radius)
 	end
 end
 
@@ -215,65 +231,81 @@ function buff_createClass(name, entry)
 		ApplySound = nil,
 		TickSound = nil,
 		ExpireSound = nil,
+		ApplyEffect = nil,
+		TickEffect = nil,
+		ExpireEffect = nil,
 		BuffData = {},
 
 		getData = nil -- TODO OOP
 	}
 
-	local class = buff_classes[name]
+	local buffClass = buff_classes[name]
 
 	-- Buff Alignment
 	if (entry.Attributes['Buff Alignment'] ~= nil) then
-		class.BuffAlignment = entry.Attributes['Buff Alignment'].Value
+		buffClass.BuffAlignment = entry.Attributes['Buff Alignment'].Value
 	end
 
 	-- Periodicity
 	if (entry.Attributes['Periodicity'] ~= nil) then
-		class.Periodicity = tonumber(entry.Attributes['Periodicity'].Value)
+		buffClass.Periodicity = tonumber(entry.Attributes['Periodicity'].Value)
 	end
 
 	-- Functions
 	if (entry.Attributes['Apply Function'] ~= nil) then
-		class.ApplyFunction = entry.Attributes['Apply Function'].Value
+		buffClass.ApplyFunction = entry.Attributes['Apply Function'].Value
 	end
 
 	if (entry.Attributes['Effect Function'] ~= nil) then
-		class.EffectFunction = entry.Attributes['Effect Function'].Value
+		buffClass.EffectFunction = entry.Attributes['Effect Function'].Value
 	end
 
 	if (entry.Attributes['Expire Function'] ~= nil) then
-		class.ExpireFunction = entry.Attributes['Expire Function'].Value
+		buffClass.ExpireFunction = entry.Attributes['Expire Function'].Value
 	end
 
 	-- Stacking & refreshing
 	if (entry.Attributes['Stacks'] ~= nil) then
-		class.Stacks = entry.Attributes['Stacks'].Value
+		buffClass.Stacks = entry.Attributes['Stacks'].Value
 	end
 
 	if (entry.Attributes['RefreshOnApply'] ~= nil) then
-		class.RefreshOnApply = entry.Attributes['RefreshOnApply'].Value
+		buffClass.RefreshOnApply = entry.Attributes['RefreshOnApply'].Value
 	end
 
 	-- Sound effets
 	if (entry.Attributes['Apply Sound'] ~= nil) then
-		class.ApplySound = entry.Attributes['Apply Sound'].Value
+		buffClass.ApplySound = entry.Attributes['Apply Sound'].Value
 	end
 
 	if (entry.Attributes['Tick Sound'] ~= nil) then
-		class.TickSound = entry.Attributes['Tick Sound'].Value
+		buffClass.TickSound = entry.Attributes['Tick Sound'].Value
 	end
 
 	if (entry.Attributes['Expire Sound'] ~= nil) then
-		class.ExpireSound = entry.Attributes['Expire Sound'].Value
+		buffClass.ExpireSound = entry.Attributes['Expire Sound'].Value
+	end
+
+	-- Visual effects
+	if (entry.Attributes['Apply Effect'] ~= nil) then
+		buffClass.ApplyEffect = entry.Attributes['Apply Effect'].Value
+	end
+
+	if (entry.Attributes['Tick Effect'] ~= nil) then
+		buffClass.TickEffect = entry.Attributes['Tick Effect'].Value
+	end
+
+	if (entry.Attributes['Expire Effect'] ~= nil) then
+		buffClass.ExpireEffect = entry.Attributes['Expire Effect'].Value
 	end
 
 	-- Buff data
 	if (entry.Attributes['Buff Data'] ~= nil) then
-		class.BuffData = entry.Attributes['Buff Data'].SubAttributes
-		class.getData = entry.Attributes['Buff Data'].SubAttributes
+		buffClass.BuffData = entry.Attributes['Buff Data'].SubAttributes
+		buffClass.getData = entry.Attributes['Buff Data'].SubAttributes
 	end
 
-	dPrint_buff(buff_getClassAsString(class.Name))
+	dPrint_buff(buff_getClassAsString(buffClass.Name))
 end
 
 --[[
@@ -313,18 +345,19 @@ end
 	@return class as printable string
 ]]
 function buff_getClassAsString(className)
-	local class = buff_classes[className]
+	local buffClass = buff_classes[className]
 
-	return "Buff class:\t"..class.Name.."\n"
-		.."\tApplyFunction = "..getValueAsString(class.ApplyFunction).."\n"
-		.."\tEffectFunction = "..getValueAsString(class.EffectFunction).."\n"
-		.."\tExpireFunction = "..getValueAsString(class.ExpireFunction).."\n"
-		.."\BuffAlignment = "..getValueAsString(class.BuffAlignment).."\n"
-		.."\tDuration = "..getValueAsString(class.Duration).."\n"
-		.."\tPeriodicity = "..getValueAsString(class.Periodicity).."\n"
-		.."\tDuration = "..getValueAsString(class.Duration).."\n"
-		.."\tStacks = "..getValueAsString(class.Stacks).."\n"
-		.."\tRefreshOnApply = "..getValueAsString(class.RefreshOnApply).."\n"
-		.."\TickSound = "..getValueAsString(class.TickSound).."\n"
+	return "Buff class:\t"..buffClass.Name.."\n"
+		.."\tApplyFunction = "..getValueAsString(buffClass.ApplyFunction).."\n"
+		.."\tEffectFunction = "..getValueAsString(buffClass.EffectFunction).."\n"
+		.."\tExpireFunction = "..getValueAsString(buffClass.ExpireFunction).."\n"
+		.."\BuffAlignment = "..getValueAsString(buffClass.BuffAlignment).."\n"
+		.."\tDuration = "..getValueAsString(buffClass.Duration).."\n"
+		.."\tPeriodicity = "..getValueAsString(buffClass.Periodicity).."\n"
+		.."\tDuration = "..getValueAsString(buffClass.Duration).."\n"
+		.."\tStacks = "..getValueAsString(buffClass.Stacks).."\n"
+		.."\tRefreshOnApply = "..getValueAsString(buffClass.RefreshOnApply).."\n"
+		-- TODO : other sfx & vfx
+		.."\TickSound = "..getValueAsString(buffClass.TickSound).."\n"
 		.."\tBuffData = "..getValueAsString("-- TODO --").."\n" --TODO : print buff data
 end

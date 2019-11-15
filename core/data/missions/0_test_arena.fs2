@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("TEST ARENA", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 11/15/19 at 12:29:31
+$Modified: 11/15/19 at 16:14:32
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -25,7 +25,7 @@ $end_multi_text
 
 +Viewer pos: 866.634705, 7251.360352, -2817.933350
 +Viewer orient:
-	0.999531, 0.000002, -0.030616,
+	0.999531, 0.000003, -0.030616,
 	0.028873, 0.332518, 0.942655,
 	0.010183, -0.943097, 0.332362
 
@@ -214,7 +214,7 @@ $AI Goals: ( goals ( ai-guard "Virgo 1" 50 ) )
 +Hotkey: 0
 +Flags: ( )
 
-#Events		;! 6 total
+#Events		;! 7 total
 
 $Formula: ( when 
    ( true ) 
@@ -227,6 +227,12 @@ $Formula: ( when
 +Name: mission start
 +Repeat Count: 1
 +Interval: 1
+
+$Formula: ( when ( true ) ( do-nothing ) ) 
++Name: exp effect
++Repeat Count: 1
++Interval: 1
++Chained: 2
 
 $Formula: ( when 
    ( true ) 

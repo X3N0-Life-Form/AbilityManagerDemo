@@ -149,8 +149,8 @@ $Ability Data:
 	+Clone Number:	3
 	+Clone Buff:	Kage Bunshin ; expiration buff
 	+Max Radius:	3	; max distance from the cloned ship, propertional to the model's radius
-	+VFX:			TODO
 ;; TODO : display "Kage Bunshin no Jutsu !" in huge letters
+;; + delayed spawn
 
 #End
 
@@ -188,8 +188,12 @@ $Buff Data:
 
 $Name:			Kage Bunshin
 $Duration:			45
+$Apply Effect:		Smoke
 $Expire Function:	fireDeclone
 $Expire Sound:		MirrorImageDeath
+$Expire Effect:		Smoke
+	+Size:				1
+	+Scale to target:	YES
 
 #End
 
