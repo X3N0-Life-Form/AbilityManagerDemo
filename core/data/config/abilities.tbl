@@ -151,6 +151,7 @@ $Ability Data:
 	+Max Radius:	3	; max distance from the cloned ship, propertional to the model's radius
 ;; TODO : display "Kage Bunshin no Jutsu !" in huge letters
 ;; + delayed spawn
+;; + poof on death ?
 
 #End
 
@@ -187,6 +188,7 @@ $Buff Data:
 	+Armor Hierarchy:	Light Armor--, Light Armor, Light Armor++
 
 $Name:			Kage Bunshin
+$Buff Alignment:	evil
 $Duration:			45
 $Apply Effect:		Smoke
 $Expire Function:	fireDeclone

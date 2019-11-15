@@ -10,8 +10,6 @@
 		* ability_cycleTrigger()
 		* ability_trigger(instanceId)
 		* ability_reload(instanceId)
-		* ability_getClassAsString(className)
-		* ability_getInstanceAsString(instanceId)
 		* ability_attachAbility(className, shipName, isManuallyFired)
 
 	Constants :
@@ -111,7 +109,7 @@ function ability_cycleTrigger()
 	if (ability_displayMissionAbilities) then
 		gr.drawString("Instanciated abilities:", gr.getScreenWidth() * 0.01, gr.getScreenHeight() * 0.15)
 		for instanceId, instance in pairs(ability_instances) do
-			gr.drawString("\t"..ability_getInstanceAsString(instanceId))
+			gr.drawString("\t"..instance:toString())
 		end
 	end
 
@@ -217,7 +215,7 @@ function ability_fire(instanceId, targetName)
 	ability_calculateCost(instance, class, true)
 
 	dPrint_ability("Instance new status :")
-	dPrint_ability(ability_getInstanceAsString(instanceId))
+	dPrint_ability(instance:toString())
 end
 
 --[[
@@ -276,36 +274,6 @@ function dPrint_ability(message)
 	end
 end
 
---[[
-	Returns the specified class as a string.
-
-	@param className : name of the class
-	@return class as printable string
-]]
-function ability_getClassAsString(className)
-	local class = ability_classes[className]
-	local str = "Ability class:\t"..class.Name.."\n"
-		.."\tFunction = "..getValueAsString(class.Function).."\n"
-		.."\tTargetType = "..getValueAsString(class.TargetType).."\n"
-		.."\tTargetTeam = "..getValueAsString(class.TargetTeam).."\n"
-		.."\tTargetSelection = "..getValueAsString(class.TargetSelection).."\n"
-		.."\tCooldown = "..getValueAsString(class.Cooldown).."\n"
-		.."\tRange = "..getValueAsString(class.Range).."\n"
-		.."\tCost = "..getValueAsString(class.Cost).."\n"
-		.."\t\tStarting Reserve = "..getValueAsString(class.StartingReserve).."\n"
-		.."\t\tCostType = "..ability_getCostTypeAsString(class.CostType).."\n"
-		.."\tBuffs = "..getValueAsString(class.Buffs).."\n"
-		.."\tAbilityData = "
-		if not (class.AbilityData == nil) and count(class.AbilityData) > 0 then
-			str = str.."\n"
-			for name, attribute in pairs(class.AbilityData) do
-				str = str.."+"..attribute:toString().."\n"
-			end
-		else
-			str = str.."None\n"
-		end
-		return str
-end
 
 --[[
 	Returns a cost type as a string.
@@ -331,109 +299,10 @@ function ability_getCostTypeAsString(costType)
 	return str
 end
 
---[[
-	Returns an instance as a string.
-
-	@param instanceId : instance id
-	@return instance as a printable string
-]]
-function ability_getInstanceAsString(instanceId)
-	local instance = ability_instances[instanceId]
-	return "Ability instance:\t"..instance.Class.."\n"
-		.."\tShip = "..getValueAsString(instance.Ship).."\n"
-		.."\tLastFired = "..getValueAsString(instance.LastFired).."\n"
-		.."\tActive = "..getValueAsString(instance.Active).."\n"
-		.."\tManual = "..getValueAsString(instance.Manual).."\n"
-		.."\tAmmo = "..getValueAsString(instance.Ammo).."\n"
-end
-
---[[
-
-]]
-function ability_getShipAbilities(shipName)
-	local ship = nil
-	--TODO
-end
-
 ----------------------
 --- Core Functions ---
 ----------------------
 
-
-
---[[
-	Creates a class of the specified name and attributes
-
-	@param name : class name
-	@param entry : table Entry
-]]
-function ability_createClass(name, entry)
-	dPrint_ability("Creating ability class : "..name)
-	-- Initialize the class
-	ability_classes[name] = {
-	  Name = name,
-	  Function = entry.Attributes['Function'].Value,
-	  TargetType = entry.Attributes['Target Type'].Value,--TODO : use getValue ?
-	  TargetTeam = entry.Attributes['Target Team'].Value,--TODO : ditto
-	  TargetSelection = "Closest",
-	  Cooldown = nil,
-	  Range = -1,
-	  Cost = 0,
-	  StartingReserve = nil,
-	  CostType = ability_createCostType('Ammo'),
-		CastingSound = nil,
-		Buffs = {},
-	  AbilityData = nil,
-
-		getData = nil --TODO OOP
-	}
-
-	local class = ability_classes[name]
-
-	if not (entry.Attributes['Cooldown'] == nil) then
-		class.Cooldown = entry.Attributes['Cooldown'].Value
-	end
-
-	if not (entry.Attributes['Range'] == nil) then
-		class.Range = tonumber(entry.Attributes['Range'].Value)
-	end
-
-	if not (entry.Attributes['Cost'] == nil) then
-		class.Cost = tonumber(entry.Attributes['Cost'].Value)
-		-- TODO : utility function to grab a sub attributes' value ???
-		if not (entry.Attributes['Cost'].SubAttributes == nil) then
-			-- Cost type
-			if not (entry.Attributes['Cost'].SubAttributes['Cost Type'] == nil) then
-				class.CostType = ability_createCostType(entry.Attributes['Cost'].SubAttributes['Cost Type'].Value)
-			end
-
-			-- Starting Reserve
-			if not (entry.Attributes['Cost'].SubAttributes['Starting Reserve'] == nil) then
-				class.StartingReserve = entry.Attributes['Cost'].SubAttributes['Starting Reserve'].Value
-			end
-		end
-	end
-
-	if not (entry.Attributes['Ability Data'] == nil) then
-		class.AbilityData = entry.Attributes['Ability Data'].SubAttributes
-		class.getData = entry.Attributes['Ability Data'].SubAttributes
-	end
-
-	if not (entry.Attributes['Target Selection'] == nil) then
-		class.TargetSelection = entry.Attributes['Target Selection'].Value
-	end
-
-	if (entry.Attributes['Casting Sound'] ~= nil) then
-		class.CastingSound = entry.Attributes['Casting Sound'].Value
-	end
-
-	if (entry.Attributes['Buffs'] ~= nil) then
-		class.Buffs = getValueAsTable(entry.Attributes['Buffs'].Value)
-	end
-
-	-- Print class
-	dPrint_ability(ability_getClassAsString(name))
-end
 
 --[[
 	Creates a cost type
@@ -479,40 +348,6 @@ function ability_resetMissionVariables()
 	buff_ships = {}
 end
 
-
---[[
-	Creates an instance of the specified ability and tie it to the specified shipName.
-
-	@param instanceId : unique identifier for this instance
-	@param className : name of the ability
-	@param shipName : ship to tie the ability to. Can be nil.
-	@return Created instance
-]]
-function ability_createInstance(instanceId, className, shipName)
-	dPrint_ability("Creating instance of class "..className.." with id "..instanceId.." for ship "..getValueAsString(shipName))
-	local class = ability_classes[className]
-	if (class == nil) then
-		ba.warning("[abilityManager.lua] Invalid class name: "..className)
-	end
-
-	ability_instances[instanceId] = {
-		Class = className,
-		Ship = shipName,
-		LastFired = -1,
-		Active = true,
-		Manual = false, --if that instance must be fire manually
-		Ammo = -1 --needs to be set after creation if necessary
-	}
-
-	local instance = ability_instances[instanceId]
-
-	if not (class.StartingReserve == nil) then
-		instance.Ammo = getValueForDifficulty(class.StartingReserve)
-	end
-
-	dPrint_ability(ability_getInstanceAsString(instanceId))
-	return instance
-end
 
 
 --[[
@@ -736,7 +571,7 @@ end
 function ability_attachAbility(className, shipName, isManuallyFired)
 	local instanceId = shipName.."::"..className
 	dPrint_ability("Attaching ability : "..instanceId.." (manual fire = "..getValueAsString(isManuallyFired)..")")
-	local instance = ability_createInstance(instanceId, className, shipName)
+	local instance = AbilityInstance:create(instanceId, className, shipName)
 
 	-- Tie instance to ship
 	if (ability_ships[shipName] == nil) then
@@ -841,7 +676,7 @@ function ability_init()
 
 	-- Create abilities
 	for name, entry in pairs(abilityTable.Categories['Abilities'].Entries) do
-		ability_createClass(name, entry)
+		AbilityClass:createClass(name, entry)
 	end
 
 	-- Create buffs

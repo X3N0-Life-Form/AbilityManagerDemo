@@ -53,13 +53,14 @@ function setShipVariants(categoryName)
 			end
 
 			-- Set up mission-specific abilities
-			if not (entry.Attributes['Abilities'] == nil) then
-				dPrint_shipVariantMissions("\tSetting mission-specific abilities")
-
+			if (entry.Attributes['Abilities'] ~= nil) then
 				local abilities = entry.Attributes['Abilities'].Value
+				dPrint_shipVariantMissions("\tSetting mission-specific abilities: "..getValueAsString(abilities))
+
 				local manual = false
-				if (not (entry.Attributes['Abilities'].SubAttributes == nil) and not (entry.Attributes['Abilities'].SubAttributes['Manual'] == nil)) then
-					manual = entry.Attributes['Abilities'].SubAttributes['Manual']
+				if ((entry.Attributes['Abilities'].SubAttributes ~= nil) and (entry.Attributes['Abilities'].SubAttributes['Manual'] ~= nil)) then
+					manual = entry.Attributes['Abilities'].SubAttributes['Manual'].Value
+					dPrint_shipVariantMissions("\t\tManual firing settings: "..getValueAsString(manual))
 				end
 
 				if (type(abilities) == 'table') then

@@ -19,7 +19,7 @@ function buff_fire(instanceId, targetName)
 
 	-- Route the firing to the proper script
 	if (buffClass.EffectFunction ~= "none" and buffClass.EffectFunction ~= nil) then
-		_G[buffClass.EffectFunction](instance, class, targetName)
+		_G[buffClass.EffectFunction](instance, buffClass, targetName)
 	end
 
 	-- Play tick sound effect
@@ -166,7 +166,7 @@ end
 function buff_applyAbilityBuffs(abilityClass, targetName)
 
 	for index, buffClassName in pairs(abilityClass.Buffs) do
-		applyBuff(buffClassName, targetName)
+		buff_applyBuff(buffClassName, targetName)
 	end
 
 end

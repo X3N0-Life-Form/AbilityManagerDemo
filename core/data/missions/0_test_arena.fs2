@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("TEST ARENA", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 11/15/19 at 16:14:32
+$Modified: 11/15/19 at 17:43:51
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -220,7 +220,7 @@ $Formula: ( when
    ( true ) 
    ( script-eval-block 
       "setShipVariants('" 
-      "Demo 1" 
+      "Test_arena" 
       "')" 
    )
 )

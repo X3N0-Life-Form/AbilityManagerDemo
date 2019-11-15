@@ -149,7 +149,7 @@ function fireDebuffArmor(instance, class, targetName)
 	local armorHierarchy = Attribute:getValue(class.getData['Armor Hierarchy'], "None")
 	local targetShip = mn.Ships[targetName]
 	local targetArmor = targetShip.ArmorClass
-	dPrint_abilityLibrary("Fire buffArmor at "..targetName)
+	dPrint_abilityLibrary("Fire debuffArmor at "..targetName)
 	dPrint_abilityLibrary("Target current armor = "..targetArmor)
 	dPrint_abilityLibrary("Armor Hierarchy = "..getValueAsString(armorHierarchy))
 
@@ -209,11 +209,24 @@ function fireClone(instance, class, targetName)
 
 		-- Setting armor class
 		mn.Ships[cloneName].ArmorClass = cloneArmor
+		mn.Ships[cloneName].ShieldArmorClass = cloneArmor
+
+		-- Copy damage + weapons
+		mn.evaluateSEXP([[
+			(when
+				(true)
+				(ship-copy-damage
+					"]]..targetName..[["
+					"]]..cloneName..[["
+				)
+			)
+		]])
+		-- TODO : copy weapons
+
+		-- TODO : give orders : attack hostile, guard target or escort caster
 
 		-- Apply buff
 		buff_applyBuff(cloneBuff, cloneName)
-
-		-- TODO : give orders : attack hostile, guard target or escort caster
 	end
 
 end
@@ -229,9 +242,9 @@ function getClonePosition(targetShip, maxRadiusFactor)
 	local modelInfo = targetShip.Class.Model
 	local maxRadiusValue = modelInfo.Radius * maxRadiusFactor
 	-- TODO : *-1
-	local x = originalPosition['x'] + math.random(modelInfo.Radius, maxRadiusValue)
-	local y = originalPosition['y'] + math.random(modelInfo.Radius, maxRadiusValue)
-	local z = originalPosition['z'] + math.random(modelInfo.Radius, maxRadiusValue)
+	local x = originalPosition['x'] + math.random(modelInfo.Radius, maxRadiusValue) * (math.random() < 0.5 and -1 or 1)
+	local y = originalPosition['y'] + math.random(modelInfo.Radius, maxRadiusValue) * (math.random() < 0.5 and -1 or 1)
+	local z = originalPosition['z'] + math.random(modelInfo.Radius, maxRadiusValue) * (math.random() < 0.5 and -1 or 1)
 
 	return ba.createVector(x,y,z)
 end
