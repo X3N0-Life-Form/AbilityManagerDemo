@@ -201,7 +201,7 @@ function ability_fire(instanceId, targetName)
 	end
 
 	-- Apply buff
-	buff_applyBuffs(class, targetName)
+	buff_applyAbilityBuffs(class, targetName)
 
 	-- Fire sound effect
 	-- TODO WiP
@@ -718,7 +718,7 @@ function ability_isValidShipType(class, targetShip)
 		end
 	else
 		dPrint_ability("\tTesting type "..class.TargetType)
-		if (shipTypeName == class.TargetType) then
+		if (shipTypeName == class.TargetType) or (class.TargetType == 'any') then
 				return true
 		end
 	end

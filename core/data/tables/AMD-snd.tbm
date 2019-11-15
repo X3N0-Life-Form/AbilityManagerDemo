@@ -7,5 +7,32 @@ $Name:	+nocreate	35
 	+Attenuation start: 100
 	+Attenuation end: 400
 
+$Name:	+nocreate	29
++Entry:	beep_1.wav
++Volume: (0.50)
++3D Sound:
+	+Attenuation start: 50
+	+Attenuation end: 100
+	
+$Name:			MirrorImage
++Entry:			MirrorImage.wav
++Cycle type:	random
++Preload:		NO
++Volume: 		(0.50)
++3D Sound:
+	+Attenuation start: 500
+	+Attenuation end: 1500
++Priority:		Medium
+
+$Name:			MirrorImageDeath
++Entry:			MirrorImageDeath.wav
++Cycle type:	random
++Preload:		NO
++Volume: 		(0.50)
++3D Sound:
+	+Attenuation start: 500
+	+Attenuation end: 1500
++Priority:		Medium
+
 
 #Game Sounds End

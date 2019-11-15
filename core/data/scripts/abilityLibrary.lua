@@ -173,6 +173,80 @@ end
 	Clones the target
 ]]
 function fireClone(instance, class, targetName)
+	dPrint_abilityLibrary("KAGE BUNSHIN NO JUTSU !!!")
+	local cloneArmor = class.getData['Clone Armor'].Value
+	local cloneNumber = class.getData['Clone Number'].Value
+	local maxRadius = class.getData['Max Radius'].Value
+	local cloneBuff = class.getData['Clone Buff'].Value
 
+	-- Get target info
+	local targetShip = mn.Ships[targetName]
+	local shipClass = targetShip.Class.Name
 
+	for index = 1, cloneNumber do
+		-- NOTE : This code assumes there are no existing clones !
+		--				Beware that things might break if you try to create new clones while one already exists
+		local cloneName = targetName.."#"..index
+		local clonePosition = getClonePosition(targetShip, maxRadius)
+
+		dPrint_abilityLibrary("Creating clone "..cloneName.." at position ("..clonePosition['x']..','..clonePosition['y']..','..clonePosition['z']..")")
+		-- Creating the clone
+		mn.evaluateSEXP([[
+			(when
+				(true)
+				(ship-create
+					"]]..cloneName..[["
+					"]]..shipClass..[["
+					]]..clonePosition['x']..[[
+					]]..clonePosition['y']..[[
+					]]..clonePosition['z']..[[
+					]]..targetShip.Orientation['p']..[[
+					]]..targetShip.Orientation['b']..[[
+					]]..targetShip.Orientation['h']..[[
+				)
+			)
+		]])
+
+		-- Setting armor class
+		mn.Ships[cloneName].ArmorClass = cloneArmor
+
+		-- Apply buff
+		buff_applyBuff(cloneBuff, cloneName)
+
+		-- TODO : give orders : attack hostile, guard target or escort caster
+	end
+
+end
+
+--[[
+	Get a valid position for a clone of the specified ship
+
+	@param targetShip : valid ship handle
+	@param radiusFactor : max radius factor
+]]
+function getClonePosition(targetShip, maxRadiusFactor)
+	local originalPosition = targetShip.Position
+	local modelInfo = targetShip.Class.Model
+	local maxRadiusValue = modelInfo.Radius * maxRadiusFactor
+	-- TODO : *-1
+	local x = originalPosition['x'] + math.random(modelInfo.Radius, maxRadiusValue)
+	local y = originalPosition['y'] + math.random(modelInfo.Radius, maxRadiusValue)
+	local z = originalPosition['z'] + math.random(modelInfo.Radius, maxRadiusValue)
+
+	return ba.createVector(x,y,z)
+end
+
+--[[
+	"Poofs" the target
+]]
+function fireDeclone(instance, class, targetName)
+	dPrint_abilityLibrary("Poofing clone "..targetName)
+	mn.evaluateSEXP([[
+		(when
+			(true)
+			(ship-vanish
+				"]]..targetName..[["
+			)
+		)
+	]])
 end

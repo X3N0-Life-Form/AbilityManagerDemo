@@ -12,6 +12,7 @@ $Target Type:   	cruiser, capital, corvette
 $Target Team:   	Hostile
 $Target Selection:	Closest
 $Cooldown:			24, 20, 17, 15, 13
+$Casting Sound:		29	; beep_1.wav
 $Ability Data:
   +Strike Type: 	Shivan SSM Strike
   
@@ -24,6 +25,7 @@ $Range:					7500
 $Cost:					1
 	+Starting Reserve:	15
 $Cooldown:				3
+$Casting Sound:		29	; beep_1.wav
 $Ability Data:
   +Strike Type: 	Mordiggian Strike
 
@@ -49,7 +51,6 @@ $Target Selection:		Self
 $Cost:					1
 	+Starting Reserve:	5
 $Cooldown:				30
-;; TODO : duration
 $Ability Data:
 	+Hull:				100
 	
@@ -62,7 +63,6 @@ $Range:					4500
 $Cost:					1
 	+Starting Reserve:	5
 $Cooldown:				30
-;; TODO : duration
 $Ability Data:
 	+Shields:			800
 	
@@ -108,23 +108,12 @@ $Cooldown:			3
 $Ability Data:
   +Strike Type: 	Disco Strike, Disco Strike#SAAA
   
-  
- 
-;;$Name:				Kage Bunshin no Jutsu
-;;$Funcion:			fireClone
-;;$Target Type:		any
-;;$Target Team:		Friendly
-;;$Target Selection:	Self
-;;$Cooldown:			120
-;;$Ability Data:
-;;	+Clone Armor:	Kage Bunshin Armor
-;;	+Clone Number:	3
-;;	+VFX:			TODO
+
   
 ;; buff placing abilities
 
 $Name:					Repair-Self-buff-based
-$Function:				none			; TODO
+$Function:				none
 $Target Type:			fighter, bomber
 $Target Team:			Friendly
 $Target Selection:		Self
@@ -135,15 +124,33 @@ $Casting Sound:			detach.wav 	; must be a 3d sound
 $Buffs:				Repair Buff#Fighter
 
 $Name:				Activate Active Armor
-$Function:			none			; TODO
+$Function:			none
 $Target Type:			fighter, bomber
 $Target Team:			Friendly
 $Target Selection:		Self
 $Cooldown:			40
 $Buffs:				Active Armor#Fighter
 
+; TODO : blood lust
 
 
+;; Complex abilities
+
+
+$Name:				Kage Bunshin no Jutsu
+$Function:			fireClone
+$Target Type:		any
+$Target Team:		Friendly
+$Target Selection:	Self
+$Cooldown:			120
+$Casting Sound:		MirrorImage
+$Ability Data:
+	+Clone Armor:	Kage Bunshin Armor
+	+Clone Number:	3
+	+Clone Buff:	Kage Bunshin ; expiration buff
+	+Max Radius:	3	; max distance from the cloned ship, propertional to the model's radius
+	+VFX:			TODO
+;; TODO : display "Kage Bunshin no Jutsu !" in huge letters
 
 #End
 
@@ -156,7 +163,7 @@ $Periodicity: 			1.0
 $Duration:				10
 $Apply Function:		fireDebuffArmor
 $Effect Function:		fireRepair
-$Expiration Function:	fireBuffArmor
+$Expire Function:		fireBuffArmor
 $Stacks:				false
 $Tick Sound:			35	; repair.wav ; must be a 3d sound
 $Buff Data:
@@ -166,7 +173,7 @@ $Buff Data:
 $Name:			Active Armor#Capital
 $Duration:				15
 $Apply Function:		fireBuffArmor
-$Expiration Function:	fireDebuffArmor
+$Expire Function:		fireDebuffArmor
 $Stacks:				false
 $Buff Data:
 	+Armor Hierarchy:	Heavy Armor--, Heavy Armor, Heavy Armor++
@@ -174,11 +181,15 @@ $Buff Data:
 $Name:			Active Armor#Fighter
 $Duration:				15
 $Apply Function:		fireBuffArmor
-$Expiration Function:	fireDebuffArmor
-$Stacks:		false
+$Expire Function:		fireDebuffArmor
+$Stacks:				false
 $Buff Data:
 	+Armor Hierarchy:	Light Armor--, Light Armor, Light Armor++
 
+$Name:			Kage Bunshin
+$Duration:			45
+$Expire Function:	fireDeclone
+$Expire Sound:		MirrorImageDeath
 
 #End
 

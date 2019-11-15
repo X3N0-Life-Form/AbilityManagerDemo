@@ -163,3 +163,14 @@ function count(table)
 	end
 	return count
 end
+
+--[[
+	Plays a 3d sound at the specified position
+
+	@param soundEntryName : sound entry name (must be a 3d sound)
+	@param position : position handle
+]]
+function playSoundAtPosition(soundEntryName, position)
+	local soundEntry = ad.getSoundentry(soundEntryName)
+	ad.play3DSound(soundEntry, position)
+end

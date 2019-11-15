@@ -1,5 +1,6 @@
 -- TODO : doc
 
+buff_enableDebugPrints = true
 
 buff_displayPlayerBuffs = true
 buff_displayTargetBuffs = true
@@ -14,24 +15,23 @@ buff_ships = {}
 function buff_fire(instanceId, targetName)
 	local instance = buff_instances[instanceId]
 	local class = buff_classes[instance.Class]
-	dPrint_ability("Firing buff '"..instanceId.."' ("..class.Name..") on "..targetName)
+	dPrint_buff("Firing buff '"..instanceId.."' ("..class.Name..") on "..targetName)
 
 	-- Route the firing to the proper script
 	if (class.EffectFunction ~= "none" and class.EffectFunction ~= nil) then
 		_G[class.EffectFunction](instance, class, targetName)
 	end
 
--- TODO : make it work
+	-- Play tick sound effect
 	if (class.TickSound ~= nil) then
-		local soundEntry = ad.getSoundentry(class.TickSound)
-		ad.play3DSound(soundEntry, mn.Ships[targetName].Position)
+		playSoundAtPosition(class.TickSound, mn.Ships[targetName].Position)
 	end
 
 	-- Update instance status
 	instance.LastFired = mn.getMissionTime()
 end
 
--- TODO : print active buffs
+
 --[[
 	Displays an active buff's status.
 
@@ -72,9 +72,12 @@ end
 function buff_fireAllPossible()
 
 	if (ability_debugPrintQuietMode == false) then
-		dPrint_ability("Fire all possible buffs !")
+		dPrint_buff("Fire all possible buffs !")
 	end
 
+	-- ---------- --
+	-- Buff cycle --
+	-- ---------- --
 	-- Cycle through buffs instances & apply their effect
 	for instanceId, instance in pairs(buff_instances) do
 		local class = buff_classes[instance.Class]
@@ -96,11 +99,16 @@ function buff_fireAllPossible()
 
 		else
 			-- Buff expires
-			dPrint_ability("Buff '"..instanceId.."' ("..class.Name..") is expiring on target "..targetName)
+			dPrint_buff("Buff '"..instanceId.."' ("..class.Name..") is expiring on target "..targetName)
 
 			-- If it has an effect on expiration
-			if (class.ExpirationFunction ~= "none" and class.ExpirationFunction ~= nil) then
-				_G[class.ExpirationFunction](instance, class, targetName)
+			if (class.ExpireFunction ~= "none" and class.ExpireFunction ~= nil) then
+				_G[class.ExpireFunction](instance, class, targetName)
+			end
+
+			-- Play expire sound
+			if (class.ExpireSound ~= nil) then
+				playSoundAtPosition(class.ExpireSound, target.Position)
 			end
 
 			-- Clean up instance table
@@ -109,11 +117,13 @@ function buff_fireAllPossible()
 		end
 	end
 
+	-- ------------ --
+	-- Buff display --
+	-- ------------ --
+	-- Get the player's ship
+	local playerShip = mn.Ships[hv.Player.Name]
 	-- Display player buffs
 	if (buff_displayPlayerBuffs) then
-		-- Get the player's ship
-		local playerShip = mn.Ships[hv.Player.Name]
-
 		gr.setColor(255,255,255)
 		gr.drawString("Active buffs:", gr.getScreenWidth() * 0.60, gr.getScreenHeight() * 0.10)
 		if (buff_ships[playerShip.Name] ~= nil) then
@@ -123,47 +133,74 @@ function buff_fireAllPossible()
 		end
 	end
 
-	-- TODO Display target buffs
-	gr.setColor(255,255,255)
-	gr.drawString("Target buffs:", gr.getScreenWidth() * 0.40, gr.getScreenHeight() * 0.10)
-	gr.drawString("TODO")
-
-end
-
--- TODO doc
-function buff_applyBuffs(abilityClass, targetName)
-
-	for index, buffClassName in pairs(abilityClass.Buffs) do
-		-- Verify that this is a valid buff name
-		if (buff_classes[buffClassName] == nil) then
-			ba.warning("[abilityManager.lua] Unrecognised buff class : "..buffClassName)
-		end
-
-		local buffClass = buff_classes[buffClassName]
-		local buffInstanceId = targetName.."::"..buffClass.Name.."::"..mn.getMissionTime()
-		dPrint_ability("Applying buff '"..buffInstanceId.."' ("..buffClass.Name..") at "..targetName)
-
-		-- TODO : handle stacking & refreshing
-		local buffInstance = buff_createInstance(buffInstanceId, buffClass.Name, targetName)
-
-		-- Attach newly created buff to its ship
-		if (buff_ships[targetName] == nil) then
-			buff_ships[targetName] = {}
-		end
-		buff_ships[targetName][buffInstanceId] = buffInstance
-
-		-- Apply effects
-		if (buffClass.ApplyFunction ~= "none" and buffClass.ApplyFunction ~= nil) then
-			dPrint_ability("Triggering buff application effects")
-			_G[buffClass.ApplyFunction](buffInstance, buffClass, targetName)
+	-- Display target buffs
+	if (buff_displayTargetBuffs and playerShip.Target:isValid() and playerShip.Target:getBreedName() == 'Ship') then
+		local playerTarget = playerShip.Target.Name
+		gr.setColor(255,255,255)
+		gr.drawString("Target buffs:", gr.getScreenWidth() * 0.40, gr.getScreenHeight() * 0.10)
+		if (buff_ships[playerTarget] ~= nil) then
+			for instanceId, instance in pairs(buff_ships[playerTarget]) do
+				buff_displayBuff(instance)
+			end
 		end
 	end
 
 end
 
+--[[
+	Apply the buffs of the specified ability to target
+
+	@param abilityClass : ability class
+	@param targetName : target ship name
+]]
+function buff_applyAbilityBuffs(abilityClass, targetName)
+
+	for index, buffClassName in pairs(abilityClass.Buffs) do
+		applyBuff(buffClassName, targetName)
+	end
+
+end
+
+--[[
+	Apply buff to specified target
+
+	@param buffClassName : buff name
+	@param targeName : target
+]]
+function buff_applyBuff(buffClassName, targetName)
+	-- Verify that this is a valid buff name
+	if (buff_classes[buffClassName] == nil) then
+		ba.warning("[abilityBuffManager.lua] Unrecognised buff class : "..buffClassName)
+	end
+
+	local buffClass = buff_classes[buffClassName]
+	local buffInstanceId = targetName.."::"..buffClass.Name.."::"..mn.getMissionTime()
+	dPrint_buff("Applying buff '"..buffInstanceId.."' ("..buffClass.Name..") at "..targetName)
+
+	-- TODO : handle stacking & refreshing
+	local buffInstance = buff_createInstance(buffInstanceId, buffClass.Name, targetName)
+
+	-- Attach newly created buff to its ship
+	if (buff_ships[targetName] == nil) then
+		buff_ships[targetName] = {}
+	end
+	buff_ships[targetName][buffInstanceId] = buffInstance
+
+	-- Apply effects
+	if (buffClass.ApplyFunction ~= "none" and buffClass.ApplyFunction ~= nil) then
+		dPrint_buff("Triggering buff application effects")
+		_G[buffClass.ApplyFunction](buffInstance, buffClass, targetName)
+	end
+
+	-- Play apply sound
+	if (buffClass.ApplySound ~= nil) then
+		playSoundAtPosition(buffClass.ApplySound, mn.Ships[targetName].Position)
+	end
+end
+
 --TODO : doc
 function buff_createClass(name, entry)
-	dPrint_ability("Creating buff class : "..name)
+	dPrint_buff("Creating buff class : "..name)
 	-- Initialize the class
 	buff_classes[name] = {
 		Name = name,
@@ -172,10 +209,12 @@ function buff_createClass(name, entry)
 		Periodicity = -1,
 		ApplyFunction = nil,
 		EffectFunction = nil,
-		ExpirationFunction = nil,
+		ExpireFunction = nil,
 		Stacks = false,
 		RefreshOnApply = false,
+		ApplySound = nil,
 		TickSound = nil,
+		ExpireSound = nil,
 		BuffData = {},
 
 		getData = nil -- TODO OOP
@@ -202,8 +241,8 @@ function buff_createClass(name, entry)
 		class.EffectFunction = entry.Attributes['Effect Function'].Value
 	end
 
-	if (entry.Attributes['Expiration Function'] ~= nil) then
-		class.ExpirationFunction = entry.Attributes['Expiration Function'].Value
+	if (entry.Attributes['Expire Function'] ~= nil) then
+		class.ExpireFunction = entry.Attributes['Expire Function'].Value
 	end
 
 	-- Stacking & refreshing
@@ -215,8 +254,17 @@ function buff_createClass(name, entry)
 		class.RefreshOnApply = entry.Attributes['RefreshOnApply'].Value
 	end
 
+	-- Sound effets
+	if (entry.Attributes['Apply Sound'] ~= nil) then
+		class.ApplySound = entry.Attributes['Apply Sound'].Value
+	end
+
 	if (entry.Attributes['Tick Sound'] ~= nil) then
 		class.TickSound = entry.Attributes['Tick Sound'].Value
+	end
+
+	if (entry.Attributes['Expire Sound'] ~= nil) then
+		class.ExpireSound = entry.Attributes['Expire Sound'].Value
 	end
 
 	-- Buff data
@@ -225,7 +273,7 @@ function buff_createClass(name, entry)
 		class.getData = entry.Attributes['Buff Data'].SubAttributes
 	end
 
-	dPrint_ability(buff_getClassAsString(class.Name))
+	dPrint_buff(buff_getClassAsString(class.Name))
 end
 
 --[[
@@ -248,6 +296,16 @@ function buff_createInstance(instanceId, className, shipName)
 	return instance
 end
 
+-------------------------
+--- Utility Functions ---
+-------------------------
+
+function dPrint_buff(message)
+	if (buff_enableDebugPrints) then
+		ba.print("[abilityBuffManager.lua] "..message.."\n")
+	end
+end
+
 --[[
 	Returns the specified buff class as a string.
 
@@ -260,7 +318,7 @@ function buff_getClassAsString(className)
 	return "Buff class:\t"..class.Name.."\n"
 		.."\tApplyFunction = "..getValueAsString(class.ApplyFunction).."\n"
 		.."\tEffectFunction = "..getValueAsString(class.EffectFunction).."\n"
-		.."\tExpirationFunction = "..getValueAsString(class.ExpirationFunction).."\n"
+		.."\tExpireFunction = "..getValueAsString(class.ExpireFunction).."\n"
 		.."\BuffAlignment = "..getValueAsString(class.BuffAlignment).."\n"
 		.."\tDuration = "..getValueAsString(class.Duration).."\n"
 		.."\tPeriodicity = "..getValueAsString(class.Periodicity).."\n"

@@ -29,7 +29,7 @@ $Variant:	Carrier Corvette
 $Abilities:	SSM-moloch-std
 
 $Name:		Virgo 1
-$Abilities:	Energy Drain, Fighter-launched Recursive SSM, Repair-Self-buff-based, Activate Active Armor
+$Abilities:	Energy Drain, Fighter-launched Recursive SSM, Repair-Self-buff-based, Kage Bunshin no Jutsu
 	+Manual:true, true, true, true
 	
 $Name:		Virgo 2

@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("TEST ARENA", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 11/14/19 at 22:04:45
+$Modified: 11/15/19 at 12:29:31
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -14,7 +14,7 @@ $Mission Desc:
 ", -1)
 $end_multi_text
 +Game Type Flags: 1
-+Flags: 263304
++Flags: 263320
 +Fog Near Mult: 1.000000
 
 +Fog Far Mult: 1.000000
@@ -26,8 +26,8 @@ $end_multi_text
 +Viewer pos: 866.634705, 7251.360352, -2817.933350
 +Viewer orient:
 	0.999531, 0.000002, -0.030616,
-	0.025759, 0.540433, 0.840993,
-	0.016548, -0.841387, 0.540179
+	0.028873, 0.332518, 0.942655,
+	0.010183, -0.943097, 0.332362
 
 $Starting wing names: ( "Virgo" "Scorpio" "Libra" )
 $Squadron wing names: ( "Virgo" "Scorpio" "Libra" "Gemini" "Aquarius" )
@@ -124,7 +124,6 @@ $Orientation:
 $AI Behavior: None
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 50
-+Initial Shields: 100
 +Subsystem: Pilot
 +Primary Banks: ( "Shivan Light Laser" "Shivan Heavy Laser" )
 +Secondary Banks: ( "Trebuchet#Shivan" "Tempest#Shivan" )
@@ -133,7 +132,7 @@ $Arrival Cue: ( false )
 $Departure Location: Hyperspace
 $Departure Cue: ( false ) 
 $Determination: 10
-+Flags: ( "cargo-known" "no-shields" "player-start" )
++Flags: ( "cargo-known" "player-start" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -142,7 +141,7 @@ $Determination: 10
 $Name: Hostile Ship		;! Object #1
 $Class: GVD Hatshepsut
 $Team: Hostile
-$Location: -309.711243, 0.003418, 6647.727539
+$Location: -66.166992, -0.000977, 2669.586670
 $Orientation:
 	0.140332, 0.000000, -0.990105,
 	0.000000, 1.000000, 0.000000,
@@ -151,6 +150,7 @@ $AI Behavior: None
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Velocity: 33
 +Initial Hull: 100
++Initial Shields: 100
 +Subsystem: Pilot
 +Subsystem: turret01
 +Subsystem: turret02
@@ -187,11 +187,12 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false ) 
 $Determination: 10
-+Flags: ( "cargo-known" "escort" )
++Flags: ( "cargo-known" "no-shields" "escort" )
 +Flags2: ( )
 +Respawn priority: 0
 +Escort priority: 1
 +Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
 +Use Table Score:
 +Score: 1400
 
@@ -282,12 +283,13 @@ $Formula: ( when
    ( key-reset-multiple "4" ) 
    ( script-eval-block 
       "ability_trigger('" 
-      "Virgo 1::Activate Active Armor" 
+      "Virgo 1::Kage Bunshin no Jutsu" 
       "')" 
    )
 )
-+Name: ability-recharge-target
-+Repeat Count: 1
++Name: ability-kage-bunshin
++Repeat Count: -1
++Trigger Count: 99999
 +Interval: 1
 
 #Goals		;! 0 total
@@ -304,7 +306,7 @@ $Team: -1
 $MessageNew:  XSTR("1 - Energy Drain
 2 - SSM Strike
 3 - Repair yourself
-4 - Activate Active Armor", -1)
+4 - Kage Bunshin no Jutsu !!!", -1)
 $end_multi_text
 
 #Reinforcements		;! 0 total
