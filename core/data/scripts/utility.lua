@@ -128,7 +128,11 @@ function getValueForDifficulty(value)
 	end
 end
 
---TODO : doc
+--[[
+	Tests whether the specified table contains a specific value
+
+	@return true if the object is found
+]]
 function contains(value_table, value)
 	if (type(value_table) == 'table') then
 		for i, currentValue in pairs(value_table) do
@@ -199,7 +203,7 @@ end
 function copyWeapons(originName, targetName)
 	local origin = mn.Ships[originName]
 	local target = mn.Ships[targetName]
-	if (origin:isValid() and target:isValid() and origin:getBreedName() == 'Ship' and origin.Class = target.Class) then
+	if (origin:isValid() and target:isValid() and origin:getBreedName() == 'Ship' and origin.Class == target.Class) then
 		-- Primaries
 		for index = 1, #origin.PrimaryBanks do
 			target.PrimaryBanks[index].WeaponClass = origin.PrimaryBanks[index].WeaponClass

@@ -18,8 +18,8 @@ function buff_fire(instanceId, targetName)
 	dPrint_buff("Firing buff '"..instanceId.."' ("..buffClass.Name..") on "..targetName)
 
 	-- Route the firing to the proper script
-	if (buffClass.EffectFunction ~= "none" and buffClass.EffectFunction ~= nil) then
-		_G[buffClass.EffectFunction](instance, buffClass, targetName)
+	if (buffClass.TickFunction ~= "none" and buffClass.TickFunction ~= nil) then
+		_G[buffClass.TickFunction](instance, buffClass, targetName)
 	end
 
 	-- Play tick sound effect
@@ -68,7 +68,9 @@ function buff_displayBuff(instance)
 	-- Begin printing
 	gr.drawString(buffClass.Name..":")
 	gr.drawString("\tTick Cooldown: "..string.format("%.2f", tickCooldown))
-	gr.drawString("\tTime left: "..string.format("%.2f", timeLeft))
+	if (timeLeft >= 0) then
+		gr.drawString("\tTime left: "..string.format("%.2f", timeLeft))
+	end
 end
 
 --[[
@@ -91,7 +93,7 @@ function buff_fireAllPossible()
 		local target = mn.Ships[targetName]
 
 		-- If the buff is still active
-		if (duration <= buffClass.Duration) then
+		if (duration <= buffClass.Duration or buffClass.Duration < 0) then
 
 			-- Fire buff if possible
 			if (target ~= nil and target:isValid()) then
@@ -224,7 +226,7 @@ function buff_createClass(name, entry)
 		Duration = tonumber(entry.Attributes['Duration'].Value),
 		Periodicity = -1,
 		ApplyFunction = nil,
-		EffectFunction = nil,
+		TickFunction = nil,
 		ExpireFunction = nil,
 		Stacks = false,
 		RefreshOnApply = false,
@@ -256,8 +258,8 @@ function buff_createClass(name, entry)
 		buffClass.ApplyFunction = entry.Attributes['Apply Function'].Value
 	end
 
-	if (entry.Attributes['Effect Function'] ~= nil) then
-		buffClass.EffectFunction = entry.Attributes['Effect Function'].Value
+	if (entry.Attributes['Tick Function'] ~= nil) then
+		buffClass.TickFunction = entry.Attributes['Tick Function'].Value
 	end
 
 	if (entry.Attributes['Expire Function'] ~= nil) then
@@ -349,7 +351,7 @@ function buff_getClassAsString(className)
 
 	return "Buff class:\t"..buffClass.Name.."\n"
 		.."\tApplyFunction = "..getValueAsString(buffClass.ApplyFunction).."\n"
-		.."\tEffectFunction = "..getValueAsString(buffClass.EffectFunction).."\n"
+		.."\tTickFunction = "..getValueAsString(buffClass.TickFunction).."\n"
 		.."\tExpireFunction = "..getValueAsString(buffClass.ExpireFunction).."\n"
 		.."\BuffAlignment = "..getValueAsString(buffClass.BuffAlignment).."\n"
 		.."\tDuration = "..getValueAsString(buffClass.Duration).."\n"

@@ -12,6 +12,7 @@ AbilityClass = {
   CostType = nil,
   CastingSound = nil,
   Buffs = {},
+  PassiveBuffs = {},
   AbilityData = nil,
 
   getData = nil --TODO OOP
@@ -83,6 +84,10 @@ function AbilityClass:createClass(name, entry)
 		abilityClass.Buffs = getValueAsTable(entry.Attributes['Buffs'].Value)
 	end
 
+  if (entry.Attributes['Passive Buffs'] ~= nil) then
+    abilityClass.PassiveBuffs = getValueAsTable(entry.Attributes['Passive Buffs'].Value)
+  end
+
 	-- Print class
 	dPrint_ability(abilityClass:toString())
 
@@ -109,6 +114,7 @@ function AbilityClass:toString(className)
 		.."\t\tStarting Reserve = "..getValueAsString(self.StartingReserve).."\n"
 		.."\t\tCostType = "..ability_getCostTypeAsString(self.CostType).."\n"
 		.."\tBuffs = "..getValueAsString(self.Buffs).."\n"
+    .."\tPassive Buffs = "..getValueAsString(self.PassiveBuffs).."\n"
 		.."\tAbilityData = "
 		if (self.AbilityData ~= nil) and count(self.AbilityData) > 0 then
 			str = str.."\n"

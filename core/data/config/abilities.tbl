@@ -152,6 +152,18 @@ $Ability Data:
 ;; TODO : display "Kage Bunshin no Jutsu !" in huge letters
 ;; + delayed spawn
 ;; + poof on death ?
+;; + evil clones ?
+
+$Name:				Recall
+$Function:			fireRecall	; WiP : may not be needed ???
+$Target Type:		any
+$Target Team:		Friendly
+$Target Selection:	Self
+$Cooldown:			12
+; TODO $CastingSound:
+$Buffs:				Recall#Backtrack ; TODO
+$Passive Buffs:		Recall#Track ; TODO²
+$Ability Data: ;TODO: possible to feed value to buff functions ?
 
 #End
 
@@ -163,7 +175,7 @@ $Buff Alignment:		good	; could be neutral or evil, default to good
 $Periodicity: 			1.0
 $Duration:				10
 $Apply Function:		fireDebuffArmor
-$Effect Function:		fireRepair
+$Tick Function:			fireRepair
 $Expire Function:		fireBuffArmor
 $Stacks:				false
 $Tick Sound:			35	; repair.wav ; must be a 3d sound
@@ -194,8 +206,27 @@ $Apply Effect:		Smoke
 $Expire Function:	fireDeclone
 $Expire Sound:		MirrorImageDeath
 $Expire Effect:		Smoke
+; TODO : expire on death !!!
 	+Size:				1
 	+Scale to target:	YES
+
+$Name:			Recall#Track
+$Buff Alignment:	good
+$Periodicity:		0.1
+$Duration:			-1	; permanent
+$Tick Function:		fireTrack
+$Buff Data:
+	+Track Size:	50	; how many states we should track
+
+$Name:			Recall#Backtrack
+$Buff Alignment:	good
+$Periodicity:		0.05
+$Duration:			2.5
+$Tick Function:		fireBacktrack ; TODO
+$Expire Function:	fireTrackback ; TODO : restart tracking + restore postprocess
+$Buff Data:
+; remove track then put it back on
+
 
 #End
 

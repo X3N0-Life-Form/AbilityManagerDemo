@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("TEST ARENA", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 11/15/19 at 17:43:51
+$Modified: 12/15/19 at 21:52:29
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -247,11 +247,11 @@ $Formula: ( when
    ( key-reset-multiple "1" ) 
    ( script-eval-block 
       "ability_trigger('" 
-      "Virgo 1::Energy Drain" 
+      "Virgo 1::Recall" 
       "')" 
    )
 )
-+Name: ability-enegy drain
++Name: ability_1-recall
 +Repeat Count: -1
 +Trigger Count: 99999
 +Interval: 1
@@ -265,7 +265,7 @@ $Formula: ( when
       " Recursive SSM')" 
    )
 )
-+Name: ability-mord ssm
++Name: ability_2-mord ssm
 +Repeat Count: -1
 +Trigger Count: 99999
 +Interval: 1
@@ -279,7 +279,7 @@ $Formula: ( when
       "-buff-based')" 
    )
 )
-+Name: ability-self-repair
++Name: ability_3-self-repair
 +Repeat Count: -1
 +Trigger Count: 99999
 +Interval: 1
@@ -293,7 +293,7 @@ $Formula: ( when
       "')" 
    )
 )
-+Name: ability-kage-bunshin
++Name: ability_4-kage-bunshin
 +Repeat Count: -1
 +Trigger Count: 99999
 +Interval: 1
@@ -309,7 +309,7 @@ $Formula: ( when
 
 $Name: controls
 $Team: -1
-$MessageNew:  XSTR("1 - Energy Drain
+$MessageNew:  XSTR("1 - Recall
 2 - SSM Strike
 3 - Repair yourself
 4 - Kage Bunshin no Jutsu !!!", -1)

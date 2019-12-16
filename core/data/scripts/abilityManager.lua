@@ -580,6 +580,12 @@ function ability_attachAbility(className, shipName, isManuallyFired)
 	ability_ships[shipName][instanceId] = instance
 
 	instance.Manual = isManuallyFired
+
+	-- Apply any passive buff
+	local abilityClass = ability_classes[className]
+	for index, buffClassName in pairs(abilityClass.PassiveBuffs) do
+		buff_applyBuff(buffClassName, shipName)
+	end
 end
 
 --[[

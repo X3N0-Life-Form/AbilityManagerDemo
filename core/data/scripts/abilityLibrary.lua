@@ -241,7 +241,7 @@ function getClonePosition(targetShip, maxRadiusFactor)
 	local originalPosition = targetShip.Position
 	local modelInfo = targetShip.Class.Model
 	local maxRadiusValue = modelInfo.Radius * maxRadiusFactor
-	-- TODO : *-1
+	-- Randomize clone position
 	local x = originalPosition['x'] + math.random(modelInfo.Radius, maxRadiusValue) * (math.random() < 0.5 and -1 or 1)
 	local y = originalPosition['y'] + math.random(modelInfo.Radius, maxRadiusValue) * (math.random() < 0.5 and -1 or 1)
 	local z = originalPosition['z'] + math.random(modelInfo.Radius, maxRadiusValue) * (math.random() < 0.5 and -1 or 1)
@@ -262,4 +262,38 @@ function fireDeclone(instance, class, targetName)
 			)
 		)
 	]])
+end
+
+
+trackedShips = {}
+--[[
+	Track a ship's state at a given time and stores it in a stack
+]]
+function fireTrack(instance, class, targetName)
+	if (trackedShips[targetName] == nil) then
+		local maxSize = class.getData['Track Size'].Value
+		dPrint_abilityLibrary("Creating stack for "..targetName.." with max size = "..maxSize)
+		trackedShips[targetName] = Stack:create(maxSize)
+	end
+	trackedShips[targetName]:stack(ShipInfo:create(targetName))
+end
+
+--[[
+
+]]
+function fireRecall(instance, class, targetName)
+	dPrint_abilityLibrary("Performing recall on stack : "..trackedShips[targetName]:toString())
+	-- TODO : clear tracking buff --> make clear buff function
+	-- TODO post process desaturate if player
+end
+
+function fireBacktrack(instance, class, targetName)
+	local shipInfo = trackedShips[targetName]:unstack()
+	if (shipInfo ~= nil) then
+		-- TODO
+	end
+end
+
+function fireTrackback(instance, class, targetName)
+	--TODO restore tracking
 end

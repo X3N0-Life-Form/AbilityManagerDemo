@@ -8,6 +8,11 @@ $On Game Init: [[TableObject.lua]]
 $On Game Init: [[Category.lua]]
 $On Game Init: [[Entry.lua]]
 $On Game Init: [[Attribute.lua]]
+$On Game Init: [[shipTracking.lua]]
+$On Game Init: [[Stack.lua]]
+
+;; Testing
+$On Game Init: [[tests.lua]]
 
 ;; Ship Variant
 $On Game Init: [[shipVariant.lua]]
@@ -29,7 +34,6 @@ $On Game Init:[ability_init()]
 $State:	GS_STATE_GAME_PLAY
 $On Frame:[ability_cycleTrigger()]
 
-;; Testing
-$On Game Init: [[tests.lua]]
+
 
 #End
