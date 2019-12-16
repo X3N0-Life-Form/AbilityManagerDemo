@@ -161,9 +161,10 @@ $Target Team:		Friendly
 $Target Selection:	Self
 $Cooldown:			12
 ; TODO $CastingSound:
-$Buffs:				Recall#Backtrack ; TODO
-$Passive Buffs:		Recall#Track ; TODO²
-$Ability Data: ;TODO: possible to feed value to buff functions ?
+$Buffs:				Recall#Backtrack
+$Passive Buffs:		Recall#Track
+$Ability Data:
+	+Saturation Level:	0
 
 #End
 
@@ -222,10 +223,11 @@ $Name:			Recall#Backtrack
 $Buff Alignment:	good
 $Periodicity:		0.05
 $Duration:			2.5
-$Tick Function:		fireBacktrack ; TODO
-$Expire Function:	fireTrackback ; TODO : restart tracking + restore postprocess
+$Tick Function:		fireBacktrack
+$Expire Function:	fireTrackback
 $Buff Data:
-; remove track then put it back on
+	+Track Buff:	Recall#Track
+
 
 
 #End
