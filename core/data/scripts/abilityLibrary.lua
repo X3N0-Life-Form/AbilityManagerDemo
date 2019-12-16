@@ -278,22 +278,51 @@ function fireTrack(instance, class, targetName)
 	trackedShips[targetName]:stack(ShipInfo:create(targetName))
 end
 
+saturationLevel = 100
 --[[
-
+	Starts up the recall process : stops ship tracking and gets ready to send the target ship back in time
 ]]
 function fireRecall(instance, class, targetName)
 	dPrint_abilityLibrary("Performing recall on stack : "..trackedShips[targetName]:toString())
 	-- TODO : clear tracking buff --> make clear buff function
-	-- TODO post process desaturate if player
-end
-
-function fireBacktrack(instance, class, targetName)
-	local shipInfo = trackedShips[targetName]:unstack()
-	if (shipInfo ~= nil) then
-		-- TODO
+	-- TODO : set ship protect + invul + block controls/play dead
+	
+	-- Set saturation level for player during recall
+	if (targetName == hv.Player.Name and class.getData['Saturation Level'] ~= nil) then
+		-- TODO : Save initial saturation level
+		mn.evaluateSEXP([[
+			( set-post-effect 
+		      		"saturation" 
+		      		]]..class.getData['Saturation Level'].Value..[[
+	   		)
+		]])
 	end
 end
 
+--[[
+	Core of the recall process : unstacks a ship info from the track stack and sets the ship to this status
+]]
+function fireBacktrack(instance, class, targetName)
+	local shipInfo = trackedShips[targetName]:unstack()
+	if (shipInfo ~= nil) then
+		-- TODO : set ship status
+	end
+end
+
+--[[
+	End of the recall process : restarts ship tracking restores the ship to normal status
+]]
 function fireTrackback(instance, class, targetName)
-	--TODO restore tracking
+	-- Reapply track
+	buff_applyBuff(class.getData['Track Buff'].Value, targetName)
+	-- TODO : strip ship protect + invul + unblock controls/play dead
+	-- Restore saturation values for player
+	if (targetName == hv.Player.Name) then
+		mn.evaluateSEXP([[
+			( set-post-effect 
+		      		"saturation" 
+		      		]]..saturationLevel..[[
+	   		)
+		]])
+	end
 end
