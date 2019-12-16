@@ -320,6 +320,7 @@ end
 ]]
 function buff_createInstance(instanceId, className, shipName)
 	buff_instances[instanceId] = {
+		Id = instanceId,
 		Class = className,
 		Ship = shipName,
 		LastFired = -1,
@@ -328,6 +329,22 @@ function buff_createInstance(instanceId, className, shipName)
 	local instance = buff_instances[instanceId]
 
 	return instance
+end
+
+--[[
+	Removes the specified buff from the target.
+
+	@param buffClassName : buff to remove
+	@param targetName : target to remove the buff from
+]]
+function buff_removeBuff(buffClassName, targetName)
+	-- TODO : won't work, needs id
+	local buff = buff_ships[targetName][buffClassName]
+	if (buff ~= nil) then
+		local instanceId = buff.Id
+		buff_instances[instanceId] = nil
+		buff_ships[targetName] = nil
+	end
 end
 
 -------------------------

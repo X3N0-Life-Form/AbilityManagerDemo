@@ -278,23 +278,33 @@ function fireTrack(instance, class, targetName)
 	trackedShips[targetName]:stack(ShipInfo:create(targetName))
 end
 
-saturationLevel = 100
 --[[
 	Starts up the recall process : stops ship tracking and gets ready to send the target ship back in time
 ]]
 function fireRecall(instance, class, targetName)
 	dPrint_abilityLibrary("Performing recall on stack : "..trackedShips[targetName]:toString())
 	-- TODO : clear tracking buff --> make clear buff function
-	-- TODO : set ship protect + invul + block controls/play dead
-	
-	-- Set saturation level for player during recall
+	-- Prevent ship from interacting with the outside world
+	mn.evaluateSEXP([[
+		(when
+			(true)
+			(alter-ship-flag "ship-protect" true true)
+			(alter-ship-flag "invulnerable" true true)
+			(add-goal "]]..targetName..[[" (ai-play-dead-persistent 120))
+		)
+	]])
+
+	-- Set saturation level for player during recall + make the player use the AI
 	if (targetName == hv.Player.Name and class.getData['Saturation Level'] ~= nil) then
-		-- TODO : Save initial saturation level
 		mn.evaluateSEXP([[
-			( set-post-effect 
-		      		"saturation" 
+			(when
+				(true)
+				(set-post-effect
+		      		"saturation"
 		      		]]..class.getData['Saturation Level'].Value..[[
 	   		)
+				(player-use-ai)
+			)
 		]])
 	end
 end
@@ -315,14 +325,24 @@ end
 function fireTrackback(instance, class, targetName)
 	-- Reapply track
 	buff_applyBuff(class.getData['Track Buff'].Value, targetName)
-	-- TODO : strip ship protect + invul + unblock controls/play dead
-	-- Restore saturation values for player
+	-- Restore interaction with the outside world
+	mn.evaluateSEXP([[
+		(when
+			(true)
+			(alter-ship-flag "ship-protect" false true)
+			(alter-ship-flag "invulnerable" false true)
+			(remove-goal "]]..targetName..[[" (ai-play-dead-persistent 120))
+		)
+	]])
+
+	-- Restore saturation values for player + control
 	if (targetName == hv.Player.Name) then
 		mn.evaluateSEXP([[
-			( set-post-effect 
-		      		"saturation" 
-		      		]]..saturationLevel..[[
-	   		)
+			(when
+				(true)
+				(reset-post-effects)
+				(player-not-use-ai)
+			)
 		]])
 	end
 end
