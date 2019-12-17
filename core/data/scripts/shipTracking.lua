@@ -22,6 +22,13 @@ function TrackVector:create(fsoVector)
 	return vectorInstance
 end
 
+function TrackVector:setFsoInfo(fsoVector)
+	fsoVector['x'] = self.x
+	fsoVector['y'] = self.y
+	fsoVector['z'] = self.z
+end
+
+
 TrackOrientation = {
   p = 0,
   b = 0,
@@ -40,6 +47,12 @@ function TrackOrientation:create(fsoOrientation)
 
   -- Return instance
 	return orientationInstance
+end
+
+function TrackOrientation:setFsoInfo(fsoOrientation)
+	fsoOrientation['p'] = orientationInstance.p
+	fsoOrientation['b'] = orientationInstance.b
+	fsoOrientation['h'] = orientationInstance.h
 end
 
 ShipInfo = {
@@ -81,6 +94,26 @@ function ShipInfo:create(shipName)
   shipInfoInstance.WeaponEnergy = ship.WeaponEnergyLeft
   shipInfoInstance.Countermeasures = ship.CountermeasuresLeft
 
+  -- TODO : weapon banks
   -- Return instance
 	return shipInfoInstance
+end
+
+--[[
+	Sets the specified ship's status to that of the ShipInfo
+
+	@param ship : ship to set
+]]
+function ShipInfo:setFsoInfo(ship)
+	self.Position:setFsoInfo(ship.Position)
+	self.Orientation:setFsoInfo(ship.Orientation)
+	self.Velocity:setFsoInfo(ship.Physics.Velocity)
+	self.RotationalVelocity:setFsoInfo(ship.Physics.RotationalVelocity)
+	
+	ship.HitpointsLeft = self.Hitpoints
+	ship.Shields.CombinedLeft = self.Shields
+	ship.AfterburnerFuelLeft = self.AfterburnerFuel
+	ship.WeaponEnergyLeft = self.WeaponEnergy
+	ship.CountermeasuresLeft = self.Countermeasures
+	-- TODO : weapon banks
 end
