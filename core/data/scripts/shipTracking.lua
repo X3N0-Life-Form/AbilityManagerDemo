@@ -50,9 +50,9 @@ function TrackOrientation:create(fsoOrientation)
 end
 
 function TrackOrientation:setFsoInfo(fsoOrientation)
-	fsoOrientation['p'] = orientationInstance.p
-	fsoOrientation['b'] = orientationInstance.b
-	fsoOrientation['h'] = orientationInstance.h
+	fsoOrientation['p'] = self.p
+	fsoOrientation['b'] = self.b
+	fsoOrientation['h'] = self.h
 end
 
 ShipInfo = {
@@ -109,7 +109,7 @@ function ShipInfo:setFsoInfo(ship)
 	self.Orientation:setFsoInfo(ship.Orientation)
 	self.Velocity:setFsoInfo(ship.Physics.Velocity)
 	self.RotationalVelocity:setFsoInfo(ship.Physics.RotationalVelocity)
-	
+
 	ship.HitpointsLeft = self.Hitpoints
 	ship.Shields.CombinedLeft = self.Shields
 	ship.AfterburnerFuelLeft = self.AfterburnerFuel

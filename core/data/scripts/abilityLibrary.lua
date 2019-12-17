@@ -282,20 +282,23 @@ end
 	Starts up the recall process : stops ship tracking and gets ready to send the target ship back in time
 ]]
 function fireRecall(instance, class, targetName)
-	dPrint_abilityLibrary("Performing recall on stack : "..trackedShips[targetName]:toString())
-	buff_removeBuff(class.Name, targetName)
+	dPrint_abilityLibrary("Recalling "..targetName.." - removing tracking buff "..class.PassiveBuffs[1])
+	buff_removeBuff(class.PassiveBuffs[1], targetName)
+
 	-- Prevent ship from interacting with the outside world
+	dPrint_abilityLibrary("Recalling "..targetName.." - setting ship flags & AI goals")
 	mn.evaluateSEXP([[
 		(when
 			(true)
-			(alter-ship-flag "ship-protect" true true)
-			(alter-ship-flag "invulnerable" true true)
+			(alter-ship-flag "ship-protect" true true "]]..targetName..[[")
+			(alter-ship-flag "invulnerable" true true "]]..targetName..[[")
 			(add-goal "]]..targetName..[[" (ai-play-dead-persistent 120))
 		)
 	]])
 
 	-- Set saturation level for player during recall + make the player use the AI
 	if (targetName == hv.Player.Name and class.getData['Saturation Level'] ~= nil) then
+		dPrint_abilityLibrary("Recalling "..targetName.." - setting post-effects for player")
 		mn.evaluateSEXP([[
 			(when
 				(true)
@@ -326,14 +329,16 @@ end
 	End of the recall process : restarts ship tracking restores the ship to normal status
 ]]
 function fireTrackback(instance, class, targetName)
+	local buffName = class.getData['Track Buff'].Value
+	dPrint_abilityLibrary("Reinstating track buff "..buffName.." on "..targetName)
 	-- Reapply track
-	buff_applyBuff(class.getData['Track Buff'].Value, targetName)
+	buff_applyBuff(buffName, targetName)
 	-- Restore interaction with the outside world
 	mn.evaluateSEXP([[
 		(when
 			(true)
-			(alter-ship-flag "ship-protect" false true)
-			(alter-ship-flag "invulnerable" false true)
+			(alter-ship-flag "ship-protect" false true "]]..targetName..[[")
+			(alter-ship-flag "invulnerable" false true "]]..targetName..[[")
 			(remove-goal "]]..targetName..[[" (ai-play-dead-persistent 120))
 		)
 	]])

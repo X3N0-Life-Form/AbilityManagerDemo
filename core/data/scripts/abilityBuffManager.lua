@@ -110,7 +110,7 @@ function buff_fireAllPossible()
 
 			-- If it has an effect on expiration
 			if (buffClass.ExpireFunction ~= "none" and buffClass.ExpireFunction ~= nil) then
-				_G[buffClass.ExpireFunction](instance, class, targetName)
+				_G[buffClass.ExpireFunction](instance, buffClass, targetName)
 			end
 
 			-- Special effects
@@ -125,7 +125,7 @@ function buff_fireAllPossible()
 
 			-- Clean up instance table
 			buff_instances[instanceId] = nil
-			buff_ships[targetName] = nil
+			buff_ships[targetName][instanceId] = nil
 		end
 	end
 
@@ -346,12 +346,13 @@ function buff_removeBuff(buffClassName, targetName)
 			break
 		end
 	end
-	
+
 	-- Remove buff from tables
 	if (buff ~= nil) then
 		local instanceId = buff.Id
+		dPrint_buff("Removing buff "..instanceId.." from ship "..targetName)
 		buff_instances[instanceId] = nil
-		buff_ships[targetName] = nil
+		buff_ships[targetName][instanceId] = nil
 	else
 		dPrint_buff("Could not find buff of type "..buffClassName.." on ship "..targetName)
 	end

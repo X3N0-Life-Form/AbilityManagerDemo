@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("TEST ARENA", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 12/15/19 at 21:52:29
+$Modified: 12/17/19 at 21:22:18
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -309,7 +309,7 @@ $Formula: ( when
 
 $Name: controls
 $Team: -1
-$MessageNew:  XSTR("1 - Recall
+$MessageNew:  XSTR("1 - Recall
 2 - SSM Strike
 3 - Repair yourself
 4 - Kage Bunshin no Jutsu !!!", -1)
