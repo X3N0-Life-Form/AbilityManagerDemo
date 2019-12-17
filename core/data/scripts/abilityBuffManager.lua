@@ -338,12 +338,22 @@ end
 	@param targetName : target to remove the buff from
 ]]
 function buff_removeBuff(buffClassName, targetName)
-	-- TODO : won't work, needs id
-	local buff = buff_ships[targetName][buffClassName]
+	-- Lookup the buff
+	local buff = nil
+	for instanceId, instance in pairs(buff_ships[targetName]) do
+		if (instance.Class == buffClassName) then
+			buff = instance
+			break
+		end
+	end
+	
+	-- Remove buff from tables
 	if (buff ~= nil) then
 		local instanceId = buff.Id
 		buff_instances[instanceId] = nil
 		buff_ships[targetName] = nil
+	else
+		dPrint_buff("Could not find buff of type "..buffClassName.." on ship "..targetName)
 	end
 end
 
