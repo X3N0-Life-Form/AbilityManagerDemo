@@ -283,7 +283,7 @@ end
 ]]
 function fireRecall(instance, class, targetName)
 	dPrint_abilityLibrary("Performing recall on stack : "..trackedShips[targetName]:toString())
-	-- TODO : clear tracking buff --> make clear buff function
+	buff_removeBuff(class.Name, targetName)
 	-- Prevent ship from interacting with the outside world
 	mn.evaluateSEXP([[
 		(when
@@ -313,9 +313,12 @@ end
 	Core of the recall process : unstacks a ship info from the track stack and sets the ship to this status
 ]]
 function fireBacktrack(instance, class, targetName)
-	local shipInfo = trackedShips[targetName]:unstack()
-	if (shipInfo ~= nil) then
-		-- TODO : set ship status
+	local trackInfo = trackedShips[targetName]:unstack()
+	local ship = mn.Ships[targetName]
+	if (trackInfo ~= nil and ship:isValid()) then
+		trackInfo:setFsoInfo(ship)
+	else
+		dPrint_abilityLibrary("Missing backtrack info or ship object for "..targetName)
 	end
 end
 
