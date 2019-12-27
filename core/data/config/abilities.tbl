@@ -221,7 +221,7 @@ $Buff Data:
 
 $Name:			Recall#Backtrack
 $Buff Alignment:	good
-$Periodicity:		0.05
+$Periodicity:		0.02
 $Duration:			2.5
 $Tick Function:		fireBacktrack
 $Expire Function:	fireTrackback

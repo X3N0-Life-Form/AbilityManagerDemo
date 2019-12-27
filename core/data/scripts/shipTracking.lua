@@ -105,10 +105,39 @@ end
 	@param ship : ship to set
 ]]
 function ShipInfo:setFsoInfo(ship)
-	self.Position:setFsoInfo(ship.Position)
-	self.Orientation:setFsoInfo(ship.Orientation)
-	self.Velocity:setFsoInfo(ship.Physics.Velocity)
-	self.RotationalVelocity:setFsoInfo(ship.Physics.RotationalVelocity)
+	--self.Position:setFsoInfo(ship.Position)
+  mn.evaluateSEXP([[
+    (when
+      (true)
+      (set-object-position
+        "]]..ship.Name..[["
+        "]]..self.Position.x..[["
+        "]]..self.Position.y..[["
+        "]]..self.Position.z..[["
+      )
+    )
+  ]])
+	--self.Orientation:setFsoInfo(ship.Orientation)
+  -- dPrint_abilityLibrary("Setting orientation : "..self.Orientation.p.." "..self.Orientation.b.." "..self.Orientation.h)
+  mn.evaluateSEXP([[
+    (when
+      (true)
+      (set-object-orientation
+        "]]..ship.Name..[["
+        "]]..convertRadToDegree(self.Orientation.p)..[["
+        "]]..convertRadToDegree(self.Orientation.b)..[["
+        "]]..convertRadToDegree(self.Orientation.h)..[["
+      )
+    )
+  ]])
+	-- self.Velocity:setFsoInfo(ship.Physics.Velocity)
+  mn.evaluateSEXP([[
+    (when (true) (set-object-speed-x "]]..ship.Name..[[" "]]..self.Velocity.x..[["))
+    (when (true) (set-object-speed-y "]]..ship.Name..[[" "]]..self.Velocity.y..[["))
+    (when (true) (set-object-speed-z "]]..ship.Name..[[" "]]..self.Velocity.z..[["))
+  ]])
+	-- self.RotationalVelocity:setFsoInfo(ship.Physics.RotationalVelocity)
+  -- TODO : all of this
 
 	ship.HitpointsLeft = self.Hitpoints
 	ship.Shields.CombinedLeft = self.Shields

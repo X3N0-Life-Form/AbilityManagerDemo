@@ -218,3 +218,7 @@ function copyWeapons(originName, targetName)
 		ba.warning("[utility.lua] Invalid ships for copyWeapon(): "..originName.." ==> "..targetName)
 	end
 end
+
+function convertRadToDegree(radians)
+	return radians * (180/math.pi)
+end

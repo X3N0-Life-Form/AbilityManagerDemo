@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("TEST ARENA", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 12/17/19 at 21:22:18
+$Modified: 12/27/19 at 22:25:37
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -36,6 +36,15 @@ $Team-versus-team wing names: ( "Virgo" "Zeta" )
 $Skybox Model: Starfield.pof
 
 $AI Profile: myProfile
+
+#Sexp_variables
+
+$Variables:
+(
+		0		"orientation.b"		"0"		"number"
+		1		"orientation.h"		"0"		"number"
+		2		"orientation.p"		"0"		"number"
+)
 
 #Command Briefing
 
@@ -214,7 +223,7 @@ $AI Goals: ( goals ( ai-guard "Virgo 1" 50 ) )
 +Hotkey: 0
 +Flags: ( )
 
-#Events		;! 7 total
+#Events		;! 9 total
 
 $Formula: ( when 
    ( true ) 
@@ -255,6 +264,15 @@ $Formula: ( when
 +Repeat Count: -1
 +Trigger Count: 99999
 +Interval: 1
+
+$Formula: ( when 
+   ( false ) 
+   ( debug ( true ) "orientation" ) 
+)
++Name: debug orientation
++Repeat Count: 50
++Interval: 1
++Chained: 0
 
 $Formula: ( when 
    ( key-pressed "2" ) 
@@ -298,13 +316,32 @@ $Formula: ( when
 +Trigger Count: 99999
 +Interval: 1
 
+$Formula: ( every-time 
+   ( true ) 
+   ( modify-variable 
+      @orientation.p[0] 
+      ( get-object-pitch "Virgo 1" ) 
+   )
+   ( modify-variable 
+      @orientation.p[0] 
+      ( get-object-bank "Virgo 1" ) 
+   )
+   ( modify-variable 
+      @orientation.h[0] 
+      ( get-object-heading "Virgo 1" ) 
+   )
+)
++Name: orientation
++Repeat Count: 1
++Interval: 1
+
 #Goals		;! 0 total
 
 
 #Waypoints		;! 0 lists total
 
 
-#Messages		;! 1 total
+#Messages		;! 2 total
 
 
 $Name: controls
@@ -313,6 +350,11 @@ $MessageNew:  XSTR("1 - Recall
 2 - SSM Strike
 3 - Repair yourself
 4 - Kage Bunshin no Jutsu !!!", -1)
+$end_multi_text
+
+$Name: orientation
+$Team: -1
+$MessageNew:  XSTR("$orientation.p $orientation.b orientation.h", -1)
 $end_multi_text
 
 #Reinforcements		;! 0 total
