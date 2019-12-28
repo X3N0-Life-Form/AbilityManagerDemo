@@ -302,10 +302,9 @@ function fireRecall(instance, class, targetName)
 		mn.evaluateSEXP([[
 			(when
 				(true)
-				(set-post-effect
-		      		"saturation"
-		      		]]..class.getData['Saturation Level'].Value..[[
-	   		)
+				(set-post-effect "saturation" ]]..class.getData['Saturation Level'].Value..[[)
+				(set-post-effect "contrast" ]]..class.getData['Contrast Level'].Value..[[)
+				(set-post-effect "distort" ]]..class.getData['Distort Level'].Value..[[)
 				(player-use-ai)
 			)
 		]])

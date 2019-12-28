@@ -34,5 +34,34 @@ $Name:			MirrorImageDeath
 	+Attenuation end: 1500
 +Priority:		Medium
 
+$Name:			BlinkBirth
++Entry:			BlinkBirth1.wav
++Cycle type:	random
++Preload:		NO
++Volume: 		(0.50)
++3D Sound:
+	+Attenuation start: 500
+	+Attenuation end: 1500
++Priority:		Medium
+
+$Name:			BlinkArrival
++Entry:			BlinkArrival1.wav
++Cycle type:	random
++Preload:		NO
++Volume: 		(0.50)
++3D Sound:
+	+Attenuation start: 500
+	+Attenuation end: 1500
++Priority:		Medium
+
+$Name:			DevourMagic
++Entry:			DevourMagic.wav
++Cycle type:	random
++Preload:		NO
++Volume: 		(0.50)
++3D Sound:
+	+Attenuation start: 500
+	+Attenuation end: 1500
++Priority:		Medium
 
 #Game Sounds End

@@ -165,6 +165,8 @@ $Buffs:				Recall#Backtrack
 $Passive Buffs:		Recall#Track
 $Ability Data:
 	+Saturation Level:	0
+	+Contrast Level:	5
+	+Distort Level:		1
 
 #End
 
@@ -222,7 +224,10 @@ $Buff Data:
 $Name:			Recall#Backtrack
 $Buff Alignment:	good
 $Periodicity:		0.02
-$Duration:			2.5
+$Duration:			1	; = Track Size / Periodicity
+$Apply Sound:		BlinkBirth
+$Tick Sound:		DevourMagic
+$Expire Sound:		BlinkArrival
 $Tick Function:		fireBacktrack
 $Expire Function:	fireTrackback
 $Buff Data:
