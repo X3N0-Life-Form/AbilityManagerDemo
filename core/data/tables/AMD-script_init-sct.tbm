@@ -25,7 +25,7 @@ $On Game Init:[[AbilityClass.lua]]
 $On Game Init:[[AbilityInstance.lua]]
 $On Game Init:[[abilityManager.lua]]
 $On Game Init:[[abilityBuffManager.lua]]
-$On Game Init:[[abilitySEXPWrapper.lua]]
+$On Game Init:[[abilitySEXPwWrapper.lua]]
 $On Gameplay Start:[ability_resetMissionVariables()]
 
 $On Game Init:[[abilityLibrary.lua]]
