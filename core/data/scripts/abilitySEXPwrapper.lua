@@ -30,3 +30,7 @@ end
 mn.LuaSEXPs["amf-ability-attach"].Action = function (className, ship, isManuallyFired)
   ability_attachAbility(className, ship.Name, isManuallyFired)
 end
+
+mn.LuaSEXPs["amf-buff-apply"].Action = function (buffClassName, target)
+  buff_applyBuff(buffClassName, target.Name)
+end
