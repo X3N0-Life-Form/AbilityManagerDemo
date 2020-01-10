@@ -165,6 +165,7 @@ function ability_displayAbility(instance)
 	gr.drawString("\tCooldown: "..string.format("%.2f", cooldown))
 end
 
+
 --[[
 	Triggers an ability's firing routines.
 
@@ -569,7 +570,7 @@ end
 	@param isManuallyFired : true if the ability must be fired manually
 ]]
 function ability_attachAbility(className, shipName, isManuallyFired)
-	local instanceId = shipName.."::"..className
+	local instanceId = ability_getInstanceId(shipName, className)
 	dPrint_ability("Attaching ability : "..instanceId.." (manual fire = "..getValueAsString(isManuallyFired)..")")
 	local instance = AbilityInstance:create(instanceId, className, shipName)
 
@@ -586,6 +587,15 @@ function ability_attachAbility(className, shipName, isManuallyFired)
 	for index, buffClassName in pairs(abilityClass.PassiveBuffs) do
 		buff_applyBuff(buffClassName, shipName)
 	end
+end
+
+--[[
+	Returns the instance id from the specified ship/class couple
+
+	@return shipName::className
+]]
+function ability_getInstanceId(shipName, className)
+	return shipName.."::"..className
 end
 
 --[[
