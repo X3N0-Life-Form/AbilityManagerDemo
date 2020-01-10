@@ -1,0 +1,70 @@
+;
+; Custom SEXPs for the Ability Manager Framework
+;
+; Each SEXP should be named as follow amf-[ability|buff]-[function]
+#Lua SEXPs
+
+$Operator:          amf-ability-trigger
+$Category:          Change
+$Subcategory:       Abilities
+$Minimum Arguments: 2
+$Description:       Triggers an ability, including its targeting routine.
+$Parameter:
+  +Description:     Ship triggering the ability
+  +Type:            ship
+$Parameter:
+  +Description:     Ability to trigger
+  +Type:            string
+
+
+$Operator:          amf-ability-fire
+$Category:          Change
+$Subcategory:       Abilities
+$Minimum Arguments: 3
+$Maximum Arguments: 4
+$Description:       Fires an ability at the specified target. Note: unless "only if possible" is set to true, all constraints (ammo, cooldown, valid target, ...) will be overriden.
+$Parameter:
+  +Description:     Ship firing the ability
+  +Type:            ship
+$Parameter:
+  +Description:     Ability to fire
+  +Type:            string
+$Parameter:
+  +Description:     Target of the ability
+  +Type:            ship
+$Parameter:
+  +Description:     Fire only if possible
+  +Type:            boolean
+
+
+$Operator:          amf-ability-reload
+$Category:          Change
+$Subcategory:       Abilities
+$Minimum Arguments: 2
+$Description:       Reloads the ammo reserves of an ability
+$Parameter:
+  +Description:     Ship hosting the ability
+  +Type:            ship
+$Parameter:
+  +Description:     Ability to reload
+  +Type:            string
+
+
+$Operator:          amf-ability-attach
+$Category:          Change
+$Subcategory:       Abilities
+$Minimum Arguments: 2
+$Maximum Arguments: 3
+$Description:       Reloads the ammo reserves of an ability
+$Parameter:
+  +Description:     Ability to attach
+  +Type:            string
+$Parameter:
+  +Description:     Ship to attach it to
+  +Type:            ship
+$Parameter:
+  +Description:     If set to true, the ability must be fired manually
+  +Type:            boolean
+
+
+#End
