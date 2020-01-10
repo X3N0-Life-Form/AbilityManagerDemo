@@ -67,4 +67,17 @@ $Parameter:
   +Type:            boolean
 
 
+$Operator:          amf-buff-apply
+$Category:          Change
+$Subcategory:       Abilities
+$Minimum Arguments: 2
+$Description:       Applies a buff to the specified target.
+$Parameter:
+  +Description:     Buff to apply
+  +Type:            string
+$Parameter:
+  +Description:     Ship to apply the buff to
+  +Type:            ship
+
+
 #End
