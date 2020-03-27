@@ -353,3 +353,8 @@ function fireTrackback(instance, class, targetName)
 		]])
 	end
 end
+
+
+function fireDefenceMatrix(instance, class, targetName)
+	dPrint_abilityLibrary("Defence matrix active")
+end

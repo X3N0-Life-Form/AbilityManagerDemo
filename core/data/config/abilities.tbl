@@ -110,7 +110,7 @@ $Ability Data:
   
 
   
-;; buff placing abilities
+;; Basic buff placing abilities
 
 $Name:					Repair-Self-buff-based
 $Function:				none
@@ -130,8 +130,6 @@ $Target Team:			Friendly
 $Target Selection:		Self
 $Cooldown:			40
 $Buffs:				Active Armor#Fighter
-
-; TODO : blood lust
 
 
 ;; Complex abilities
@@ -167,6 +165,27 @@ $Ability Data:
 	+Saturation Level:	0
 	+Contrast Level:	5
 	+Distort Level:		1
+
+$Name:				Defence Matrix
+$Function:			fireDefenceMatrix ; TODO
+$Target Type:		any
+$Target Team:		Friendly
+$Target Selection:	Self
+$Cooldown:			0.05
+$Cost:				2
+	+Starting Reserve:	160		; (1/cd) * cost * seconds --> here, 4 seconds, with a cost of 40/s
+	+Reload Type:		auto	; or support ???
+	+Reload Interval:	0.05
+	+Reload Wait:		1
+	+Reload Ammount:	1
+$Ability Data:
+	+Range:				600
+	+Max Range Radius:	100
+;; idea : bunch of spheres to sort of form a cone, then vanish any hostile projectile in their radius
+
+; TODO : channeled abilities
+; TODO : blood lust
+; TODO : fire ball (fireBall)
 
 #End
 

@@ -4,7 +4,8 @@ AbilityInstance = {
   LastFired = -1,
   Active = true,
   Manual = false, --if that instance must be fire manually
-  Ammo = -1 --needs to be set after creation if necessary
+  Ammo = -1, --needs to be set after creation if necessary
+  LastReload = -1
 }
 
 --[[
@@ -31,7 +32,7 @@ function AbilityInstance:create(instanceId, className, shipName)
 		ba.warning("[abilityManager.lua] Invalid class name: "..className)
 	end
 
-	if not (class.StartingReserve == nil) then
+	if not (class.StartingReserve == -1) then
 		abilityInstance.Ammo = getValueForDifficulty(class.StartingReserve)
 	end
 
@@ -52,4 +53,5 @@ function AbilityInstance:toString()
 		.."\tActive = "..getValueAsString(self.Active).."\n"
 		.."\tManual = "..getValueAsString(self.Manual).."\n"
 		.."\tAmmo = "..getValueAsString(self.Ammo).."\n"
+    .."\tLastReload = "..getValueAsString(self.LastReload).."\n"
 end

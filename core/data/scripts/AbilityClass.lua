@@ -8,8 +8,12 @@ AbilityClass = {
   Cooldown = nil,
   Range = -1,
   Cost = 0,
-  StartingReserve = nil,
+  StartingReserve = -1,
   CostType = nil,
+  ReloadType ="none",
+  ReloadInterval = 1,
+  ReloadWait = 0,
+  ReloadAmmount = 1,
   CastingSound = nil,
   Buffs = {},
   PassiveBuffs = {},
@@ -63,7 +67,30 @@ function AbilityClass:createClass(name, entry)
 			-- Starting Reserve
 			if (entry.Attributes['Cost'].SubAttributes['Starting Reserve'] ~= nil) then
 				abilityClass.StartingReserve = entry.Attributes['Cost'].SubAttributes['Starting Reserve'].Value
+        -- Hack into being a number
+        -- TODO : be less hacky ???
+        abilityClass.StartingReserve = abilityClass.StartingReserve -1 + 1
 			end
+
+      -- Reload Type
+      if (entry.Attributes['Cost'].SubAttributes['Reload Type'] ~= nil) then
+				abilityClass.ReloadType = entry.Attributes['Cost'].SubAttributes['Reload Type'].Value
+			end
+
+      -- Reload Interval
+      if (entry.Attributes['Cost'].SubAttributes['Reload Interval'] ~= nil) then
+        abilityClass.ReloadInterval = entry.Attributes['Cost'].SubAttributes['Reload Interval'].Value
+      end
+
+      -- Reload Wait
+      if (entry.Attributes['Cost'].SubAttributes['Reload Wait'] ~= nil) then
+        abilityClass.ReloadWait = entry.Attributes['Cost'].SubAttributes['Reload Wait'].Value
+      end
+
+    -- Reload Ammount
+    if (entry.Attributes['Cost'].SubAttributes['Reload Ammount'] ~= nil) then
+      abilityClass.ReloadAmmount = entry.Attributes['Cost'].SubAttributes['Reload Ammount'].Value
+    end
 		end
 	end
 
@@ -113,6 +140,10 @@ function AbilityClass:toString(className)
 		.."\tCost = "..getValueAsString(self.Cost).."\n"
 		.."\t\tStarting Reserve = "..getValueAsString(self.StartingReserve).."\n"
 		.."\t\tCostType = "..ability_getCostTypeAsString(self.CostType).."\n"
+    .."\t\tReloadType = "..getValueAsString(self.ReloadType).."\n"
+    .."\t\tReloadInterval = "..getValueAsString(self.ReloadInterval).."\n"
+    .."\t\tReloadWait = "..getValueAsString(self.ReloadWait).."\n"
+    .."\t\tReloadAmmount = "..getValueAsString(self.ReloadAmmount).."\n"
 		.."\tBuffs = "..getValueAsString(self.Buffs).."\n"
     .."\tPassive Buffs = "..getValueAsString(self.PassiveBuffs).."\n"
 		.."\tAbilityData = "

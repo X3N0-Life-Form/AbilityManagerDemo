@@ -52,6 +52,7 @@
 
 ability_classes = {}
 ability_instances = {}
+ability_instancesWithAutoReload = {}
 ability_ships = {}
 ability_lastCast = 0
 
@@ -67,7 +68,7 @@ ability_debugPrintQuietMode = true
 ability_displayPlayerAbilities = true
 ability_displayMissionAbilities = false
 
-ability_castInterval = 0.1
+ability_castInterval = 0.05
 
 --TODO : be more object-oriented
 ----------------------------
@@ -84,11 +85,45 @@ function ability_reload(instanceId)
 	local class = ability_classes[instance.Class]
 
 	-- If no starting reserve is defined, add 1 shot
-	if (class.StartingReserve == nil) then
+	if (class.StartingReserve == -1) then
 		instance.Ammo = instance.Ammo + 1
 	else
 		instance.Ammo = class.StartingReserve
 	end
+end
+
+-- TODO : doc
+function ability_autoReload()
+	local missionTime = mn.getMissionTime()
+	for instanceId, instance in pairs(ability_instancesWithAutoReload) do
+		local class = ability_classes[instance.Class]
+		dPrint_ability("Beginning auto-reload for "..instanceId)
+		local reloadWait = getValueForDifficulty(class.ReloadWait)
+		local reloadInterval = class.ReloadInterval
+		local reloadAmmount = class.ReloadAmmount
+		local startingReserve = getValueForDifficulty(class.StartingReserve)
+		dPrint_ability("\tstartingReserve = "..startingReserve)
+		dPrint_ability("\tinstance.Ammo = "..instance.Ammo)
+
+		-- If we need to reload
+		if (instance.Ammo < startingReserve) then
+			dPrint_ability("\tWe need to reload")
+			-- If we can reload
+			if ((instance.LastFired == -1) or (instance.LastFired + reloadWait <= missionTime)) then
+				dPrint_ability("\tReload wait OK")
+				if ((instance.LastReload == -1) or (instance.LastReload + reloadInterval <= missionTime)) then
+					dPrint_ability("\tReload interval OK, reloading "..reloadAmmount.." units")
+					instance.Ammo = instance.Ammo + reloadAmmount
+
+					-- Don't overflow
+					if (instance.Ammo > startingReserve) then
+						instance.Ammo = startingReserve
+					end
+				end
+			end
+		end
+	end
+
 end
 
 --[[
@@ -101,8 +136,11 @@ function ability_cycleTrigger()
 		ability_lastCast = missionTime
 	end
 
-	-- Apply over-time effects?
+	-- Apply over-time effects
 	buff_fireAllPossible()
+
+	-- Auto reload abilities
+	ability_autoReload()
 
 	-- Print ability instances
 	gr.setColor(255,255,255)
@@ -581,8 +619,13 @@ function ability_attachAbility(className, shipName, isManuallyFired)
 
 	instance.Manual = isManuallyFired
 
-	-- Apply any passive buff
 	local abilityClass = ability_classes[className]
+	-- Add to the auto-reload index
+	if (abilityClass.ReloadType == 'auto') then
+		ability_instancesWithAutoReload[instanceId] = instance
+	end
+
+	-- Apply any passive buff
 	for index, buffClassName in pairs(abilityClass.PassiveBuffs) do
 		buff_applyBuff(buffClassName, shipName)
 	end
@@ -666,8 +709,11 @@ function ability_evaluateTargetFitness(instanceId, targetShip)
 
 	dPrint_ability("\tFitness = "..fitness)
 	return fitness
-
 end
+
+
+
+
 
 ------------
 --- main ---
