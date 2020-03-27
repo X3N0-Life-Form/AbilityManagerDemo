@@ -8,6 +8,12 @@ Stack = {
   StackTable = {}
 }
 
+--[[
+  Creates a Stack of the specified size
+
+  @param maxSize : maximum size of the stack
+  @return Stack object
+]]
 function Stack:create(maxSize)
   -- Initialize the class
   local stackInstance = {}
@@ -21,9 +27,15 @@ function Stack:create(maxSize)
 	return stackInstance
 end
 
+--[[
+  Stacks an object on top of the Stack, and pushes out the oldest object if we are full.
+
+  @param object : object to stack
+]]
 function Stack:stack(object)
   -- Check that we're not full
   if (self.CurrentSize >= self.MaxSize) then
+    -- Push all object down
     for index = 1, self.MaxSize - 1 do
       self.StackTable[index] = self.StackTable[index + 1]
     end
@@ -34,6 +46,11 @@ function Stack:stack(object)
   self.CurrentSize = self.CurrentSize + 1
 end
 
+--[[
+  Unstacks an object, removing it from the stack
+
+  @return object previously on top of the stack, or nil if the stack is empty
+]]
 function Stack:unstack()
   if (self.CurrentSize == 0) then
     return nil
@@ -44,6 +61,11 @@ function Stack:unstack()
   end
 end
 
+--[[
+  Returns object as a string
+
+  @return string
+]]
 function Stack:toString()
   local stackString = "Stack: max size = "..self.MaxSize.."\n"
   for index = 1, self.CurrentSize do

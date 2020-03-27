@@ -72,7 +72,12 @@ ShipInfo = {
   -- TODO : add weapon ammo
 }
 
--- TODO doc
+--[[
+  Creates a ShipInfo object snapshot of the specified ship
+
+  @param shipName : name of the ship
+  @return ShipInfo object
+]]
 function ShipInfo:create(shipName)
   -- Initialize the class
   local shipInfoInstance = {}
