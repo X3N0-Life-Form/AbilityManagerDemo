@@ -21,6 +21,11 @@ $Name:		Virgo 1
 $Abilities:	Recall, Fighter-launched Recursive SSM, Defence Matrix, Kage Bunshin no Jutsu
 	+Manual:true, true, true, true
 
+
+$Name:		TestB
+$Abilities:	Defence Matrix
+
+
 #End
 
 

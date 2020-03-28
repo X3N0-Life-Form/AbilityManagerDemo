@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("TEST ARENA", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 03/27/20 at 16:54:31
+$Modified: 03/28/20 at 09:16:44
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -23,11 +23,11 @@ $end_multi_text
 +Hull Repair Ceiling: 0.000000
 +Subsystem Repair Ceiling: 100.000000
 
-+Viewer pos: 866.634705, 7251.360352, -2817.933350
++Viewer pos: 353.888336, 542.491699, 736.386292
 +Viewer orient:
-	0.999531, 0.000003, -0.030616,
-	0.028873, 0.332518, 0.942655,
-	0.010183, -0.943097, 0.332362
+	-0.474415, 0.000001, 0.880301,
+	-0.688280, 0.623442, -0.370931,
+	-0.548818, -0.781869, -0.295770
 
 $Starting wing names: ( "Virgo" "Scorpio" "Libra" )
 $Squadron wing names: ( "Virgo" "Scorpio" "Libra" "Gemini" "Aquarius" )
@@ -120,7 +120,7 @@ $Ship Choices: (
 	"Shivan Mordiggian Bomb"	500
 )
 
-#Objects		;! 2 total
+#Objects		;! 4 total
 
 $Name: Virgo 1		;! Object #0
 $Class: SF Mara
@@ -141,7 +141,7 @@ $Arrival Cue: ( false )
 $Departure Location: Hyperspace
 $Departure Cue: ( false ) 
 $Determination: 10
-+Flags: ( "cargo-known" "player-start" )
++Flags: ( "cargo-known" "protect-ship" "player-start" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -204,6 +204,61 @@ $Determination: 10
 +Group: 0
 +Use Table Score:
 +Score: 1400
+
+$Name: TestB		;! Object #2
+$Class: GTSG Alastor
+$Team: Friendly
+$Location: 305.303558, -0.000183, 780.702209
+$Orientation:
+	-0.099042, 0.000000, 0.995084,
+	0.099342, 0.995004, 0.009888,
+	-0.990112, 0.099833, -0.098547
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Initial Shields: 100
++Subsystem: Pilot
++Subsystem: turret01a
++Subsystem: turret02a
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-shields" "invulnerable" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Score: 10
+
+$Name: testC		;! Object #3
+$Class: SSG Belial
+$Team: Hostile
+$Location: -54.410553, 0.000000, 785.283386
+$Orientation:
+	0.000796, 0.000000, -1.000000,
+	0.000000, 1.000000, 0.000000,
+	1.000000, 0.000000, 0.000796
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Initial Shields: 100
++Subsystem: Pilot
++Subsystem: turret01a
++Subsystem: turret02a
++Subsystem: turret03a
++Subsystem: turret04a
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-shields" "invulnerable" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 5
 
 #Wings		;! 1 total
 

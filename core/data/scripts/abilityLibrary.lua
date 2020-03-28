@@ -357,4 +357,53 @@ end
 
 function fireDefenceMatrix(instance, class, targetName)
 	dPrint_abilityLibrary("Defence matrix active")
+	local range = class.getData['Range'].Value + 1 - 1
+	local radius = class.getData['Max Range Radius'].Value + 1 - 1
+	local origin = mn.Ships[targetName].Position
+	local direction = mn.Ships[targetName].Orientation
+	local team = mn.Ships[targetName].Team
+
+
+	dPrint_abilityLibrary("\tDefence matrix emitter at ("..origin.x..","..origin.y..","..origin.z..")")
+	dPrint_abilityLibrary("\tRange = "..range.."; radius = "..radius)
+	defenceMatrixIntercept(origin, direction, range, radius, team, class)
+end
+
+function defenceMatrixIntercept(origin, direction, range, radius, team, class)
+	local sphereCenter = origin + (direction:getFvec() * range)
+	local interceptSound = class.getData['Intercept Sound'].Value
+	local interceptEffect = class.getData['Intercept Effect'].Value
+	local interceptEffectMinRadius = class.getData['Intercept Effect Min Radius'].Value +1-1
+	dPrint_abilityLibrary("Defence matrix chunk at ("..sphereCenter.x..","..sphereCenter.y..","..sphereCenter.z..")")
+	dPrint_abilityLibrary("\tRange = "..range.."; radius = "..radius)
+	-- Set to true to draw the spheres
+	if (false) then
+		gr.setColor(0, 250, 250)
+		gr.drawSphere(radius, sphereCenter)
+	end
+
+	-- Intercept projectile
+	for index = 1, #mn.Weapons do
+		local currentWeapon = mn.Weapons[index]
+		local distance = currentWeapon.Position:getDistance(sphereCenter)
+		-- If in radius and not from caster's team
+		if (distance < radius and currentWeapon.Team ~= team) then
+			currentWeapon.LifeLeft = 0
+
+			playSoundAtPosition(interceptSound, currentWeapon.Position)
+			local effectRadius = currentWeapon.Class.Model.Radius
+			if (effectRadius < interceptEffectMinRadius) then
+				effectRadius = interceptEffectMinRadius
+			end
+			playEffectAtPosition(interceptEffect, currentWeapon.Position, effectRadius)
+		end
+	end
+
+	-- Process next chunk
+	-- TODO : min range ???
+	if (range > 25) then
+		local nuRange = range - radius
+		local nuRadius = radius * (nuRange / range)
+		defenceMatrixIntercept(origin, direction, nuRange, nuRadius, team, class)
+	end
 end

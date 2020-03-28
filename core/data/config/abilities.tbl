@@ -171,17 +171,21 @@ $Function:			fireDefenceMatrix ; TODO
 $Target Type:		any
 $Target Team:		Friendly
 $Target Selection:	Self
-$Cooldown:			0.05
+$Cooldown:			0.01
 $Cost:				2
-	+Starting Reserve:	160		; (1/cd) * cost * seconds --> here, 4 seconds, with a cost of 40/s
+	+Starting Reserve:	800		; (1/cd) * cost * seconds --> here, 4 seconds, with a cost of 200/s
 	+Reload Type:		auto	; or support ???
 	+Reload Interval:	0.05
 	+Reload Wait:		1
-	+Reload Ammount:	1
+	+Reload Ammount:	5
 $Ability Data:
-	+Range:				600
-	+Max Range Radius:	100
-;; idea : bunch of spheres to sort of form a cone, then vanish any hostile projectile in their radius
+	+Range:							600
+	+Max Range Radius:				100
+	+Intercept Sound:				DevourMagic
+	; TODO : rip off AT field effect from JAD
+	+Intercept Effect:				Smoke
+	+Intercept Effect Min Radius:	20
+	;; TODO : chunk effect ?
 
 ; TODO : channeled abilities
 ; TODO : blood lust
