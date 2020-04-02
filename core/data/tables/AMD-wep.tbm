@@ -657,6 +657,56 @@ $Icon:                              iconKayser
 $Anim: Kayser
 
 
+$Name:                              Pulse Machine Gun
+	+Title:						XSTR("Pulse Machine Gun",-1)
+	+Description: XSTR("",-1)
+	$end_multi_text
+	+Tech Title: XSTR("Pulse Machine Gun", -1)
+	+Tech Anim: Tech_GTW-66_Maxim_Gun
+	+Tech Description:
+		XSTR("", -1)
+	$end_multi_text
+$Model File:						none
+@Laser Bitmap:						Maxim
+@Laser Glow:						Maxim_Glow
+@Laser Color:						90, 90, 90
+@Laser Color2:						150, 150, 200
+@Laser Length:						18.0
+@Laser Head Radius:					4.0
+@Laser Tail Radius:					2.5
+$Mass:                              0.1
+$Velocity:                          2600.0   
+$Fire Wait:                         0.01 
+$Damage:                            8
+$Damage Type:						NormalWeapon
+$Armor Factor:						1.0
+$Shield Factor:						1.0
+$Subsystem Factor:					0.4
+$Lifetime:                          0.2
+$Energy Consumed:					0.09
+$Cargo Size:						0.5
+$Homing:                            NO
+$LaunchSnd:                         81   
+$ImpactSnd:                         85
+$Rearm Rate:						120.0
+$Flags:                             ( "stream" "player allowed" "ballistic" )
+$Trail:
+	+Start Width:	1.0
+	+End Width:		0.3
+	+Start Alpha:	0.2
+	+End Alpha:		0.0
+	+Max Life:		0.3
+	+Bitmap:		Maxim_Trail
+$Impact Explosion:					Maxim_Impact
+$Impact Explosion Radius:			3.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			2.0
+$Piercing Impact Velocity:			10
+$Piercing Impact Splash Velocity:	-4.5
+$Piercing Impact Variance:			0.01
+$Piercing Impact Particles:			5
+$Muzzleflash:						PWmuzzle
+$FOF:								3.5
 
 #End
 

@@ -131,6 +131,8 @@ $Target Selection:		Self
 $Cooldown:			40
 $Buffs:				Active Armor#Fighter
 
+; TODO : blood lust
+
 
 ;; Complex abilities
 

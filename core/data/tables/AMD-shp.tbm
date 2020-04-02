@@ -20,7 +20,8 @@ $Flags: ( "player_ship" "fighter" )
 
 $Name: SF Mara
 	+nocreate ;:
-$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" )
+$Allowed PBanks:		("Shivan Light Laser" "Shivan Heavy Laser" "Shivan Mega Laser" "Pulse Machine Gun" )
+$PBank Capacity: (40, 40)
 $Allowed SBanks:		("Rockeye#Shivan" "Tempest#Shivan" "Hornet#Shivan" "Tornado#Shivan" "Harpoon#Shivan" "Trebuchet#Shivan" "EMP Adv.#Shivan" "Piranha#Shivan" "Shivan Disruptor" "Shivan Area Bomb" "TAG-C#Shivan" "AntiFighterTAG#Shivan"  "TAG-C#Barrage")
 $Flags: ( "player_ship" "fighter" )
 

@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("TEST ARENA", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 03/28/20 at 09:16:44
+$Modified: 03/29/20 at 17:43:33
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -25,9 +25,9 @@ $end_multi_text
 
 +Viewer pos: 353.888336, 542.491699, 736.386292
 +Viewer orient:
-	-0.474415, 0.000001, 0.880301,
-	-0.688280, 0.623442, -0.370931,
-	-0.548818, -0.781869, -0.295770
+	-0.523798, 0.000001, 0.851843,
+	-0.632515, 0.669817, -0.388934,
+	-0.570579, -0.742526, -0.350848
 
 $Starting wing names: ( "Virgo" "Scorpio" "Libra" )
 $Squadron wing names: ( "Virgo" "Scorpio" "Libra" "Gemini" "Aquarius" )
@@ -90,8 +90,8 @@ $Ship Choices: (
 	"UD-8 Kayser"	16
 	"Circe"	16
 	"Lamprey"	16
-	"Shivan Light Laser"	14
-	"Shivan Heavy Laser"	14
+	"Shivan Light Laser"	13
+	"Shivan Heavy Laser"	13
 	"Shivan Mega Laser"	16
 	"Rockeye"	500
 	"Tempest"	1200
@@ -118,6 +118,7 @@ $Ship Choices: (
 	"TAG-C#Barrage"	500
 	"Cluster SSM TAG#Shivan"	500
 	"Shivan Mordiggian Bomb"	500
+	"Pulse Machine Gun"	2
 )
 
 #Objects		;! 4 total
@@ -134,7 +135,7 @@ $AI Behavior: None
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
-+Primary Banks: ( "Shivan Light Laser" "Shivan Heavy Laser" )
++Primary Banks: ( "Pulse Machine Gun" "Pulse Machine Gun" )
 +Secondary Banks: ( "Trebuchet#Shivan" "Tempest#Shivan" )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( false ) 

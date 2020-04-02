@@ -1,0 +1,28 @@
+;
+; Custom SEXPs for the Ship Variant system
+;
+; Each SEXP should be named as follow shipVar-[function]
+#Lua SEXPs
+
+$Operator:          shipVar-set-variant
+$Category:          Change
+$Subcategory:       Ship Variant
+$Minimum Arguments: 2
+$Description:       Sets the variant of the specified ship, as specified in ship_variants.tbl.
+$Parameter:
+  +Description:     Ship
+  +Type:            ship
+$Parameter:
+  +Description:     Variant name
+  +Type:            string
+
+$Operator:          shipVar-set-all-variants
+$Category:          Change
+$Subcategory:       Ship Variant
+$Minimum Arguments: 2
+$Description:       Sets all variants accross the mission, as specified in ship_variants_mission_wide.tbl
+$Parameter:
+  +Description:     Variants category name
+  +Type:            string
+
+#End

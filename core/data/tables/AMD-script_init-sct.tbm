@@ -16,23 +16,33 @@ $On Game Init: [[tests.lua]]
 
 ;; Ship Variant
 $On Game Init: [[shipVariant.lua]]
-$On Warp In: [setVariantDelayed()]
-
 $On Game Init: [[shipVariantMissionWide.lua]]
+$On Game Init: [[shipVariantSEXPwrapper.lua]]
+$On Warp In: [setVariantDelayed()]
 
 ;; Ability Management
 $On Game Init:[[AbilityClass.lua]]
 $On Game Init:[[AbilityInstance.lua]]
 $On Game Init:[[abilityManager.lua]]
 $On Game Init:[[abilityBuffManager.lua]]
+$On Game Init:[[abilitySEXPwWrapper.lua]]
 $On Gameplay Start:[ability_resetMissionVariables()]
 
 $On Game Init:[[abilityLibrary.lua]]
 
 $On Game Init:[ability_init()]
 
+
+;; Weapon autoreload
+$On Game Init:[[autoreload.lua]]
+$On Gameplay Start:[autoreload_missionInit()]
+;$On Warp In: TODO
+
+
+;; On frame calls
 $State:	GS_STATE_GAME_PLAY
 $On Frame:[ability_cycleTrigger()]
+$On Frame:[autoreload_cycle()]
 
 
 

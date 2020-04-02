@@ -1,0 +1,14 @@
+;; TODO : autoreload - weapons
+#Autoreloading Weapons
+
+$Name:		Pulse Machine Gun
+$Reload Interval:	0.1
+$Reload Wait:		3
+$Reload Ammount:	40
+$Reload Sounds:
+	+Start:		33
+	+Tick:		34
+	+End:		35
+$Locks weapons:		false	; TODO
+
+#End
