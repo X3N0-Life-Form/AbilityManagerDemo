@@ -56,6 +56,7 @@ function autoreload_cycle()
 					end
 				--end
 			--end
+			end
   end
 end
 

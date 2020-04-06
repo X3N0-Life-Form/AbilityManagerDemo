@@ -17,7 +17,7 @@ $On Game Init: [[tests.lua]]
 ;; Ship Variant
 $On Game Init: [[shipVariant.lua]]
 $On Game Init: [[shipVariantMissionWide.lua]]
-$On Game Init: [[shipVariantSEXPwrapper.lua]]
+$On Game Init: [[shipVariantSEXPWrapper.lua]]
 $On Warp In: [setVariantDelayed()]
 
 ;; Ability Management
@@ -25,7 +25,7 @@ $On Game Init:[[AbilityClass.lua]]
 $On Game Init:[[AbilityInstance.lua]]
 $On Game Init:[[abilityManager.lua]]
 $On Game Init:[[abilityBuffManager.lua]]
-$On Game Init:[[abilitySEXPwWrapper.lua]]
+$On Game Init:[[abilitySEXPWrapper.lua]]
 $On Gameplay Start:[ability_resetMissionVariables()]
 
 $On Game Init:[[abilityLibrary.lua]]

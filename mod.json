@@ -32,7 +32,7 @@
             "dependencies": [
                 {
                     "id": "FSO",
-                    "version": ">=19.0.0-RC1",
+                    "version": ">=19.0.0-RC2",
                     "packages": []
                 },
                 {
