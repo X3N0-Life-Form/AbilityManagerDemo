@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("TEST ARENA", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 03/29/20 at 17:43:33
+$Modified: 04/06/20 at 10:07:45
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -283,10 +283,8 @@ $AI Goals: ( goals ( ai-guard "Virgo 1" 50 ) )
 
 $Formula: ( when 
    ( true ) 
-   ( script-eval-block 
-      "setShipVariants('" 
+   ( shipVar-set-all-variants 
       "Test_arena" 
-      "')" 
    )
 )
 +Name: mission start
@@ -310,10 +308,9 @@ $Formula: ( when
 $Formula: ( when 
    ( key-pressed "1" ) 
    ( key-reset-multiple "1" ) 
-   ( script-eval-block 
-      "ability_trigger('" 
-      "Virgo 1::Recall" 
-      "')" 
+   ( amf-ability-trigger 
+      "Virgo 1" 
+      "Recall" 
    )
 )
 +Name: ability_1-recall

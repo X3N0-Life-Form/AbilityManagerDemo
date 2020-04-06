@@ -19,7 +19,8 @@ $Parameter:
 $Operator:          shipVar-set-all-variants
 $Category:          Change
 $Subcategory:       Ship Variant
-$Minimum Arguments: 2
+;; Tell the SCP team to put a goddamn error message !!!
+$Minimum Arguments: 1
 $Description:       Sets all variants accross the mission, as specified in ship_variants_mission_wide.tbl
 $Parameter:
   +Description:     Variants category name
