@@ -37,6 +37,7 @@ $On Game Init:[ability_init()]
 $On Game Init:[[autoreload.lua]]
 $On Gameplay Start:[autoreload_missionInit()]
 ;$On Warp In: TODO
+$On Weapon Created:[autoreload_weaponFired()]
 
 
 ;; On frame calls
