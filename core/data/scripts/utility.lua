@@ -222,3 +222,11 @@ end
 function convertRadToDegree(radians)
 	return radians * (180/math.pi)
 end
+
+function displayHookvariables()
+	dPrint_utility("Displaying hook variables")
+	for i = 1, #hv.Globals do
+		dPrint_utility("\t"..hv.Globals[i])
+	end
+
+end

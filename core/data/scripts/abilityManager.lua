@@ -97,22 +97,22 @@ function ability_autoReload()
 	local missionTime = mn.getMissionTime()
 	for instanceId, instance in pairs(ability_instancesWithAutoReload) do
 		local class = ability_classes[instance.Class]
-		dPrint_ability("Beginning auto-reload for "..instanceId)
+		dPrintQuiet_ability("Beginning auto-reload for "..instanceId)
 		local reloadWait = getValueForDifficulty(class.ReloadWait)
 		local reloadInterval = class.ReloadInterval
 		local reloadAmmount = class.ReloadAmmount
 		local startingReserve = getValueForDifficulty(class.StartingReserve)
-		dPrint_ability("\tstartingReserve = "..startingReserve)
-		dPrint_ability("\tinstance.Ammo = "..instance.Ammo)
+		dPrintQuiet_ability("\tstartingReserve = "..startingReserve)
+		dPrintQuiet_ability("\tinstance.Ammo = "..instance.Ammo)
 
 		-- If we need to reload
 		if (instance.Ammo < startingReserve) then
-			dPrint_ability("\tWe need to reload")
+			dPrintQuiet_ability("\tWe need to reload")
 			-- If we can reload
 			if ((instance.LastFired == -1) or (instance.LastFired + reloadWait <= missionTime)) then
-				dPrint_ability("\tReload wait OK")
+				dPrintQuiet_ability("\tReload wait OK")
 				if ((instance.LastReload == -1) or (instance.LastReload + reloadInterval <= missionTime)) then
-					dPrint_ability("\tReload interval OK, reloading "..reloadAmmount.." units")
+					dPrintQuiet_ability("\tReload interval OK, reloading "..reloadAmmount.." units")
 					instance.Ammo = instance.Ammo + reloadAmmount
 
 					-- Don't overflow
@@ -276,9 +276,7 @@ end
 	Fires all abilities if possible. Also includes target lookup.
 ]]
 function ability_fireAllPossible()
-	if (ability_debugPrintQuietMode == false) then
-		dPrint_ability("Fire all possible instances !")
-	end
+	dPrintQuiet_ability("Fire all possible instances !")
 
 	-- Cycle through ability instances & fire them
 	for instanceId, instance in pairs(ability_instances) do
@@ -294,9 +292,7 @@ function ability_fireAllPossible()
 			end
 
 		else
-			if (ability_debugPrintQuietMode == false) then
-				dPrint_ability(instanceId.." must be triggered manually")
-			end
+			dPrintQuiet_ability(instanceId.." must be triggered manually")
 		end
 	end
 end
@@ -312,6 +308,14 @@ function dPrint_ability(message)
 	end
 end
 
+--[[
+	Prints only if quiet mode is set to false
+]]
+function dPrintQuiet_ability(message)
+	if (ability_debugPrintQuietMode == false) then
+		dPrint_ability(message)
+	end
+end
 
 --[[
 	Returns a cost type as a string.
