@@ -14,6 +14,9 @@ autoreload_lastReload = {}
 --- Global Constants ---
 ------------------------
 
+AUTORELOAD_PBANK_TAG = ":PB:"
+AUTORELOAD_SBANK_TAG = ":SB:"
+
 autoreload_enableDebugPrints = true
 
 -------------------------
@@ -42,28 +45,41 @@ function autoreload_cycle()
 			dPrint_autoreload("\tWe need to reload")
       local weaponName = weaponBank.WeaponClass.Name
       local entry = autoreload_getEntry(weaponName)
+			local sounds = entry.Attributes['Reload Sounds'].SubAttributes
       local reloadWait = entry.Attributes['Reload Wait'].Value +1-1
+			local reloadInterval = entry.Attributes['Reload Interval'].Value +1-1
 			local lastFired = autoreload_lastFired[bankTag]
 			local lastReload = autoreload_lastReload[bankTag]
+
 			-- If we can reload
 			if ((lastFired == -1) or (lastFired + reloadWait <= missionTime)) then
-      -- TODO : reload start sound
 				dPrint_autoreload("\tReload wait OK")
+				-- If we're past the reload interval
 				if ((lastReload == -1) or (lastReload + reloadInterval <= missionTime)) then
           local reloadAmmount = entry.Attributes['Reload Ammount'].Value +1-1
 					dPrint_autoreload("\tReload interval OK, reloading "..reloadAmmount.." units")
 					weaponBank.AmmoLeft = weaponBank.AmmoLeft + reloadAmmount
 					-- Update reload timer
 					lastReload = missionTime
+					-- Handle reloading sound
+					if (lastReload == -1) then
+						playSoundAtPosition(sounds['Start'].Value)
+						-- TODO : lock weapons if necessary
+					else
+						playSoundAtPosition(sounds['Tick'].Value)
+					end
 
-					-- Don't overflow
+					-- Don't overflow, reset lastReload + play end sound
 					if (weaponBank.AmmoLeft >= weaponBank.AmmoMax) then
 						weaponBank.AmmoLeft = weaponBank.AmmoMax
-            -- TODO : play finished sound
-            -- TODO : Note : the ship is in the bank tag !!!
+            playSoundAtPosition(sounds['End'].Value)
+						lastReload = -1
 					end
 				end
 			end
+
+			-- Update lastReload entry
+			autoreload_lastReload[bankTag] = lastReload
 		end
   end
 end
@@ -82,9 +98,9 @@ function autoreload_missionInit()
     dPrint_autoreload("Analyzing ship '"..ship.Name.."'")
 
     -- Lookup primaries
-    autoreload_analyzeBanks(ship.PrimaryBanks, ship.Name..":PB:", true)
+    autoreload_analyzeBanks(ship.PrimaryBanks, ship.Name..AUTORELOAD_PBANK_TAG, true)
     -- Lookup secondaries
-    autoreload_analyzeBanks(ship.SecondaryBanks, ship.Name..":SB:", true)
+    autoreload_analyzeBanks(ship.SecondaryBanks, ship.Name..AUTORELOAD_SBANK_TAG, true)
   end
   dPrint_autoreload("Weapon autoreload initialization complete")
 end
@@ -140,7 +156,11 @@ function autoreload_getEntry(weaponName)
   return autoreload_table.Categories['Autoreloading Weapons'].Entries[weaponName]
 end
 
--- TODO doc
+
+--[[
+	Detects which weapon has been fired and updates its lastFired value.
+	Call $On Weapon Created
+]]
 function autoreload_weaponFired()
 	local weapon = hv.Weapon
 	local weaponName = weapon.Class.Name
@@ -157,16 +177,23 @@ function autoreload_weaponFired()
 	end
 end
 
--- TODO doc
+
+--[[
+	Retrieves the relevant bank tags for the specified weapon on this ship
+
+	@param ship : ship to check
+	@param weaponClass : weapon to check
+	@return {tag = tag}
+]]
 function autoreload_getBankTags(ship, weaponClass)
 	local combined = {}
 	-- Lookup primaries
-	local primaryTags = autoreload_analyzeBanks(ship.PrimaryBanks, ship.Name..":PB:", false)
+	local primaryTags = autoreload_analyzeBanks(ship.PrimaryBanks, ship.Name..AUTORELOAD_PBANK_TAG, false)
 	for i = 1, #primaryTags do
 		combined[primaryTags[i]] = primaryTags[i]
 	end
 	-- Lookup secondaries
-	local secondaryTags = autoreload_analyzeBanks(ship.SecondaryBanks, ship.Name..":SB:", false)
+	local secondaryTags = autoreload_analyzeBanks(ship.SecondaryBanks, ship.Name..AUTORELOAD_SBANK_TAG, false)
 	for i = 1, #secondaryTags do
 		combined[secondaryTags[i]] = secondaryTags[i]
 	end
