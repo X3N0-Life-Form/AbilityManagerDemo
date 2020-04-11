@@ -169,7 +169,7 @@ $Ability Data:
 	+Distort Level:		1
 
 $Name:				Defence Matrix
-$Function:			fireDefenceMatrix ; TODO
+$Function:			fireDefenceMatrix
 $Target Type:		any
 $Target Team:		Friendly
 $Target Selection:	Self
@@ -191,7 +191,18 @@ $Ability Data:
 
 ; TODO : channeled abilities
 ; TODO : blood lust
-; TODO : fire ball (fireBall)
+
+$Name:				Fireball
+$Function:			fireBall
+$Target Type:		any
+$Target Team:		Hostile
+$Target Selection:	Current Target
+$Range:				700
+$Cost:				10
+	+Cost Type:		energy:weapon
+$Cooldown:			6
+$Ability Data:
+	+Weapon Class:	Fireball
 
 #End
 
@@ -259,6 +270,29 @@ $Buff Data:
 	+Track Buff:	Recall#Track
 
 
+$Name:			Fireball#DoT
+$Buff Alignment:		evil
+$Periodicity: 			1.0
+$Duration:				5
+$Stacks:				false
+$Tick Function:			fireRepair
+$Tick Effect:			
+$Tick Sound:			35	; repair.wav ; must be a 3d sound
+$Buff Data:
+	+Hull:			-10
 
 #End
 
+
+#Caster Weapons ; aka buff placers
+
+$Name:		Fireball
+;$On Fire:
+$On Hit:
+;	+Abilities:
+	+Buffs:		Fireball#DoT
+$On Blast:
+	+Buffs:		Fireball#DoT
+;$On Shockwave:
+
+#End

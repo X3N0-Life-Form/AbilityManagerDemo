@@ -1,7 +1,13 @@
 -- TODO : doc
 
+------------------------
+--- Global Variables ---
+------------------------
 buff_enableDebugPrints = true
 
+------------------------
+--- Global Variables ---
+------------------------
 buff_displayPlayerBuffs = true
 buff_displayTargetBuffs = true
 buff_ships = {}
@@ -22,14 +28,15 @@ function buff_fire(instanceId, targetName)
 		_G[buffClass.TickFunction](instance, buffClass, targetName)
 	end
 
+	local targetShip = mn.Ships[targetName]
 	-- Play tick sound effect
 	if (buffClass.TickSound ~= nil) then
-		playSoundAtPosition(buffClass.TickSound, mn.Ships[targetName].Position)
+		playSoundAtPosition(buffClass.TickSound, targetShip.Position)
 	end
 
 	if (buffClass.TickEffect ~= nil) then
 		-- TODO : getSize cf. sub attributes --> make a vfx class
-		playEffectAtPosition(buffClass.TickEffect, targetPosition, mn.Ships[targetName].Class.Model.Radius)
+		playEffectAtPosition(buffClass.TickEffect, targetShip.Position, targetShip.Class.Model.Radius)
 	end
 
 	-- Update instance status

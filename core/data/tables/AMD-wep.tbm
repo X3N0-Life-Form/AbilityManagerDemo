@@ -708,6 +708,56 @@ $Piercing Impact Particles:			5
 $Muzzleflash:						PWmuzzle
 $FOF:								3.5
 
+; copied from Light Flak
+$Name:							Fireball
+$Model File:					none
+$Mass:							0.2
+$Velocity:						700.0					;; really fast - like AA fire
+$Fire Wait:						0.7					;; 
+$Damage:						50
+$Damage Type:					NormalWeapon
+$Blast Force:              		40.0
+$Inner Radius:					20.0                                    ;; radius at which damage is full
+$Outer Radius:					30.0                                    ;; max radius for attenuated damage
+$Shockwave Speed:				0.0                                     ;; velocity of shockwave.  0 for none.
+$Armor Factor:					1.0
+$Shield Factor:					1.0
+$Subsystem Factor:				0.2
+$Lifetime:						1.5
+$Energy Consumed:				0.0
+$Cargo Size:					1.0
+$Homing:							NO
+$LaunchSnd:						116
+$ImpactSnd:						117
++Weapon Range:					4000			;; Limit to range at which weapon will actively target object
+$Flags:							("Big Ship" "Flak" "particle spew")
+$Trail:
+	+Start Width:	3.5
+	+End Width:		0.0
+	+Start Alpha:	1.0
+	+End Alpha:		0.0
+	+Max Life:		0.10
+	+Bitmap:		Flak_trail
+$Icon:							iconmissile06
+$Anim:							LoadMissile04
+$Impact Explosion:				Exp20
+$Impact Explosion Radius:		25.0
+$Piercing Impact Explosion:			exp06
+$Piercing Impact Radius:			7.5
+$Piercing Impact Velocity: 			10
+$Piercing Impact Splash Velocity:	-10
+$Piercing Impact Variance:			20000
+$Piercing Impact Particles:			5
+$Muzzleflash:						standardflak
+$Pspew:
+	+Count:		2
+	+Time:		1
+	+Vel:		0
+	+Radius:	2.50
+	+Life:		0.0125
+	+Scale:		0.025
+	+Bitmap:	Cmuzzle_0001
+
 #End
 
 

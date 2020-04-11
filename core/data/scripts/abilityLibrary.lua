@@ -14,7 +14,7 @@
 ------------------------
 -- set to true to enable prints
 abilityLibrary_enableDebugPrints = true
-
+abilityLibrary_debugPrintQuietMode = true
 
 -------------------------
 --- Utility Functions ---
@@ -26,6 +26,14 @@ function dPrint_abilityLibrary(message)
 	end
 end
 
+--[[
+	Prints only if quiet mode is set to false
+]]
+function dPrintQuiet_abilityLibrary(message)
+	if (abilityLibrary_debugPrintQuietMode == false) then
+		dPrint_abilityLibrary(message)
+	end
+end
 
 -------------------------
 --- Library Functions ---
@@ -356,7 +364,7 @@ end
 
 
 function fireDefenceMatrix(instance, class, targetName)
-	dPrint_abilityLibrary("Defence matrix active")
+	dPrintQuiet_abilityLibrary("Defence matrix active")
 	local range = class.getData['Range'].Value + 1 - 1
 	local radius = class.getData['Max Range Radius'].Value + 1 - 1
 	local origin = mn.Ships[targetName].Position
@@ -364,8 +372,8 @@ function fireDefenceMatrix(instance, class, targetName)
 	local team = mn.Ships[targetName].Team
 
 
-	dPrint_abilityLibrary("\tDefence matrix emitter at ("..origin.x..","..origin.y..","..origin.z..")")
-	dPrint_abilityLibrary("\tRange = "..range.."; radius = "..radius)
+	dPrintQuiet_abilityLibrary("\tDefence matrix emitter at ("..origin.x..","..origin.y..","..origin.z..")")
+	dPrintQuiet_abilityLibrary("\tRange = "..range.."; radius = "..radius)
 	defenceMatrixIntercept(origin, direction, range, radius, team, class)
 end
 
@@ -374,8 +382,8 @@ function defenceMatrixIntercept(origin, direction, range, radius, team, class)
 	local interceptSound = class.getData['Intercept Sound'].Value
 	local interceptEffect = class.getData['Intercept Effect'].Value
 	local interceptEffectMinRadius = class.getData['Intercept Effect Min Radius'].Value +1-1
-	dPrint_abilityLibrary("Defence matrix chunk at ("..sphereCenter.x..","..sphereCenter.y..","..sphereCenter.z..")")
-	dPrint_abilityLibrary("\tRange = "..range.."; radius = "..radius)
+	dPrintQuiet_abilityLibrary("Defence matrix chunk at ("..sphereCenter.x..","..sphereCenter.y..","..sphereCenter.z..")")
+	dPrintQuiet_abilityLibrary("\tRange = "..range.."; radius = "..radius)
 	-- Set to true to draw the spheres
 	if (false) then
 		gr.setColor(0, 250, 250)
@@ -406,4 +414,26 @@ function defenceMatrixIntercept(origin, direction, range, radius, team, class)
 		local nuRadius = radius * (nuRange / range)
 		defenceMatrixIntercept(origin, direction, nuRange, nuRadius, team, class)
 	end
+end
+
+function fireBall(instance, class, targetName)
+	local weaponClassName = class.getData['Weapon Class'].Value
+	local casterName = instance.Ship
+	local casterShip = mn.Ships[casterName]
+	mn.evaluateSEXP([[
+		(when
+			(true)
+			(weapon-create
+				"]]..casterName..[["
+				"]]..weaponClassName..[["
+				]]..casterShip.Position.x..[[
+				]]..casterShip.Position.y..[[
+				]]..casterShip.Position.z..[[
+				]]..convertRadToDegree(casterShip.Orientation.p)..[[
+				]]..convertRadToDegree(casterShip.Orientation.b)..[[
+				]]..convertRadToDegree(casterShip.Orientation.h)..[[
+				"]]..targetName..[["
+			)
+		)
+	]])
 end

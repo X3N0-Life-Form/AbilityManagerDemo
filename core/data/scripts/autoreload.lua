@@ -18,6 +18,7 @@ AUTORELOAD_PBANK_TAG = ":PB:"
 AUTORELOAD_SBANK_TAG = ":SB:"
 
 autoreload_enableDebugPrints = true
+autoreload_debugPrintQuietMode = true
 
 -------------------------
 --- Utility Functions ---
@@ -31,18 +32,26 @@ function dPrint_autoreload(message)
 	end
 end
 
+--[[
+	Prints only if quiet mode is set to false
+]]
+function dPrintQuiet_autoreload(message)
+	if (autoreload_debugPrintQuietMode == false) then
+		dPrint_autoreload(message)
+	end
+end
 ----------------------
 --- Core Functions ---
 ----------------------
 
 function autoreload_cycle()
-  dPrint_autoreload("Beginning weapon auto-reload cycle")
+  dPrintQuiet_autoreload("Beginning weapon auto-reload cycle")
 	local missionTime = mn.getMissionTime()
   for bankTag, weaponBank in pairs(autoreload_banks) do
-    dPrint_autoreload("Checking bank "..bankTag)
+    dPrintQuiet_autoreload("Checking bank "..bankTag)
     -- If we need to reload
 		if (weaponBank.AmmoLeft < weaponBank.AmmoMax) then
-			dPrint_autoreload("\tWe need to reload")
+			dPrint_autoreload("\tWe need to reload "..bankTag)
       local weaponName = weaponBank.WeaponClass.Name
       local entry = autoreload_getEntry(weaponName)
 			local sounds = entry.Attributes['Reload Sounds'].SubAttributes

@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("TEST ARENA", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 04/06/20 at 10:07:45
+$Modified: 04/10/20 at 11:15:51
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -121,7 +121,7 @@ $Ship Choices: (
 	"Pulse Machine Gun"	2
 )
 
-#Objects		;! 4 total
+#Objects		;! 5 total
 
 $Name: Virgo 1		;! Object #0
 $Class: SF Mara
@@ -261,6 +261,40 @@ $Determination: 10
 +Use Table Score:
 +Score: 5
 
+$Name: Target		;! Object #4
+$Class: SC Cain
+$Team: Hostile
+$Location: -37.233246, -39.015869, 233.242981
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "escort" )
++Flags2: ( )
++Respawn priority: 0
++Escort priority: 1
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Use Table Score:
++Score: 150
+
 #Wings		;! 1 total
 
 $Name: Virgo
@@ -279,7 +313,7 @@ $AI Goals: ( goals ( ai-guard "Virgo 1" 50 ) )
 +Hotkey: 0
 +Flags: ( )
 
-#Events		;! 9 total
+#Events		;! 7 total
 
 $Formula: ( when 
    ( true ) 
@@ -319,24 +353,14 @@ $Formula: ( when
 +Interval: 1
 
 $Formula: ( when 
-   ( false ) 
-   ( debug ( true ) "orientation" ) 
-)
-+Name: debug orientation
-+Repeat Count: 50
-+Interval: 1
-+Chained: 0
-
-$Formula: ( when 
    ( key-pressed "2" ) 
    ( key-reset-multiple "2" ) 
-   ( script-eval-block 
-      "ability_trigger('" 
-      "Virgo 1::Fighter-launched" 
-      " Recursive SSM')" 
+   ( amf-ability-trigger 
+      "Virgo 1" 
+      "Fireball" 
    )
 )
-+Name: ability_2-mord ssm
++Name: ability_2-fireball
 +Repeat Count: -1
 +Trigger Count: 99999
 +Interval: 1
@@ -369,45 +393,21 @@ $Formula: ( when
 +Trigger Count: 99999
 +Interval: 1
 
-$Formula: ( every-time 
-   ( true ) 
-   ( modify-variable 
-      @orientation.p[0] 
-      ( get-object-pitch "Virgo 1" ) 
-   )
-   ( modify-variable 
-      @orientation.p[0] 
-      ( get-object-bank "Virgo 1" ) 
-   )
-   ( modify-variable 
-      @orientation.h[0] 
-      ( get-object-heading "Virgo 1" ) 
-   )
-)
-+Name: orientation
-+Repeat Count: 1
-+Interval: 1
-
 #Goals		;! 0 total
 
 
 #Waypoints		;! 0 lists total
 
 
-#Messages		;! 2 total
+#Messages		;! 1 total
 
 
 $Name: controls
 $Team: -1
 $MessageNew:  XSTR("1 - Recall
-2 - SSM Strike
+2 - Fireball
 3 - Defence Matrix
 4 - Kage Bunshin no Jutsu !!!", -1)
-$end_multi_text
-
-$Name: orientation
-$Team: -1
-$MessageNew:  XSTR("$orientation.p $orientation.b orientation.h", -1)
 $end_multi_text
 
 #Reinforcements		;! 0 total

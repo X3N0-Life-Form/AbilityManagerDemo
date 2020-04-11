@@ -59,6 +59,8 @@ ability_lastCast = 0
 buff_classes = {}
 buff_instances = {}
 
+caster_weapons = {}
+
 ------------------------
 --- Global Constants ---
 ------------------------
@@ -217,6 +219,33 @@ function ability_trigger(instanceId)
 	local target = ability_getTargetInRange(instanceId)
 	if (target:isValid()) then
 		ability_fireIfPossible(instanceId, target.Name)
+	end
+end
+
+--[[
+	Fires the specified ability, even if it doesn't have an instance, such as when
+	triggered by a caster weapon.
+
+	@param className : ability class
+	@param casterName : name of the casting ship
+	@param targetName : name of the target ship
+]]
+function ability_fireCast(className, casterName, targetName)
+	local instanceId = ability_getInstanceId(casterName, className)
+	-- Create a temporary instance if necessary
+	local temporaryInstance = nil
+	if (ability_instances[instanceId] == nil) then
+		dPrint_ability("Creating temporary instance "..instanceId)
+		temporaryInstance = AbilityInstance:create(instanceId, className)
+	end
+
+	-- Fire the ability
+	ability_fire(instanceId, targetName)
+
+	-- Cleanup
+	if (temporaryInstance ~= nil) then
+		dPrint_ability("Cleaning up temporary instance "..instanceId)
+		ability_instances[instanceId] = nil
 	end
 end
 
@@ -604,6 +633,13 @@ function ability_isValidShipType(class, targetShip)
 end
 
 --[[
+	Returns an instance id for the specified ship/ability pair
+]]
+function ability_getInstanceId(shipName, className)
+	return shipName.."::"..className
+end
+
+--[[
 	Instanciates the specified ability for the specified ship.
 
 	@param className : ability name
@@ -611,7 +647,7 @@ end
 	@param isManuallyFired : true if the ability must be fired manually
 ]]
 function ability_attachAbility(className, shipName, isManuallyFired)
-	local instanceId = shipName.."::"..className
+	local instanceId = ability_getInstanceId(shipName, className)
 	dPrint_ability("Attaching ability : "..instanceId.." (manual fire = "..getValueAsString(isManuallyFired)..")")
 	local instance = AbilityInstance:create(instanceId, className, shipName)
 
@@ -738,5 +774,10 @@ function ability_init()
 	-- Create buffs
 	for name, entry in pairs(abilityTable.Categories['Buffs'].Entries) do
 		buff_createClass(name, entry)
+	end
+
+	-- Create caster weapons (buff placers)
+	for name, entry in pairs(abilityTable.Categories['Caster Weapons'].Entries) do
+		CasterWeapon:createCasterWeapon(name, entry)
 	end
 end
