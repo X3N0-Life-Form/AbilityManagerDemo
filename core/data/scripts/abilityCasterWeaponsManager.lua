@@ -1,7 +1,7 @@
 --TODO : doc
 
 ------------------------
---- Global Variables ---
+--- Global Constants ---
 ------------------------
 caster_enableDebugPrints = true
 caster_debugPrintQuietMode = false
@@ -9,6 +9,7 @@ caster_debugPrintQuietMode = false
 ------------------------
 --- Global Variables ---
 ------------------------
+caster_beamTracking = {}
 
 -------------------------
 --- Utility Functions ---
@@ -35,7 +36,7 @@ end
 
 function caster_cast(casterWeapon, abilities, buffs, parentShip, targetShip)
   -- Fire abilities (if any)
-  dPrint_caster("Casting abilities from caster weapon'"..casterWeapon.Name.."'")
+  dPrint_caster("Casting abilities from caster weapon '"..casterWeapon.Name.."'")
   for i = 1, #abilities do
     local ability = abilities[i]
     dPrint_caster("\t"..ability)
@@ -43,7 +44,7 @@ function caster_cast(casterWeapon, abilities, buffs, parentShip, targetShip)
   end
 
   -- Apply buffs (if any)
-  dPrint_caster("Casting buffs from caster weapon'"..casterWeapon.Name.."'")
+  dPrint_caster("Casting buffs from caster weapon '"..casterWeapon.Name.."'")
   for i = 1, #buffs do
     local buff = buffs[i]
     dPrint_caster("\t"..buff)
@@ -54,7 +55,7 @@ end
 function caster_onWeaponFired()
   local weapon = hv.Weapon
 	local weaponName = weapon.Class.Name
-	local parentShip = weapon.Parent
+	local parentShip = weapon.Parent.Name
   local casterWeapon = caster_weapons[weaponName]
 
   -- TODO : review the notion of target here !
@@ -68,7 +69,7 @@ end
 function caster_onWeaponHit()
   local weapon = hv.Weapon
 	local weaponName = weapon.Class.Name
-	local parentShip = weapon.Parent
+	local parentShip = weapon.Parent.Name
   local targetShip = hv.Ship.Name
   local casterWeapon = caster_weapons[weaponName]
 
@@ -76,6 +77,38 @@ function caster_onWeaponHit()
   if (casterWeapon ~= nil) then
     caster_cast(casterWeapon, casterWeapon.OnHitAbilities, casterWeapon.OnHitBuffs,
       parentShip, targetShip)
+  end
+end
+
+function caster_onBeamHit()
+  local beam = hv.Beam
+	local beamName = beam.Class.Name
+  local beamId = beam:getSignature()
+
+  -- Careful when dealing with parent-less weapons
+  local parentShip = "None:"..mn.getMissionTime()
+  local parentTurret = "None"
+  if (beam.Parent:getBreedName() == 'Ship') then
+    parentShip = beam.Parent.Name
+    parentTurret = beam.ParentSubsystem
+  end
+
+  local targetShip = hv.Ship.Name
+  local casterWeapon = caster_weapons[beamName]
+
+  -- Caster weapon lookup OK
+  if (casterWeapon ~= nil) then
+    -- Cast if not once per hit or isn't on the tracking list
+    if (casterWeapon.OnHitOncePerBeam == false or caster_beamTracking[beamId] == nil) then
+      caster_cast(casterWeapon, casterWeapon.OnHitAbilities, casterWeapon.OnHitBuffs,
+        parentShip, targetShip)
+
+      -- Record that we already casted for this beam
+      if (casterWeapon.OnHitOncePerBeam == true and caster_beamTracking[beamId] == nil) then
+        dPrint_caster("Casted once for beam id="..beamId)
+        caster_beamTracking[beamId] = beam
+      end
+    end
   end
 end
 

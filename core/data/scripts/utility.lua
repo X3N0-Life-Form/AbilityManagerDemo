@@ -129,6 +129,15 @@ function getValueForDifficulty(value)
 end
 
 --[[
+	Returns the specified string as a boolean.
+
+	@return true if value = 'true', false otherwise
+]]
+function getValueAsBoolean(value)
+	return value == 'true'
+end
+
+--[[
 	Tests whether the specified table contains a specific value
 
 	@return true if the object is found

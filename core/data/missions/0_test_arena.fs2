@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("TEST ARENA", -1)
 $Author: X3N0-Life-Form
 $Created: 10/30/16 at 19:30:29
-$Modified: 04/10/20 at 11:15:51
+$Modified: 04/12/20 at 14:31:52
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -23,11 +23,11 @@ $end_multi_text
 +Hull Repair Ceiling: 0.000000
 +Subsystem Repair Ceiling: 100.000000
 
-+Viewer pos: 353.888336, 542.491699, 736.386292
++Viewer pos: 385.707947, 2375.284912, -793.686523
 +Viewer orient:
-	-0.523798, 0.000001, 0.851843,
-	-0.632515, 0.669817, -0.388934,
-	-0.570579, -0.742526, -0.350848
+	0.999784, 0.000001, 0.020793,
+	-0.017514, 0.539037, 0.842100,
+	-0.011207, -0.842282, 0.538920
 
 $Starting wing names: ( "Virgo" "Scorpio" "Libra" )
 $Squadron wing names: ( "Virgo" "Scorpio" "Libra" "Gemini" "Aquarius" )
@@ -121,7 +121,7 @@ $Ship Choices: (
 	"Pulse Machine Gun"	2
 )
 
-#Objects		;! 5 total
+#Objects		;! 3 total
 
 $Name: Virgo 1		;! Object #0
 $Class: SF Mara
@@ -206,65 +206,10 @@ $Determination: 10
 +Use Table Score:
 +Score: 1400
 
-$Name: TestB		;! Object #2
-$Class: GTSG Alastor
+$Name: Friendly Ship		;! Object #2
+$Class: GTCv Deimos
 $Team: Friendly
-$Location: 305.303558, -0.000183, 780.702209
-$Orientation:
-	-0.099042, 0.000000, 0.995084,
-	0.099342, 0.995004, 0.009888,
-	-0.990112, 0.099833, -0.098547
-$AI Behavior: None
-$Cargo 1:  XSTR("Nothing", -1)
-+Initial Hull: 100
-+Initial Shields: 100
-+Subsystem: Pilot
-+Subsystem: turret01a
-+Subsystem: turret02a
-$Arrival Location: Hyperspace
-$Arrival Cue: ( true ) 
-$Departure Location: Hyperspace
-$Departure Cue: ( false ) 
-$Determination: 10
-+Flags: ( "cargo-known" "no-shields" "invulnerable" )
-+Flags2: ( )
-+Respawn priority: 0
-+Group: 0
-+Score: 10
-
-$Name: testC		;! Object #3
-$Class: SSG Belial
-$Team: Hostile
-$Location: -54.410553, 0.000000, 785.283386
-$Orientation:
-	0.000796, 0.000000, -1.000000,
-	0.000000, 1.000000, 0.000000,
-	1.000000, 0.000000, 0.000796
-$AI Behavior: None
-$Cargo 1:  XSTR("Nothing", -1)
-+Initial Hull: 100
-+Initial Shields: 100
-+Subsystem: Pilot
-+Subsystem: turret01a
-+Subsystem: turret02a
-+Subsystem: turret03a
-+Subsystem: turret04a
-$Arrival Location: Hyperspace
-$Arrival Cue: ( true ) 
-$Departure Location: Hyperspace
-$Departure Cue: ( false ) 
-$Determination: 10
-+Flags: ( "no-shields" "invulnerable" )
-+Flags2: ( )
-+Respawn priority: 0
-+Group: 0
-+Use Table Score:
-+Score: 5
-
-$Name: Target		;! Object #4
-$Class: SC Cain
-$Team: Hostile
-$Location: -37.233246, -39.015869, 233.242981
+$Location: 942.000000, 2000.000000, 2265.100098
 $Orientation:
 	1.000000, 0.000000, 0.000000,
 	0.000000, 1.000000, 0.000000,
@@ -272,28 +217,48 @@ $Orientation:
 $AI Behavior: None
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
++Initial Shields: 100
 +Subsystem: Pilot
-+Subsystem: turret01
-+Subsystem: turret02
-+Subsystem: turret03
-+Subsystem: turret04
-+Subsystem: turret05
-+Subsystem: turret06
-+Subsystem: turret07
-+Subsystem: turret08
-+Subsystem: turret09
++Subsystem: Turret01
++Subsystem: Turret02
++Subsystem: Turret03
++Subsystem: Turret04
++Primary Banks: ( "RedBeam#Recursive" )
++Subsystem: Turret05
++Subsystem: Turret06
++Subsystem: Turret07
++Subsystem: Turret08
++Subsystem: Turret09
++Subsystem: Turret10
++Subsystem: Turret11
++Subsystem: Turret12
++Subsystem: Turret13
++Subsystem: Turret14
++Subsystem: Turret15
++Subsystem: Turret16
++Subsystem: Turret17
++Subsystem: Turret18
++Subsystem: Turret19
++Subsystem: Turret20
++Subsystem: Turret21
++Subsystem: Turret22
++Subsystem: Turret23
++Subsystem: Turret24
++Subsystem: Turret25
++Subsystem: Turret26
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true ) 
 $Departure Location: Hyperspace
 $Departure Cue: ( false ) 
 $Determination: 10
-+Flags: ( "escort" )
++Flags: ( "cargo-known" "no-shields" "escort" )
 +Flags2: ( )
 +Respawn priority: 0
-+Escort priority: 1
-+Orders Accepted: 0		;! note that this is a bitfield!!!
++Escort priority: 10
++Orders Accepted: 1		;! note that this is a bitfield!!!
++Group: 0
 +Use Table Score:
-+Score: 150
++Score: 800
 
 #Wings		;! 1 total
 

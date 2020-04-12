@@ -614,6 +614,100 @@ $BeamInfo:
 		+Zadd:			1
 
 
+$Name:                  RedBeam#Recursive
+	+Tech Title:		XSTR("Ability-based recursive SSB",-1)
+	+Tech Description:	XSTR("",-1)
+	$end_multi_text
+$Model File:                    none ; laser1-1.pof
+@Laser Bitmap:                  laserglow01
+@Laser Color:					250, 30, 30
+@Laser Length:					0.0
+@Laser Head Radius:				0.30
+@Laser Tail Radius:				0.30
+$Mass:                          100.0
+$Velocity:                      1000.0          ;; speed of the weapon (initially) -- may or may not change
+$Fire Wait:                     2; 10.0            ;; in seconds
+$Damage:                        180
+$Damage Type:					HugeWeapon
+$Armor Factor:                  1.0
+$Shield Factor:                 1.0
+$Subsystem Factor:              1.0
+$Lifetime:                      20.0            ;; How long this thing lives
+$Energy Consumed:               0.30            ;; Energy used when fired
+$Cargo Size:                    0.0             ;; Amount of space taken up in weapon cargo
+$Homing:                        NO
+$LaunchSnd:                     124             ;; The sound it makes when fired
+$ImpactSnd:                     88             ;; The sound it makes when it hits something
++Weapon Range:					4000			;; Limit to range at which weapon will actively target object
+$Flags:                         ("Big Ship" "huge" "beam")
+$Icon:                          icongun05
+$Anim:                          LoadGun07
+$Impact Explosion:              exp04
+$Impact Explosion Radius:       40.0
+$BeamInfo:
+	+Type:						0				;; 0 - 4 are valid #'s
+	+Life:			  			1.5				;; how long it lasts once the beam is actually firing
+	+Warmup:		  			1500			;; warmup time in ms
+	+Warmdown:					1000			;; warmdown time in ms
+	+Radius:		  			80.0			;; muzzle glow radius in meters
+	+PCount:					24				;; particles spewed every interval
+	+PRadius:					2.8				;; particle radius
+	+PAngle:					65.0			;; angle of the random "cone" where the particles are generated
+	+PAni:						particle_red
+	+Miss Factor:				2.5 1.875 1.25 0.875 0.5	;; magic # - higher == miss more (only really applicable to type 0 and type 3 beams)
+	+BeamSound:					177				;; the looping beam-firing sound
+	+WarmupSound:				183				;; associated warmup sound
+	+WarmdownSound:				187				;; associated warmdown sound
+	+Muzzleglow:				SbeamAglow
+	+Shots:						0				;; only used for TYPE 3 beams
+	+ShrinkFactor:				0.1				;; what percentage of lifetime where beam starts shrinking (0.1 == 10% life left)
+	+ShrinkPct:					1.8				;; what percentage of max width we subtract per second
+	+Beam Flash Effect:						capflash
+	+Beam Flash Radius:						13.0
+	+Beam Piercing Effect:					exp06
+	+Beam Piercing Radius:					13.0
+	+Beam Piercing Effect Velocity:			200
+	+Beam Piercing Splash Effect Velocity:	-10
+	+Beam Piercing Effect Variance:			0.01
+	$Section:
+		+Width:			4.0
+		+Texture:		SbeamAA
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.3
+		+Zadd:			1.0
+		+Tile Factor:	90, 1
+		+Translation:	-2
+	$Section:
+		+Width:			3.0
+		+Texture:		SbeamAB
+		+RGBA Inner:	255 255 255 255
+		+RGBA Outer:	150 150 150 10
+		+Flicker:		0.2
+		+Zadd:			2.0
+	$Section:
+		+Width:			11.0
+		+Texture:		SbeamAC
+		+RGBA Inner:	160 160 0 255
+		+RGBA Outer:	60 60 0 10
+		+Flicker:		0.001
+		+Zadd:			1.0
+		+Tile Factor:	10, 1
+		+Translation:	-2
+	$Section:
+		+Width:			30.0
+		+Texture:		SbeamAD
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.1
+		+Zadd:			0.0
+	$Section:
+		+Width:			21.0
+		+Texture:		SbeamAE
+		+RGBA Inner:	255 0 0 255
+		+RGBA Outer:	60 0 0 10
+		+Flicker:		0.2
+		+Zadd:			0.0
 
 
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -757,6 +851,9 @@ $Pspew:
 	+Life:		0.0125
 	+Scale:		0.025
 	+Bitmap:	Cmuzzle_0001
+
+
+
 
 #End
 

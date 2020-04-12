@@ -106,5 +106,16 @@ $SSM:				Disco Strike#SAAA
 	+Offset:		1
 	+Shape:			Sphere
 
+$SSM:				RedBeam
+	+Weapon:		RedBeam#Recursive
+	+Min Count:		0
+	+Max Count:		2
+	+WarpRadius:	20
+	+WarpTime:		4
+	+Radius:		1200
+	+Offset:		1
+	+Shape:			Sphere
+	+Custom Message:*Recursive SSM*
+	+Alarm Sound:	185
 
 #end

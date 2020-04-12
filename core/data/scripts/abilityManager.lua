@@ -236,7 +236,7 @@ function ability_fireCast(className, casterName, targetName)
 	local temporaryInstance = nil
 	if (ability_instances[instanceId] == nil) then
 		dPrint_ability("Creating temporary instance "..instanceId)
-		temporaryInstance = AbilityInstance:create(instanceId, className)
+		temporaryInstance = AbilityInstance:create(instanceId, className, casterName)
 	end
 
 	-- Fire the ability
@@ -407,18 +407,6 @@ function ability_createCostType(costTypeValue)
 
 	return costType
 end
-
---[[
-	Resets the instance array. Should be called $On Gameplay Start.
-]]
-function ability_resetMissionVariables()
-	ability_instances = {}
-	ability_ships = {}
-	ability_lastCast = 0
-	buff_instances = {}
-	buff_ships = {}
-end
-
 
 
 --[[
@@ -752,7 +740,17 @@ function ability_evaluateTargetFitness(instanceId, targetShip)
 end
 
 
-
+--[[
+	Resets the instance array. Should be called $On Gameplay Start.
+]]
+function ability_resetMissionVariables()
+	ability_instances = {}
+	ability_ships = {}
+	ability_lastCast = 0
+	buff_instances = {}
+	buff_ships = {}
+	caster_beamTracking = {}
+end
 
 
 ------------

@@ -204,6 +204,15 @@ $Cooldown:			6
 $Ability Data:
 	+Weapon Class:	Fireball
 
+$Name:				RedBeam SSB
+$Function:			fireSSM
+$Target Type:   	any
+$Target Team:   	Hostile
+$Target Selection:	Current Target
+$Cooldown:			3
+$Ability Data:
+  +Strike Type: 	RedBeam
+  
 #End
 
 #Buffs
@@ -294,5 +303,10 @@ $On Hit:
 $On Blast:
 	+Buffs:		Fireball#DoT
 ;$On Shockwave:
+
+$Name:		RedBeam#Recursive
+$On Hit:
+	+Abilities:			RedBeam SSB
+	+Once per Beam:		true	; defaults to true
 
 #End

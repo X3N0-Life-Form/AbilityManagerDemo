@@ -51,7 +51,7 @@ function autoreload_cycle()
     dPrintQuiet_autoreload("Checking bank "..bankTag)
     -- If we need to reload
 		if (weaponBank.AmmoLeft < weaponBank.AmmoMax) then
-			dPrint_autoreload("\tWe need to reload "..bankTag)
+			dPrintQuiet_autoreload("\tWe need to reload "..bankTag)
       local weaponName = weaponBank.WeaponClass.Name
       local entry = autoreload_getEntry(weaponName)
 			local sounds = entry.Attributes['Reload Sounds'].SubAttributes
@@ -62,11 +62,11 @@ function autoreload_cycle()
 
 			-- If we can reload
 			if ((lastFired == -1) or (lastFired + reloadWait <= missionTime)) then
-				dPrint_autoreload("\tReload wait OK")
+				dPrintQuiet_autoreload("\tReload wait OK")
 				-- If we're past the reload interval
 				if ((lastReload == -1) or (lastReload + reloadInterval <= missionTime)) then
           local reloadAmmount = entry.Attributes['Reload Ammount'].Value +1-1
-					dPrint_autoreload("\tReload interval OK, reloading "..reloadAmmount.." units")
+					dPrintQuiet_autoreload("\tReload interval OK, reloading "..reloadAmmount.." units")
 					weaponBank.AmmoLeft = weaponBank.AmmoLeft + reloadAmmount
 					-- Update reload timer
 					lastReload = missionTime

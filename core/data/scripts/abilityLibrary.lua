@@ -48,6 +48,8 @@ function fireSSM(instance, class, targetName)
 	local strikeTeam = castingShip.Team.Name
 
 	-- Call SSM
+	dPrint_abilityLibrary("Ship '"..castingShip.Name.."' calling SSM strike '"..strikeType
+		.."' on ship '"..targetName.."' for team "..strikeTeam)
 	if (type(strikeType) == 'table') then
 		for index, currentStrikeType in pairs(strikeType) do
 			mn.evaluateSEXP("(when (true) (call-ssm-strike \""..currentStrikeType.."\" \""..strikeTeam.."\" \""..targetName.."\"))")

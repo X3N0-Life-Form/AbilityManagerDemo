@@ -6,6 +6,7 @@ CasterWeapon = {
   OnFireBuffs = {},
   OnHitAbilities = {},
 	OnHitBuffs = {},
+  OnHitOncePerBeam = true,
   OnBlastAbilities = {},
 	OnBlastBuffs = {},
   OnShockwaveAbilities = {},
@@ -40,6 +41,9 @@ function CasterWeapon:createCasterWeapon(name, entry)
   if (hit ~= nil) then
     casterWeapon.OnHitAbilities = CasterWeapon:getAbilities(hit)
     casterWeapon.OnHitBuffs = CasterWeapon:getBuffs(hit)
+    if (hit.SubAttributes['Once per Beam'] ~= nil) then
+      casterWeapon.OnHitOncePerBeam = getValueAsBoolean(hit.SubAttributes['Once per Beam'].Value)
+    end
   end
 
   local blast = entry.Attributes['On Blast']
@@ -74,4 +78,16 @@ function CasterWeapon:getBuffs(attribute)
 end
 
 
---TODO : toString()
+
+function CasterWeapon:toString()
+  return "Caster Weapon:\t"..self.Name.."\n"
+    .."\tOnFireAbilities = "..getValueAsString(self.OnFireAbilities).."\n"
+    .."\tOnFireBuffs = "..getValueAsString(self.OnFireBuffs).."\n"
+    .."\tOnHitAbilities = "..getValueAsString(self.OnHitAbilities).."\n"
+    .."\tOnHitBuffs = "..getValueAsString(self.OnHitBuffs).."\n"
+    .."\tOnHitOncePerBeam = "..getValueAsString(self.OnHitOncePerBeam).."\n"
+    .."\tOnBlastAbilities = "..getValueAsString(self.OnBlastAbilities).."\n"
+    .."\tOnBlastBuffs = "..getValueAsString(self.OnBlastBuffs).."\n"
+    .."\tOnShockwaveAbilities = "..getValueAsString(self.OnShockwaveAbilities).."\n"
+    .."\tOnShockwaveBuffs = "..getValueAsString(self.OnShockwaveBuffs).."\n"
+end
