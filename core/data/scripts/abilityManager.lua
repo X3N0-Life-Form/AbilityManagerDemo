@@ -205,6 +205,7 @@ function ability_displayAbility(instance)
 	gr.drawString("\tCooldown: "..string.format("%.2f", cooldown))
 end
 
+
 --[[
 	Triggers an ability's firing routines.
 
@@ -657,6 +658,15 @@ function ability_attachAbility(className, shipName, isManuallyFired)
 	for index, buffClassName in pairs(abilityClass.PassiveBuffs) do
 		buff_applyBuff(buffClassName, shipName)
 	end
+end
+
+--[[
+	Returns the instance id from the specified ship/class couple
+
+	@return shipName::className
+]]
+function ability_getInstanceId(shipName, className)
+	return shipName.."::"..className
 end
 
 --[[
